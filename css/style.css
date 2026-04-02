@@ -226,7 +226,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 
 .hero-sub {
   margin-top: 24px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink-light);
   max-width: 420px;
@@ -254,7 +254,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .meta-value {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--ink-light);
   line-height: 1.4;
 }
