@@ -221,12 +221,12 @@ nav.scrolled { border-bottom-color: var(--rule); }
 
 .hero h1 em {
   font-style: italic;
-  color: var(--amber);
+  color: var(--ink);
 }
 
 .hero-sub {
   margin-top: 24px;
-  font-size: 17px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--ink-light);
   max-width: 420px;
@@ -247,14 +247,14 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .meta-label {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
 .meta-value {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink-light);
   line-height: 1.4;
 }
