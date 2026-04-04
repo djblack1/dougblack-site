@@ -826,6 +826,18 @@ footer {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.case-image-row--fixed-height {
+  align-items: stretch;
+}
+
+.case-image-row--fixed-height img {
+  height: 360px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+}
+
 .case-image-placeholder {
   aspect-ratio: 4/3;
   background: var(--ink);
