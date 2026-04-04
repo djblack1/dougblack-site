@@ -828,13 +828,16 @@ footer {
 
 .case-image-row--fixed-height {
   align-items: stretch;
+  background: #111;
+  border-radius: 8px;
+  padding: 24px;
+  gap: 16px;
 }
 
 .case-image-row--fixed-height img {
   height: 360px;
   width: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
   border-radius: 4px;
 }
 
