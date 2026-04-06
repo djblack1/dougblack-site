@@ -24,7 +24,7 @@
 
 /* RESET */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 18px; scroll-behavior: smooth; }
 
 body {
   background: var(--cream);
@@ -169,8 +169,8 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .nav-link {
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
   transition: color 0.2s;
@@ -372,7 +372,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .overlay-cta {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: var(--cream);
   opacity: 0;
@@ -418,7 +418,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .work-item-desc {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.65;
   color: var(--ink-light);
   margin-bottom: 14px;
@@ -456,7 +456,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .previously-intro {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--ink-light);
   margin-bottom: 32px;
   max-width: 560px;
@@ -476,7 +476,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
   flex-wrap: wrap;
   gap: 6px 2px;
   align-items: center;
-  font-size: 14px;
+  font-size: 18px;
   color: var(--ink-light);
   margin-bottom: 16px;
 }
@@ -523,7 +523,7 @@ footer {
 }
 
 .footer-title {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--ink-faint);
   letter-spacing: 0.08em;
 }
@@ -534,7 +534,7 @@ footer {
 }
 
 .footer-right a {
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.08em;
   color: var(--ink-faint);
   transition: color 0.2s;
@@ -609,7 +609,7 @@ footer {
 }
 
 .about-text p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   color: var(--ink-light);
   margin-bottom: 24px;
@@ -668,12 +668,12 @@ footer {
 }
 
 .sidebar-block li {
-  font-size: 14px;
+  font-size: 18px;
   color: var(--ink-light);
 }
 
 .sidebar-block p {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.65;
   color: var(--ink-light);
 }
@@ -681,7 +681,7 @@ footer {
 .sidebar-cta {
   display: inline-block;
   margin-top: 14px;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   color: var(--amber);
   border-bottom: 1px solid var(--amber-light);
@@ -780,7 +780,7 @@ footer {
 }
 
 .case-challenge p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   color: var(--ink-light);
   margin-bottom: 16px;
@@ -805,7 +805,7 @@ footer {
 }
 
 .case-role li {
-  font-size: 13px;
+  font-size: 18px;
   color: var(--ink-light);
 }
 
@@ -822,7 +822,7 @@ footer {
 }
 
 .case-section p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   color: var(--ink-light);
   margin-bottom: 16px;
