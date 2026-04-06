@@ -839,9 +839,25 @@ footer {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.case-image-row--fixed-height {
+.case-image-row--matched {
   align-items: stretch;
-  background: #111;
+}
+
+.case-image-row--matched .case-image-actual {
+  display: flex;
+}
+
+.img-matched {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.case-image-row--matched .case-video-embed--inline {
+  aspect-ratio: 16/9;
+}
   border-radius: 8px;
   padding: 24px;
   gap: 16px;
