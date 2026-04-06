@@ -1011,11 +1011,8 @@ footer {
   line-height: 1;
 }
 
-.stat-label {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+.case-stats--soundcloud {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* Hero placeholder color variants */
