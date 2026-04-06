@@ -980,6 +980,44 @@ footer {
   font-style: normal;
 }
 
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 56px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid var(--rule);
+  padding: 0 24px;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
 /* Hero placeholder color variants */
 .soundcloud-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
 .airco-hero { background: linear-gradient(135deg, #0d1f2d 0%, #1c3a4a 100%); }
