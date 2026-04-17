@@ -217,8 +217,8 @@ nav.scrolled { border-bottom-color: var(--rule); }
 .hero-statement-h1 {
   font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 68px);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 600;
+  font-style: normal;
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -232,6 +232,8 @@ nav.scrolled { border-bottom-color: var(--rule); }
   color: var(--ink-light);
   max-width: 680px;
   margin-bottom: clamp(32px, 4vw, 52px);
+  text-align: center;
+  width: 100%;
 }
 
 .hero-link {
@@ -465,7 +467,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 .work-item-image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   background: var(--ink);
   margin-bottom: 20px;
 }
