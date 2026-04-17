@@ -304,7 +304,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .client-cat-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
@@ -336,7 +336,11 @@ nav.scrolled { border-bottom-color: var(--rule); }
   max-width: none;
   margin: 0;
   padding: 0;
-  gap: 32px 28px;
+  gap: 48px 32px;
+}
+
+.work-and-sidebar .work-item-image {
+  aspect-ratio: 3/2;
 }
 
 .work-sidebar {
@@ -409,7 +413,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .meta-label {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
