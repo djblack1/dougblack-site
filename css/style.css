@@ -322,44 +322,46 @@ nav.scrolled { border-bottom-color: var(--rule); }
    WORK + SIDEBAR LAYOUT
    ============================================= */
 
-.work-and-sidebar {
+.page-with-sidebar {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--gutter) var(--section-gap);
-  display: grid;
-  grid-template-columns: 1fr 200px;
+  display: flex;
+  align-items: flex-start;
   gap: 48px;
-  align-items: start;
 }
 
-.work-and-sidebar .work-grid {
+.page-sidebar-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-sidebar-main .work-grid {
   max-width: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px 32px;
   margin-bottom: 0;
+  width: 100%;
 }
 
-.work-and-sidebar .work-item-image {
-  height: 280px;
+.page-sidebar-main .work-item-image {
+  height: 260px;
   aspect-ratio: unset;
 }
 
-.work-and-sidebar .work-thumb {
-  height: 100%;
+.page-sidebar-main .work-thumb {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.work-item--featured {
+/* keep featured same height as others */
+.page-sidebar-main .work-item--featured {
   grid-column: auto;
 }
-
-.work-item--featured .work-item-image {
-  height: 280px;
+.page-sidebar-main .work-item--featured .work-item-image {
+  height: 260px;
   aspect-ratio: unset;
 }
 
@@ -1434,16 +1436,10 @@ footer {
   }
 
   .work-grid {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px 40px;
-  margin-bottom: var(--section-gap);
-}
+    grid-template-columns: 1fr;
+  }
 
-  
+
 
   .about-hero {
     grid-template-columns: 1fr;
