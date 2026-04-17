@@ -231,9 +231,10 @@ nav.scrolled { border-bottom-color: var(--rule); }
   line-height: 1.6;
   color: var(--ink-light);
   max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: clamp(32px, 4vw, 52px);
   text-align: center;
-  width: 100%;
 }
 
 .hero-link {
@@ -326,9 +327,16 @@ nav.scrolled { border-bottom-color: var(--rule); }
   margin: 0 auto;
   padding: 0 var(--gutter) var(--section-gap);
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 200px;
   gap: 48px;
   align-items: start;
+}
+
+.work-and-sidebar .work-grid {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px 28px;
 }
 
 .work-sidebar {
@@ -467,7 +475,7 @@ nav.scrolled { border-bottom-color: var(--rule); }
 .work-item-image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   background: var(--ink);
   margin-bottom: 20px;
 }
