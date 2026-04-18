@@ -337,16 +337,27 @@ nav.scrolled { border-bottom-color: var(--rule); }
 }
 
 .page-sidebar-main .work-grid {
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 0;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.page-sidebar-main .work-item {
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .page-sidebar-main .work-item-image {
   height: 260px;
   aspect-ratio: unset;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .page-sidebar-main .work-thumb {
