@@ -372,7 +372,9 @@ nav.scrolled { border-bottom-color: var(--rule); }
   flex-direction: column;
   gap: 40px;
   border-left: 1px solid var(--rule);
-  padding-left: 40px;
+  padding-left: 32px;
+  width: 200px;
+  flex-shrink: 0;
 }
 
 .sidebar-section {
