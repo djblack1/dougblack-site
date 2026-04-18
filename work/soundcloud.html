@@ -8,7 +8,281 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    /* ── HERO ─────────────────────────────────────── */
+    .lc-hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      min-height: 560px;
+      overflow: hidden;
+      background: #1a1a2a;
+    }
+    .lc-hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .lc-hero-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .lc-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .lc-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.1) 100%);
+    }
+    .lc-hero-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: clamp(32px, 5vw, 64px) clamp(32px, 6vw, 80px);
+      max-width: 860px;
+    }
+    .lc-hero-h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(36px, 5.5vw, 76px);
+      font-weight: 600;
+      line-height: 1.05;
+      color: #F5F2EC;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.01em;
+    }
+    .lc-hero-sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,242,236,0.85);
+      margin: 0 0 20px 0;
+      line-height: 1.4;
+    }
+    .lc-hero-credit {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(245,242,236,0.65);
+      text-transform: uppercase;
+    }
+
+    /* ── PROOF STRIP ──────────────────────────────── */
+    .lc-proof {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lc-proof-cell {
+      padding: 48px 32px;
+      border-right: 1px solid var(--rule);
+    }
+    .lc-proof-cell:first-child { padding-left: 0; }
+    .lc-proof-cell:last-child { border-right: none; padding-right: 0; }
+    .lc-proof-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .lc-proof-label {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+
+    /* ── SHARED BODY STYLES ───────────────────────── */
+    .lc-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .lc-section { padding-top: clamp(64px, 9vw, 112px); }
+    .lc-section-last { padding-bottom: clamp(64px, 9vw, 112px); }
+    .lc-h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0 0 clamp(28px, 3.5vw, 48px) 0;
+      line-height: 1.15;
+    }
+    .lc-body-text {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 660px;
+    }
+    .lc-body-text em { font-style: italic; color: var(--ink); }
+
+    /* ── TWO-COLUMN BLOCKS ────────────────────────── */
+    .lc-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: clamp(40px, 5vw, 64px) 0;
+      border-top: 1px solid var(--rule);
+    }
+    .lc-block-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      margin: 0 0 16px 0;
+    }
+    .lc-block-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+    }
+    .lc-block-body em { font-style: italic; color: var(--ink); }
+    .lc-block-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .lc-block-image img:last-child { margin-bottom: 0; }
+    .lc-block-image .lc-video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .lc-block-image .lc-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .lc-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e8e4de;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .lc-placeholder span {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      color: #9A9590;
+      text-align: center;
+      padding: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── OOH THREE-UP ─────────────────────────────── */
+    .lc-three-up {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: clamp(28px, 3.5vw, 48px);
+    }
+    .lc-three-up img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ── CLOSING ──────────────────────────────────── */
+    .lc-closing-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 640px;
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+    .lc-closing-quote {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 44px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.35;
+      max-width: 720px;
+      padding-top: clamp(32px, 4vw, 56px);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── FOOTER CTA ───────────────────────────────── */
+    .lc-footer-cta {
+      border-top: 1px solid var(--rule);
+      padding: clamp(48px, 6vw, 80px) var(--gutter);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .lc-footer-cta a {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .lc-footer-cta a:hover { color: var(--amber); }
+    .lc-footer-cta-divider { color: var(--rule); font-size: 20px; line-height: 1; }
+
+    /* ── LIGHTBOX ─────────────────────────────────── */
+    #lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}
+    #lb-overlay.open{display:flex;}
+    #lb-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;}
+    .zoomable{cursor:zoom-in;}
+
+    /* ── MOBILE ───────────────────────────────────── */
+    @media (max-width: 860px) {
+      .lc-proof { grid-template-columns: repeat(2, 1fr); }
+      .lc-proof-cell:nth-child(2) { border-right: none; padding-right: 0; }
+      .lc-proof-cell:nth-child(3) { padding-left: 0; }
+      .lc-proof-cell:nth-child(3), .lc-proof-cell:nth-child(4) { border-top: 1px solid var(--rule); }
+      .lc-proof-cell:nth-child(4) { border-right: none; padding-right: 0; }
+      .lc-block { grid-template-columns: 1fr; gap: 32px; }
+      .lc-block-image { order: -1; }
+      .lc-three-up { grid-template-columns: 1fr; }
+      .lc-footer-cta { flex-direction: column; gap: 16px; text-align: center; }
+      .lc-footer-cta-divider { display: none; }
+    }
+    @media (max-width: 480px) {
+      .lc-proof { grid-template-columns: 1fr; }
+      .lc-proof-cell { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
+      .lc-proof-cell:first-child { border-top: none; }
+    }
+  </style>
+</head>
 <body>
 
   <div id="password-gate">
@@ -30,136 +304,115 @@
       <div class="nav-links">
         <a href="../index.html" class="nav-link active">Work</a>
         <a href="../about.html" class="nav-link">About</a>
-        <a href="/cdn-cgi/l/email-protection#0f6b607a686d636e6c643e4f68626e6663216c6062" class="nav-link">Contact</a>
+        <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
       </div>
     </nav>
 
-    <article class="case-study">
-
-      <header class="case-header">
-        <div class="case-header-meta">
-          <span class="case-number">02</span>
-          <div class="case-tags">
-            <span class="tag">Brand Voice</span>
-            <span class="tag">Campaign</span>
-            <span class="tag">Product Launch</span>
-            <span class="tag">Video</span>
-            <span class="tag">Copy</span>
-          </div>
-        </div>
-        <h1 class="case-title">SoundCloud<br><em>Go.</em></h1>
-        <p class="case-subtitle">SoundCloud · November 2015 – February 2017</p>
-      </header>
-
-      <div class="case-hero-image">
-        <div class="case-video-embed">
-          <iframe src="https://www.youtube.com/embed/l-ZjvlvNu6g" title="SoundCloud Go launch video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    <!-- ── SECTION 1: HERO ─────────────────────────── -->
+    <section class="lc-hero">
+      <img src="../images/sc-billboard.png" alt="SoundCloud Go — campaign billboard" class="zoomable" onclick="lb(this.src)">
+      <div class="lc-hero-overlay"></div>
+      <div class="lc-hero-text">
+        <h1 class="lc-hero-h1">I built SoundCloud's brand voice from zero.</h1>
+        <p class="lc-hero-sub">First dedicated writer. Launch campaign. Subscription rollout.</p>
+        <span class="lc-hero-credit">SoundCloud Go &nbsp;·&nbsp; November 2016 – February 2017</span>
       </div>
+    </section>
 
-      <div class="case-body">
-
-        <div class="case-intro-block">
-          <div class="case-challenge">
-            <h2>The Challenge</h2>
-            <p>SoundCloud had a problem that was also a point of pride: its audience was the free internet. Producers, DJs, bedroom musicians, obsessive fans — people who built their entire musical identity on a platform where everything was free, open, and gloriously unpolished. The kind of people who considered paying for music a moral failing.</p>
-            <p>Then the business reality arrived. SoundCloud needed a subscription model to survive. And someone had to figure out how to tell the free-internet faithful that the thing they loved was about to ask for their credit card.</p>
-            <p>That someone was me. As SoundCloud's first-ever dedicated writer, I had to build a brand voice from scratch — and immediately put it to its hardest possible test.</p>
-          </div>
-          <div class="case-role">
-            <h3>My Role</h3>
-            <ul>
-              <li>First dedicated writer at SoundCloud</li>
-              <li>Built brand voice from the ground up</li>
-              <li>Concepted & wrote the Go launch campaign</li>
-            </ul>
-            <h3>Deliverables</h3>
-            <ul>
-              <li>Brand voice (built as we went)</li>
-              <li>Launch video campaign</li>
-              <li>Product microsites</li>
-              <li>Email campaigns</li>
-              <li>Social content</li>
-              <li>Website & in-app copy</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case-stats case-stats--soundcloud">
-          <div class="stat-item"><span class="stat-number">175M</span><span class="stat-label">Users — almost none paying</span></div>
-          <div class="stat-item"><span class="stat-number">125M</span><span class="stat-label">Tracks — not fully licensed</span></div>
-          <div class="stat-item"><span class="stat-number">#1</span><span class="stat-label">Creator ecosystem — without a business model</span></div>
-        </div>
-
-        <div class="case-section">
-          <h2>The Voice Problem</h2>
-          <p>When I arrived, SoundCloud didn't have a formalized brand voice. Which meant they also didn't have a wrong one. There was no document to consult, no legacy tone to preserve — just a platform with a fiercely specific culture and an audience that could smell corporate from a mile away.</p>
-          <p>So I made it up as I went — which is another way of saying I listened carefully and wrote accordingly. Direct without being cold. Enthusiastic without being breathless. Self-aware enough to acknowledge that we were living through a genuinely weird moment in music history. A voice that had to work for a DJ uploading their first mix and a major label dropping a comeback album on the same platform.</p>
-          <p>By the time SoundCloud Go launched, the voice was ready. Which was good, because the brief was about to get very hard.</p>
-        </div>
-
-        <div class="case-image-row case-image-row--matched">
-          <div class="case-video-embed case-video-embed--inline">
-            <iframe src="https://player.vimeo.com/video/220871179" title="SoundCloud Go campaign" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="case-image-actual">
-            <img src="../images/sc-adgrid-crop.png" class="zoomable img-matched" onclick="lb(this.src)">
-          </div>
-        </div>
-
-        <div class="case-section">
-          <h2>Selling Paid to the Free Internet</h2>
-          <p>The strategic insight that unlocked the campaign: don't apologize for the ask. SoundCloud's audience respected directness. What they didn't respect was being talked down to.</p>
-          <p>So the Go campaign led with what it actually was: everything they already knew and loved about SoundCloud — the uploads, the waveforms, the comments dropped mid-track — plus almost all of recorded musical history. The catalog the free version didn't have. Not instead of. In addition to.</p>
-          <p>That reframe — additive, not subtractive — became the spine of every piece of communication. The message was consistent across every touchpoint: SoundCloud isn't changing. It's just getting bigger.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            Everything you love about SoundCloud—plus all of recorded musical history.
-          </blockquote>
-          <cite>The idea that drove the campaign.</cite>
-        </div>
-
-        <div class="case-image-row case-image-row--three">
-          <img src="../images/sc-billboard.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/sc-subway.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/sc-posters.png" class="zoomable" onclick="lb(this.src)">
-        </div>
-
-        <div class="case-section">
-          <h2>The Work</h2>
-          <p>The launch campaign ran across video, web, email, social, and in-product. The videos were designed to feel native to the platform: energetic, a little chaotic, unapologetically music-obsessed. Not a polished brand film — something that could live on SoundCloud itself without feeling out of place.</p>
-          <p>The microsites gave the product room to breathe, explaining the value proposition without over-explaining it. Which is a harder brief than it sounds when your audience has a finely calibrated BS detector.</p>
-          <p>The email campaigns had to do something genuinely difficult: re-engage a free user base and ask them to pay, without making them feel like the thing they loved had been replaced by something worse. Open rates told us the voice was working.</p>
-        </div>
-
-        <div class="case-image-row">
-          <div class="case-image-actual">
-            <img src="../images/sc-laptop.png" class="zoomable" onclick="lb(this.src)">
-          </div>
-          <div class="case-image-actual">
-            <img src="../images/sc-devices.png" class="zoomable" onclick="lb(this.src)">
-          </div>
-        </div>
-
-        <div class="case-section">
-          <h2>The Bigger Picture</h2>
-          <p>Fun fact: every music streaming service in history loses money. SoundCloud Go didn't save the company on its own. But it gave them a runway. And the launch communication did its job, which was to make a skeptical, fiercely independent audience understand that the ask was fair. The only way to earn their attention was to actually deserve it.</p>
-        </div>
-
-        <div class="case-image-row">
-          <div class="case-video-embed case-video-embed--inline" style="width:100%;">
-            <iframe src="https://www.youtube.com/embed/tRan-iw50_U" title="SoundCloud Go launch video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-
+    <!-- ── SECTION 2: PROOF STRIP ──────────────────── -->
+    <div class="lc-proof">
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">175M</span>
+        <span class="lc-proof-label">Users at launch —<br>almost none paying</span>
       </div>
-    </article>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">#1</span>
+        <span class="lc-proof-label">Creator ecosystem with<br>no business model — until Go</span>
+      </div>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">First Writer</span>
+        <span class="lc-proof-label">SoundCloud had never had<br>a dedicated writer. I was it.</span>
+      </div>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">Launch → Brand Voice</span>
+        <span class="lc-proof-label">What started as a campaign<br>became the company's voice system</span>
+      </div>
+    </div>
 
-    <div class="next-case">
-      <span class="next-label">Next</span>
-      <a href="airco.html" class="next-link">Air Co. →</a>
+    <div class="lc-body">
+
+      <!-- ── SECTION 3: THE BET ───────────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">The bet.</h2>
+        <p class="lc-body-text">SoundCloud was the free internet's favorite music platform — 175 million users, fiercely loyal, and almost none of them paying. The business needed a subscription model. The audience needed a reason not to revolt. We made the opposite bet from every paid tier pitch in history: don't apologize for the ask. SoundCloud's audience respects directness. The voice that convinced them was self-aware, enthusiast, and a little breathless — which, when I arrived, didn't yet exist.</p>
+      </section>
+
+      <!-- ── SECTION 4: WHAT I BUILT ─────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">What I built.</h2>
+
+        <!-- Block 1: The voice -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The voice.</h3>
+            <p class="lc-block-body">SoundCloud had no brand voice when I arrived. No guidelines, no legacy tone, just a platform with a fiercely specific culture and an audience that could smell corporate from a mile away. I built the voice system from scratch — enthusiast without being breathless, self-aware enough to acknowledge we were living through a genuinely weird moment in music history. By launch, the voice was ready. And the brief was about to get very hard.</p>
+          </div>
+          <div class="lc-block-image">
+            <div class="lc-placeholder">
+              <span>[PLACEHOLDER: SoundCloud Go headline wall — 6–9 campaign headlines on dark background]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 2: The launch -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The launch.</h3>
+            <p class="lc-block-body">Video, web, email, social, in-product. The films were designed to feel native to the platform: energetic, a little chaotic, unapologetically music-obsessed. Not polished brand film — something that could live on SoundCloud itself without feeling out of place.</p>
+            <div class="lc-three-up" style="margin-top: clamp(24px, 3vw, 40px);">
+              <img src="../images/sc-billboard.png" alt="SoundCloud Go OOH billboard" class="zoomable" onclick="lb(this.src)">
+              <img src="../images/sc-subway.png" alt="SoundCloud Go subway" class="zoomable" onclick="lb(this.src)">
+              <img src="../images/sc-posters.png" alt="SoundCloud Go street posters" class="zoomable" onclick="lb(this.src)">
+            </div>
+          </div>
+          <div class="lc-block-image">
+            <div class="lc-video-wrap">
+              <iframe src="https://player.vimeo.com/video/220871179" title="SoundCloud Go campaign film" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <img src="../images/sc-adgrid-crop.png" alt="SoundCloud Go digital ads" class="zoomable" onclick="lb(this.src)" style="margin-top:16px;">
+          </div>
+        </div>
+
+        <!-- Block 3: The hard email -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The hard email.</h3>
+            <p class="lc-block-body">Email was the part that could've blown up. I had to ask a free user base with 175 million people to start paying — and not make them feel like the thing they loved had been replaced by something worse. The campaign had to be additive, not subtractive. Open rates told us the voice was working.</p>
+          </div>
+          <div class="lc-block-image">
+            <img src="../images/sc-laptop.png" alt="SoundCloud Go microsite" class="zoomable" onclick="lb(this.src)">
+            <img src="../images/sc-devices.png" alt="SoundCloud Go responsive" class="zoomable" onclick="lb(this.src)" style="margin-top:16px;">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 5: WHAT CHANGED ─────────────── -->
+      <section class="lc-section lc-section-last">
+        <h2 class="lc-h2">What changed.</h2>
+        <p class="lc-closing-body">SoundCloud Go didn't save the company on its own — every music streaming service in history loses money — but it gave them a runway and proved the voice could carry a commercial ask without betraying the audience. The voice I built for the launch became the voice of the company. It still is.</p>
+        <p class="lc-closing-quote">The free internet didn't need to be sold to. It needed to be respected. That's what we wrote.</p>
+      </section>
+
+    </div><!-- /.lc-body -->
+
+    <!-- ── SECTION 6: FOOTER CTA ──────────────────── -->
+    <div class="lc-footer-cta">
+      <a href="https://soundcloud.com/pages/go" target="_blank" rel="noopener">See the campaign →</a>
+      <span class="lc-footer-cta-divider">|</span>
+      <a href="airco.html">Next case study: Air Co. →</a>
+      <span class="lc-footer-cta-divider">|</span>
+      <a href="mailto:dougblack1@gmail.com">Let's talk →</a>
     </div>
 
     <footer>
@@ -177,5 +430,10 @@
   </div><!-- /#site -->
 
   <script src="../js/main.js"></script>
-<style>#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}#lb-overlay.open{display:flex;}#lb-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;}.zoomable{cursor:zoom-in;width:100%;height:auto;display:block;border-radius:4px;}</style><div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div><script>function lb(src){document.getElementById("lb-img").src=src;document.getElementById("lb-overlay").classList.add("open");}document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("lb-overlay").classList.remove("open");});</script></body>
+  <div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
+  <script>
+    function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
+  </script>
+</body>
 </html>
