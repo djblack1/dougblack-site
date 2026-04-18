@@ -16,6 +16,10 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: clamp(80px, 14vw, 160px) var(--gutter) clamp(64px, 10vw, 120px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .ux-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -33,6 +37,8 @@
       line-height: 1.75;
       color: var(--ink-light);
       max-width: 640px;
+      text-align: center;
+      margin: 0 auto;
     }
 
     /* ── PROOF STRIP ──────────────────────────────── */
@@ -437,8 +443,15 @@
           <p class="ux-case-desc">The project sat at the intersection of content design and campaign — mobile-first experiences where the copy had to work as UX as much as marketing. Language decisions were tested against user flow, not just brand guidelines. Copy and content developed in close collaboration with the UX and visual design teams at Huge.</p>
         </div>
         <div class="ux-case-right">
-          <span class="ux-sample-label">The principle</span>
-          <div class="ux-principle-block">
+          <span class="ux-sample-label">The work</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex mobile application flow">
+            <img src="images/amex-cards.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex card comparison">
+            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex real cardmembers">
+            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex reviews">
+          </div>
+          <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex homepage">
+          <div class="ux-principle-block" style="margin-top:20px;">
             <p class="ux-principle-text">Every word earns its space. On a small screen, there's no room for a second draft.</p>
           </div>
         </div>
@@ -476,5 +489,15 @@
   </div><!-- /#site -->
 
   <script src="js/main.js"></script>
+  <style>
+    #ux-lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}
+    #ux-lb.open{display:flex;}
+    #ux-lb img{max-width:90vw;max-height:90vh;object-fit:contain;}
+  </style>
+  <div id="ux-lb" onclick="this.classList.remove('open')"><img id="ux-lb-img" src="" alt=""></div>
+  <script>
+    function lbux(src){document.getElementById('ux-lb-img').src=src;document.getElementById('ux-lb').classList.add('open');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('ux-lb').classList.remove('open');});
+  </script>
 </body>
 </html>
