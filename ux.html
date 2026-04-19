@@ -1,523 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UX + Product Writing — Doug Black</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doug Black — UX Writing & Content Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── HERO ─────────────────────────────────────── */
-    .ux-hero {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: clamp(80px, 14vw, 160px) var(--gutter) clamp(64px, 10vw, 120px);
-      text-align: center;
+    :root {
+      --cream: #F5F1EB;
+      --ink: #1A1814;
+      --warm-mid: #8C7B6B;
+      --accent: #C8502A;
+      --light-rule: rgba(26,24,20,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+      background: rgba(245,241,235,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--light-rule);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
       align-items: center;
     }
-    .ux-hero-h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(32px, 5vw, 68px);
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin: 0 0 clamp(24px, 3vw, 40px) 0;
-      white-space: nowrap;
-    }
-    .ux-invisible-svg {
-      height: 0.92em;
-      width: auto;
-      display: inline-block;
-      vertical-align: -0.08em;
-      overflow: visible;
-      margin-left: 0.18em;
-    }
-    .ux-hero-sub {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.75;
-      color: var(--ink-light);
-      max-width: 640px;
-      text-align: center;
-      margin: 0 auto;
-    }
-
-    /* ── PROOF STRIP ──────────────────────────────── */
-    .ux-proof {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-    .ux-proof-cell {
-      padding: 24px 32px;
-      border-right: 1px solid var(--rule);
-    }
-    .ux-proof-cell:first-child { padding-left: 0; }
-    .ux-proof-cell:last-child { border-right: none; padding-right: 0; }
-    .ux-proof-number {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(18px, 2.4vw, 30px);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.1;
-      margin-bottom: 6px;
-      display: block;
-    }
-    .ux-proof-label {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      line-height: 1.6;
-    }
-
-    /* ── HOW I GOT HERE ───────────────────────────── */
-    .ux-section {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: clamp(64px, 9vw, 112px) var(--gutter) 0;
-    }
-    .ux-section-last {
-      padding-bottom: clamp(64px, 9vw, 112px);
-    }
-    .ux-h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 48px);
-      font-weight: 400;
-      color: var(--ink);
-      margin: 0 0 clamp(28px, 3.5vw, 40px) 0;
-      line-height: 1.15;
-    }
-    .ux-body-text {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--ink-light);
-      max-width: 660px;
-      margin-bottom: 24px;
-    }
-    .ux-body-text:last-child { margin-bottom: 0; }
-
-    /* ── CASE STUDIES ─────────────────────────────── */
-    .ux-cases {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-    .ux-case {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      padding: clamp(48px, 6vw, 80px) 0;
-      border-top: 1px solid var(--rule);
-      align-items: start;
-    }
-    .ux-case:last-child {
-      border-bottom: 1px solid var(--rule);
-    }
-
-    /* Left column */
-    .ux-case-client {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(24px, 3vw, 40px);
-      font-weight: 600;
-      color: var(--ink);
-      margin: 0 0 6px 0;
-      line-height: 1.1;
-    }
-    .ux-case-meta {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.06em;
-      color: var(--ink-faint);
-      margin: 0 0 24px 0;
-      line-height: 1.5;
-    }
-    .ux-case-desc {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--ink-light);
-    }
-
-    /* Right column */
-    .ux-case-right {}
-    .ux-sample-label {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 20px;
-      display: block;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .ux-sample-block {
-      background: var(--ink);
-      border-radius: 4px;
-      padding: 28px 32px;
-      margin-bottom: 12px;
-    }
-    .ux-sample-block:last-of-type { margin-bottom: 0; }
-    .ux-sample-text {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(16px, 2vw, 22px);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--cream);
-      line-height: 1.5;
-      margin: 0 0 10px 0;
-    }
-    .ux-sample-note {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 11px;
+    .nav-links a {
+      font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin: 0;
-    }
-    .ux-principle-block {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .ux-principle-block:last-child { border-bottom: none; }
-    .ux-principle-text {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(18px, 2.2vw, 26px);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--ink);
-      line-height: 1.5;
-      margin: 0;
-    }
-    .ux-scope {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--ink-faint);
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--rule);
-    }
-    .ux-scope strong {
-      color: var(--ink-light);
-      font-weight: 500;
-    }
-
-    /* ── WHAT I ACTUALLY DO ───────────────────────── */
-    .ux-closing-body {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--ink-light);
-      max-width: 640px;
-      margin-bottom: clamp(32px, 4vw, 56px);
-    }
-    .ux-closing-quote {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(24px, 3.2vw, 44px);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--ink);
-      line-height: 1.35;
-      max-width: 720px;
-      padding-top: clamp(32px, 4vw, 56px);
-      border-top: 1px solid var(--rule);
-    }
-
-    /* ── FOOTER CTA ───────────────────────────────── */
-    .ux-footer-cta {
-      border-top: 1px solid var(--rule);
-      padding: clamp(48px, 6vw, 80px) var(--gutter);
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .ux-footer-cta a {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      color: var(--ink-light);
       text-decoration: none;
+      color: var(--warm-mid);
       transition: color 0.2s;
     }
-    .ux-footer-cta a:hover { color: var(--amber); }
-    .ux-footer-cta-divider { color: var(--rule); font-size: 20px; line-height: 1; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .active { color: var(--ink); font-weight: 500; }
 
-    /* ── MOBILE ───────────────────────────────────── */
-    @media (max-width: 860px) {
-      .ux-proof { grid-template-columns: repeat(2, 1fr); }
-      .ux-proof-cell:nth-child(2) { border-right: none; padding-right: 0; }
-      .ux-proof-cell:nth-child(3) { padding-left: 0; }
-      .ux-proof-cell:nth-child(3), .ux-proof-cell:nth-child(4) { border-top: 1px solid var(--rule); }
-      .ux-proof-cell:nth-child(4) { border-right: none; padding-right: 0; }
-      .ux-case { grid-template-columns: 1fr; gap: 40px; }
-      .ux-footer-cta { flex-direction: column; gap: 16px; text-align: center; }
-      .ux-footer-cta-divider { display: none; }
+    /* HERO */
+    .hero {
+      padding: 160px 48px 100px;
+      max-width: 900px;
     }
-    @media (max-width: 480px) {
-      .ux-proof { grid-template-columns: 1fr; }
-      .ux-proof-cell { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
-      .ux-proof-cell:first-child { border-top: none; }
+    .hero-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--warm-mid);
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-body a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 48px;
+      border-top: 1px solid var(--light-rule);
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 60px;
+    }
+
+    /* CASE STUDIES */
+    .case-study {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      margin-bottom: 80px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid var(--light-rule);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .case-study:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .case-study.visible { opacity: 1; transform: translateY(0); }
+
+    .case-meta {}
+    .case-client {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .case-type {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      border: 1px solid var(--light-rule);
+      padding: 4px 10px;
+    }
+    .case-award {
+      margin-top: 20px;
+      font-size: 0.72rem;
+      color: var(--warm-mid);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .case-content {}
+    .case-section-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+    .case-section-title:first-child { margin-top: 0; }
+    .case-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    /* Copy samples */
+    .copy-sample {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 24px 28px;
+      margin-top: 20px;
+      position: relative;
+    }
+    .copy-sample-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .copy-sample p {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(245,241,235,0.9);
+      font-style: italic;
+    }
+    .copy-sample p + p { margin-top: 10px; }
+
+    .nda-note {
+      font-size: 0.72rem;
+      color: var(--warm-mid);
+      font-style: italic;
+      margin-top: 16px;
+      padding-left: 12px;
+      border-left: 2px solid var(--light-rule);
+    }
+
+    /* CLIENT LIST */
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--light-rule);
+      margin-top: 0;
+    }
+    .client-item {
+      background: var(--cream);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .client-item:hover { background: #EDE9E2; }
+    .client-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .client-desc {
+      font-size: 0.72rem;
+      color: var(--warm-mid);
+      line-height: 1.4;
+    }
+
+    /* APPROACH */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 0;
+    }
+    .approach-item {}
+    .approach-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .approach-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .approach-text {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--warm-mid);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid var(--light-rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--warm-mid); }
+    footer a {
+      font-size: 0.78rem;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 130px 24px 80px; }
+      .section { padding: 60px 24px; }
+      .case-study { grid-template-columns: 1fr; gap: 32px; }
+      .client-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: 1fr; gap: 32px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- PASSWORD GATE -->
-  <div id="password-gate">
-    <div class="gate-inner">
-      <span class="gate-label">Password required</span>
-      <div class="gate-form">
-        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
-        <button id="password-submit">→</button>
-      </div>
-      <span class="gate-error" id="gate-error">try again</span>
-      <p class="gate-hint">Stumped? There's a 100% chance I'll give you the password. <a href="mailto:dougblack1@gmail.com">Just ask.</a></p>
-    </div>
+  <nav>
+    <a href="index.html" class="nav-logo">DB</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="ux.html" class="active">UX Writing</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">UX Writing & Content Design</p>
+    <h1 class="hero-title">Words that make<br>products <em>work.</em></h1>
+    <p class="hero-body">
+      Fifteen years of writing that had to do more than sound good — it had to help someone do something. From financial platforms serving high-net-worth clients to mortgage products built for first-time homebuyers, I've written the copy that lives inside the experience, not just around it. The button labels. The error states. The onboarding flows. The voice that makes a complex product feel like it was designed for you.<br><br>
+      Full portfolio: <a href="index.html">doug.black</a>
+    </p>
   </div>
 
-  <div id="site" class="hidden">
+  <!-- CASE STUDIES -->
+  <section class="section">
+    <p class="section-label">Selected UX Work</p>
 
-    <nav>
-      <a href="index.html" class="nav-name">Doug Black — Creative Director, Writer, Content Designer</a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Work</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
-        <a href="ux.html" class="nav-link active">UX + Product</a>
+    <!-- Better.com -->
+    <div class="case-study">
+      <div class="case-meta">
+        <div class="case-type">Mortgage Tech · 2020–2021</div>
+        <h2 class="case-client">Better.com</h2>
+        <div class="case-tags">
+          <span class="tag">UX Writing</span>
+          <span class="tag">Product Copy</span>
+          <span class="tag">Brand Voice</span>
+          <span class="tag">Embedded</span>
+        </div>
       </div>
-    </nav>
+      <div class="case-content">
+        <div class="case-section-title">The Context</div>
+        <p class="case-text">Better.com was redefining the mortgage experience — moving one of the most anxiety-inducing financial processes in American life entirely online. The product promise: close your mortgage in days, not months, with no loan officers and no branch visits. The content challenge: make that feel safe.</p>
 
-    <!-- ── SECTION 1: HERO ─────────────────────────── -->
-    <section class="ux-hero">
-      <h1 class="ux-hero-h1">The best interface copy is&#8203;<svg class="ux-invisible-svg" viewBox="0 0 560 72" xmlns="http://www.w3.org/2000/svg" aria-label="invisible.">
-        <text x="5" y="57" font-family="Cormorant Garamond, Georgia, serif" font-size="62" font-weight="600" letter-spacing="-1" fill="rgba(26,23,20,0.45)">invisible</text>
-        <text x="0" y="52" font-family="Cormorant Garamond, Georgia, serif" font-size="62" font-weight="600" letter-spacing="-1" fill="#F5F2EC">invisible</text>
-        <text x="455" y="52" font-family="Cormorant Garamond, Georgia, serif" font-size="62" font-weight="600" fill="#1A1714">.</text>
-      </svg></h1>
-      <p class="ux-hero-sub">Some of the work of which I'm proudest lives at the product level, the UX journeys for Goldman Sachs, Verizon, American Express, and many others. It's a different craft than snappy headlines, but it follows the same thesis: writing should exist to help someone do a task, as clearly and easily as possible.</p>
-    </section>
+        <div class="case-section-title">The Problem</div>
+        <p class="case-text">Mortgage is a category built on distrust. The language of traditional mortgage — rates, points, APR, escrow, title insurance — is deliberately opaque, and most people signing a mortgage document have only a partial understanding of what they're agreeing to. Better needed copy that simplified without condescending, that moved users forward without hiding what they needed to know.</p>
 
-    <!-- ── SECTION 2: PROOF STRIP ──────────────────── -->
-    <div class="ux-proof">
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">5 Voice Systems</span>
-        <span class="ux-proof-label">Built from zero —<br>Goldman, Evercore, Better,<br>Verizon, SoundCloud</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">10+ Years</span>
-        <span class="ux-proof-label">Embedded product writing,<br>not just brand</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">Financial Services</span>
-        <span class="ux-proof-label">Fintech, mortgage, wealth,<br>telecom, HNW —<br>heavily regulated copy</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">Silver — NYC Design Awards</span>
-        <span class="ux-proof-label">Best mobile marketing,<br>American Express (with Huge)</span>
+        <div class="case-section-title">The Approach</div>
+        <p class="case-text">Nearly a year embedded across product, brand, and UX writing. The work spanned onboarding flows, loan application copy, error states, email sequences, microcopy, and the brand voice system that governed how the product sounded across every touchpoint. The consistent principle: one piece of information at a time, in the language a person would actually use.</p>
+
+        <div class="case-section-title">Sample Copy</div>
+        <div class="copy-sample">
+          <div class="copy-sample-label">Onboarding / First Impression</div>
+          <p>"Let's figure out what you can afford. No credit check yet — just a few questions."</p>
+          <p>"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p>
+          <p>"This is the part most lenders make complicated. We're going to make it a checklist."</p>
+        </div>
       </div>
     </div>
 
-    <!-- ── SECTION 3: HOW I GOT HERE ──────────────── -->
-    <section class="ux-section">
-      <h2 class="ux-h2">How I got here.</h2>
-      <p class="ux-body-text">I started as a journalist, then moved to brand copywriting. Somewhere along the way, the work shifted: the copy that mattered most wasn't the ad. It was the button, the onboarding flow, the sentence that clarified everything for the user. The brands that take that seriously are the ones I want to work with.</p>
-    </section>
-
-    <!-- ── SECTION 4: CASE STUDIES ─────────────────── -->
-    <section class="ux-section" style="padding-bottom: 0;">
-      <h2 class="ux-h2">The work.</h2>
-    </section>
-
-    <div class="ux-cases">
-
-      <!-- Better.com -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Better.com</h3>
-          <p class="ux-case-meta">Mortgage &nbsp;·&nbsp; 2020–2021<br>Role: Embedded product writer across UX, brand, and product copy.</p>
-          <p class="ux-case-desc">Better was moving one of the most anxiety-inducing financial processes in American life entirely online. I spent a year embedded across onboarding flows, loan application processes, error states, email sequences, and the brand voice system that governed how to sound Better across every surface.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/better-hero.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com homepage">
-            <img src="images/better-features.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com features">
-          </div>
+    <!-- Goldman Sachs -->
+    <div class="case-study">
+      <div class="case-meta">
+        <div class="case-type">Financial Services · NDA Protected</div>
+        <h2 class="case-client">Goldman Sachs</h2>
+        <div class="case-tags">
+          <span class="tag">Content Design</span>
+          <span class="tag">Voice System</span>
+          <span class="tag">Product Copy</span>
+          <span class="tag">HNW Audience</span>
         </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">Sample copy</span>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p>
-            <p class="ux-sample-note">Rate lock confirmation</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"This is the part most lenders make complicated. We're going to make it a checklist."</p>
-            <p class="ux-sample-note">Document upload intro</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"We didn't hear back from the underwriter. That's normal — we'll ping them again tomorrow."</p>
-            <p class="ux-sample-note">Error / delay state</p>
-          </div>
-        </div>
+        <p class="nda-note">Specific executions protected by NDA. Work described with client permission.</p>
       </div>
+      <div class="case-content">
+        <div class="case-section-title">The Context</div>
+        <p class="case-text">An internal digital platform serving Goldman Sachs's high-net-worth client base — an audience with sophisticated financial literacy, high expectations, and zero tolerance for language that wastes their time or underestimates them.</p>
 
-      <!-- Goldman Sachs -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Goldman Sachs</h3>
-          <p class="ux-case-meta">Financial Services &nbsp;·&nbsp; Private Wealth Management &nbsp;·&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for Goldman Sachs PWM — serving ultra-high-net-worth clients with $10M+ in investable assets.</p>
-          <p class="ux-case-desc">Enterprise financial products are typically written by compliance teams, not communicators, which produces language that is legally accurate and humanly dense. I built the voice and content system for Goldman's Private Wealth Management platform: defining how it should sound across navigation, data display, alerts, onboarding, and error states, and creating the documentation that let a large product team make consistent copy decisions without a writer in every room.</p>
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">From the voice doc — PWM persona</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Confident but not cocky. Smart but not stodgy. Helpful but not pushy. Expert but not bossy.</p>
-          </div>
-          <span class="ux-sample-label" style="margin-top:24px;display:block;">Tone principles</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Fewer words always win. Communicate only essential details so clients can focus on their own tasks.</p>
-          </div>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Help, don't apologize. In situations where something went wrong, give a clear explanation and help them fix the issue.</p>
-          </div>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Tell, don't plead. Avoid empty niceties like "please" and "unfortunately." Start with the client need.</p>
-          </div>
-        </div>
+        <div class="case-section-title">The Problem</div>
+        <p class="case-text">Enterprise financial products are typically written by compliance teams, not communicators. The result is language that is legally accurate and humanly opaque. The brief was to build a voice and content system that maintained the required precision while sounding like it was written by someone who respected the reader's intelligence.</p>
+
+        <div class="case-section-title">The Approach</div>
+        <p class="case-text">Developed the voice architecture, tone guidelines, and copy standards for the application — establishing how the platform should sound across navigation, data display, alerts, onboarding, and error states. The defining principle: assume expertise, never assume familiarity with this specific interface. Write for someone who knows finance but is new to this tool.</p>
+
+        <div class="case-section-title">The Outcome</div>
+        <p class="case-text">A content system that gave the design and product teams a shared language for making copy decisions — reducing revision cycles and creating consistency across a platform with multiple contributing teams.</p>
       </div>
-
-      <!-- American Express -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">American Express</h3>
-          <p class="ux-case-meta">Financial Services &nbsp;·&nbsp; Mobile Campaign &nbsp;·&nbsp; 2013 &nbsp;·&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award — Best Mobile Marketing Campaign, NYC Design Awards</em></p>
-          <p class="ux-case-desc">The project sat at the intersection of content design and campaign — mobile-first experiences where the copy had to toe the line between UX and marketing. Language decisions were tested against user flow, not just brand guidelines. Copy and content developed in close collaboration with the UX and visual design teams at Huge.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex mobile application flow">
-            <img src="images/amex-cards.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex card comparison">
-            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex real cardmembers">
-            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex reviews">
-          </div>
-          <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;margin-top:8px;" alt="Amex homepage">
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">The principle</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Every word earns its space. On a small screen, there's no room for a second draft.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Verizon Wireless -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Verizon Wireless</h3>
-          <p class="ux-case-meta">Telecom &nbsp;·&nbsp; Full Redesign &nbsp;·&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree — Mobile Sites & Apps, Services & Utilities, 2017</em></p>
-          <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States, serving 113 million customers. The existing site had accumulated years of copy written by different teams with different conventions. I replaced that accumulation with a system — vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging across VerizonWireless.com and the MyVerizon app.</p>
-          <p class="ux-case-desc">Within seven months of launch: mobile sales conversion rose 15.6x. Overall usage up over 50%. Bill payment in-app increased from 68% to 85%. Autopay enrollment up 27%.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/verizon-app.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app — Data Hub">
-            <img src="images/verizon-spec.webp" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app — plan copy spec">
-          </div>
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">Sample copy — MyVerizon app</span>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"You have plenty of data remaining for the month."</p>
-            <p class="ux-sample-note">Data hub — positive state headline</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Say goodbye to data limits with unlimited data."</p>
-            <p class="ux-sample-note">Plan upgrade — unlimited tier CTA</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Switch to a 4 GB data limit to save $60/mo."</p>
-            <p class="ux-sample-note">Dynamic plan headline — personalized to current plan</p>
-          </div>
-
-        </div>
-      </div>
-
-
-
-      <!-- Evercore -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Evercore</h3>
-          <p class="ux-case-meta">Fintech &nbsp;·&nbsp; Consumer Product &nbsp;·&nbsp; 2025–2026 &nbsp;·&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework.</p>
-          <p class="ux-case-desc">Evercore — one of the most respected names in institutional finance — was building for individual investors for the first time. The voice system had to honor institutional credibility while reaching an entirely new audience. I helped build it from zero.</p>
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">Principles from the voice doc</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Institutional trust, consumer clarity. Both. Always.</p>
-          </div>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Don't soften institutional language. Replace it.</p>
-          </div>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Formality is a dial, not a setting.</p>
-          </div>
-        </div>
-      </div>
-
-
-    </div><!-- /.ux-cases -->
-
-    <!-- ── SECTION 5: WHAT I ACTUALLY DO ───────────── -->
-    <section class="ux-section ux-section-last">
-      <h2 class="ux-h2">What I do.</h2>
-      <p class="ux-closing-body">Five voice systems built from zero. Product writing across mortgage, wealth management, telecom, and enterprise finance. More than a decade of turning compliance-written copy into something fit for a human to read.</p>
-    </section>
-
-    <!-- ── FOOTER CTA ──────────────────────────────── -->
-    <div class="ux-footer-cta">
-      <a href="index.html">See the brand work →</a>
-      <span class="ux-footer-cta-divider">|</span>
-      <a href="about.html">Read about me →</a>
-      <span class="ux-footer-cta-divider">|</span>
-      <a href="mailto:dougblack1@gmail.com">Let's talk →</a>
     </div>
 
-    <footer>
-      <div class="footer-left">
-        <span class="footer-name">Doug Black</span>
+    <!-- American Express -->
+    <div class="case-study">
+      <div class="case-meta">
+        <div class="case-type">Financial Services · 2013</div>
+        <h2 class="case-client">American Express</h2>
+        <div class="case-tags">
+          <span class="tag">Mobile UX</span>
+          <span class="tag">Campaign</span>
+          <span class="tag">Content Design</span>
+        </div>
+        <div class="case-award">🏆 Silver Award — Best Mobile Marketing Campaign<br>NYC Design Awards 2015<br>With Huge Inc.</div>
       </div>
-      <div class="footer-right">
-        <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>
-        <a href="https://linkedin.com/in/douglasblack/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://instagram.com/dougblack" target="_blank" rel="noopener">Instagram</a>
+      <div class="case-content">
+        <div class="case-section-title">The Context</div>
+        <p class="case-text">A mobile marketing campaign for American Express developed at Huge, recognized with a Silver Award at the NYC Design Awards for Best Mobile Marketing Campaign. The project sat at the intersection of content design and campaign — mobile-first experiences where the copy had to work as UX as much as marketing.</p>
+
+        <div class="case-section-title">The Problem</div>
+        <p class="case-text">Mobile marketing for a financial brand requires a specific kind of restraint: every word has to earn its space on a small screen, earn trust without pressure, and move a user toward an action they feel good about taking. The language of financial marketing — offers, benefits, rewards — is inherently transactional. The challenge was making it feel personal.</p>
+
+        <div class="case-section-title">The Approach</div>
+        <p class="case-text">Copy and content design developed in close collaboration with the UX and visual design teams at Huge — treating the writing as part of the interface architecture, not a layer applied afterward. Language decisions were tested against user flow, not just brand guidelines.</p>
+
+        <div class="copy-sample">
+          <div class="copy-sample-label">Award Recognition</div>
+          <p>Silver Award, Best Mobile Marketing Campaign — NYC Design Awards 2015. American Express / Huge Inc.</p>
+        </div>
       </div>
-    </footer>
+    </div>
 
-  </div><!-- /#site -->
+    <!-- Evercore -->
+    <div class="case-study">
+      <div class="case-meta">
+        <div class="case-type">Fintech · Voice System</div>
+        <h2 class="case-client">Evercore</h2>
+        <div class="case-tags">
+          <span class="tag">Voice & Tone</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Consumer Product</span>
+        </div>
+        <p class="nda-note">Specific executions protected by NDA.</p>
+      </div>
+      <div class="case-content">
+        <div class="case-section-title">The Context</div>
+        <p class="case-text">Evercore — one of the most respected names in institutional finance — building a consumer-facing product for the first time. A new audience, new interaction patterns, and a brand identity built entirely around institutional credibility suddenly needing to speak to individuals managing their personal finances.</p>
 
-  <script src="js/main.js"></script>
-  <style>
-    #ux-lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}
-    #ux-lb.open{display:flex;}
-    #ux-lb img{max-width:90vw;max-height:90vh;object-fit:contain;}
-  </style>
-  <div id="ux-lb" onclick="this.classList.remove('open')"><img id="ux-lb-img" src="" alt=""></div>
-  <script>
-    function lbux(src){document.getElementById('ux-lb-img').src=src;document.getElementById('ux-lb').classList.add('open');}
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('ux-lb').classList.remove('open');});
-  </script>
-</body>
-</html>
+        <div class="case-section-title">The Problem</div>
+        <p class="case-text">Institutional financial language is precise, formal, and calibrated for an audience of professionals. Consumer financial language needs to be approachable, clear, and confidence-building for people who may not have professional financial backgrounds. Building a voice system that honored Evercore's institutional credibility while reaching an entirely new audience required establishing new principles — not just softening existing ones.</p>
+
+        <div class="case-section-title">The Approach</div>
+        <p class="case-text">Developed the brand voice, tone guidelines, and messaging framework for the consumer product from the ground up. Established vocabulary standards, defined the spectrum from formal to conversational for different product contexts, and created the documentation that allowed the product and design teams to make consistent copy decisions without a writer in every room.</p>
+
+        <div class="case-section-title">The Outcome</div>
+        <p class="case-text">A voice and content system that gave Evercore's consumer product a distinct identity — maintaining institutional trust signals while creating the clarity and accessibility that consumer financial products require.</p>
+      </div>
+    </div>
+
+    <!-- Verizon Wireless -->
+    <div class="case-study">
+      <div class="case-meta">
+        <div class="case-type">Telecom · Full Redesign</div>
+        <h2 class="case-client">Verizon Wireless</h2>
+        <div class="case-tags">
+          <span class="tag">Voice System</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">UX Writing</span>
+          <span class="tag">App Copy</span>
+          <span class="tag">Site Redesign</span>
+        </div>
+      </div>
+      <div class="case-content">
+        <div class="case-section-title">The Context</div>
+        <p class="case-text">Working with AKQA on a full redesign and rebrand of VerizonWireless.com — one of the highest-traffic consumer websites in the United States. Not a refresh. A ground-up rethinking of how one of America's largest brands communicated with its customers across every digital touchpoint.</p>
+
+        <div class="case-section-title">The Problem</div>
+        <p class="case-text">At the scale of Verizon's digital ecosystem, inconsistent language isn't just a brand problem — it's a product problem. When millions of users move through a site journey spanning plans, devices, support, and account management, every inconsistency in terminology, tone, and labeling creates friction, confusion, and drop-off. The existing site had accumulated years of copy written by different teams with different conventions. The task was to replace that accumulation with a system.</p>
+
+        <div class="case-section-title">The Approach</div>
+        <p class="case-text">As part of the AKQA team, developed and implemented a new voice, tone, and language system that extended across the full VerizonWireless.com site journey and into the MyVerizon app. This meant establishing not just how Verizon should sound, but the specific vocabulary, nomenclature standards, and copy patterns that would govern every surface — navigation, product pages, onboarding, support flows, account management, and transactional messaging. The system had to be comprehensive enough to scale across a large internal team without a writer reviewing every decision.</p>
+
+        <div class="case-section-title">The Outcome</div>
+        <p class="case-text">A unified voice and content system deployed across VerizonWireless.com and the MyVerizon app — ensuring language consistency across the full customer journey from acquisition through account management. The kind of work that disappears when it's done right: users stop noticing the copy and start completing their tasks.</p>
+
+        <div class="copy-sample">
+          <div class="copy-sample-label">The Principle Behind the System</div>
+          <p>"The best interface copy is invisible. Users shouldn't notice the words — they should just know what to do next."</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section" style="background: var(--ink); color: var(--cream);">
+    <p class="section-label" style="color: var(--accent);">How I Work</p>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <div class="approach-num">01</div>
+        <div class="approach-title" style="color: var(--cream);">Understand the user first</div>
+        <p class="approach-text" style="color: rgba(245,241,235,0.6);">Every content decision starts with who's reading it and what they're trying to do. Not what the brand wants to say — what the user needs to understand to move forward.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">02</div>
+        <div class="approach-title" style="color: var(--cream);">Write for the moment, not the brand</div>
+        <p class="approach-text" style="color: rgba(245,241,235,0.6);">Error states, onboarding flows, and empty states are not places for brand voice — they're places for clarity. I know the difference between when to deploy personality and when to get out of the way.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">03</div>
+        <div class="approach-title" style="color: var(--cream);">Build systems, not just copy</div>
+        <p class="approach-text" style="color: rgba(245,241,235,0.6);">Good UX writing scales. That means voice guidelines, nomenclature standards, and content patterns that let a team make good decisions without a writer in every meeting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LIST -->
+  <section class="section">
+    <p class="section-label">UX Writing & Content Design Clients</p>
+    <div class="client-grid">
+      <div class="client-item">
+        <div class="client-name">American Express</div>
+        <div class="client-desc">Mobile UX & campaign content. Silver Award, NYC Design Awards.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Better.com</div>
+        <div class="client-desc">Embedded UX writer. Product copy, onboarding, brand voice.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Bloomberg</div>
+        <div class="client-desc">Platform content and editorial voice.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Comcast / Xfinity</div>
+        <div class="client-desc">Product and digital experience copy.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Evercore</div>
+        <div class="client-desc">Voice & tone system for consumer financial product.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">GoDaddy</div>
+        <div class="client-desc">Product and onboarding copy.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Goldman Sachs</div>
+        <div class="client-desc">Content design for HNW client application.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">H&R Block</div>
+        <div class="client-desc">Tax product UX and digital content.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Lincoln Motor Company</div>
+        <div class="client-desc">Digital ecosystem, product features, UX copy.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Optimum</div>
+        <div class="client-desc">Product and service copy.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">SoundCloud</div>
+        <div class="client-desc">Product launch, in-app copy, digital experience.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Target</div>
+        <div class="client-desc">Digital experience and product copy.</div>
+      </div>
+      <div class="client-item">
+        <div class="client-name">Pepsi</div>
+        <div class="client-desc">Digital and campaign content.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Doug Black · UX Writing & Content Design · <a href="index.html">Full portfolio</a></p>
+    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70141f0517121c11131b4130171d11191c5e131f1d">[email&#160;protected]</a> · <a href="index.html">doug.black</a></p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isInte
