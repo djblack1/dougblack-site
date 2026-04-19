@@ -30,17 +30,12 @@
       color: var(--ink);
       margin: 0 0 clamp(24px, 3vw, 40px) 0;
       white-space: nowrap;
-      display: flex;
-      align-items: baseline;
-      gap: 0.2em;
-      flex-wrap: wrap;
-      justify-content: center;
     }
     .ux-invisible-svg {
-      height: 1em;
+      height: 0.95em;
       width: auto;
-      display: inline-block;
-      vertical-align: baseline;
+      display: inline;
+      vertical-align: -0.1em;
       overflow: visible;
     }
     .ux-hero-sub {
@@ -312,14 +307,10 @@
 
     <!-- ── SECTION 1: HERO ─────────────────────────── -->
     <section class="ux-hero">
-      <h1 class="ux-hero-h1">The best interface copy is <svg class="ux-invisible-svg" viewBox="0 0 540 80" xmlns="http://www.w3.org/2000/svg" aria-label="invisible." role="img">
-        <defs>
-          <filter id="dropshadow" x="-5%" y="-5%" width="125%" height="135%">
-            <feDropShadow dx="5" dy="5" stdDeviation="0" flood-color="#1A1714" flood-opacity="0.45"/>
-          </filter>
-        </defs>
-        <text x="2" y="60" font-family="Cormorant Garamond, Georgia, serif" font-size="68" font-weight="600" letter-spacing="-1" fill="#F5F2EC" filter="url(#dropshadow)">invisible.</text>
-      </svg></h1>
+      <h1 class="ux-hero-h1">The best interface copy is <svg class="ux-invisible-svg" viewBox="0 0 490 72" xmlns="http://www.w3.org/2000/svg" aria-label="invisible" role="img">
+        <text x="5" y="57" font-family="Cormorant Garamond, Georgia, serif" font-size="62" font-weight="600" letter-spacing="-1" fill="rgba(26,23,20,0.5)">invisible</text>
+        <text x="0" y="52" font-family="Cormorant Garamond, Georgia, serif" font-size="62" font-weight="600" letter-spacing="-1" fill="#F5F2EC">invisible</text>
+      </svg>.</h1>
       <p class="ux-hero-sub">Some of the work of which I'm proudest lives at the product level, the UX journeys for Goldman Sachs, Verizon, American Express, and many others. It's a different craft than snappy headlines, but it follows the same thesis: writing should exist to help someone do a task, as clearly and easily as possible.</p>
     </section>
 
