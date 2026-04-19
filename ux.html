@@ -30,6 +30,19 @@
       color: var(--ink);
       margin: 0 0 clamp(24px, 3vw, 40px) 0;
       white-space: nowrap;
+      display: flex;
+      align-items: baseline;
+      gap: 0.2em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .ux-invisible-svg {
+      height: 1em;
+      width: auto;
+      display: inline-block;
+      vertical-align: baseline;
+      overflow: visible;
+    }
     }
     .ux-hero-sub {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -300,7 +313,14 @@
 
     <!-- ── SECTION 1: HERO ─────────────────────────── -->
     <section class="ux-hero">
-      <h1 class="ux-hero-h1">The best interface copy is <span style="color:transparent;-webkit-text-stroke:0px transparent;text-shadow:3px 3px 0 rgba(26,23,20,0.18),6px 6px 0 rgba(26,23,20,0.11),9px 9px 0 rgba(26,23,20,0.06),12px 12px 0 rgba(26,23,20,0.03);">invisible</span>.</h1>
+      <h1 class="ux-hero-h1">The best interface copy is <svg class="ux-invisible-svg" viewBox="0 0 540 80" xmlns="http://www.w3.org/2000/svg" aria-label="invisible." role="img">
+        <defs>
+          <filter id="dropshadow" x="-5%" y="-5%" width="125%" height="135%">
+            <feDropShadow dx="5" dy="5" stdDeviation="0" flood-color="#1A1714" flood-opacity="0.45"/>
+          </filter>
+        </defs>
+        <text x="2" y="60" font-family="Cormorant Garamond, Georgia, serif" font-size="68" font-weight="600" letter-spacing="-1" fill="#1A1714" filter="url(#dropshadow)">invisible.</text>
+      </svg></h1>
       <p class="ux-hero-sub">Some of the work of which I'm proudest lives at the product level, the UX journeys for Goldman Sachs, Verizon, American Express, and many others. It's a different craft than snappy headlines, but it follows the same thesis: writing should exist to help someone do a task, as clearly and easily as possible.</p>
     </section>
 
