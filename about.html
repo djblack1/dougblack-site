@@ -18,15 +18,19 @@
     }
     .ab-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(40px, 6.5vw, 88px);
+      font-size: clamp(32px, 5vw, 68px);
       font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
       color: var(--ink);
-      max-width: 1100px;
       margin: 0 auto;
       text-align: center;
-      white-space: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ab-hero-h1 span {
+      white-space: nowrap;
     }
     .ab-body {
       max-width: var(--max-width);
@@ -201,7 +205,7 @@
     </nav>
 
     <section class="ab-hero">
-      <h1 class="ab-hero-h1">I help brands, apps, start-ups, tech giants,<br>and the occasional luxury sedan say what they mean.</h1>
+      <h1 class="ab-hero-h1"><span>I help brands, apps, start-ups, tech giants,</span><span>and the occasional luxury sedan say what they mean.</span></h1>
     </section>
 
     <div class="ab-body">
@@ -214,12 +218,12 @@
           <ul>
             <li>Creative Direction</li>
             <li>Brand Voice & Tone</li>
-            <li>Campaign Concepting</li>
-            <li>Copywriting</li>
-            <li>UX / Digital Copy</li>
             <li>Content Strategy</li>
-            <li>Brand Manifestos</li>
+            <li>Editorial Strategy</li>
+            <li>Voice Systems</li>
+            <li>UX Writing & Product Copy</li>
             <li>Naming & Taglines</li>
+            <li>Campaign Leadership</li>
           </ul>
         </div>
         <div class="ab-meta-block">
@@ -235,7 +239,7 @@
 
       <div class="ab-right">
         <div class="ab-bio">
-          <p>I'm a creative director, copywriter, and content designer who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
+          <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="ux.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
           <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a campaign, a film, a brand manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
         </div>
         <div class="ab-lists">
