@@ -18,7 +18,7 @@
     }
     .ab-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(32px, 4.5vw, 64px);
+      font-size: clamp(28px, 5.5vw, 72px);
       font-weight: 600;
       line-height: 1.1;
       letter-spacing: -0.01em;
@@ -131,6 +131,45 @@
       .ab-left { flex-direction: column; }
       .ab-photo { width: 180px; }
     }
+
+    .ab-clients {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(48px, 6vw, 72px) var(--gutter);
+      border-top: 1px solid var(--rule);
+    }
+    .ab-clients-label {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 32px 0;
+    }
+    .ab-client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 32px 24px;
+    }
+    .ab-client-cat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ab-cat-label {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 4px;
+    }
+    .ab-client-cat span:not(.ab-cat-label) {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
   </style>
 </head>
 <body>
@@ -220,6 +259,23 @@
         </div>
       </div>
     </div>
+
+        <div class="ab-clients">
+          <p class="ab-clients-label">Clients</p>
+          <div class="ab-client-grid">
+            <div class="ab-client-cat"><span class="ab-cat-label">Art</span><span>Artnet</span><span>Pantone</span><span>Milk Studios</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Auto</span><span>Lincoln</span><span>Audi</span><span>Mercedes-Benz</span><span>Infiniti</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Capital</span><span>Goldman Sachs</span><span>American Express</span><span>Evercore</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Consumer Brands</span><span>Pepsi</span><span>Bulleit</span><span>Buffy</span><span>Altoids</span><span>Chipotle</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Financial</span><span>Better</span><span>XL Insurance</span><span>H&R Block</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Health</span><span>Pfizer</span><span>GE</span><span>Ergatta</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Luxury</span><span>Four Seasons</span><span>Louis Vuitton</span><span>Barneys New York</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Media</span><span>Bloomberg</span><span>Viacom</span><span>Verizon Wireless</span><span>Comcast</span><span>Optimum</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Music</span><span>SoundCloud</span><span>JBL</span><span>Harmon Kardon</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span></div>
+            <div class="ab-client-cat"><span class="ab-cat-label">Studios</span><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
+          </div>
+        </div>
 
     <footer>
       <div class="footer-left">
