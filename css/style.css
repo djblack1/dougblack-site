@@ -1716,3 +1716,35 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================
+   WORK PAGE CLIENT FOOTER
+   ============================================= */
+.wcf {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 72px) var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+.wcf-label {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: 32px;
+}
+.wcf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 32px 24px;
+}
+
+/* Wider work grid now sidebar is slim */
+.page-sidebar-main .work-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+.work-sidebar {
+  width: 160px !important;
+}

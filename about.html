@@ -35,11 +35,38 @@
     .ab-body {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: clamp(48px, 6vw, 80px) var(--gutter) clamp(64px, 9vw, 112px);
+      padding: clamp(48px, 6vw, 80px) var(--gutter) clamp(48px, 6vw, 72px);
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 1fr 260px;
       gap: 64px;
       align-items: start;
+      border-top: 1px solid var(--rule);
+    }
+    .ab-left {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .ab-photo { flex-shrink: 0; width: 220px; }
+    .ab-bio p {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      margin: 0 0 24px 0;
+    }
+    .ab-bio p:last-child { margin-bottom: 0; }
+    .ab-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      border-left: 1px solid var(--rule);
+      padding-left: 32px;
+    }
+    .ab-lists-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(40px, 5vw, 64px) var(--gutter);
       border-top: 1px solid var(--rule);
     }
     .ab-left {
