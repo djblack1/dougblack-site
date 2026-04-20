@@ -9,10 +9,133 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    .ab-hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(64px, 10vw, 120px) var(--gutter) clamp(48px, 7vw, 80px);
+    }
+    .ab-hero-h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 4.5vw, 64px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      max-width: 820px;
+      margin: 0;
+    }
+    .ab-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(48px, 6vw, 80px) var(--gutter) clamp(64px, 9vw, 112px);
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+      border-top: 1px solid var(--rule);
+    }
+    .ab-left {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .ab-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+    .ab-meta-block h3 {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 10px 0;
+    }
+    .ab-meta-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ab-meta-block ul li {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.9;
+    }
+    .ab-meta-block p {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin: 0 0 12px 0;
+    }
+    .ab-meta-block p:last-child { margin-bottom: 0; }
+    .sidebar-cta {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--amber);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .sidebar-cta:hover { opacity: 0.75; }
+    .ab-bio p {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      margin: 0 0 24px 0;
+    }
+    .ab-bio p:last-child { margin-bottom: 0; }
+    .ab-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: clamp(48px, 6vw, 72px);
+      padding-top: clamp(40px, 5vw, 60px);
+      border-top: 1px solid var(--rule);
+    }
+    .ab-list-title {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 20px 0;
+    }
+    .ab-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ab-list li {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(16px, 1.8vw, 22px);
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .ab-list li:first-child { border-top: 1px solid var(--rule); }
+
+    @media (max-width: 768px) {
+      .ab-body { grid-template-columns: 1fr; gap: 40px; }
+      .ab-left { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+      .ab-photo { width: 160px; flex-shrink: 0; }
+      .ab-lists { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 480px) {
+      .ab-left { flex-direction: column; }
+      .ab-photo { width: 180px; }
+    }
+  </style>
+</head>
 <body>
 
-  <!-- PASSWORD GATE -->
   <div id="password-gate">
     <div class="gate-inner">
       <span class="gate-label">Password required</span>
@@ -27,7 +150,6 @@
 
   <div id="site" class="hidden">
 
-    <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-name">Doug Black — Creative Director, Writer, Content Designer</a>
       <div class="nav-links">
@@ -36,23 +158,18 @@
         <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
         <a href="ux.html" class="nav-link">UX + Product</a>
       </div>
-      </div>
     </nav>
 
-    <!-- ABOUT CONTENT -->
-    <section class="about-layout">
-      <div class="about-left">
-        <div class="about-photo">
-          <img src="images/doug-passport.png" alt="Doug Black — passport photo, CVS, January 2026">
+    <section class="ab-hero">
+      <h1 class="ab-hero-h1">I help brands, apps, start-ups, tech giants, and the occasional luxury sedan say what they mean.</h1>
+    </section>
+
+    <div class="ab-body">
+      <div class="ab-left">
+        <div class="ab-photo">
+          <img src="images/doug-passport.png" alt="Doug Black">
         </div>
-        <div class="about-bio">
-          <p>I'm a creative director and copywriter who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
-          <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a film, a brand manifesto, a campaign, or a really good tweet. I care that it works.</p>
-          <p>Less relevant prior experience includes: pizza deliveryman, guitarist in a nationally-touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
-        </div>
-      </div>
-      <div class="about-meta">
-        <div class="sidebar-block">
+        <div class="ab-meta-block">
           <h3>What I Do</h3>
           <ul>
             <li>Creative Direction</li>
@@ -65,21 +182,46 @@
             <li>Naming & Taglines</li>
           </ul>
         </div>
-        <div class="sidebar-block">
+        <div class="ab-meta-block">
           <h3>Currently</h3>
           <p>Available for freelance projects and full-time creative director roles.</p>
           <a href="mailto:dougblack1@gmail.com" class="sidebar-cta">Get in touch →</a>
         </div>
-        <div class="sidebar-block">
+        <div class="ab-meta-block">
           <h3>Based in</h3>
           <p>New York City / The Catskills</p>
         </div>
       </div>
-    </section>
 
-    <section class="about-body" style="display:none;"></section>
+      <div class="ab-right">
+        <div class="ab-bio">
+          <p>I'm a creative director, copywriter, and content designer who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
+          <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a campaign, a film, a brand manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
+        </div>
+        <div class="ab-lists">
+          <div>
+            <p class="ab-list-title">Less relevant prior experience</p>
+            <ul class="ab-list">
+              <li>Pizza deliveryman</li>
+              <li>Guitarist in nationally-touring punk band</li>
+              <li>Funeral assistant</li>
+              <li>Golf caddy</li>
+              <li>Berlin bicycle tour guide</li>
+              <li>Editorial translator for the Italian government</li>
+            </ul>
+          </div>
+          <div>
+            <p class="ab-list-title">Even less relevant certifications</p>
+            <ul class="ab-list">
+              <li>Level 1 Chainsaw Safety certificate</li>
+              <li>Ordained Minister in Nevada</li>
+              <li>NYS DEC fly fishing permit (I've caught 2 microscopic rainbow trout thus far)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-left">
         <span class="footer-name">Doug Black</span>
@@ -91,7 +233,7 @@
       </div>
     </footer>
 
-  </div><!-- /#site -->
+  </div>
 
   <script src="js/main.js"></script>
 </body>
