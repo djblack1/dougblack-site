@@ -1750,9 +1750,9 @@ footer {
   gap: 48px;
 }
 .page-sidebar-main {
-  max-width: 880px;
+  max-width: 780px;
   flex: none;
-  width: 880px;
+  width: 780px;
 }
 .page-sidebar-main .work-grid {
   grid-template-columns: repeat(2, 1fr) !important;
