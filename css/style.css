@@ -1742,38 +1742,25 @@ footer {
 }
 
 /* Wider work grid now sidebar is slim */
-.page-sidebar-main .work-grid {
-  grid-template-columns: repeat(2, 1fr) !important;
-}
-.work-sidebar {
-  width: 220px !important;
-}
-
 /* =============================================
    WORK PAGE LAYOUT — REBALANCED
    ============================================= */
 .page-with-sidebar {
-  gap: 0;
-  padding-right: 0;
-  position: relative;
+  justify-content: center;
+  gap: 48px;
 }
 .page-sidebar-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding-right: 48px;
+  max-width: 880px;
+  flex: none;
+  width: 880px;
+}
+.page-sidebar-main .work-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 .work-sidebar {
-  position: sticky !important;
-  top: 100px;
-  width: 180px !important;
+  width: 200px !important;
   flex-shrink: 0;
-  align-self: flex-start;
-  padding-left: 24px;
 }
 .work-sidebar .meta-value {
-  font-size: 13px !important;
   white-space: nowrap;
-}
-.work-sidebar .meta-label {
-  font-size: 10px !important;
 }
