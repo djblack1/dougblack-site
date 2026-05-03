@@ -108,7 +108,7 @@ img { display: block; width: 100%; height: auto; }
 
 #password-submit:hover { transform: translateX(4px); }
 
-.gate-hint { margin-top: 20px; font-size: 18px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; text-align: center; }
+.gate-hint { margin-top: 20px; font-size: 22px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; text-align: center; }
 .gate-hint a { color: var(--amber); text-decoration: none; }
 .gate-hint a:hover { text-decoration: underline; }
 
