@@ -8,205 +8,431 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+
+    /* ── HERO ─────────────────────────────────────── */
+    .lc-hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .lc-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .lc-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0) 100%);
+    }
+    .lc-hero-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: clamp(32px, 5vw, 64px) clamp(32px, 6vw, 80px);
+      max-width: 860px;
+    }
+    .lc-hero-h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(36px, 5.5vw, 76px);
+      font-weight: 600;
+      line-height: 1.05;
+      color: #F5F2EC;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.01em;
+    }
+    .lc-hero-sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,242,236,0.85);
+      margin: 0 0 20px 0;
+      line-height: 1.4;
+    }
+    .lc-hero-credit {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(245,242,236,0.65);
+      text-transform: uppercase;
+    }
+
+    /* ── PROOF STRIP ──────────────────────────────── */
+    .lc-proof {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lc-proof-cell {
+      padding: 48px 32px;
+      border-right: 1px solid var(--rule);
+    }
+    .lc-proof-cell:first-child { padding-left: 0; }
+    .lc-proof-cell:last-child { border-right: none; padding-right: 0; }
+    .lc-proof-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .lc-proof-label {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+
+    /* ── SHARED BODY STYLES ───────────────────────── */
+    .lc-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .lc-section {
+      padding-top: clamp(64px, 9vw, 112px);
+    }
+    .lc-section-last {
+      padding-bottom: clamp(64px, 9vw, 112px);
+    }
+    .lc-h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0 0 clamp(28px, 3.5vw, 48px) 0;
+      line-height: 1.15;
+    }
+    .lc-body-text {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 660px;
+    }
+    .lc-body-text em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ── WHAT I BUILT BLOCKS ──────────────────────── */
+    .lc-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: clamp(40px, 5vw, 64px) 0;
+      border-top: 1px solid var(--rule);
+    }
+    .lc-block-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      margin: 0 0 16px 0;
+    }
+    .lc-block-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+    }
+    .lc-block-body em {
+      font-style: italic;
+      color: var(--ink);
+    }
+    .lc-block-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .lc-block-image img:last-child { margin-bottom: 0; }
+    .lc-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e8e4de;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .lc-placeholder span {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      color: #9A9590;
+      text-align: center;
+      padding: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── 100 FACES ────────────────────────────────── */
+    .lc-faces-images {
+      margin-top: clamp(28px, 3.5vw, 48px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .lc-faces-images img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ── HEADLINE WALL ────────────────────────────── */
+    .lc-headlines {
+      border-top: 1px solid var(--rule);
+      margin-top: clamp(28px, 3.5vw, 48px);
+    }
+    .lc-headline-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 44px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.2;
+      padding: clamp(22px, 2.8vw, 36px) 0;
+      border-bottom: 1px solid var(--rule);
+      display: block;
+    }
+
+    /* ── WHAT CHANGED ─────────────────────────────── */
+    .lc-closing-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 640px;
+      margin-bottom: clamp(32px, 4vw, 56px);
+    }
+    .lc-closing-quote {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 44px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.35;
+      max-width: 720px;
+      padding-top: clamp(32px, 4vw, 56px);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── FOOTER CTA ───────────────────────────────── */
+    .lc-footer-cta {
+      border-top: 1px solid var(--rule);
+      padding: clamp(48px, 6vw, 80px) var(--gutter);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .lc-footer-cta a {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .lc-footer-cta a:hover { color: var(--amber); }
+    .lc-footer-cta-divider {
+      color: var(--rule);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────── */
+    #lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}
+    #lb-overlay.open{display:flex;}
+    #lb-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;}
+    .zoomable{cursor:zoom-in;}
+
+    /* ── MOBILE ───────────────────────────────────── */
+    @media (max-width: 860px) {
+      .lc-proof { grid-template-columns: repeat(2, 1fr); }
+      .lc-proof-cell:nth-child(2) { border-right: none; padding-right: 0; }
+      .lc-proof-cell:nth-child(3) { padding-left: 0; }
+      .lc-proof-cell:nth-child(3),
+      .lc-proof-cell:nth-child(4) { border-top: 1px solid var(--rule); }
+      .lc-proof-cell:nth-child(4) { border-right: none; padding-right: 0; }
+      .lc-block { grid-template-columns: 1fr; gap: 32px; }
+      .lc-block-image { order: -1; }
+      .lc-faces-images { grid-template-columns: 1fr; }
+      .lc-footer-cta { flex-direction: column; gap: 16px; text-align: center; }
+      .lc-footer-cta-divider { display: none; }
+    }
+    @media (max-width: 480px) {
+      .lc-proof { grid-template-columns: 1fr; }
+      .lc-proof-cell { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+      .lc-proof-cell:nth-child(n) { border-top: 1px solid var(--rule); }
+      .lc-proof-cell:first-child { border-top: none; }
+    }
+  </style>
+</head>
 <body>
 
   <!-- PASSWORD GATE -->
   <div id="password-gate">
     <div class="gate-inner">
+      <span class="gate-label">Password required</span>
       <div class="gate-form">
         <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
         <button id="password-submit">→</button>
       </div>
       <span class="gate-error" id="gate-error">try again</span>
-      <p class="gate-hint">Password protected at the request of a pushy NDA. I'll send it right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
+      <p class="gate-hint">Stumped? There's a 100% chance I'll give you the password. <a href="mailto:dougblack1@gmail.com">Just ask.</a></p>
     </div>
   </div>
 
   <div id="site" class="hidden">
 
     <nav>
-      <a href="../index.html" class="nav-name">Doug Black</a>
+      <a href="../index.html" class="nav-name">Doug Black — Creative Director, Writer, Content Designer</a>
       <div class="nav-links">
         <a href="../index.html" class="nav-link active">Work</a>
         <a href="../about.html" class="nav-link">About</a>
-        <a href="/cdn-cgi/l/email-protection#0b6f647e6c69676a68603a4b6c666a626725686466" class="nav-link">Contact</a>
+        <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
+        <a href="../ux.html" class="nav-link">UX + Product</a>
       </div>
     </nav>
 
-    <article class="case-study">
-
-      <header class="case-header">
-        <div class="case-header-meta">
-          <span class="case-number">01</span>
-          <div class="case-tags">
-            <span class="tag">Creative Direction</span>
-            <span class="tag">Brand Voice</span>
-            <span class="tag">Digital</span>
-            <span class="tag">UX Copy</span>
-            <span class="tag">Loyalty</span>
-          </div>
-        </div>
-        <h1 class="case-title">Lincoln Motor<br><em>Company.</em></h1>
-        <p class="case-subtitle">A 100-year-old brand, redefined around how luxury actually feels.</p>
-      </header>
-
-      <div class="case-hero-image lincoln-hero">
-        <img src="../images/lincoln/lincoln-hero-new.jpg" class="zoomable" onclick="lb(this.src)">
+    <!-- ── SECTION 1: HERO ─────────────────────────── -->
+    <section class="lc-hero">
+      <img src="../images/lincoln/lincoln-hero-new.jpg" alt="Lincoln Motor Company" class="zoomable" onclick="lb(this.src)">
+      <div class="lc-hero-overlay"></div>
+      <div class="lc-hero-text">
+        <h1 class="lc-hero-h1">I helped Lincoln go from 16th to 6.</h1>
+        <p class="lc-hero-sub">Premium automaker websites. JD Power, 2025.</p>
+        <span class="lc-hero-credit">Five years &nbsp;·&nbsp; Creative Director, Digital & Platform &nbsp;·&nbsp; Hudson Rouge / WPP</span>
       </div>
+    </section>
 
-      <div class="case-body">
-
-        <div class="case-intro-block">
-          <div class="case-challenge">
-            <h2>The Challenge</h2>
-            <p>Lincoln wasn't losing relevance because it lacked innovation. It was losing because it defined luxury the same way everyone else did: visually.</p>
-            <p>Screens got bigger. Interfaces got faster. Everything looked premium. Nothing felt different.</p>
-            <p>The opportunity wasn't to modernize Lincoln. It was to redefine what modern luxury means.</p>
-          </div>
-          <div class="case-role">
-            <h3>My Role</h3>
-            <ul>
-              <li>Creative Director, Digital & Platform</li>
-              <li>Hudson Rouge</li>
-              <li>5 Years</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            "Luxury isn't visual. It's physiological."
-          </blockquote>
-        </div>
-
-        <div class="case-section">
-          <h2>The Insight</h2>
-          <p>The way your breathing slows, your posture shifts. The way a space gives you control without demanding your attention. That became the foundation — not just for the product, but for everything around it.</p>
-          <p>Calm is a competitive advantage.</p>
-        </div>
-
-        <div class="case-section">
-          <h2>The Shift</h2>
-          <p>We repositioned Lincoln from what you see to what you feel. Every decision — product, digital, campaign — was built to reinforce one idea: less noise, more intention.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            13th among premium automaker websites.<br>Then #2.
-          </blockquote>
-          <cite>J.D. Power U.S. Manufacturer Website Evaluation Study</cite>
-        </div>
-
-        <div class="case-section">
-          <p>That's not a design win. It's what happens when a brand stops competing for attention and starts designing for response.</p>
-        </div>
-
-        <div class="case-image-row case-image-row--three case-image-row--fixed-height">
-          <img src="../images/lincoln/hybrid_vehicles.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/2025_navigator.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/black_label.png" class="zoomable" onclick="lb(this.src)">
-        </div>
-
-        <div class="case-section">
-          <h2>Lincoln Rejuvenate</h2>
-          <p>Rejuvenate wasn't a feature. It was proof of the whole thesis: light, sound, scent, massage, and 48 inches of panoramic nature display, working as one controlled experience. The goal wasn't to impress. It was to reset.</p>
-          <p>Gentle waves of pressure move across your back in sequence. Purposeful. Unhurried. Your muscles release one by one. Each exhale slows. Any tension you carried won't make it to your destination. By design. That's Lincoln Rejuvenate.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            "Take a seat. It'll take it from here."
-          </blockquote>
-        </div>
-
-        <div class="case-image-row case-image-row--three case-image-row--fixed-height">
-          <img src="../images/lincoln/lincoln_rejuvenate.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/rejuvenate_invehicle.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/rejuvenate_waterfalls.png" class="zoomable" onclick="lb(this.src)">
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            "Your cortisol isn't invited."
-          </blockquote>
-        </div>
-
-        <div class="case-section">
-          <h2>The Digital Experience</h2>
-          <p>Every page had to do two things: sell a car and redefine a brand. We rebuilt Lincoln's digital presence to behave like the product itself: calm, structured, intentional. Every interaction simplified — a reduction, not an addition. The writing was part of the architecture.</p>
-          <p>Features became experiences. Interfaces became environments. Technology stopped performing and started supporting.</p>
-        </div>
-
-        <div class="case-image-row case-image-row--single">
-          <img src="../images/lincoln/access-rewards-book.png" class="zoomable" onclick="lb(this.src)">
-        </div>
-
-        <div class="case-section">
-          <h2>Redeem Your Dream</h2>
-          <p>Lincoln Access Rewards let owners convert points into experiences — travel, culture, wellness, adventure. The social campaign asked one question: what would you do once you got there? Real owners. Real answers. The campaign ran across Instagram and TikTok and proved that Lincoln's luxury proposition extended well past the vehicle.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            "The car was never the destination."
-          </blockquote>
-        </div>
-
-        <div class="case-image-row case-image-row--three case-image-row--fixed-height">
-          <img src="../images/lincoln/redeemthedream1.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/redeemthedream2.png" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/redeemthedream3.png" class="zoomable" onclick="lb(this.src)">
-        </div>
-
-        <div class="case-section">
-          <h2>100 Faces of Lincoln</h2>
-          <p>For Lincoln's centennial, we built a year-long content platform around 100 creators who shared the brand's passions — music, travel, wellness, design — and gave each the tools and latitude to speak authentically to their own audiences. My role: platform extensions and editorial narrative for the series that gave 100 creators' stories a home beyond the feed.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            "A hundred voices. One brand becoming something new."
-          </blockquote>
-        </div>
-
-        <div class="case-stats">
-          <div class="stat-item"><span class="stat-number">52M</span><span class="stat-label">Impressions</span></div>
-          <div class="stat-item"><span class="stat-number">43.5M</span><span class="stat-label">Engagements</span></div>
-          <div class="stat-item"><span class="stat-number">7.6%</span><span class="stat-label">Engagement Rate</span></div>
-          <div class="stat-item"><span class="stat-number">23.2M</span><span class="stat-label">Video Views</span></div>
-        </div>
-
-        <div class="case-section">
-          <p>84% of audiences 35–54 reported increased brand favorability. The campaign directly sold over a dozen vehicles. Neither was ever a goal.</p>
-          <p><em>Silver Honor, Branded Content — 15th Annual Shorty Awards</em></p>
-        </div>
-
-        <div class="case-section">
-          <h2>The Through-Line</h2>
-          <p>Five years. Every touchpoint. One brief that kept getting more interesting. Many different executions. Always the same control, calm, and intent. That's what turns a collection of work into a brand.</p>
-        </div>
-
-        <div class="case-pullquote">
-          <blockquote>
-            Lincoln didn't need a louder voice.<br>It needed a cleaner one. That's what we built.
-          </blockquote>
-        </div>
-
+    <!-- ── SECTION 2: PROOF STRIP ──────────────────── -->
+    <div class="lc-proof">
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">16 → 6</span>
+        <span class="lc-proof-label">J.D. Power MWES 2025,<br>Manufacturer Website Rankings</span>
       </div>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">5 Years</span>
+        <span class="lc-proof-label">Creative Director,<br>Digital & Platform</span>
+      </div>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">.com + Launch + CRM</span>
+        <span class="lc-proof-label">Voice System Across<br>Every Owned Surface</span>
+      </div>
+      <div class="lc-proof-cell">
+        <span class="lc-proof-number">#1 American Brand</span>
+        <span class="lc-proof-label">Consumer Reports 2026 Brand Report Card,<br>Biggest jump of any brand on the list</span>
+      </div>
+    </div>
 
-    </article>
+    <div class="lc-body">
 
-    <!-- NEXT CASE -->
-    <div class="next-case">
-      <span class="next-label">Next</span>
-      <a href="soundcloud.html" class="next-link">SoundCloud Go →</a>
+      <!-- ── SECTION 3: THE BET ───────────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">The bet.</h2>
+        <p class="lc-body-text">Lincoln was a premium brand using mass-market rules. Louder websites, more features, more noise. We made the opposite bet: <em>luxury isn't visual, it's physiological.</em> Calm became the strategy. Every product, platform, and piece of copy got rebuilt around one idea: less noise, more intention.</p>
+      </section>
+
+      <!-- ── SECTION 4: WHAT I BUILT ─────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">What I built.</h2>
+
+        <!-- Block 1: The voice -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The voice.</h3>
+            <p class="lc-block-body">I helped lead the brand voice system that governed every line of Lincoln copy across .com, product launches, campaigns, and CRM — for five years, across a team of writers. Fewer adjectives. More silence. Sentences that sound like the cars feel.</p>
+          </div>
+          <div class="lc-block-image">
+            <img src="../images/lincoln/hybrid_vehicles.png" alt="Lincoln — vehicle page" class="zoomable" onclick="lb(this.src)">
+          </div>
+        </div>
+
+        <!-- Block 2: The architecture -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The architecture.</h3>
+            <p class="lc-block-body">We rebuilt the Lincoln.com experience around presence over performance specs. Cut feature tables. And led with photography, breath, restraint. JD Power moved 11 spots.</p>
+          </div>
+          <div class="lc-block-image">
+            <img src="../images/lincoln/black_label_new.png" alt="Lincoln Black Label" class="zoomable" onclick="lb(this.src)">
+          </div>
+        </div>
+
+        <!-- Block 3: The platform -->
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">The platform.</h3>
+            <p class="lc-block-body"><em>Rejuvenate</em> — Lincoln's in-vehicle wellness experience. I wrote the naming, the voice, and the digital launch campaign. <em>"Take a seat. It'll take it from here."</em></p>
+          </div>
+          <div class="lc-block-image" style="background:#1A1714; padding:16px; border-radius:4px;">
+            <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
+            <img src="../images/lincoln/rejuvenate_invehicle.png" alt="Lincoln Rejuvenate in-vehicle" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
+            <img src="../images/lincoln/rejuvenate_waterfalls.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 5: THE CULTURAL LAYER ───────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">The cultural layer.</h2>
+        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two campaigns that took Lincoln's voice beyond owned surfaces.</p>
+
+        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">Redeem the Dream</strong> turned Lincoln Access Rewards into culture, wellness, and adventure. I led the writing — platform line, campaign voice, social and .com expressions — extending the brand from the showroom into ownership.</p>
+
+        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">100 Faces of Lincoln</strong>, built with the Hudson Rouge team, was a year-long creator platform: 100 owners, their stories in their words. I contributed to the voice and editorial framework. 52M impressions. 7.6% engagement. Silver Shorty Honor.</p>
+        <div class="lc-faces-images" style="margin-top:0;">
+          <img src="../images/lincoln/redeemthedream1.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+          <img src="../images/lincoln/redeemthedream2.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+          <img src="../images/lincoln/redeemthedream3.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+        </div>
+      </section>
+
+      <!-- ── SECTION 7: WHAT CHANGED ───────────────── -->
+      <section class="lc-section lc-section-last">
+        <h2 class="lc-h2">What changed.</h2>
+        <p class="lc-closing-body">Five years. One brand. One thesis, executed across every surface Lincoln has. The work that started as digital copy became the brand's voice. The voice became the experience. The experience moved the business.</p>
+        <p class="lc-closing-quote">Lincoln didn't need a louder voice. It needed a cleaner one. That's what we built.</p>
+      </section>
+
+    </div><!-- /.lc-body -->
+
+    <!-- ── SECTION 8: FOOTER CTA ──────────────────── -->
+    <div class="lc-footer-cta">
+      <a href="https://www.lincoln.com" target="_blank" rel="noopener">See the live work →</a>
+      <span class="lc-footer-cta-divider">|</span>
+      <a href="soundcloud.html">Next case study: SoundCloud Go →</a>
+      <span class="lc-footer-cta-divider">|</span>
+      <a href="mailto:dougblack1@gmail.com">Let's talk →</a>
     </div>
 
     <footer>
       <div class="footer-left">
         <span class="footer-name">Doug Black</span>
-        <span class="footer-title">Creative Director & Copywriter</span>
       </div>
       <div class="footer-right">
         <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>
@@ -218,16 +444,10 @@
   </div><!-- /#site -->
 
   <script src="../js/main.js"></script>
-<style>
-#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;}
-#lb-overlay.open{display:flex;}
-#lb-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;}
-.zoomable{cursor:zoom-in;width:100%;height:auto;display:block;border-radius:4px;}
-</style>
-<div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
-<script>
-function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
-</script>
+  <div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
+  <script>
+    function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
+  </script>
 </body>
 </html>

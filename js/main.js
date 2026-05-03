@@ -8,7 +8,7 @@ const SESSION_KEY = 'db_auth';
 // ─── PASSWORD GATE ───────────────────────────
 
 function checkAuth() {
-  return sessionStorage.getItem(SESSION_KEY) === 'true';
+  return localStorage.getItem(SESSION_KEY) === 'true';
 }
 
 function unlock(animate = true) {
@@ -41,7 +41,7 @@ function initGate() {
 
   function attempt() {
     if (input.value.toLowerCase().trim() === SITE_PASSWORD) {
-      sessionStorage.setItem(SESSION_KEY, 'true');
+      localStorage.setItem(SESSION_KEY, 'true');
       unlock(true);
     } else {
       error.classList.add('visible');
