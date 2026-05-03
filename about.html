@@ -206,27 +206,70 @@
 
     /* Summary block */
     .ab-summary {
-      max-width: var(--max-width);
+      max-width: 680px;
       margin: 0 auto;
-      padding: 0 var(--gutter) clamp(40px, 5vw, 64px);
+      padding: clamp(40px, 5vw, 64px) var(--gutter);
+      text-align: center;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
     }
-    .ab-summary-list {
+    .ab-summary-eyebrow {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 20px 0;
+    }
+    .ab-summary-years {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-faint);
+      margin: 0 0 28px 0;
+      letter-spacing: 0.04em;
+    }
+    .ab-summary-lines {
       list-style: none;
       padding: 0;
       margin: 0;
-      border-top: 1px solid var(--rule);
-      padding-top: clamp(32px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .ab-summary-list li {
+    .ab-summary-lines li {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: clamp(16px, 1.8vw, 20px);
+      font-size: 14px;
       line-height: 1.6;
       color: var(--ink-light);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--rule);
     }
-    .ab-summary-list li:last-child { border-bottom: none; }
+    .ab-summary-lines li strong {
+      font-weight: 500;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      margin-right: 6px;
+    }
+    .ab-summary-open {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-faint);
+      letter-spacing: 0.02em;
+    }
 
+    /* How I work — standalone section */
+    .ab-how-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(48px, 6vw, 72px) var(--gutter);
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 64px;
+    }
     /* How I work */
     .ab-how {
       margin-top: clamp(40px, 5vw, 64px);
@@ -306,16 +349,6 @@
       <h1 class="ab-hero-h1"><span>I help brands, apps, start-ups, tech giants,</span><span>and the occasional luxury sedan say what they mean.</span></h1>
     </section>
 
-    <!-- SUMMARY BLOCK -->
-    <div class="ab-summary">
-      <ul class="ab-summary-list">
-        <li>Creative Director, writer, and content designer. NYC + Catskills.</li>
-        <li>15 years. Most recently Lincoln Motor Company at Hudson Rouge.</li>
-        <li>Campaigns and copy for Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx.</li>
-        <li>Brand voice systems for Goldman Sachs, SoundCloud, Verizon, Better.</li>
-        <li>Open to senior creative and content design roles. Full-time or freelance.</li>
-      </ul>
-    </div>
 
     <div class="ab-body">
       <div class="ab-left">
@@ -336,9 +369,8 @@
           </ul>
         </div>
         <div class="ab-meta-block">
-          <h3>Open To</h3>
-          <p>Full-time, freelance, or fractional.<br>NYC, remote, or hybrid.</p>
-          <a href="mailto:dougblack1@gmail.com" class="sidebar-cta">Get in touch →</a>
+          <h3>Availability</h3>
+          <p id="ab-availability">Taking on new work</p>
         </div>
         <div class="ab-meta-block">
           <h3>Recently</h3>
@@ -355,11 +387,6 @@
           <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="ux.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
           <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a campaign, a film, a brand manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
         </div>
-        <div class="ab-how">
-          <div class="ab-how-block">
-            <p class="ab-how-title">Working with AI.</p>
-            <p class="ab-how-body">I'm fluent. It makes the production superhuman; the choices stay human. A good example is the site you're looking at.</p>
-          </div>
           <div class="ab-how-block">
             <p class="ab-how-title">Building voice from zero.</p>
             <p class="ab-how-body">I've done it five times and counting. The approach is always the same: read everything the brand has ever published, find the three sentences they keep trying to write, and build the system that lets them finish those sentences out loud. It's both simpler and harder than it sounds.</p>
@@ -374,6 +401,27 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- SUMMARY BLOCK -->
+    <div class="ab-summary">
+      <p class="ab-summary-eyebrow">Creative Director &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Content Designer</p>
+      <p class="ab-summary-years">15 years &nbsp;·&nbsp; NYC + Catskills</p>
+      <ul class="ab-summary-lines">
+        <li><strong>Most recently:</strong> Lincoln Motor Company at Hudson Rouge</li>
+        <li><strong>Campaigns:</strong> Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx</li>
+        <li><strong>Voice systems:</strong> Goldman Sachs, SoundCloud, Verizon, Better</li>
+      </ul>
+      <p class="ab-summary-open">Open to senior creative and content design roles &nbsp;·&nbsp; Full-time or freelance</p>
+    </div>
+
+    <!-- HOW I WORK -->
+    <div class="ab-how-section">
+      <div class="ab-how">
+        <div class="ab-how-block">
+          <p class="ab-how-title">Working with AI.</p>
+          <p class="ab-how-body">I'm fluent. It makes the production superhuman; the choices stay human. A good example is the site you're looking at.</p>
+        </div>
     </div>
 
     <!-- CLOSING CTA -->
@@ -412,5 +460,14 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var el = document.getElementById('ab-availability');
+      if (!el) return;
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var now = new Date();
+      el.textContent = 'Taking on new work — ' + months[now.getMonth()] + ' ' + now.getFullYear();
+    })();
+  </script>
 </body>
 </html>
