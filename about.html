@@ -203,6 +203,77 @@
       color: var(--ink-light);
       line-height: 1.5;
     }
+
+    /* Summary block */
+    .ab-summary {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter) clamp(40px, 5vw, 64px);
+    }
+    .ab-summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: clamp(32px, 4vw, 48px);
+    }
+    .ab-summary-list li {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.6;
+      color: var(--ink-light);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .ab-summary-list li:last-child { border-bottom: none; }
+
+    /* How I work */
+    .ab-how {
+      margin-top: clamp(40px, 5vw, 64px);
+      padding-top: clamp(32px, 4vw, 48px);
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .ab-how-block {}
+    .ab-how-title {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 6px 0;
+    }
+    .ab-how-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-light);
+      margin: 0;
+    }
+
+    /* Closing CTA */
+    .ab-cta {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: clamp(48px, 6vw, 72px) var(--gutter);
+      text-align: center;
+      border-top: 1px solid var(--rule);
+    }
+    .ab-cta p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      margin: 0;
+    }
+    .ab-cta a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .ab-cta a:hover { color: var(--amber); }
   </style>
 </head>
 <body>
@@ -235,6 +306,17 @@
       <h1 class="ab-hero-h1"><span>I help brands, apps, start-ups, tech giants,</span><span>and the occasional luxury sedan say what they mean.</span></h1>
     </section>
 
+    <!-- SUMMARY BLOCK -->
+    <div class="ab-summary">
+      <ul class="ab-summary-list">
+        <li>Creative Director, writer, and content designer. NYC + Catskills.</li>
+        <li>15 years. Most recently Lincoln Motor Company at Hudson Rouge.</li>
+        <li>Campaigns and copy for Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx.</li>
+        <li>Brand voice systems for Goldman Sachs, SoundCloud, Verizon, Better.</li>
+        <li>Open to senior creative and content design roles. Full-time or freelance.</li>
+      </ul>
+    </div>
+
     <div class="ab-body">
       <div class="ab-left">
         <div class="ab-photo">
@@ -254,8 +336,8 @@
           </ul>
         </div>
         <div class="ab-meta-block">
-          <h3>Currently</h3>
-          <p>Taking on select projects.</p>
+          <h3>Open To</h3>
+          <p>Full-time, freelance, or fractional.<br>NYC, remote, or hybrid.</p>
           <a href="mailto:dougblack1@gmail.com" class="sidebar-cta">Get in touch →</a>
         </div>
         <div class="ab-meta-block">
@@ -273,28 +355,30 @@
           <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="ux.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
           <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a campaign, a film, a brand manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
         </div>
-        <div class="ab-lists">
-          <div>
-            <p class="ab-list-title">Less relevant prior experience</p>
-            <ul class="ab-list">
-              <li>Pizza deliveryman</li>
-              <li>Guitarist in nationally-touring punk band</li>
-              <li>Funeral assistant</li>
-              <li>Golf caddy</li>
-              <li>Berlin bicycle tour guide</li>
-              <li>Editorial translator for the Italian government</li>
-            </ul>
+        <div class="ab-how">
+          <div class="ab-how-block">
+            <p class="ab-how-title">Working with AI.</p>
+            <p class="ab-how-body">I'm fluent. It makes the production superhuman; the choices stay human. A good example is the site you're looking at.</p>
           </div>
-          <div>
-            <p class="ab-list-title">Even less relevant certifications</p>
-            <ul class="ab-list">
-              <li>Level 1 Chainsaw Safety certificate</li>
-              <li>Ordained Minister in Nevada</li>
-              <li>NYS DEC fly fishing permit (I've caught 2 microscopic rainbow trout thus far)</li>
-            </ul>
+          <div class="ab-how-block">
+            <p class="ab-how-title">Building voice from zero.</p>
+            <p class="ab-how-body">I've done it five times and counting. The approach is always the same: read everything the brand has ever published, find the three sentences they keep trying to write, and build the system that lets them finish those sentences out loud. It's both simpler and harder than it sounds.</p>
+          </div>
+          <div class="ab-how-block">
+            <p class="ab-how-title">Partnering with clients.</p>
+            <p class="ab-how-body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
+          </div>
+          <div class="ab-how-block">
+            <p class="ab-how-title">Working in regulated categories.</p>
+            <p class="ab-how-body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. That's a supremely underrated craft.</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- CLOSING CTA -->
+    <div class="ab-cta">
+      <p>The fastest way to start something is <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
     </div>
 
         <div class="ab-clients">
