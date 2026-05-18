@@ -282,6 +282,42 @@
       .lc-proof-cell:first-child { border-top: none; }
     }
   </style>
+<style>
+  .ux-sample-label {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+    display: block;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ux-sample-block {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 12px;
+  }
+  .ux-sample-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+  }
+  .ux-sample-note {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0;
+  }
+</style>
 </head>
 <body>
 
@@ -299,7 +335,7 @@
   <div id="site" class="hidden">
 
     <nav>
-      <a href="../index.html" class="nav-name">Doug Black — Creative Director &amp; Copywriter</a>
+      <a href="https://doug.black/" class="nav-name">Doug Black — Creative Director &amp; Copywriter</a>
       <div class="nav-links">
         <a href="../index.html" class="nav-link active">Work</a>
         <a href="../about.html" class="nav-link">About</a>
@@ -379,34 +415,12 @@
             <div class="lc-video-wrap">
               <iframe src="https://player.vimeo.com/video/220871179" title="SoundCloud Go campaign film" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <img src="../images/sc-adgrid-crop.png" alt="SoundCloud Go digital ads" class="zoomable" onclick="lb(this.src)" style="margin-top:16px;">
-          </div>
+</div>
         </div>
 
 
-        <!-- Campaign copy rack -->
-        <div class="case-section">
-          <span class="ux-sample-label">The campaign — SoundCloud Go</span>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"From death metal to live sets."</p>
-            <p class="ux-sample-note">Offline and ad-free.</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"From freestyle to free jazz."</p>
-            <p class="ux-sample-note">Downtown bound.</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"From 8-bit to 2-step."</p>
-            <p class="ux-sample-note">With no ads.</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"From yacht rock to pirate metal."</p>
-            <p class="ux-sample-note">Wherever you are.</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"From jumpstyle to hyphy."</p>
-            <p class="ux-sample-note">Offline and ad free.</p>
-          </div>
+        <div class="case-image-row case-image-row--single">
+          <img src="../images/sc-adgrid-crop.png" alt="SoundCloud Go launch campaign" class="zoomable" onclick="lb(this.src)">
         </div>
 
         <!-- Block 3: The hard email -->
