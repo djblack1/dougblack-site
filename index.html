@@ -223,11 +223,10 @@
       }
 
       function init() {
-        localStorage.setItem(SESSION_KEY, 'true'); // homepage auto-unlock
-        if (localStorage.getItem(SESSION_KEY) === 'true') {
-          unlock(false);
-          return;
-        }
+        // Homepage is ungated — clear auth so gated pages require password
+        localStorage.removeItem(SESSION_KEY);
+        unlock(false);
+        return;
         var input = document.getElementById('password-input');
         var btn = document.getElementById('password-submit');
         var error = document.getElementById('gate-error');
@@ -287,7 +286,7 @@
     }
   }
   function init() {
-    localStorage.setItem(SESSION_KEY, 'true'); // homepage auto-unlock
+    localStorage.removeItem(SESSION_KEY);
     unlock(false); return;
     var input = document.getElementById('password-input');
     var btn = document.getElementById('password-submit');
