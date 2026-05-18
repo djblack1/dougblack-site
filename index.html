@@ -13,20 +13,8 @@
 <body>
 
   <!-- PASSWORD GATE -->
-  <div id="password-gate">
-    <div class="gate-inner">
-      
-      <div class="gate-form">
-        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
-        <button id="password-submit">→</button>
-      </div>
-      <span class="gate-error" id="gate-error">try again</span>
-      <p class="gate-hint">Some client work is under NDA. I'll send it right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
-    </div>
-  </div>
-
   <!-- MAIN SITE -->
-  <div id="site" class="hidden">
+  <div id="site">
 
     <!-- NAV -->
     <nav>
@@ -223,7 +211,6 @@
       }
 
       function init() {
-        localStorage.setItem(SESSION_KEY, 'true'); // homepage auto-unlock
         if (localStorage.getItem(SESSION_KEY) === 'true') {
           unlock(false);
           return;
@@ -287,8 +274,7 @@
     }
   }
   function init() {
-    localStorage.setItem(SESSION_KEY, 'true'); // homepage auto-unlock
-    unlock(false); return;
+    if (localStorage.getItem(SESSION_KEY) === 'true') { unlock(false); return; }
     var input = document.getElementById('password-input');
     var btn = document.getElementById('password-submit');
     var error = document.getElementById('gate-error');
