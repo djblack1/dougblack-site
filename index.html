@@ -12,14 +12,25 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head>
 <body>
 
-
+  <!-- PASSWORD GATE -->
+  <div id="password-gate">
+    <div class="gate-inner">
+      
+      <div class="gate-form">
+        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
+        <button id="password-submit">→</button>
+      </div>
+      <span class="gate-error" id="gate-error">try again</span>
+      <p class="gate-hint">Password protected at the request of a pushy NDA. I'll send it right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
+    </div>
+  </div>
 
   <!-- MAIN SITE -->
-  <div id="site">
+  <div id="site" class="hidden">
 
     <!-- NAV -->
     <nav>
-      <a class='nav-name' href='/'>Doug Black — Creative Director & Copywriter</a>
+      <a class='nav-name' href='/'>Doug Black — Creative Director, Writer, Content Designer</a>
       <div class="nav-links">
         <a class='nav-link active' href='/'>Work</a>
         <a class='nav-link' href='/about'>About</a>
@@ -157,7 +168,27 @@
       </article>
 
       <!-- MILK / INTEL -->
-</section><!-- /.work-grid -->
+      <article class="work-item" data-index="09" style="display:none;">
+        <a class='work-item-inner' href='/work/google'>
+          <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
+            <div class="work-placeholder google-placeholder">
+              <span>Google for Work</span>
+            </div>
+            <div class="work-item-overlay">
+              <span class="overlay-cta">View Case Study →</span>
+            </div>
+          </div>
+          <div class="work-item-info">
+            <div class="work-item-header">
+              <h2 class="work-item-title">Google for Work</h2>
+              <span class="work-item-number">09</span>
+            </div>
+            <p class="work-item-desc">Three video ad scripts for Google for Work. Sometimes the brief is just: make Google sound like Google.</p>
+          </div>
+        </a>
+      </article>
+
+        </section><!-- /.work-grid -->
       </div><!-- /.page-sidebar-main -->
 
       <!-- SIDEBAR -->
@@ -176,6 +207,24 @@
 
     </div><!-- /.page-with-sidebar -->
 
+    <!-- CLIENT GRID FOOTER -->
+    <div class="wcf">
+      <span class="wcf-label">Clients</span>
+      <div class="wcf-grid">
+        <div class="client-category"><span class="client-cat-label">Art</span><span>Artnet</span><span>Pantone</span><span>Milk Studios</span></div>
+        <div class="client-category"><span class="client-cat-label">Auto</span><span>Lincoln</span><span>Audi</span><span>Mercedes-Benz</span><span>Infiniti</span></div>
+        <div class="client-category"><span class="client-cat-label">Capital</span><span>Goldman Sachs</span><span>American Express</span><span>Evercore</span></div>
+        <div class="client-category"><span class="client-cat-label">Consumer Brands</span><span>Pepsi</span><span>Bulleit</span><span>Buffy</span><span>Altoids</span><span>Chipotle</span></div>
+        <div class="client-category"><span class="client-cat-label">Financial</span><span>Better</span><span>XL Insurance</span><span>H&amp;R Block</span></div>
+        <div class="client-category"><span class="client-cat-label">Health</span><span>Pfizer</span><span>GE</span><span>Ergatta</span></div>
+        <div class="client-category"><span class="client-cat-label">Luxury</span><span>Four Seasons</span><span>Louis Vuitton</span><span>Barneys New York</span></div>
+        <div class="client-category"><span class="client-cat-label">Media</span><span>Bloomberg</span><span>Viacom</span><span>Verizon Wireless</span><span>Comcast</span><span>Optimum</span></div>
+        <div class="client-category"><span class="client-cat-label">Music</span><span>SoundCloud</span><span>JBL</span><span>Harmon Kardon</span></div>
+        <div class="client-category"><span class="client-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span></div>
+        <div class="client-category"><span class="client-cat-label">Studios</span><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
+      </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="footer-left">
@@ -189,122 +238,6 @@
     </footer>
 
   </div><!-- /#site -->
-  <script>
-    (function() {
-      var PASSWORD = 'greatwork';
-      var SESSION_KEY = 'db_auth';
-
-      function unlock(animate) {
-        var gate = document.getElementById('password-gate');
-        var site = document.getElementById('site');
-        site.classList.remove('hidden');
-        if (animate) {
-          gate.classList.add('fade-out');
-          setTimeout(function() {
-            gate.style.display = 'none';
-            site.classList.add('visible');
-          }, 500);
-        } else {
-          gate.style.display = 'none';
-          site.classList.add('visible');
-        }
-      }
-
-      function init() {
-        if (sessionStorage.getItem(SESSION_KEY) === 'true') {
-          unlock(false);
-          return;
-        }
-        var input = document.getElementById('password-input');
-        var btn = document.getElementById('password-submit');
-        var error = document.getElementById('gate-error');
-
-        function attempt() {
-          if (input.value.toLowerCase().trim() === PASSWORD) {
-            sessionStorage.setItem(SESSION_KEY, 'true'); if(typeof gtag !== 'undefined'){gtag('event','page_view',{'page_title':document.title,'page_location':window.location.href});};
-            unlock(true);
-          } else {
-            error.classList.add('visible');
-            input.value = '';
-            input.focus();
-            setTimeout(function() { error.classList.remove('visible'); }, 2000);
-          }
-        }
-
-        btn.addEventListener('click', attempt);
-        input.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') attempt();
-        });
-        setTimeout(function() { input.focus(); }, 100);
-      }
-
-      // Nav scroll
-      var nav = document.querySelector('nav');
-      if (nav) {
-        window.addEventListener('scroll', function() {
-          nav.classList.toggle('scrolled', window.scrollY > 20);
-        }, { passive: true });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
-<script>
-(function() {
-  var PASSWORD = 'greatwork';
-  var SESSION_KEY = 'db_auth';
-  function unlock(animate) {
-    var gate = document.getElementById('password-gate');
-    var site = document.getElementById('site');
-    if (!gate || !site) return;
-    site.classList.remove('hidden');
-    if (animate) {
-      gate.classList.add('fade-out');
-      setTimeout(function() {
-        gate.style.display = 'none';
-        site.classList.add('visible');
-      }, 500);
-    } else {
-      gate.style.display = 'none';
-      site.classList.add('visible');
-    }
-  }
-  function init() {
-    if (sessionStorage.getItem(SESSION_KEY) === 'true') { unlock(false); return; }
-    var input = document.getElementById('password-input');
-    var btn = document.getElementById('password-submit');
-    var error = document.getElementById('gate-error');
-    if (!input || !btn) return;
-    function attempt() {
-      if (input.value.toLowerCase().trim() === PASSWORD) {
-        sessionStorage.setItem(SESSION_KEY, 'true'); if(typeof gtag !== 'undefined'){gtag('event','page_view',{'page_title':document.title,'page_location':window.location.href});};
-        unlock(true);
-      } else {
-        if (error) error.classList.add('visible');
-        input.value = '';
-        input.focus();
-        setTimeout(function() { if (error) error.classList.remove('visible'); }, 2000);
-      }
-    }
-    btn.addEventListener('click', attempt);
-    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') attempt(); });
-    setTimeout(function() { input.focus(); }, 100);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
-</script><script>
-document.querySelectorAll('a[href*="cdn-cgi"]').forEach(function(a) {
-  a.href = 'mailto:dougblack1@gmail.com';
-  if (a.textContent.includes('protected')) a.textContent = 'dougblack1@gmail.com';
-});
-</script></body>
-</html<!-- /#site -->
   <script>
     (function() {
       var PASSWORD = 'greatwork';
