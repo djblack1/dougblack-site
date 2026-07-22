@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lincoln Motor Company, Doug Black</title>
+  <title>Lincoln Motor Company — Doug Black</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -103,6 +103,18 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--gutter);
+    }
+    .lc-showcase {
+      max-width: 1100px;
+      margin: clamp(40px, 5vw, 64px) auto 0;
+      padding: 0 var(--gutter);
+      box-sizing: border-box;
+    }
+    .lc-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
     }
     .lc-section {
       padding-top: clamp(64px, 9vw, 112px);
@@ -321,9 +333,8 @@
       <img src="../images/lincoln/lincoln-hero-new.jpg" alt="Lincoln Motor Company" class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
-        <h1 class="lc-hero-h1">I helped Lincoln go from 16th to 6.</h1>
-        <p class="lc-hero-sub">Lincoln.com. J.D. Power Manufacturer Website Evaluation Study, 2024–2025.</p>
-        <span class="lc-hero-credit">Five years &nbsp;·&nbsp; Creative Director, Digital & Platform &nbsp;·&nbsp; Hudson Rouge / WPP</span>
+        <h1 class="lc-hero-h1">I helped reinvent how Lincoln speaks. The results spoke even louder.</h1>
+        <span class="lc-hero-credit">Creative Director, Digital &amp; Platform &nbsp;·&nbsp; Hudson Rouge / WPP</span>
       </div>
     </section>
 
@@ -338,8 +349,8 @@
         <span class="lc-proof-label">Creative Director,<br>Digital & Platform</span>
       </div>
       <div class="lc-proof-cell">
-        <span class="lc-proof-number">.com + Launch + CRM</span>
-        <span class="lc-proof-label">Voice System Across<br>Every Owned Surface</span>
+        <span class="lc-proof-number">Every digital touchpoint</span>
+        <span class="lc-proof-label">Website, CRM, Launches,<br>Product, Campaign</span>
       </div>
       <div class="lc-proof-cell">
         <span class="lc-proof-number">#1 American Brand</span>
@@ -347,11 +358,16 @@
       </div>
     </div>
 
+    <!-- ── SHOWCASE: REAL CAMPAIGN ─────────────────── -->
+    <div class="lc-showcase">
+      <img src="../images/lincoln/lincoln-journey.jpg" alt="Lincoln campaign — Your journey awaits." class="zoomable" onclick="lb(this.src)">
+    </div>
+
     <div class="lc-body">
 
       <!-- ── SECTION 3: THE BET ───────────────────── -->
       <section class="lc-section">
-        <h2 class="lc-h2">The bet.</h2>
+        <h2 class="lc-h2">The strategy.</h2>
         <p class="lc-body-text">Lincoln was a premium brand using mass-market rules. Louder websites, more features, more noise. We made the opposite bet: <em>luxury isn't visual, it's physiological.</em> Calm became the strategy. Every product, platform, and piece of copy got rebuilt around one idea: less noise, more intention.</p>
       </section>
 
@@ -363,7 +379,7 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The voice.</h3>
-            <p class="lc-block-body">I helped lead the brand voice system that governed every line of Lincoln copy across .com, product launches, campaigns, and CRM, for five years, across a team of writers. Fewer adjectives. More silence. Sentences that sound like the cars feel.</p>
+            <p class="lc-block-body">I helped lead the brand voice system that governed every line of Lincoln copy across .com, product launches, campaigns, and CRM, for five years, across a team of writers. Fewer adjectives. More silence. Sentences that sound like the vehicles feel.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/lincoln/hybrid_vehicles.png" alt="Lincoln — vehicle page" class="zoomable" onclick="lb(this.src)">
@@ -374,7 +390,7 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The architecture.</h3>
-            <p class="lc-block-body">We rebuilt the Lincoln.com experience around presence over performance specs. Cut feature tables. Led with photography, breath, restraint.</p>
+            <p class="lc-block-body">We rebuilt the Lincoln.com experience around presence over performance specs. Cut feature tables. Led with photography, breath, and restraint.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/lincoln/black_label_new.png" alt="Lincoln Black Label" class="zoomable" onclick="lb(this.src)">
@@ -385,7 +401,7 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The platform.</h3>
-            <p class="lc-block-body"><em>Rejuvenate</em>, Lincoln's in-vehicle wellness experience. I wrote the naming, the voice, and the digital launch campaign. <em>"Take a seat. It'll take it from here."</em></p>
+            <p class="lc-block-body">I concepted and wrote the launch of <em>Rejuvenate</em>, Lincoln's in-vehicle wellness experience. The naming, the voice, and the digital campaign. <em>"Take a seat. It'll take it from here."</em></p>
           </div>
           <div class="lc-block-image" style="background:#1A1714; padding:16px; border-radius:4px;">
             <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
@@ -399,7 +415,7 @@
       <!-- ── SECTION 5: THE CULTURAL LAYER ───────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The cultural layer.</h2>
-        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two campaigns that took Lincoln's voice beyond owned surfaces.</p>
+        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two campaigns that took Lincoln's voice beyond purely owned surfaces.</p>
 
         <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">Redeem the Dream</strong> turned Lincoln Access Rewards into culture, wellness, and adventure. I led the writing, platform line, campaign voice, social and .com expressions, extending the brand from the showroom into ownership.</p>
 
@@ -414,8 +430,8 @@
       <!-- ── SECTION 7: WHAT CHANGED ───────────────── -->
       <section class="lc-section lc-section-last">
         <h2 class="lc-h2">What changed.</h2>
-        <p class="lc-closing-body">Five years. One brand. One thesis, executed across every surface Lincoln has. The work that started as digital copy became the brand's voice. The voice became the experience. The experience moved the business.</p>
-        <p class="lc-closing-quote">Lincoln didn't need a louder voice. It needed a cleaner one. That's what we built.</p>
+        <p class="lc-closing-body">Hundreds of digital experiences. Dozens of launches. One unified language, executed across every surface Lincoln has. The work that started as digital copy became the brand's voice. The voice became the experience. The experience moved the business.</p>
+        <p class="lc-closing-quote">Lincoln didn't need a louder voice. It needed a cleaner one. That's what I built.</p>
       </section>
 
     </div><!-- /.lc-body -->
