@@ -49,7 +49,7 @@
     }
     .lc-hero-sub {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(16px, 2vw, 24px);
+      font-size: clamp(20px, 2.6vw, 34px);
       font-weight: 300;
       font-style: italic;
       color: rgba(245,242,236,0.85);
@@ -103,18 +103,6 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--gutter);
-    }
-    .lc-showcase {
-      max-width: 1100px;
-      margin: clamp(40px, 5vw, 64px) auto 0;
-      padding: 0 var(--gutter);
-      box-sizing: border-box;
-    }
-    .lc-showcase img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
     }
     .lc-section {
       padding-top: clamp(64px, 9vw, 112px);
@@ -177,6 +165,8 @@
       margin-bottom: 16px;
     }
     .lc-block-image img:last-child { margin-bottom: 0; }
+    .lc-rejuvenate img { margin-bottom: 24px; border-radius: 4px; }
+    .lc-rejuvenate img:last-child { margin-bottom: 0; }
     .lc-placeholder {
       width: 100%;
       aspect-ratio: 4/3;
@@ -333,7 +323,8 @@
       <img src="../images/lincoln/lincoln-hero-new.jpg" alt="Lincoln Motor Company" class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
-        <h1 class="lc-hero-h1">I helped reinvent how Lincoln speaks. The results spoke even louder.</h1>
+        <h1 class="lc-hero-h1">I helped reinvent how Lincoln speaks.</h1>
+        <p class="lc-hero-sub">The results spoke even louder.</p>
         <span class="lc-hero-credit">Creative Director, Digital &amp; Platform &nbsp;·&nbsp; Hudson Rouge / WPP</span>
       </div>
     </section>
@@ -358,17 +349,19 @@
       </div>
     </div>
 
-    <!-- ── SHOWCASE: REAL CAMPAIGN ─────────────────── -->
-    <div class="lc-showcase">
-      <img src="../images/lincoln/lincoln-journey.jpg" alt="Lincoln campaign — Your journey awaits." class="zoomable" onclick="lb(this.src)">
-    </div>
-
     <div class="lc-body">
 
       <!-- ── SECTION 3: THE BET ───────────────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The strategy.</h2>
-        <p class="lc-body-text">Lincoln was a premium brand using mass-market rules. Louder websites, more features, more noise. We made the opposite bet: <em>luxury isn't visual, it's physiological.</em> Calm became the strategy. Every product, platform, and piece of copy got rebuilt around one idea: less noise, more intention.</p>
+        <div class="lc-block">
+          <div class="lc-block-text">
+            <p class="lc-block-body">Lincoln was a premium brand using mass-market rules. Louder websites, more features, more noise. We made the opposite bet: <em>luxury isn't visual, it's physiological.</em> Calm became the strategy. Every product, platform, and piece of copy got rebuilt around one idea: less noise, more intention.</p>
+          </div>
+          <div class="lc-block-image">
+            <img src="../images/lincoln/lincoln-journey.jpg" alt="Lincoln campaign — Your journey awaits." class="zoomable" onclick="lb(this.src)">
+          </div>
+        </div>
       </section>
 
       <!-- ── SECTION 4: WHAT I BUILT ─────────────── -->
@@ -403,7 +396,7 @@
             <h3 class="lc-block-title">The platform.</h3>
             <p class="lc-block-body">I concepted and wrote the launch of <em>Rejuvenate</em>, Lincoln's in-vehicle wellness experience. The naming, the voice, and the digital campaign. <em>"Take a seat. It'll take it from here."</em></p>
           </div>
-          <div class="lc-block-image" style="background:#1A1714; padding:16px; border-radius:4px;">
+          <div class="lc-block-image lc-rejuvenate">
             <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
             <img src="../images/lincoln/rejuvenate_invehicle.png" alt="Lincoln Rejuvenate in-vehicle" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
             <img src="../images/lincoln/rejuvenate_waterfalls.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
