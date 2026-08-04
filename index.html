@@ -11,22 +11,24 @@
   <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg">  <style>
     /* Homepage rebuild — left-aligned hero, card proof/links, client line */
-    .hero-statement { text-align: left; }
+    .hero-statement { text-align: center; }
     .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .hero-statement-h1 { text-align: left; }
+    .hero-statement-h1 { text-align: center; }
     .hero-statement-sub {
-      text-align: left;
-      max-width: 600px;
+      text-align: center;
+      max-width: 640px;
       font-size: 20px;
       line-height: 1.6;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-statement-links {
-      max-width: 600px;
       margin-top: 24px;
       font-size: 16px;
+      text-align: center;
     }
+    .hero-inline { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .hero-inline:hover { color: var(--amber); }
     .hero-statement-links .hero-link { font-weight: 500; }
     .work-item-proof {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -99,7 +101,7 @@
     <section class="hero-statement">
       <div class="hero-statement-inner">
         <h1 class="hero-statement-h1">Most brand problems are writing problems.</h1>
-        <p class="hero-statement-sub">I've spent fifteen years solving them for Lincoln, SoundCloud, Goldman Sachs, and Pepsi, and built five brand voice systems from zero. One of them still runs a company I left in 2017.</p>
+        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/goldman-sachs/" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>, and built five brand voice systems from zero. One company still runs on the one I made in 2017.</p>
         <p class="hero-statement-links"><a href="#work" class="hero-link">See the work →</a> &nbsp;·&nbsp; <a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
         <a href="mailto:dougblack1@gmail.com" class="hero-cta">Let's get to work →</a>
       </div>
