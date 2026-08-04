@@ -3,13 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doug Black — Creative Director & Copywriter</title>
+  <title>Doug Black, Creative Director & Writer</title>
   <meta name="description" content="Doug Black is a creative director and copywriter who turns complicated messaging puzzles into language real people actually want to read.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg">  <style>
+    /* Homepage rebuild — left-aligned hero, card proof/links, client line */
+    .hero-statement { text-align: left; }
+    .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .hero-statement-h1 { text-align: left; }
+    .hero-statement-sub {
+      text-align: left;
+      max-width: 600px;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .hero-statement-links {
+      max-width: 600px;
+      margin-top: 24px;
+      font-size: 16px;
+    }
+    .hero-statement-links .hero-link { font-weight: 500; }
+    .work-item-proof {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-faint, #9a948a);
+      margin: 8px 0 0 0;
+      line-height: 1.5;
+    }
+    .work-item-links {
+      margin: 14px 0 0 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+    }
+    .work-item-links .wcard-link {
+      color: var(--amber, #b08d3f);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .work-item-links .wcard-link:hover { text-decoration: underline; }
+    .work-item-links .wcard-sep { color: var(--ink-faint, #c9c3b8); margin: 0 4px; }
+    .client-line {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 40px 80px;
+      border-top: 1px solid var(--rule, #e5e0d5);
+    }
+    .client-line p {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-faint, #9a948a);
+      letter-spacing: 0.03em;
+      line-height: 1.9;
+      margin: 24px 0 0 0;
+    }
+    @media (max-width: 768px) {
+      .hero-statement-sub, .hero-statement-links { max-width: 100%; }
+    }
+  </style>
+</head>
 <body>
 
   <!-- PASSWORD GATE -->
@@ -33,9 +89,9 @@
       <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Writer</a>
       <div class="nav-links">
         <a class='nav-link active' href='/'>Work</a>
+        <a class='nav-link' href='/voice-systems'>Voice Systems</a>
         <a class='nav-link' href='/about'>About</a>
-        <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
-        <a href="/ux" class="nav-link">UX + Product</a>
+        <a href="/doug-black-resume.pdf" class="nav-link">Resume</a>
       </div>
     </nav>
 
@@ -43,128 +99,151 @@
     <section class="hero-statement">
       <div class="hero-statement-inner">
         <h1 class="hero-statement-h1">Most brand problems are writing problems.</h1>
-        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-link">Lincoln</a>, <a href="/work/soundcloud" class="hero-link">SoundCloud</a>, <a href="/ux" class="hero-link">Goldman Sachs</a>, <a href="/work/pepsi" class="hero-link">Pepsi</a> and, God willing, the person reading this.</p>
+        <p class="hero-statement-sub">I've spent fifteen years solving them for Lincoln, SoundCloud, Goldman Sachs, and Pepsi, and built five brand voice systems from zero. One of them still runs a company I left in 2017.</p>
+        <p class="hero-statement-links"><a href="#work" class="hero-link">See the work →</a> &nbsp;·&nbsp; <a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
         <a href="mailto:dougblack1@gmail.com" class="hero-cta">Let's get to work →</a>
       </div>
     </section>
 
     <!-- MAIN CONTENT: WORK GRID + SIDEBAR -->
     <div class="page-with-sidebar" style="display:flex;align-items:flex-start;gap:48px;max-width:1200px;margin:0 auto;padding:0 40px 80px;">
-      <div class="page-sidebar-main" style="flex:1;min-width:0;">
+      <div class="page-sidebar-main" style="flex:1;min-width:0;" id="work">
         <section class="work-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:40px;width:100%;max-width:none;margin:0;padding:0;">
 
-      <!-- LINCOLN -->
       <article class="work-item work-item--featured" data-index="01">
+        <a class='work-item-inner' href='/work/area15'>
+          <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
+            <img src="/images/area15-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="AREA15">
+          </div>
+          <div class="work-item-info">
+            <div class="work-item-header">
+              <h2 class="work-item-title">AREA15</h2>
+              <span class="work-item-number">01</span>
+            </div>
+            <p class="work-item-desc">Full-site voice and copy for a 35-acre immersive entertainment district off the Las Vegas Strip.</p>
+            <p class="work-item-proof">Thirty pages, forty-plus attractions, ten weeks, one writer. 2026.</p>
+          </div>
+        </a>
+        <p class="work-item-links"><a href="/work/area15" class="wcard-link">View case study →</a></p>
+      </article>
+
+      <article class="work-item" data-index="02">
         <a class='work-item-inner' href='/work/lincoln'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
             <img src="/images/lincoln/lincoln-sketch.jpeg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Lincoln Motor Company">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
               <h2 class="work-item-title">Lincoln Motor Company</h2>
-              <span class="work-item-number">01</span>
+              <span class="work-item-number">02</span>
             </div>
-            <p class="work-item-desc">Five years on one brand. I elevated and unified Lincoln's voice across every digital surface under the sun.</p>
+            <p class="work-item-desc">Five years leading digital copy for one brand, across .com, launches, campaigns, and CRM.</p>
+            <p class="work-item-proof">J.D. Power manufacturer website ranking: 16th to 6th in twelve months.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/lincoln" class="wcard-link">View case study →</a></p>
       </article>
 
-      <!-- SOUNDCLOUD -->
-      <article class="work-item" data-index="02">
+      <article class="work-item" data-index="03">
         <a class='work-item-inner' href='/work/soundcloud'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
             <img src="/images/soundcloud-headphones.png" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="SoundCloud Go">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
               <h2 class="work-item-title">SoundCloud Go</h2>
-              <span class="work-item-number">02</span>
+              <span class="work-item-number">03</span>
             </div>
-            <p class="work-item-desc">First-ever dedicated writer. I launched a subscription service, established a brand voice, and celebrated artists while the music industry navigated its perpetual demise.</p>
+            <p class="work-item-desc">First dedicated writer in the company's history. I built the brand voice and launched the subscription.</p>
+            <p class="work-item-proof">175 million free users, asked to start paying. The voice is still running.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/soundcloud" class="wcard-link">View case study →</a></p>
       </article>
 
-      <!-- AIR CO -->
-      <article class="work-item" data-index="03">
+      <article class="work-item" data-index="04">
+        <a class='work-item-inner' href='/voice-systems/goldman-sachs/'>
+          <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
+            <img src="/images/goldman-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Goldman Sachs Private Wealth">
+          </div>
+          <div class="work-item-info">
+            <div class="work-item-header">
+              <h2 class="work-item-title">Goldman Sachs Private Wealth</h2>
+              <span class="work-item-number">04</span>
+            </div>
+            <p class="work-item-desc">A voice and content system for a platform serving clients with $10M+ in investable assets.</p>
+            <p class="work-item-proof">Written to survive compliance and still sound like a person. 2018–2020.</p>
+          </div>
+        </a>
+        <p class="work-item-links"><a href="/voice-systems/goldman-sachs/" class="wcard-link">View case study →</a></p>
+      </article>
+
+      <article class="work-item" data-index="05">
         <a class='work-item-inner' href='/work/airco'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
             <img src="/images/airco/airco4.webp" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Air Co.">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
               <h2 class="work-item-title">Air Co.</h2>
-              <span class="work-item-number">03</span>
+              <span class="work-item-number">05</span>
             </div>
-            <p class="work-item-desc">They made vodka from carbon pulled out of the sky. My job: make that sound like a luxury brand, not a science fair project.</p>
+            <p class="work-item-desc">Brand voice, manifesto, and tagline for a vodka distilled from atmospheric carbon.</p>
+            <p class="work-item-proof">Fast Company Top 10 Product Launches of 2019.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/airco" class="wcard-link">View case study →</a></p>
       </article>
 
-      <!-- PEPSI -->
-      <article class="work-item" data-index="04">
+      <article class="work-item" data-index="06">
         <a class='work-item-inner' href='/work/pepsi'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/pepsi/pepsi-thumb2.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Pepsi Refresh Project" style="object-position:right center!important;">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
+            <img src="/images/pepsi/pepsi-thumb2.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;object-position:right center;" alt="Pepsi Refresh Project">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
               <h2 class="work-item-title">Pepsi Refresh Project</h2>
-              <span class="work-item-number">04</span>
+              <span class="work-item-number">06</span>
             </div>
-            <p class="work-item-desc">Pepsi redirected their Super Bowl budget into $20M of community grants. I was the first writer to put the whole thing into words.</p>
+            <p class="work-item-desc">First writer on the platform that redirected Pepsi's $20M Super Bowl budget into public grants.</p>
+            <p class="work-item-proof">87 million votes cast. #16 to #5 among America's most reputable brands.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/pepsi" class="wcard-link">View case study →</a></p>
       </article>
 
-      <!-- FOUR SEASONS -->
-      <article class="work-item" data-index="05">
+      <article class="work-item" data-index="07">
         <a class='work-item-inner' href='/work/fourseasons'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
             <img src="/images/fourseasons/fourseasons-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Four Seasons">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
-              <h2 class="work-item-title">Four Seasons Rebrand</h2>
-              <span class="work-item-number">05</span>
+              <h2 class="work-item-title">Four Seasons</h2>
+              <span class="work-item-number">07</span>
             </div>
-            <p class="work-item-desc">Reported and wrote original stories for virtually every Four Seasons property on earth. Because the whole "impeccable service" thing had been done.</p>
+            <p class="work-item-desc">Huge rebranded Four Seasons. I built the editorial framework and reported the stories that filled it.</p>
+            <p class="work-item-proof">30+ properties, dozens of languages. International Design Awards: Gold.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/fourseasons" class="wcard-link">View case study →</a></p>
       </article>
 
-      <!-- AUDI -->
-      <article class="work-item" data-index="06">
+      <article class="work-item" data-index="08">
         <a class='work-item-inner' href='/work/audi'>
           <div class="work-item-image" style="height:260px;width:100%;overflow:hidden;position:relative;background:#1A1714;">
             <img src="/images/audi-hero.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Audi: Plugging In">
-            <div class="work-item-overlay">
-              <span class="overlay-cta">View Case Study →</span>
-            </div>
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
               <h2 class="work-item-title">Audi: Plugging In</h2>
-              <span class="work-item-number">06</span>
+              <span class="work-item-number">08</span>
             </div>
-            <p class="work-item-desc">To launch Audi's first plug-in hybrid, we looked back 50 years: to Dylan going electric at Newport. The ripples are still going.</p>
+            <p class="work-item-desc">Concept and script for a branded documentary on Audi's first plug-in hybrid.</p>
+            <p class="work-item-proof">Fifty years after Dylan went electric at Newport, another first plug.</p>
           </div>
         </a>
+        <p class="work-item-links"><a href="/work/audi" class="wcard-link">View case study →</a></p>
       </article>
 
       <!-- MILK / INTEL -->
@@ -176,12 +255,16 @@
       <aside class="work-sidebar">
         <div class="sidebar-section">
           <div class="credential-meta-item">
-            <span class="meta-label">Currently</span>
-            <span class="meta-value">Taking on select projects.</span>
+            <span class="meta-label">Available</span>
+            <span class="meta-value">Full-time, fractional, or freelance. New York or remote.</span>
           </div>
-          <div class="credential-meta-item" style="margin-top: 20px;">
-            <span class="meta-label">Recently</span>
-            <span class="meta-value">Creative Director, Hudson Rouge</span>
+          <div class="credential-meta-item" style="margin-top: 24px;">
+            <span class="meta-label">Most Recently</span>
+            <span class="meta-value">Creative Director, Hudson Rouge (WPP)</span>
+          </div>
+          <div class="credential-meta-item" style="margin-top: 24px;">
+            <span class="meta-label">Currently</span>
+            <span class="meta-value">Brand voice and site copy, AREA15 Las Vegas</span>
           </div>
         </div>
       </aside>
@@ -189,21 +272,9 @@
     </div><!-- /.page-with-sidebar -->
 
     <!-- CLIENT GRID -->
-    <div class="wcf">
-      <span class="wcf-label">Clients</span>
-      <div class="wcf-grid">
-        <div class="client-category"><span class="client-cat-label">Art</span><span>Artnet</span><span>Pantone</span><span>Milk Studios</span></div>
-        <div class="client-category"><span class="client-cat-label">Auto</span><span>Lincoln</span><span>Audi</span><span>Mercedes-Benz</span><span>Infiniti</span></div>
-        <div class="client-category"><span class="client-cat-label">Capital</span><span>Goldman Sachs</span><span>American Express</span><span>Evercore</span></div>
-        <div class="client-category"><span class="client-cat-label">Consumer Brands</span><span>Pepsi</span><span>Target</span><span>Bulleit</span><span>Buffy</span><span>Altoids</span><span>Chipotle</span></div>
-        <div class="client-category"><span class="client-cat-label">Financial</span><span>Better</span><span>XL Insurance</span><span>H&amp;R Block</span></div>
-        <div class="client-category"><span class="client-cat-label">Health</span><span>Pfizer</span><span>GE</span><span>Ergatta</span></div>
-        <div class="client-category"><span class="client-cat-label">Luxury</span><span>Four Seasons</span><span>Louis Vuitton</span><span>Barneys New York</span></div>
-        <div class="client-category"><span class="client-cat-label">Media</span><span>Bloomberg</span><span>Viacom</span><span>Verizon Wireless</span><span>Comcast</span><span>Optimum</span></div>
-        <div class="client-category"><span class="client-cat-label">Music</span><span>SoundCloud</span><span>JBL</span><span>Harmon Kardon</span></div>
-        <div class="client-category"><span class="client-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span></div>
-        <div class="client-category"><span class="client-cat-label">Studios</span><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
-      </div>
+    <div class="client-line">
+      <p>Also: American Express · Verizon · Better · Evercore · Louis Vuitton · Mercedes-Benz · Bulleit · Chipotle · Google · Intel · GE · Pfizer · Target · Bloomberg</p>
+    </div>
     </div>
 
     <!-- FOOTER -->

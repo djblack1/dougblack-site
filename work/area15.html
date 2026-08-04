@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AREA15, Doug Black</title>
+<style>
+  /* ------------------------------------------------------------------
+     NOTE FOR DOUG:
+     The markup inside <article class="case-study"> uses the same class
+     names as your existing case study pages (case-header, case-title,
+     case-pullquote, ux-sample-block, etc.), so you can lift the <article>
+     straight into your template and delete everything in this <style>
+     block. New classes introduced here — .case-stats, .case-compare,
+     .case-leadership — are the only ones you'd need to add to your CSS.
+     ------------------------------------------------------------------ */
+
+  :root {
+    /* Cream palette, matched to doug.black. Copy-sample blocks stay dark,
+       the same way the Air Co. manifesto blocks do on the live site. */
+    --bg: #f5f1e8;
+    --bg-raised: #1c1a17;      /* dark copy-sample blocks */
+    --text: #1c1a17;
+    --text-dim: #8a857c;
+    --accent: #b08d3f;
+    --rule: #ddd7c9;
+    --sample-text: #f0ece1;
+    --sample-dim: #a49f95;
+    --sample-rule: #34302b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Poppins", "Jost", "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  .case-study {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 96px 32px 140px;
+  }
+
+  /* ---------- header ---------- */
+
+  .case-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .case-number {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--text-dim);
+  }
+
+  .case-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    padding: 5px 13px;
+  }
+
+  .case-title {
+    font-size: clamp(38px, 6vw, 62px);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+
+  .case-title em {
+    display: block;
+    font-style: italic;
+    color: var(--text-dim);
+    margin-top: 10px;
+  }
+
+  .case-subtitle {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 64px;
+  }
+
+  /* ---------- body ---------- */
+
+  .case-body h2 {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 76px 0 22px;
+  }
+
+  .case-body h3 {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 14px;
+  }
+
+  .case-body p {
+    font-size: 18px;
+    line-height: 1.72;
+    margin: 0 0 22px;
+    color: var(--text);
+  }
+
+  .case-intro-block p:first-child { margin-top: 0; }
+
+  /* ---------- pull quotes ---------- */
+
+  .case-pullquote {
+    margin: 80px 0;
+    padding-left: 26px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .case-pullquote blockquote {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 3.6vw, 36px);
+    line-height: 1.28;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+
+  .case-pullquote cite {
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ---------- role / result columns ---------- */
+
+  .case-role {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin: 56px 0 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .case-role ul { margin: 0; padding: 0; list-style: none; }
+
+  .case-role li {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+
+  /* ---------- stat bar ---------- */
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin: 64px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case-stats .stat-num {
+    display: block;
+    font-size: clamp(30px, 4.4vw, 44px);
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .case-stats .stat-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.55;
+    color: var(--text-dim);
+  }
+
+  /* ---------- copy samples ---------- */
+
+  .ux-sample-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 12px;
+  }
+
+  .ux-sample-block {
+    background: var(--bg-raised);
+    border: 1px solid var(--sample-rule);
+    border-radius: 3px;
+    padding: 40px 42px;
+    margin: 0 0 30px;
+    color: var(--sample-text);
+  }
+
+  .ux-sample-block p { color: var(--sample-text); }
+
+  .ux-sample-text {
+    font-size: 21px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 20px !important;
+  }
+
+  .ux-sample-block .ux-sample-text:last-child { margin-bottom: 0 !important; }
+
+  .ux-sample-head {
+    font-size: 30px !important;
+    line-height: 1.22 !important;
+    margin: 0 0 14px !important;
+    letter-spacing: -0.005em;
+  }
+
+  .ux-sample-meta {
+    font-size: 12px !important;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sample-dim) !important;
+    margin: 22px 0 0 !important;
+  }
+
+  .case-source {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    color: var(--text-dim) !important;
+    margin: 0 0 22px !important;
+  }
+
+  /* note layer: why the decision was right */
+  .case-note {
+    border-left: 2px solid var(--accent);
+    padding: 2px 0 2px 22px;
+    margin: 0 0 44px;
+  }
+
+  .case-note .note-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .case-note p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    color: var(--text-dim) !important;
+    margin: 0 !important;
+  }
+
+  /* voice rules */
+  .voice-rules { margin: 0 0 44px; }
+
+  .voice-rule {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .voice-rule:first-child { border-top: 1px solid var(--rule); }
+
+  .voice-rule .num {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    padding-top: 6px;
+  }
+
+  .voice-rule .rule-name {
+    display: block;
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .voice-rule p {
+    font-size: 17px !important;
+    line-height: 1.65 !important;
+    margin: 0 0 16px !important;
+  }
+
+  .voice-rule .ua {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .voice-rule .ua .k {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+  }
+
+  .voice-notthat {
+    margin: 0 0 44px;
+    padding: 26px 30px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .voice-notthat p {
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+    margin: 0 !important;
+  }
+
+  .sample-grid { display: grid; gap: 18px; }
+
+  .sample-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--sample-rule);
+    border-radius: 3px;
+    padding: 26px 30px;
+  }
+
+  .sample-card { color: var(--sample-text); }
+
+  .sample-card p { color: var(--sample-text) !important; }
+
+  .sample-card .venue {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .sample-card p {
+    font-size: 19px !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+
+  .sample-card .count {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-top: 14px;
+  }
+
+  /* ---------- before / after ---------- */
+
+  .case-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 0 0 26px;
+  }
+
+  .case-compare .col {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 26px 28px;
+  }
+
+  .case-compare .col--before { background: transparent; }
+
+  .case-compare .col--after {
+    background: rgba(176, 141, 63, 0.07);
+    border-color: rgba(176, 141, 63, 0.45);
+  }
+
+  .case-compare .col-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .case-compare .col--after .col-label { color: var(--accent); }
+
+  .case-compare p {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+    margin: 0 0 14px !important;
+  }
+
+  .case-compare p:last-child { margin-bottom: 0 !important; }
+
+  .case-compare .line-h1 {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* ---------- leadership block ---------- */
+
+  .case-leadership {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .case-leadership li {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 28px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .case-leadership li:first-child { border-top: 1px solid var(--rule); }
+
+  .case-leadership .k {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding-top: 5px;
+  }
+
+  /* ---------- images ---------- */
+
+  .case-hero-image {
+    margin: 0 0 72px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .case-hero-image img { width: 100%; height: auto; display: block; }
+
+  .case-shot {
+    margin: 0 0 14px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    line-height: 0;
+    background: #000;
+  }
+
+  .case-shot img { width: 100%; height: auto; display: block; }
+
+  .case-caption {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin: 0 0 44px;
+  }
+
+  .case-image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 0 0 14px;
+  }
+
+  .case-image-row .case-shot { margin: 0; }
+
+  .compare-shots { margin: 0 0 14px; }
+
+  .compare-shots .shot-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 10px;
+  }
+
+  .compare-shots .shot-label--after { color: var(--accent); }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 720px) {
+    .case-study { padding: 64px 22px 100px; }
+    .case-role,
+    .case-compare,
+    .case-image-row { grid-template-columns: 1fr; gap: 28px; }
+    .case-stats { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+    .case-leadership li { grid-template-columns: 1fr; gap: 8px; }
+    .ux-sample-block { padding: 30px 26px; }
+    .voice-rule { grid-template-columns: 1fr; gap: 10px; }
+    .voice-rule .ua { grid-template-columns: 1fr; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<article class="case-study">
+
+  <header class="case-header">
+    <div class="case-header-meta">
+      <span class="case-number">01</span>
+      <div class="case-tags">
+        <span class="tag">Brand Voice</span>
+        <span class="tag">Site Copy</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Launch</span>
+      </div>
+    </div>
+
+    <h1 class="case-title">
+      AREA15
+      <em>Every headline had to say Las Vegas.<br>None of them were allowed to sound like it.</em>
+    </h1>
+
+    <p class="case-subtitle">AREA15 &middot; Full site voice &amp; copy &middot; 2026</p>
+  </header>
+
+  <div class="case-hero-image">
+    <img src="area15-assets/new-09-visit-hero.jpg" alt="AREA15 Visit page: AREA15 Las Vegas is designed for wandering, but a little planning goes a long way.">
+  </div>
+
+  <div class="case-body">
+
+    <div class="case-intro-block">
+      <div class="case-challenge">
+        <h2>The Challenge</h2>
+        <p>AREA15 is a 35-acre immersive entertainment district a few minutes off the Las Vegas Strip. Meow Wolf's Omega Mart. A 200-foot drop ride. A decommissioned 747 turned nightclub. Universal Horror Unleashed, and forty-plus attractions besides. In 2022 it drew 3.23 million visits and finished first among the 2,289 US attractions tracked by location-analytics firm Placer.ai, a million clear of the runner-up.</p>
+        <p>None of that was on the website. The website read like a directory.</p>
+        <p class="case-source">Visitor figures: Placer.ai Points of Interest data for 2022, <a href="https://blooloop.com/retailtainment/news/area15-most-visited-attraction-2022/" rel="noopener">reported by blooloop</a>.</p>
+        <p>In February 2026 their VP of Creative brought me in to write the verbal layer of a full site rebuild: roughly thirty pages, every category, every venue, plus an About page that had never existed. The catch was that the site had to be aggressively optimized for search, every headline carrying "Las Vegas," every subhead pulling keyword weight, without ever sounding like it.</p>
+      </div>
+
+      <div class="case-role">
+        <div>
+          <h3>My Role</h3>
+          <ul>
+            <li>Sole writer, full site</li>
+            <li>Voice definition</li>
+            <li>Homepage &amp; all category pages</li>
+            <li>About page: strategy &amp; copy</li>
+            <li>Venue &amp; attraction descriptions</li>
+            <li>Ticketing &amp; pass architecture</li>
+            <li>Visit &amp; planning pages</li>
+            <li>SEO / design conflict resolution</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Result</h3>
+          <ul>
+            <li>Live at AREA15.com</li>
+            <li>~30 pages shipped</li>
+            <li>About page built from zero</li>
+            <li>Voice held across every surface</li>
+            <li>SEO requirements met without flattening the writing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-stats">
+      <div>
+        <span class="stat-num">30</span>
+        <span class="stat-label">Pages written<br>and shipped</span>
+      </div>
+      <div>
+        <span class="stat-num">40+</span>
+        <span class="stat-label">Attractions<br>rewritten</span>
+      </div>
+      <div>
+        <span class="stat-num">13</span>
+        <span class="stat-label">Venues, 135<br>characters each</span>
+      </div>
+      <div>
+        <span class="stat-num">10</span>
+        <span class="stat-label">Weeks, brief<br>to live</span>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Before</h2>
+      <p>The old homepage opened by asking a question about itself and then answering it with a list of categories.</p>
+
+      <div class="compare-shots">
+        <span class="shot-label">Homepage, February 2026</span>
+        <div class="case-shot">
+          <img src="area15-assets/old-01-homepage-hero.jpg" alt="AREA15 homepage before the rebuild, February 2026">
+        </div>
+      </div>
+      <div class="compare-shots">
+        <span class="shot-label shot-label--after">Homepage, live today</span>
+        <div class="case-shot">
+          <img src="area15-assets/new-01-homepage-hero.jpg" alt="AREA15 homepage after the rebuild: Games That Shouldn't Exist (But Do, in Vegas)">
+        </div>
+      </div>
+      <span class="case-caption">Same district. One of these tells you what's inside.</span>
+
+      <p>The shopping page had the opposite problem: a headline with real swagger sitting on top of descriptions that never got around to saying what any of the stores sold. Wild Muse's entry was two rhetorical questions about festival season. It was voice without information, which search engines and shoppers punish equally.</p>
+
+      <div class="compare-shots">
+        <span class="shot-label">Shopping, February 2026</span>
+        <div class="case-shot">
+          <img src="area15-assets/old-02-shop-hero.jpg" alt="AREA15 shopping page before the rebuild">
+        </div>
+      </div>
+      <div class="compare-shots">
+        <span class="shot-label shot-label--after">Shopping, live today</span>
+        <div class="case-shot">
+          <img src="area15-assets/new-03-shop-hero.jpg" alt="AREA15 shopping page after the rebuild: Souvenirs from a Place That Doesn't Exist">
+        </div>
+      </div>
+      <span class="case-caption">Archived captures via the Wayback Machine, February and March 2026.</span>
+    </div>
+
+    <div class="case-section">
+      <h2>The Tension Worth Keeping</h2>
+      <p>Every H1 on the site had to contain a location keyword. Every venue description had to land inside 135 characters. Both are the kind of constraint that quietly turns a website into a spreadsheet: "Restaurants and Bars in Las Vegas." "Shopping in Las Vegas." Parameters that take years off a copywriter's life and make the most surreal place in America sound like a strip mall.</p>
+      <p>But the assignment was the feeling of walking in. The SEO was only the container.</p>
+      <p>So I wrote to the container. "Restaurants, Bars &amp; Dining at AREA15 Las Vegas" is the H1, because it has to be. Directly beneath it, where nothing was crawling: <em>Nobody told the kitchens to play it safe.</em></p>
+      <p>That became the rule for the whole site. The H1 pays the search tax. The line underneath does the actual work.</p>
+    </div>
+
+    <div class="case-pullquote">
+      <blockquote>The H1 pays the search tax. The line underneath does the actual work.</blockquote>
+      <cite>The rule that governed all thirty pages.</cite>
+    </div>
+
+    <div class="case-section">
+      <h2>The Problem Underneath</h2>
+      <p>Two weeks in, the writing wasn't the bottleneck. The inputs were.</p>
+      <p>Three sources of truth disagreed: an SEO copy deck built against January wireframes, a Figma system that had moved past it, and a brand voice guide still stuck inside an unfinished rebrand. I asked for the voice guide three times. It never came.</p>
+      <p>So I named the problem to the CMO, the VP of Creative, and the Director of Digital Marketing, and proposed the fix: keywords live in metadata, copy gets written to the design, everything lands in one living document, pages get sequenced by traffic. That's the version we built. And with no voice guide coming, the site became the voice guide.</p>
+    </div>
+
+
+    <div class="case-section">
+      <h2>The Voice Guide That Didn't Exist</h2>
+      <p>I asked for the brand voice guide three times and it never arrived, so I wrote to a set of rules I was making as I went. These are those rules, reconstructed from thirty pages of finished copy. They are the guide the site ended up writing for itself.</p>
+
+      <div class="voice-rules">
+
+        <div class="voice-rule">
+          <span class="num">01</span>
+          <div>
+            <span class="rule-name">Let the place be the loud one</span>
+            <p>AREA15 is a 200-foot drop ride and a decommissioned 747 with a dance floor in it. The copy is not competing with that. It is pointing at it. Flat delivery, absurd content. The moment the writing starts performing, it sounds like it is trying to convince you, which means the place isn't enough on its own.</p>
+            <div class="ua">
+              <div><span class="k">Use</span>Plain declaratives. Concrete nouns. Let the fact be the joke.</div>
+              <div><span class="k">Avoid</span>Exclamation points, "unforgettable," "epic," "like nothing you've ever seen"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-rule">
+          <span class="num">02</span>
+          <div>
+            <span class="rule-name">Lead with the thing that makes someone say <em>wait, what?</em></span>
+            <p>Every attraction already had a description in the old CMS and most of them opened by naming a category. A category is the least interesting true thing you can say about a bar with a twenty-five-foot LED maple tree in it. Open on the detail that stops the scroll, then explain.</p>
+            <div class="ua">
+              <div><span class="k">Use</span>The specific object: the beakers, the freezer aisle, the drinks that arrive on fire</div>
+              <div><span class="k">Avoid</span>Opening on the category: "an immersive art experience," "a unique dining destination"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-rule">
+          <span class="num">03</span>
+          <div>
+            <span class="rule-name">The H1 pays the search tax. The line underneath does the work.</span>
+            <p>Keyword requirements are non-negotiable and they are dull. Fighting them costs you the argument and the ranking. So concede the H1 completely, write it as flat and crawlable as the SEO deck wants, then buy the freedom back one line down where nothing is being indexed.</p>
+            <div class="ua">
+              <div><span class="k">Use</span>"Restaurants, Bars &amp; Dining at AREA15 Las Vegas" over "Nobody told the kitchens to play it safe."</div>
+              <div><span class="k">Avoid</span>Fighting SEO in the headline. Letting SEO reach the subhead.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="voice-notthat">
+        <p>Strange, but never smug.<br>
+        Confident, but never barking.<br>
+        Helpful, but never a directory.<br>
+        Playful, but never zany.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>What Shipped</h2>
+
+      <span class="ux-sample-label">Homepage &mdash; hero</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text ux-sample-head">Games That Shouldn't Exist (But Do, in Vegas)</p>
+      </div>
+
+      <span class="ux-sample-label">Visit &mdash; hero</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text ux-sample-head">AREA15 Las Vegas is designed for wandering, but a little planning goes a long way.</p>
+        <p class="ux-sample-text">This isn't a place with a set path. Explore freely between installations, performances, dining, shopping, and interactive art &mdash; or spend hours inside a single experience. Some attractions are ticketed and time-specific. Others are open-access.</p>
+      </div>
+
+      <div class="case-shot">
+        <img src="area15-assets/new-09-visit-hero.jpg" alt="AREA15 Visit page hero, live">
+      </div>
+      <span class="case-caption">The Visit page had to do a job most brand writing never has to: set expectations without deflating them. Say the place is chaotic on purpose, then quietly hand over a plan.</span>
+
+      <span class="ux-sample-label">About page &mdash; written from nothing</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text ux-sample-head">Las Vegas's Immersive Entertainment Destination &mdash; 35 Acres of Experiences Unlike Anything on the Strip</p>
+        <p class="ux-sample-text">The first immersive entertainment district in Las Vegas &mdash; 600,000 square feet and counting&hellip;</p>
+        <p class="ux-sample-text">Located just off the Las Vegas Strip, AREA15 spans 35 acres of world-class dining, retail, immersive attractions, live events, and art unlike anywhere on earth &mdash; and it keeps growing.</p>
+        <p class="ux-sample-text ux-sample-meta">There was no About page before this one.</p>
+      </div>
+
+      <div class="case-shot">
+        <img src="area15-assets/new-08-about-hero.jpg" alt="AREA15 About page hero: The first immersive entertainment district in Las Vegas — 600,000 square feet and counting">
+      </div>
+      <div class="case-shot">
+        <img src="area15-assets/new-06-about-35acres.jpg" alt="About page: Las Vegas's Immersive Entertainment Destination — 35 Acres of Experiences Unlike Anything on the Strip">
+      </div>
+      <span class="case-caption">The About page, top to bottom. Written from a blank document.</span>
+
+      <div class="case-note">
+        <span class="note-label">Why it works</span>
+        <p>A district with forty attractions has an obvious About page available to it, and that page is a list. Leading with "the first immersive entertainment district in Las Vegas" makes a claim to a category instead of an inventory, and "and counting" turns the square footage from a number into a direction.</p>
+      </div>
+
+      <span class="ux-sample-label">Art &amp; quests &mdash; module</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text ux-sample-head">Free to wander. Free to wonder.</p>
+        <p class="ux-sample-text">Experience the world's largest permanent collection of monumental festival art. No ticket required.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Every Venue, 135 Characters Each</h2>
+      <p>The food and drink page was the hardest writing on the site and the least glamorous. A dozen tenants, wildly different concepts, one grid, and a hard ceiling of 135 characters per description so the cards wouldn't break. Long enough to be a sentence. Short enough that every word has to earn its slot.</p>
+
+      <div class="case-shot">
+        <img src="area15-assets/new-04-eatdrink-craving.jpg" alt="Food and drink page: Every Craving. One District. — Nobody told the kitchens to play it safe.">
+      </div>
+      <div class="case-shot">
+        <img src="area15-assets/new-05-venue-cards.jpg" alt="Venue cards on the AREA15 food and drink page showing Oddwood, Rocket Fizz and Saint Honoré descriptions">
+      </div>
+      <span class="case-caption">The grid the copy had to fit. Same shape, thirteen different personalities.</span>
+
+      <div class="sample-grid">
+        <div class="sample-card">
+          <span class="venue">Oddwood</span>
+          <p>A bar with a 25-foot LED maple tree, a cocktail menu written as lab reports, and drinks served in beakers. Take note: some arrive on fire.</p>
+        </div>
+        <div class="sample-card">
+          <span class="venue">Liftoff Bar &amp; Ride</span>
+          <p>An observation ride 100+ feet up, cocktail in hand, Strip in view. The most civilized way to see Vegas from above.</p>
+        </div>
+        <div class="sample-card">
+          <span class="venue">Rocket Fizz</span>
+          <p>Over-the-top soda flavors, salt water taffy in every variety, and a candy shop that doesn't ask for permission.</p>
+        </div>
+        <div class="sample-card">
+          <span class="venue">Beast Mobile</span>
+          <p>Elote, quesadillas, and Mexican street food made to be eaten standing up. Beast Mobile, parked and ready.</p>
+        </div>
+        <div class="sample-card">
+          <span class="venue">Nacho Daddy</span>
+          <p>Born in Las Vegas. Home to gourmet nachos, award-winning margaritas, and the original scorpion shot &mdash; if you dare.</p>
+        </div>
+      </div>
+
+      <div class="case-note">
+        <span class="note-label">Why it works</span>
+        <p>At 135 characters there is room for one idea and one proof, so every description had to decide what its single strangest true fact was. "Some arrive on fire" costs six words and does more than any adjective would. The ceiling stopped being a limitation about two days in and started being the edit.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Attraction Copy</h2>
+      <p>Forty-plus attractions, each already described somewhere in the old CMS, most of them described badly. One rewrite rule: lead with the thing that makes someone say <em>wait, what?</em></p>
+
+      <span class="ux-sample-label">Meow Wolf's Omega Mart</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text">It looks like a grocery store. It isn't. Meow Wolf's Omega Mart is a choose-your-own-adventure through an alternate universe &mdash; one that's hiding in the freezer aisle.</p>
+      </div>
+
+      <span class="ux-sample-label">John Wick Experience</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text">The Continental, made real. The John Wick Experience is Las Vegas's most immersive film world. Don't just watch it, see if you can escape it.</p>
+      </div>
+
+      <span class="ux-sample-label">Eye Dropper &mdash; 200ft drop ride</span>
+      <div class="ux-sample-block">
+        <p class="ux-sample-text ux-sample-head">Part thrill ride. Part art installation. All eye contact.</p>
+      </div>
+
+      <div class="case-shot">
+        <img src="area15-assets/new-07-attraction-cards.jpg" alt="Signature attraction cards for Meow Wolf's Omega Mart and Museum of Ice Cream">
+      </div>
+      <div class="case-shot">
+        <img src="area15-assets/new-02-eyedropper-dollskill.jpg" alt="New at AREA15 carousel showing the Eye Dropper and Dolls Kill cards">
+      </div>
+      <span class="case-caption">Lead with the thing that makes someone say <em>wait, what?</em></span>
+
+      <div class="case-note">
+        <span class="note-label">Why it works</span>
+        <p>Omega Mart's old description explained that it was an immersive art installation, which is accurate and tells you nothing. "It looks like a grocery store. It isn't." is four words shorter and does the whole job, because the confusion is the product.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>Draft to Live</h2>
+      <p>The shopping page came in as a rush request on a Tuesday afternoon with a same-day deadline. What I sent that night is on the left. What's on the site today is on the right, tightened in the CMS but structurally and tonally intact. That's the part worth showing: the voice survived the last mile.</p>
+
+      <div class="case-compare">
+        <div class="col col--before">
+          <span class="col-label">My draft &mdash; Apr 29</span>
+          <p class="line-h1">The Shopping You Didn't Know You Needed</p>
+          <p>Concept retail, exclusive merch, and finds you won't see anywhere else in Las Vegas.</p>
+          <p><strong>Rocket Fizz:</strong> Over 500 soda flavors, old-school candy, and a shop where the flavor names read like a dare. Sugar rush guaranteed.</p>
+          <p><strong>Omega Mart Shop:</strong> Exclusive Meow Wolf merchandise, art prints, and impossible grocery items you'll actually want to display. Take the universe home.</p>
+        </div>
+        <div class="col col--after">
+          <span class="col-label">Live on AREA15.com</span>
+          <p class="line-h1">Souvenirs from a Place That Doesn't Exist</p>
+          <p>Independent retailers, one extraordinary district, and plenty of reasons to leave with a treasure from another dimension.</p>
+          <p><strong>Rocket Fizz:</strong> Rocket Fizz stocks more than 500 sodas and old-school candies, including flavors that probably shouldn't exist. Sugar rush guaranteed.</p>
+          <p><strong>Omega Mart Shop:</strong> The Omega Mart Shop stocks exclusive merchandise, art prints, and impossible groceries you'll actually want to display.</p>
+        </div>
+      </div>
+
+      <div class="case-note">
+        <span class="note-label">What changed and what didn't</span>
+        <p>The client tightened the venue lines toward information and pulled the headline further toward strangeness, which is the right trade in both cases. What survived is the structure: a headline that commits to a bit, then descriptions that pay it off with specifics. A voice system works when other people can edit inside it without breaking it.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>How It Was Run</h2>
+      <ul class="case-leadership">
+        <li>
+          <span class="k">Reported to</span>
+          <span>The CMO and the VP of Creative directly. No account layer and no creative director above me. I was the creative direction on language for this build.</span>
+        </li>
+        <li>
+          <span class="k">Worked across</span>
+          <span>A ten-person launch team: marketing, digital, SEO, design QA, CMS, and an outside production consultancy. I was the only writer in the room.</span>
+        </li>
+        <li>
+          <span class="k">Owned</span>
+          <span>Voice, page-level content strategy, page priority sequencing, and the resolution of the SEO-versus-design conflict that was blocking the developer handoff.</span>
+        </li>
+        <li>
+          <span class="k">Cadence</span>
+          <span>Weekly content check-ins escalating to daily stand-ups through the launch window, with copy delivered against a moving target and a shifting launch date.</span>
+        </li>
+        <li>
+          <span class="k">Method</span>
+          <span>Wrote to design, not to deck. Figma as the source of truth for length and hierarchy; keywords handled as metadata; one living document for everything else.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h2>The Outcome</h2>
+      <p>The site is live. Thirty pages, forty-plus attractions, every venue, and an About page that tells the founding story of the place instead of reciting its square footage. All of it written by one person in about ten weeks, to spec, inside the SEO constraints, with no voice guide to lean on. [ADD ANY TRAFFIC, RANKING, OR DWELL-TIME DELTA THE CLIENT WILL SHARE.]</p>
+      <p>Read any page of AREA15.com today and you hear the same voice, and it sounds like the district instead of like a search engine. That voice did not exist in February.</p>
+    </div>
+
+  </div>
+</article>
+
+</body>
+</html>
