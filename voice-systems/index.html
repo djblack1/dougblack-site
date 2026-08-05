@@ -4,34 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voice systems — Doug Black</title>
-  <meta name="description" content="Voice systems by Doug Black — brand voice and content design for regulated categories.">
+  <meta name="description" content="Five brand voice systems built from zero — Goldman Sachs, Better, Verizon, Evercore, American Express, SoundCloud. Brand voice and content design for regulated categories.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <style>
-    .vs-wrap { max-width: 820px; margin: 0 auto; padding: clamp(48px,7vw,96px) var(--gutter) clamp(64px,9vw,120px); }
-    .vs-eyebrow { font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
-    .vs-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(34px,5vw,64px); font-weight:600; line-height:1.06; letter-spacing:-0.01em; color:var(--ink); margin:0 0 20px; }
-    .vs-lede { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(18px,2vw,21px); line-height:1.65; color:var(--ink-light); margin:0 0 44px; max-width:640px; }
-    .vs-meta { display:grid; grid-template-columns:auto 1fr; gap:10px 28px; margin:0 0 48px; padding:28px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
-    .vs-meta dt { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); padding-top:3px; }
+    .vs-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .vs-hero { padding: clamp(48px,7vw,96px) 0 clamp(28px,4vw,44px); }
+    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 24px; max-width:14ch; }
+    .vs-hero-h1 .vs-inv { font-style:italic; }
+    .vs-hero-sub { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(18px,2vw,21px); line-height:1.65; color:var(--ink-light); margin:0; max-width:620px; }
+
+    .vs-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin:0 0 0; }
+    .vs-stat { padding:28px 24px 30px; border-right:1px solid var(--rule); }
+    .vs-stat:last-child { border-right:none; }
+    .vs-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,52px); font-weight:600; line-height:1; color:var(--ink); margin:0 0 10px; }
+    .vs-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:0; letter-spacing:0.01em; }
+
+    .vs-jump { position:sticky; top:0; z-index:50; background:var(--bg,#f5f1e8); border-bottom:1px solid var(--rule); }
+    .vs-jump-inner { max-width:1200px; margin:0 auto; padding:16px 40px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; letter-spacing:0.02em; display:flex; flex-wrap:wrap; gap:4px 0; }
+    .vs-jump a { color:var(--ink-light); text-decoration:none; white-space:nowrap; }
+    .vs-jump a:hover { color:var(--amber); }
+    .vs-jump .vs-jump-sep { color:var(--ink-faint); margin:0 12px; }
+
+    .vs-section { padding:clamp(56px,8vw,104px) 0; border-bottom:1px solid var(--rule); scroll-margin-top:64px; }
+    .vs-section:last-of-type { border-bottom:none; }
+    .vs-brand { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(30px,4.5vw,56px); font-weight:600; line-height:1.04; letter-spacing:-0.01em; color:var(--ink); margin:0 0 14px; }
+    .vs-oneline { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(17px,2vw,20px); line-height:1.6; color:var(--ink-light); margin:0 0 36px; max-width:640px; }
+
+    .vs-meta { display:grid; grid-template-columns:auto 1fr; gap:12px 28px; margin:0 0 44px; padding:26px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); max-width:760px; }
+    .vs-meta dt { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); padding-top:3px; white-space:nowrap; }
     .vs-meta dd { font-family:'DM Sans',system-ui,sans-serif; font-size:15px; line-height:1.6; color:var(--ink-light); margin:0; }
-    .vs-section-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:44px 0 18px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
-    .vs-block { background:#1A1714; border-radius:6px; padding:28px 32px; margin-bottom:12px; }
-    .vs-block p { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.55 !important; margin:0 !important; }
-    .vs-block .vs-block-note { font-family:'DM Sans',system-ui,sans-serif !important; font-size:11px !important; font-style:normal !important; letter-spacing:0.1em !important; text-transform:uppercase !important; color:var(--amber) !important; margin-top:12px !important; }
-    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:18px; line-height:1.8; color:var(--ink-light); margin:0 0 20px; }
-    .vs-comp { width:100%; border-collapse:collapse; margin:6px 0 8px; }
-    .vs-comp th, .vs-comp td { font-family:'DM Sans',system-ui,sans-serif; font-size:14px; text-align:left; padding:12px 14px; border-bottom:1px solid var(--rule); vertical-align:top; }
-    .vs-comp th { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); font-weight:500; }
-    .vs-comp td { color:var(--ink-light); }
-    .vs-soon { font-family:'DM Sans',system-ui,sans-serif; font-size:14px; font-style:italic; color:var(--ink-faint); padding:20px 0; }
-    .vs-toggle { margin:0 0 40px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; }
-    .vs-toggle a { color:var(--amber); text-decoration:none; }
-    .vs-back { display:inline-block; margin-top:56px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; color:var(--ink-faint); text-decoration:none; }
-    .vs-back:hover { color:var(--amber); }
+
+    .vs-inner-stats { display:flex; flex-wrap:wrap; gap:36px; margin:0 0 40px; padding:22px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .vs-inner-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(24px,3vw,34px); font-weight:600; color:var(--ink); line-height:1; margin:0 0 6px; }
+    .vs-inner-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.04em; color:var(--ink-faint); margin:0; max-width:150px; line-height:1.4; }
+
+    .vs-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:40px 0 18px; padding-bottom:12px; border-bottom:1px solid var(--rule); max-width:760px; }
+    .vs-block { background:#1A1714; border-radius:6px; padding:28px 32px; margin-bottom:12px; max-width:760px; }
+    .vs-block p.q { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.55 !important; margin:0 !important; }
+    .vs-block p.n { font-family:'DM Sans',system-ui,sans-serif !important; font-size:11px !important; letter-spacing:0.1em !important; text-transform:uppercase !important; color:var(--amber) !important; margin:12px 0 0 !important; }
+    .vs-note { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.75; color:var(--ink-light); margin:20px 0 0; max-width:640px; font-style:italic; }
+    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:18px; line-height:1.8; color:var(--ink-light); margin:0 0 20px; max-width:640px; }
+    .vs-fullcase { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; margin:24px 0 0; }
+    .vs-fullcase a { color:var(--amber); text-decoration:none; font-weight:500; }
+    .vs-imggrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:32px 0 0; max-width:760px; }
+    .vs-imggrid img { width:100%; height:auto; display:block; border-radius:3px; cursor:zoom-in; }
+
+    .vs-close { padding:clamp(56px,8vw,96px) 0; }
+    .vs-close-body { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(22px,3vw,32px); font-weight:300; line-height:1.5; color:var(--ink); margin:0; max-width:800px; }
+    .vs-footer-cta { padding:40px 0; border-top:1px solid var(--rule); font-family:'DM Sans',system-ui,sans-serif; font-size:15px; }
+    .vs-footer-cta a { color:var(--ink); text-decoration:none; }
+    .vs-footer-cta a:hover { color:var(--amber); }
+    .vs-footer-cta .vs-cta-sep { color:var(--ink-faint); margin:0 14px; }
+
+    @media (max-width:768px) {
+      .vs-stats { grid-template-columns:1fr 1fr; }
+      .vs-stat:nth-child(2) { border-right:none; }
+      .vs-stat:nth-child(1), .vs-stat:nth-child(2) { border-bottom:1px solid var(--rule); }
+      .vs-jump-inner { padding:14px 22px; font-size:12px; }
+      .vs-container { padding:0 22px; }
+      .vs-imggrid { grid-template-columns:1fr; }
+    }
   </style>
 </head><body>
   <div id="password-gate">
@@ -55,17 +91,119 @@
         <a href="../doug-black-resume.pdf" class="nav-link">Resume</a>
       </div>
     </nav>
-    <div class="vs-wrap">
-      <p class="vs-eyebrow">The best interface copy is invisible.</p>
-      <h1 class="vs-h1">Voice systems</h1>
-      <p class="vs-lede">Five built from zero. Four of them in regulated categories, where every line is read by someone whose job is to remove it.</p>
+    <div class="vs-container">
+      <header class="vs-hero">
+        <h1 class="vs-hero-h1">The best interface copy is <span class="vs-inv">invisible</span>.</h1>
+        <p class="vs-hero-sub">Five voice systems built from zero. Four of them in regulated categories, where every line is read by someone whose job is to remove it. This is the work I'm proudest of and the work nobody sees.</p>
+      </header>
+    </div>
 
-      <div class="vs-list">
-        <p class="vs-section-label">The work</p>
-        <p class="vs-body"><a href="goldman-sachs/" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Goldman Sachs Private Wealth</a> &nbsp;·&nbsp; <a href="soundcloud/" style="color:var(--ink-faint);">SoundCloud</a> &nbsp;·&nbsp; <a href="verizon/" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Verizon</a> &nbsp;·&nbsp; <a href="better/" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Better</a> &nbsp;·&nbsp; <a href="evercore/" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Evercore</a> &nbsp;·&nbsp; <a href="american-express/" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">American Express</a></p>
-        <p class="vs-body" style="font-size:14px;color:var(--ink-faint);">SoundCloud lives in the main work section as a full case study.</p>
+    <!-- STAT BAR -->
+    <div class="vs-container">
+      <div class="vs-stats">
+        <div class="vs-stat"><p class="vs-stat-num">5</p><p class="vs-stat-label">Voice systems built from zero</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">10+</p><p class="vs-stat-label">Years of embedded product writing</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">Silver</p><p class="vs-stat-label">NYC Design Awards, Best Mobile Marketing (American Express)</p></div>
       </div>
     </div>
+
+    <div class="vs-jump">
+      <div class="vs-jump-inner">
+        <a href="#goldman-sachs">Goldman Sachs</a><span class="vs-jump-sep">·</span>
+        <a href="#better">Better</a><span class="vs-jump-sep">·</span>
+        <a href="#verizon">Verizon</a><span class="vs-jump-sep">·</span>
+        <a href="#evercore">Evercore</a><span class="vs-jump-sep">·</span>
+        <a href="#american-express">American Express</a><span class="vs-jump-sep">·</span>
+        <a href="#soundcloud">SoundCloud</a>
+      </div>
+    </div>
+
+    <div class="vs-container">
+      <section class="vs-section" id="goldman-sachs">
+        <h2 class="vs-brand">Goldman Sachs Private Wealth</h2>
+        <p class="vs-oneline">A voice and content system for a platform serving clients with $10M+ in investable assets.</p>
+        <dl class="vs-meta">
+          <dt>What I owned</dt><dd>Voice architecture, tone principles, navigation and data-display standards, onboarding, alerts, error states, and the documentation that let a large product team make consistent copy decisions without a writer in the room.</dd>
+          <dt>Category</dt><dd>Private wealth management. Every line legally reviewed.</dd>
+          <dt>Duration</dt><dd>Two engagements, 2018–2020, embedded.</dd>
+        </dl>
+        <p class="vs-label">The persona</p>
+        <div class="vs-block"><p class="q">Confident but not cocky. Smart but not stodgy. Helpful but not pushy. Expert but not bossy.</p></div>
+        <p class="vs-label">The principles</p>
+        <div class="vs-block"><p class="q">Fewer words always win. Communicate only essential details so clients can focus on their own tasks.</p><p class="n">Principle 01</p></div>
+        <div class="vs-block"><p class="q">Help, don't apologize. When something went wrong, give a clear explanation and help them fix it.</p><p class="n">Principle 02</p></div>
+        <div class="vs-block"><p class="q">Tell, don't plead. Avoid empty niceties like "please" and "unfortunately." Start with the client need.</p><p class="n">Principle 03</p></div>
+      </section>
+      <section class="vs-section" id="better">
+        <h2 class="vs-brand">Better.com</h2>
+        <p class="vs-oneline">Embedded product writer across UX, brand, and product copy for a company moving one of the most anxiety-inducing processes in American life entirely online.</p>
+        <dl class="vs-meta">
+          <dt>Duration</dt><dd>2020–2021</dd>
+        </dl>
+        <p class="vs-label">Sample copy</p>
+        <div class="vs-block"><p class="q">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p><p class="n">Rate lock confirmation</p></div>
+        <div class="vs-block"><p class="q">"This is the part most lenders make complicated. We're going to make it a checklist."</p><p class="n">Document upload intro</p></div>
+        <div class="vs-block"><p class="q">"We didn't hear back from the underwriter. That's normal, we'll ping them again tomorrow."</p><p class="n">Error / delay state</p></div>
+        <p class="vs-note">Error and delay states are the hardest copy in a mortgage flow. The customer is already anxious, the news is rarely good, and the wrong tone turns a routine wait into a reason to walk. These lines had to stay calm without lying.</p>
+      </section>
+      <section class="vs-section" id="verizon">
+        <h2 class="vs-brand">Verizon Wireless</h2>
+        <p class="vs-oneline">A vocabulary, nomenclature standard, and copy pattern system across VerizonWireless.com and the MyVerizon app, serving 113 million subscribers.</p>
+        <dl class="vs-meta">
+          <dt>Agency</dt><dd>AKQA</dd>
+          <dt>Recognition</dt><dd>Webby Award Honoree, Mobile Sites &amp; Apps, 2017</dd>
+        </dl>
+        <div class="vs-inner-stats">
+          <div><p class="vs-inner-stat-num">15.6x</p><p class="vs-inner-stat-label">Mobile sales conversion, within seven months</p></div>
+          <div><p class="vs-inner-stat-num">50%+</p><p class="vs-inner-stat-label">Overall usage increase</p></div>
+          <div><p class="vs-inner-stat-num">68→85%</p><p class="vs-inner-stat-label">In-app bill payment</p></div>
+          <div><p class="vs-inner-stat-num">27%</p><p class="vs-inner-stat-label">Autopay enrollment increase</p></div>
+        </div>
+        <p class="vs-label">Sample copy, MyVerizon app</p>
+        <div class="vs-block"><p class="q">"You have plenty of data remaining for the month."</p><p class="n">Data hub, positive state headline</p></div>
+        <div class="vs-block"><p class="q">"Say goodbye to data limits with unlimited data."</p><p class="n">Plan upgrade, unlimited tier CTA</p></div>
+        <div class="vs-block"><p class="q">"Switch to a 4 GB data limit to save $60/mo."</p><p class="n">Dynamic plan headline, personalized to current plan</p></div>
+      </section>
+      <section class="vs-section" id="evercore">
+        <h2 class="vs-brand">Evercore</h2>
+        <p class="vs-oneline">Brand voice, tone guidelines, and messaging framework for an institutional finance name building for individual investors for the first time.</p>
+        <dl class="vs-meta">
+          <dt>Duration</dt><dd>2025–2026</dd>
+        </dl>
+        <p class="vs-label">Principles from the voice doc</p>
+        <div class="vs-block"><p class="q">Institutional trust, consumer clarity. Both. Always.</p><p class="n">Principle 01</p></div>
+        <div class="vs-block"><p class="q">Don't soften institutional language. Replace it.</p><p class="n">Principle 02</p></div>
+        <div class="vs-block"><p class="q">Formality is a dial, not a setting.</p><p class="n">Principle 03</p></div>
+      </section>
+      <section class="vs-section" id="american-express">
+        <h2 class="vs-brand">American Express</h2>
+        <p class="vs-oneline">Mobile-first campaign and content design, with copy tested directly in the flow rather than in brand decks.</p>
+        <dl class="vs-meta">
+          <dt>Agency</dt><dd>Huge</dd>
+          <dt>Recognition</dt><dd>Silver, Best Mobile Marketing Campaign, NYC Design Awards</dd>
+        </dl>
+        <p class="vs-label">The principle</p>
+        <div class="vs-block"><p class="q">Every word earns its space. On a small screen, there's no room for a second draft.</p><p class="n">Working principle</p></div>
+      </section>
+      <section class="vs-section" id="soundcloud">
+        <h2 class="vs-brand">SoundCloud</h2>
+        <p class="vs-oneline">First dedicated writer in the company's history. I built the brand voice from zero and launched the subscription that asked 175 million free users to start paying.</p>
+        <p class="vs-fullcase"><a href="../work/soundcloud">Full case study →</a></p>
+      </section>
+    </div>
+
+    <div class="vs-container">
+      <div class="vs-close">
+        <p class="vs-close-body">Five voice systems built from zero. Product writing across mortgage, wealth management, telecom, and enterprise finance. More than a decade of turning compliance-written copy into something fit for a human to read.</p>
+      </div>
+      <div class="vs-footer-cta">
+        <a href="../index.html">See the brand work →</a><span class="vs-cta-sep">·</span>
+        <a href="../about.html">Read about me →</a><span class="vs-cta-sep">·</span>
+        <a href="mailto:dougblack1@gmail.com">Let's talk →</a>
+      </div>
+    </div>
+
     <footer>
       <div class="footer-left"><span class="footer-name">Doug Black</span></div>
       <div class="footer-right">
