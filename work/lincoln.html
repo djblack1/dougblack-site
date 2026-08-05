@@ -290,6 +290,52 @@
       .lc-proof-cell:nth-child(n) { border-top: 1px solid var(--rule); }
       .lc-proof-cell:first-child { border-top: none; }
     }
+  
+    /* ── Leadership block (from AREA15) ─────────── */
+    .case-leadership { margin: 0; padding: 0; list-style: none; }
+    .case-leadership li {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 28px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-light, #4a453d);
+    }
+    .case-leadership li:first-child { border-top: 1px solid var(--rule); }
+    .case-leadership .k {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim, #8a857c);
+      padding-top: 5px;
+    }
+    @media (max-width: 700px) {
+      .case-leadership li { grid-template-columns: 1fr; gap: 8px; }
+    }
+    /* ── Small stat/result lines ────────────────── */
+    .lc-stat-line {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--text-dim, #8a857c);
+      margin: 4px 0 0 0;
+    }
+    .lc-results {
+      margin: 28px 0;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lc-result-line {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink, #2a2620);
+      margin: 0 0 10px 0;
+    }
+    .lc-result-line:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -323,9 +369,9 @@
       <img src="../images/lincoln/lincoln-hero-new.jpg" alt="Lincoln Motor Company" class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
-        <h1 class="lc-hero-h1">I helped reinvent how Lincoln speaks.</h1>
-        <p class="lc-hero-sub">The results spoke even louder.</p>
-        <span class="lc-hero-credit">Creative Director, Digital &amp; Platform &nbsp;·&nbsp; Hudson Rouge / WPP</span>
+        <h1 class="lc-hero-h1">I directed Lincoln's voice for five years.</h1>
+        <p class="lc-hero-sub">Every digital surface. Every launch. One language.</p>
+        <span class="lc-hero-credit">Creative Director, Copy, Digital &amp; Platform &nbsp;·&nbsp; Hudson Rouge / WPP &nbsp;·&nbsp; 2021–2026</span>
       </div>
     </section>
 
@@ -333,19 +379,19 @@
     <div class="lc-proof">
       <div class="lc-proof-cell">
         <span class="lc-proof-number">16 → 6</span>
-        <span class="lc-proof-label">J.D. Power MWES 2025,<br>Manufacturer Website Rankings</span>
+        <span class="lc-proof-label">J.D. Power Manufacturer Website Rankings,<br>Winter 2024 to Winter 2025</span>
       </div>
       <div class="lc-proof-cell">
         <span class="lc-proof-number">5 Years</span>
-        <span class="lc-proof-label">Creative Director,<br>Digital & Platform</span>
+        <span class="lc-proof-label">Senior Copy Creative Director<br>on the account</span>
       </div>
       <div class="lc-proof-cell">
-        <span class="lc-proof-number">Every digital touchpoint</span>
-        <span class="lc-proof-label">Website, CRM, Launches,<br>Product, Campaign</span>
+        <span class="lc-proof-number">4</span>
+        <span class="lc-proof-label">Comprehensive<br>vehicle launches</span>
       </div>
       <div class="lc-proof-cell">
-        <span class="lc-proof-number">#1 American Brand</span>
-        <span class="lc-proof-label">Consumer Reports 2026 Brand Report Card,<br>Biggest jump of any brand on the list</span>
+        <span class="lc-proof-number">+17</span>
+        <span class="lc-proof-label">Consumer Reports 2026 Brand Report Card.<br>Highest-ranked American brand, biggest jump on the list</span>
       </div>
     </div>
 
@@ -353,10 +399,12 @@
 
       <!-- ── SECTION 3: THE BET ───────────────────── -->
       <section class="lc-section">
-        <h2 class="lc-h2">The strategy.</h2>
+        <h2 class="lc-h2">The mandate.</h2>
         <div class="lc-block">
           <div class="lc-block-text">
-            <p class="lc-block-body">Lincoln was a premium brand using mass-market rules. Louder websites, more features, more noise. We made the opposite bet: <em>luxury isn't visual, it's physiological.</em> Calm became the strategy. Every product, platform, and piece of copy got rebuilt around one idea: less noise, more intention.</p>
+            <p class="lc-block-body">Lincoln was a premium brand running on mass-market rules: louder websites, more features, more noise. Every competitor was doing the same thing, and the category couldn't hear itself anymore.</p>
+            <p class="lc-block-body">I made the opposite argument: <em>luxury isn't visual, it's physiological.</em> You don't tell someone that a car is calm. You make the writing calm and let them feel it.</p>
+            <p class="lc-block-body">It's an easy point to make in a deck and a harder one to hold across five years of launches. Most of the job was making restraint defensible in rooms where subtlety reads as underdelivering.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/lincoln/lincoln-journey.jpg" alt="Lincoln campaign — Your journey awaits." class="zoomable" onclick="lb(this.src)">
@@ -366,13 +414,26 @@
 
       <!-- ── SECTION 4: WHAT I BUILT ─────────────── -->
       <section class="lc-section">
+        <h2 class="lc-h2">What I owned.</h2>
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Creative Director, Copy, Digital &amp; Platform</span></li>
+          <li><span class="k">Team</span><span>Senior copy Creative Director on the Lincoln account in New York. Partnered daily with the SVP Group Creative Director, art directors, and writers across the Hudson Rouge New York and Detroit offices.</span></li>
+          <li><span class="k">Reported to</span><span>SVP, Group Creative Director</span></li>
+          <li><span class="k">Presented to</span><span>Lincoln marketing leadership, including brand managers for each nameplate and the Lincoln Access Rewards team.</span></li>
+          <li><span class="k">Scope</span><span>Lincoln.com, four comprehensive vehicle launches, CRM, campaigns, product naming</span></li>
+          <li><span class="k">Duration</span><span>2021–2026</span></li>
+        </ul>
+      </section>
+
+      <section class="lc-section">
         <h2 class="lc-h2">What I built.</h2>
 
         <!-- Block 1: The voice -->
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The voice.</h3>
-            <p class="lc-block-body">I helped lead the brand voice system that governed every line of Lincoln copy across .com, product launches, campaigns, and CRM, for five years, across a team of writers. Fewer adjectives. More silence. Sentences that sound like the vehicles feel.</p>
+            <p class="lc-block-body">I owned the New York side of the brand voice system that governed every line of Lincoln copy for five years: .com, product launches, campaigns, CRM. Built with the Detroit team and held across both offices. Fewer adjectives. More silence. Sentences that sound the way the vehicles feel.</p>
+            <p class="lc-block-body">The system's job was never to make my writing better. A voice system works when a junior writer can make the right call on a CRM subject line without hesitating.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/lincoln/hybrid_vehicles.png" alt="Lincoln — vehicle page" class="zoomable" onclick="lb(this.src)">
@@ -383,7 +444,8 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The architecture.</h3>
-            <p class="lc-block-body">We rebuilt the Lincoln.com experience around presence over performance specs. Cut feature tables. Led with photography, breath, and restraint.</p>
+            <p class="lc-block-body">I led the rebuild of the Lincoln.com experience around presence instead of performance specs. We cut the feature tables. We led with photography, breath, and restraint.</p>
+            <p class="lc-block-body">Cutting spec tables from a car website isn't a copy decision, it's a business argument, and it gets made against people whose job is comparison shopping. SEO and strategy had reservations. We pushed for experience over feature lists and won.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/lincoln/black_label_new.png" alt="Lincoln Black Label" class="zoomable" onclick="lb(this.src)">
@@ -394,7 +456,9 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The platform.</h3>
-            <p class="lc-block-body">I concepted and wrote the launch of <em>Rejuvenate</em>, Lincoln's in-vehicle wellness experience. The naming, the voice, and the digital campaign. <em>"Take a seat. It'll take it from here."</em></p>
+            <p class="lc-block-body">I concepted and wrote the launch of <em>Lincoln Rejuvenate</em>&trade;, the brand's in-vehicle wellness experience. The naming, the voice, and the digital campaign.</p>
+            <p class="lc-block-body"><strong style="color:var(--ink);font-weight:600;">Take a seat. It'll take it from here.</strong></p>
+            <p class="lc-block-body">Naming a category the customer has never heard of is the part of the job with the least cover, because there's no benchmark to point at when someone asks whether it's right. Rejuvenate was an in-vehicle experience, and mirroring it on a desktop screen was a conceptual leap the client worried would diminish the thing itself. We answered with prototypes: enough care in the visual and verbal rendering that it transported the user anyway. That's what sold it.</p>
           </div>
           <div class="lc-block-image lc-rejuvenate">
             <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
@@ -408,11 +472,12 @@
       <!-- ── SECTION 5: THE CULTURAL LAYER ───────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The cultural layer.</h2>
-        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two campaigns that took Lincoln's voice beyond purely owned surfaces.</p>
+        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two platforms that took Lincoln's voice past owned surfaces.</p>
 
-        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">Redeem Your Dream</strong> turned Lincoln Access Rewards into culture, wellness, and adventure. I led the writing, platform line, campaign voice, social and .com expressions, extending the brand from the showroom into ownership.</p>
+        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">Redeem Your Dream.</strong> I led the writing: the name, the platform line, campaign voice, social, and .com expressions. The work extended Lincoln Access Rewards from a points ledger into culture, wellness, and adventure, and moved the brand from the showroom into ownership.</p>
 
-        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">100 Faces of Lincoln</strong>, built with the Hudson Rouge team, was a year-long creator platform: 100 owners, their stories in their words. I contributed to the voice and editorial framework. 52M impressions. 7.6% engagement. Silver Shorty Honor.</p>
+        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">100 Faces of Lincoln.</strong> A year-long creator platform: 100 owners, their stories in their words. I shaped the voice and editorial framework the stories were built on, working with the Hudson Rouge team.</p>
+        <p class="lc-stat-line">52M impressions. 7.6% engagement. Silver Shorty Honor.</p>
         <div class="lc-faces-images" style="margin-top:0;">
           <img src="../images/lincoln/redeemthedream1.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
           <img src="../images/lincoln/redeemthedream2.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
@@ -421,10 +486,26 @@
       </section>
 
       <!-- ── SECTION 7: WHAT CHANGED ───────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">How I ran it.</h2>
+        <ul class="case-leadership">
+          <li><span class="k">Worked across</span><span>Design, UX, media, product, dealer marketing, direct mail.</span></li>
+          <li><span class="k">Owned</span><span>The voice system, copy quality across every digital surface, naming, and the standard the work got measured against.</span></li>
+          <li><span class="k">Developed</span><span>Partnered across the organization with art directors, strategists, and content designers. Advised and mentored junior writers and onboarded the incoming Creative Director on Lincoln Access Rewards.</span></li>
+          <li><span class="k">Method</span><span>Co-authored the living guidelines that governed language on every touchpoint, maintained across the New York and Detroit teams.</span></li>
+        </ul>
+      </section>
+
       <section class="lc-section lc-section-last">
         <h2 class="lc-h2">What changed.</h2>
-        <p class="lc-closing-body">Hundreds of digital experiences. Dozens of launches. One unified language, executed across every surface Lincoln has. The work that started as digital copy became the brand's voice. The voice became the experience. The experience moved the business.</p>
-        <p class="lc-closing-quote">Lincoln didn't need a louder voice. It needed a cleaner one. That's what I built.</p>
+        <p class="lc-closing-body">Hundreds of digital experiences. Dozens of launches. One language across every surface Lincoln has.</p>
+        <div class="lc-results">
+          <p class="lc-result-line">J.D. Power manufacturer website rankings: 16th to 6th, winter 2024 to winter 2025.</p>
+          <p class="lc-result-line">Consumer Reports 2026 Brand Report Card: highest-ranked American brand, up 17 spots, the biggest jump on the list.</p>
+          <p class="lc-result-line">100 Faces of Lincoln: 52M impressions, 7.6% engagement, Silver Shorty Honor.</p>
+        </div>
+        <p class="lc-closing-body">The work that started as digital copy became the brand's voice. The voice became the experience. The experience moved the business.</p>
+        <p class="lc-closing-quote">Lincoln didn't need a louder voice. It needed a cleaner one, and it needed everyone writing it to agree on what clean meant. That's what I built.</p>
       </section>
 
     </div><!-- /.lc-body -->
