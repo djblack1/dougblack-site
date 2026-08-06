@@ -48,8 +48,8 @@
       padding-top: clamp(40px, 6vw, 72px);
       padding-bottom: clamp(40px, 6vw, 72px);
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 64px;
+      grid-template-columns: minmax(320px, 420px) 1fr;
+      gap: clamp(40px, 4.5vw, 68px);
       align-items: start;
       border-top: 1px solid var(--rule);
     }
@@ -218,6 +218,7 @@
     /* ── MOBILE ──────────────────────────────────── */
     @media (max-width: 860px) {
       .ab-body { grid-template-columns: 1fr; gap: 40px; }
+      .ab-photo { max-width: 460px; }
       .ab-client-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 600px) {
@@ -246,10 +247,10 @@
     <nav>
       <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Writer</a>
       <div class="nav-links">
-        <a href="index.html" class="nav-link">Work</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="mailto:dougblack1@gmail.com" class="nav-link">Contact</a>
-        <a href="ux.html" class="nav-link">UX + Product</a>
+        <a class="nav-link" href="/">Work</a>
+        <a class="nav-link" href="/voice-systems">Voice Systems</a>
+        <a class="nav-link active" href="/about">About</a>
+        <a class="nav-link" href="/doug-black-resume.pdf">Resume</a>
       </div>
     </nav>
 
@@ -262,7 +263,7 @@
       <!-- LEFT COLUMN -->
       <div class="ab-left">
         <div class="ab-photo">
-          <img src="images/doug-portrait.jpg" alt="Doug Black">
+          <img src="images/doug-portrait.jpg" alt="Doug Black" width="1241" height="1268">
         </div>
 
         <div class="ab-meta-block">
