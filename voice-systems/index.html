@@ -4,55 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voice systems — Doug Black</title>
-  <meta name="description" content="Five brand voice systems built from zero — Goldman Sachs, Better, Verizon, Evercore, American Express, SoundCloud. Brand voice and content design for regulated categories.">
+  <meta name="description" content="Brand voice and content design systems for Goldman Sachs, Better, Verizon, Evercore, American Express and SoundCloud. Product writing in regulated categories.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <style>
-    .vs-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .vs-hero { padding: clamp(48px,7vw,96px) 0 clamp(28px,4vw,44px); }
-    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 24px; max-width:14ch; }
-    .vs-hero-h1 .vs-inv { font-style:italic; }
+    .vs-container { max-width:1200px; margin:0 auto; padding:0 40px; }
+
+    /* ---------- HERO ---------- */
+    .vs-hero { padding:clamp(48px,7vw,104px) 0 clamp(28px,4vw,48px); }
+    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 26px; max-width:15ch; }
+
+    /* Engraved / negative-space treatment. Text colour is transparent; the glyph
+       is described only by a light shadow below-right and a dark one above-left,
+       so the word reads as pressed into the paper rather than printed on it. */
+    .vs-hero-h1 .vs-inv {
+      font-style:italic;
+      color:transparent;
+      text-shadow:
+        1px 1px 0 rgba(255,255,255,0.95),
+        2px 2px 2px rgba(255,255,255,0.55),
+        -1px -1px 0 rgba(26,23,20,0.26),
+        -2px -2px 3px rgba(26,23,20,0.10);
+      transition:color .5s ease, text-shadow .5s ease;
+    }
+    .vs-hero-h1:hover .vs-inv { color:var(--ink); text-shadow:none; }
+    @media (forced-colors: active) {
+      .vs-hero-h1 .vs-inv { color:CanvasText; text-shadow:none; }
+    }
+
     .vs-hero-sub { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(18px,2vw,21px); line-height:1.65; color:var(--ink-light); margin:0; max-width:620px; }
 
-    .vs-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin:0 0 0; }
+    /* ---------- STAT BAR ---------- */
+    .vs-stats { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     .vs-stat { padding:28px 24px 30px; border-right:1px solid var(--rule); }
     .vs-stat:last-child { border-right:none; }
     .vs-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,52px); font-weight:600; line-height:1; color:var(--ink); margin:0 0 10px; }
-    .vs-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:0; letter-spacing:0.01em; }
+    .vs-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:0; }
 
+    /* ---------- STICKY JUMP NAV ---------- */
     .vs-jump { position:sticky; top:0; z-index:50; background:var(--bg,#f5f1e8); border-bottom:1px solid var(--rule); }
-    .vs-jump-inner { max-width:1200px; margin:0 auto; padding:16px 40px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; letter-spacing:0.02em; display:flex; flex-wrap:wrap; gap:4px 0; }
+    .vs-jump-inner { max-width:1200px; margin:0 auto; padding:15px 40px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; letter-spacing:0.02em; display:flex; flex-wrap:wrap; gap:4px 0; }
     .vs-jump a { color:var(--ink-light); text-decoration:none; white-space:nowrap; }
     .vs-jump a:hover { color:var(--amber); }
+    .vs-jump a i { font-style:normal; color:var(--ink-faint); font-size:11px; letter-spacing:0.06em; margin-right:6px; }
+    .vs-jump a:hover i { color:var(--amber); }
     .vs-jump .vs-jump-sep { color:var(--ink-faint); margin:0 12px; }
 
-    .vs-section { padding:clamp(56px,8vw,104px) 0; border-bottom:1px solid var(--rule); scroll-margin-top:64px; }
+    /* ---------- TWO-COLUMN BANDS ---------- */
+    .vs-section { padding:clamp(52px,7vw,96px) 0; border-bottom:1px solid var(--rule); scroll-margin-top:60px; }
     .vs-section:last-of-type { border-bottom:none; }
-    .vs-brand { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(30px,4.5vw,56px); font-weight:600; line-height:1.04; letter-spacing:-0.01em; color:var(--ink); margin:0 0 14px; }
-    .vs-oneline { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(17px,2vw,20px); line-height:1.6; color:var(--ink-light); margin:0 0 36px; max-width:640px; }
+    .vs-band { display:grid; grid-template-columns:minmax(240px,300px) minmax(0,1fr); gap:clamp(28px,4.5vw,68px); align-items:start; }
 
-    .vs-meta { display:grid; grid-template-columns:auto 1fr; gap:12px 28px; margin:0 0 44px; padding:26px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); max-width:760px; }
-    .vs-meta dt { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); padding-top:3px; white-space:nowrap; }
-    .vs-meta dd { font-family:'DM Sans',system-ui,sans-serif; font-size:15px; line-height:1.6; color:var(--ink-light); margin:0; }
+    .vs-num { font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.18em; color:var(--amber); margin:0 0 16px; display:block; }
+    .vs-brand { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(30px,3.4vw,42px); font-weight:600; line-height:1.06; letter-spacing:-0.01em; color:var(--ink); margin:0 0 16px; }
+    .vs-oneline { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.65; color:var(--ink-light); margin:0; }
 
-    .vs-inner-stats { display:flex; flex-wrap:wrap; gap:36px; margin:0 0 40px; padding:22px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .vs-meta { margin:26px 0 0; padding:22px 0 0; border-top:1px solid var(--rule); }
+    .vs-meta dt { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 5px; }
+    .vs-meta dd { font-family:'DM Sans',system-ui,sans-serif; font-size:14px; line-height:1.55; color:var(--ink-light); margin:0 0 16px; }
+    .vs-meta dd:last-child { margin-bottom:0; }
+
+    /* ---------- BAND CONTENT ---------- */
+    .vs-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:44px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
+    .vs-content > .vs-label:first-child { margin-top:0; }
+    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:17px; line-height:1.8; color:var(--ink-light); margin:0 0 20px; max-width:62ch; }
+    .vs-body:last-child { margin-bottom:0; }
+    .vs-note { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.75; color:var(--ink-light); margin:22px 0 0; max-width:60ch; font-style:italic; }
+
+    .vs-inner-stats { display:flex; flex-wrap:wrap; gap:32px; margin:0 0 8px; padding:20px 0 22px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     .vs-inner-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(24px,3vw,34px); font-weight:600; color:var(--ink); line-height:1; margin:0 0 6px; }
-    .vs-inner-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.04em; color:var(--ink-faint); margin:0; max-width:150px; line-height:1.4; }
+    .vs-inner-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.04em; color:var(--ink-faint); margin:0; max-width:160px; line-height:1.45; }
 
-    .vs-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:40px 0 18px; padding-bottom:12px; border-bottom:1px solid var(--rule); max-width:760px; }
-    .vs-block { background:#1A1714; border-radius:6px; padding:28px 32px; margin-bottom:12px; max-width:760px; }
+    /* Air Co. dark-block sample treatment */
+    .vs-block { background:#1A1714; border-radius:6px; padding:26px 30px; margin-bottom:10px; }
     .vs-block p.q { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.55 !important; margin:0 !important; }
     .vs-block p.n { font-family:'DM Sans',system-ui,sans-serif !important; font-size:11px !important; letter-spacing:0.1em !important; text-transform:uppercase !important; color:var(--amber) !important; margin:12px 0 0 !important; }
-    .vs-note { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.75; color:var(--ink-light); margin:20px 0 0; max-width:640px; font-style:italic; }
-    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:18px; line-height:1.8; color:var(--ink-light); margin:0 0 20px; max-width:640px; }
-    .vs-fullcase { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; margin:24px 0 0; }
-    .vs-fullcase a { color:var(--amber); text-decoration:none; font-weight:500; }
-    .vs-imggrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:32px 0 0; max-width:760px; }
-    .vs-imggrid img { width:100%; height:auto; display:block; border-radius:3px; cursor:zoom-in; }
 
+    /* ---------- IMAGERY ---------- */
+    .vs-fig { margin:26px 0 0; }
+    .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; background:#fff; }
+    .vs-fig figcaption { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:10px 0 0; }
+    .vs-fig--narrow { max-width:300px; }
+    .vs-figgrid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:26px 0 0; }
+    .vs-figgrid .vs-fig { margin:0; }
+
+    .vs-fullcase { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; margin:26px 0 0; }
+    .vs-fullcase a { color:var(--amber); text-decoration:none; font-weight:500; }
+
+    /* ---------- CLOSE ---------- */
     .vs-close { padding:clamp(56px,8vw,96px) 0; }
     .vs-close-body { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(22px,3vw,32px); font-weight:300; line-height:1.5; color:var(--ink); margin:0; max-width:800px; }
     .vs-footer-cta { padding:40px 0; border-top:1px solid var(--rule); font-family:'DM Sans',system-ui,sans-serif; font-size:15px; }
@@ -60,13 +102,19 @@
     .vs-footer-cta a:hover { color:var(--amber); }
     .vs-footer-cta .vs-cta-sep { color:var(--ink-faint); margin:0 14px; }
 
+    @media (max-width:900px) {
+      .vs-band { grid-template-columns:1fr; gap:34px; }
+      .vs-meta { margin-top:22px; }
+    }
     @media (max-width:768px) {
+      .vs-container { padding:0 22px; }
       .vs-stats { grid-template-columns:1fr 1fr; }
       .vs-stat:nth-child(2) { border-right:none; }
       .vs-stat:nth-child(1), .vs-stat:nth-child(2) { border-bottom:1px solid var(--rule); }
       .vs-jump-inner { padding:14px 22px; font-size:12px; }
-      .vs-container { padding:0 22px; }
-      .vs-imggrid { grid-template-columns:1fr; }
+      .vs-jump .vs-jump-sep { margin:0 8px; }
+      .vs-figgrid { grid-template-columns:1fr; }
+      .vs-fig--narrow { max-width:240px; }
     }
   </style>
 </head><body>
@@ -91,6 +139,7 @@
         <a href="../doug-black-resume.pdf" class="nav-link">Resume</a>
       </div>
     </nav>
+
     <div class="vs-container">
       <header class="vs-hero">
         <h1 class="vs-hero-h1">The best interface copy is <span class="vs-inv">invisible</span>.</h1>
@@ -98,10 +147,9 @@
       </header>
     </div>
 
-    <!-- STAT BAR -->
     <div class="vs-container">
       <div class="vs-stats">
-        <div class="vs-stat"><p class="vs-stat-num">5</p><p class="vs-stat-label">Voice systems built from zero</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">5</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
         <div class="vs-stat"><p class="vs-stat-num">10+</p><p class="vs-stat-label">Years of embedded product writing</p></div>
         <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
         <div class="vs-stat"><p class="vs-stat-num">Silver</p><p class="vs-stat-label">NYC Design Awards, Best Mobile Marketing (American Express)</p></div>
@@ -110,92 +158,206 @@
 
     <div class="vs-jump">
       <div class="vs-jump-inner">
-        <a href="#goldman-sachs">Goldman Sachs</a><span class="vs-jump-sep">·</span>
-        <a href="#better">Better</a><span class="vs-jump-sep">·</span>
-        <a href="#verizon">Verizon</a><span class="vs-jump-sep">·</span>
-        <a href="#evercore">Evercore</a><span class="vs-jump-sep">·</span>
-        <a href="#american-express">American Express</a><span class="vs-jump-sep">·</span>
-        <a href="#soundcloud">SoundCloud</a>
+        <a href="#goldman-sachs"><i>01</i>Goldman Sachs</a><span class="vs-jump-sep">·</span>
+        <a href="#better"><i>02</i>Better</a><span class="vs-jump-sep">·</span>
+        <a href="#verizon"><i>03</i>Verizon</a><span class="vs-jump-sep">·</span>
+        <a href="#evercore"><i>04</i>Evercore</a><span class="vs-jump-sep">·</span>
+        <a href="#american-express"><i>05</i>American Express</a><span class="vs-jump-sep">·</span>
+        <a href="#soundcloud"><i>06</i>SoundCloud</a>
       </div>
     </div>
 
     <div class="vs-container">
+
+      <!-- ============ 01 GOLDMAN SACHS ============ -->
       <section class="vs-section" id="goldman-sachs">
-        <h2 class="vs-brand">Goldman Sachs Private Wealth</h2>
-        <p class="vs-oneline">A voice and content system for a platform serving clients with $10M+ in investable assets.</p>
-        <dl class="vs-meta">
-          <dt>What I owned</dt><dd>Voice architecture, tone principles, navigation and data-display standards, onboarding, alerts, error states, and the documentation that let a large product team make consistent copy decisions without a writer in the room.</dd>
-          <dt>Category</dt><dd>Private wealth management. Every line legally reviewed.</dd>
-          <dt>Duration</dt><dd>Two engagements, 2018–2020, embedded.</dd>
-        </dl>
-        <p class="vs-label">The persona</p>
-        <div class="vs-block"><p class="q">Confident but not cocky. Smart but not stodgy. Helpful but not pushy. Expert but not bossy.</p></div>
-        <p class="vs-label">The principles</p>
-        <div class="vs-block"><p class="q">Fewer words always win. Communicate only essential details so clients can focus on their own tasks.</p><p class="n">Principle 01</p></div>
-        <div class="vs-block"><p class="q">Help, don't apologize. When something went wrong, give a clear explanation and help them fix it.</p><p class="n">Principle 02</p></div>
-        <div class="vs-block"><p class="q">Tell, don't plead. Avoid empty niceties like "please" and "unfortunately." Start with the client need.</p><p class="n">Principle 03</p></div>
-      </section>
-      <section class="vs-section" id="better">
-        <h2 class="vs-brand">Better.com</h2>
-        <p class="vs-oneline">Embedded product writer across UX, brand, and product copy for a company moving one of the most anxiety-inducing processes in American life entirely online.</p>
-        <dl class="vs-meta">
-          <dt>Duration</dt><dd>2020–2021</dd>
-        </dl>
-        <p class="vs-label">Sample copy</p>
-        <div class="vs-block"><p class="q">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p><p class="n">Rate lock confirmation</p></div>
-        <div class="vs-block"><p class="q">"This is the part most lenders make complicated. We're going to make it a checklist."</p><p class="n">Document upload intro</p></div>
-        <div class="vs-block"><p class="q">"We didn't hear back from the underwriter. That's normal, we'll ping them again tomorrow."</p><p class="n">Error / delay state</p></div>
-        <p class="vs-note">Error and delay states are the hardest copy in a mortgage flow. The customer is already anxious, the news is rarely good, and the wrong tone turns a routine wait into a reason to walk. These lines had to stay calm without lying.</p>
-      </section>
-      <section class="vs-section" id="verizon">
-        <h2 class="vs-brand">Verizon Wireless</h2>
-        <p class="vs-oneline">A vocabulary, nomenclature standard, and copy pattern system across VerizonWireless.com and the MyVerizon app, serving 113 million subscribers.</p>
-        <dl class="vs-meta">
-          <dt>Agency</dt><dd>AKQA</dd>
-          <dt>Recognition</dt><dd>Webby Award Honoree, Mobile Sites &amp; Apps, 2017</dd>
-        </dl>
-        <div class="vs-inner-stats">
-          <div><p class="vs-inner-stat-num">15.6x</p><p class="vs-inner-stat-label">Mobile sales conversion, within seven months</p></div>
-          <div><p class="vs-inner-stat-num">50%+</p><p class="vs-inner-stat-label">Overall usage increase</p></div>
-          <div><p class="vs-inner-stat-num">68→85%</p><p class="vs-inner-stat-label">In-app bill payment</p></div>
-          <div><p class="vs-inner-stat-num">27%</p><p class="vs-inner-stat-label">Autopay enrollment increase</p></div>
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">01</span>
+            <h2 class="vs-brand">Goldman Sachs Private Wealth</h2>
+            <p class="vs-oneline">A voice and content system for a platform serving clients with $10M or more in investable assets.</p>
+            <dl class="vs-meta">
+              <dt>Role</dt><dd>Copy lead, managing the copy team</dd>
+              <dt>Category</dt><dd>Private wealth management. Every line read by Legal and compliance.</dd>
+              <dt>Duration</dt><dd>Two engagements, 2018–2020, embedded at Goldman Sachs HQ</dd>
+            </dl>
+          </div>
+          <div class="vs-content">
+            <div class="vs-inner-stats">
+              <div><p class="vs-inner-stat-num">$10M+</p><p class="vs-inner-stat-label">Investable assets, client base</p></div>
+              <div><p class="vs-inner-stat-num">~40</p><p class="vs-inner-stat-label">Design system components given a language layer</p></div>
+              <div><p class="vs-inner-stat-num">60</p><p class="vs-inner-stat-label">Pages of public design system, launched February 2020</p></div>
+            </div>
+
+            <p class="vs-label">The engagement</p>
+            <p class="vs-body">Two separate engagements, both embedded at Goldman Sachs headquarters. I managed the copy team that built the voice and content system for Goldman's Private Wealth Management platform.</p>
+            <p class="vs-body">The audience was Goldman's high-net-worth clients. The constraint was writing that had to satisfy Legal and compliance and still sound like a person wrote it. Those two demands pull against each other, and most financial platforms settle the argument by handing the decision to compliance.</p>
+            <p class="vs-body">So the work was not really about writing good lines. It was about building the standards, terminology, and patterns that let the platform's teams stay on voice without a writer sitting in every review.</p>
+
+            <p class="vs-label">What I owned</p>
+            <p class="vs-body">Voice architecture, tone principles, terminology, navigation and data-display standards, onboarding, alerts, and error states. I wrote the documentation that made those decisions repeatable, then handed it to teams who used it without me. I also recruited and onboarded the junior writers who joined the team.</p>
+
+            <p class="vs-label">The persona</p>
+            <div class="vs-block"><p class="q">Confident but not cocky. Smart but not stodgy. Helpful but not pushy. Expert but not bossy.</p></div>
+
+            <p class="vs-label">The principles</p>
+            <div class="vs-block"><p class="q">Fewer words always win. Communicate only essential details so clients can focus on their own tasks.</p><p class="n">Principle 01</p></div>
+            <div class="vs-block"><p class="q">Help, don't apologize. When something went wrong, give a clear explanation and help them fix it.</p><p class="n">Principle 02</p></div>
+            <div class="vs-block"><p class="q">Tell, don't plead. Avoid empty niceties like "please" and "unfortunately." Start with the client need.</p><p class="n">Principle 03</p></div>
+
+            <p class="vs-label">Beyond the client platform</p>
+            <p class="vs-body">I led naming and product language on an internal analytics platform, wrote its technical documentation, and wrote the executive narrative that introduced it to firm leadership. Three very different registers for the same product, which is a useful test of whether a voice system actually holds.</p>
+            <p class="vs-body">I also led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Component language is the least glamorous writing in the building. It is also the writing that appears the most times.</p>
+          </div>
         </div>
-        <p class="vs-label">Sample copy, MyVerizon app</p>
-        <div class="vs-block"><p class="q">"You have plenty of data remaining for the month."</p><p class="n">Data hub, positive state headline</p></div>
-        <div class="vs-block"><p class="q">"Say goodbye to data limits with unlimited data."</p><p class="n">Plan upgrade, unlimited tier CTA</p></div>
-        <div class="vs-block"><p class="q">"Switch to a 4 GB data limit to save $60/mo."</p><p class="n">Dynamic plan headline, personalized to current plan</p></div>
       </section>
+
+      <!-- ============ 02 BETTER ============ -->
+      <section class="vs-section" id="better">
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">02</span>
+            <h2 class="vs-brand">Better.com</h2>
+            <p class="vs-oneline">Embedded product writer across UX, brand, and product copy for a company moving one of the most anxiety-inducing processes in American life entirely online.</p>
+            <dl class="vs-meta">
+              <dt>Category</dt><dd>Consumer mortgage</dd>
+              <dt>Duration</dt><dd>2020–2021</dd>
+            </dl>
+          </div>
+          <div class="vs-content">
+            <p class="vs-label">Sample copy</p>
+            <div class="vs-block"><p class="q">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p><p class="n">Rate lock confirmation</p></div>
+            <div class="vs-block"><p class="q">"This is the part most lenders make complicated. We're going to make it a checklist."</p><p class="n">Document upload intro</p></div>
+            <div class="vs-block"><p class="q">"We didn't hear back from the underwriter. That's normal, we'll ping them again tomorrow."</p><p class="n">Error / delay state</p></div>
+            <p class="vs-note">Error and delay states are the hardest copy in a mortgage flow. The customer is already anxious, the news is rarely good, and the wrong tone turns a routine wait into a reason to walk. These lines had to stay calm without lying.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 VERIZON ============ -->
+      <section class="vs-section" id="verizon">
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">03</span>
+            <h2 class="vs-brand">Verizon Wireless</h2>
+            <p class="vs-oneline">A vocabulary, nomenclature standard, and copy pattern system across VerizonWireless.com and the MyVerizon app, serving 113 million subscribers.</p>
+            <dl class="vs-meta">
+              <dt>Agency</dt><dd>AKQA</dd>
+              <dt>Category</dt><dd>Telecom</dd>
+              <dt>Recognition</dt><dd>Webby Award Honoree, Mobile Sites &amp; Apps, 2017</dd>
+            </dl>
+          </div>
+          <div class="vs-content">
+            <div class="vs-inner-stats">
+              <div><p class="vs-inner-stat-num">15.6x</p><p class="vs-inner-stat-label">Mobile sales conversion, within seven months</p></div>
+              <div><p class="vs-inner-stat-num">50%+</p><p class="vs-inner-stat-label">Overall usage increase</p></div>
+              <div><p class="vs-inner-stat-num">68→85%</p><p class="vs-inner-stat-label">In-app bill payment</p></div>
+              <div><p class="vs-inner-stat-num">27%</p><p class="vs-inner-stat-label">Autopay enrollment increase</p></div>
+            </div>
+
+            <p class="vs-label">Sample copy, MyVerizon app</p>
+            <div class="vs-block"><p class="q">"You have plenty of data remaining for the month."</p><p class="n">Data hub, positive state headline</p></div>
+            <div class="vs-block"><p class="q">"Say goodbye to data limits with unlimited data."</p><p class="n">Plan upgrade, unlimited tier CTA</p></div>
+            <div class="vs-block"><p class="q">"Switch to a 4 GB data limit to save $60/mo."</p><p class="n">Dynamic plan headline, personalized to current plan</p></div>
+
+            <p class="vs-label">In the app</p>
+            <figure class="vs-fig">
+              <img src="../images/voice-systems/vz-app-store.webp" alt="Three MyVerizon app screens with the headlines All you need to know at a glance, Change plans or upgrade to Unlimited anytime anywhere, and Your bill simplified." width="1000" height="563" loading="lazy" decoding="async">
+              <figcaption>MyVerizon app, store listing screens.</figcaption>
+            </figure>
+            <figure class="vs-fig">
+              <img src="../images/voice-systems/vz-data-hub.webp" alt="A hand holding a phone showing the MyVerizon data hub with the headline You have plenty of data remaining for the month above a 94 percent dial." width="637" height="357" loading="lazy" decoding="async">
+              <figcaption>Data hub, positive state. The dial carries the number, so the headline only has to carry the reassurance.</figcaption>
+            </figure>
+            <figure class="vs-fig vs-fig--narrow">
+              <img src="../images/voice-systems/vz-data-remaining.webp" alt="MyVerizon home screen reading You have 33% data remaining, with a supporting line reading You're good on data, 1.3 GB remaining with 21 days left." width="574" height="932" loading="lazy" decoding="async">
+              <figcaption>Same pattern, different threshold. The headline states the number, the line under it says whether the number is a problem.</figcaption>
+            </figure>
+            <figure class="vs-fig">
+              <img src="../images/voice-systems/vz-plan-spec.webp" alt="Annotated specification page titled Explore Multi-Line Plan Sizes, showing dynamic headline logic for the 4 GB, 8 GB and unlimited plan cards." width="636" height="359" loading="lazy" decoding="async">
+              <figcaption>How the dynamic headlines were specified: one pattern, populated against whatever plan the customer is already on.</figcaption>
+            </figure>
+            <p class="vs-note">A pattern is worth more than a line here. The dynamic plan headline had to work for every combination of current plan and available upgrade, which means the writing had to survive being assembled by a system rather than a person.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 EVERCORE ============ -->
       <section class="vs-section" id="evercore">
-        <h2 class="vs-brand">Evercore</h2>
-        <p class="vs-oneline">Brand voice, tone guidelines, and messaging framework for an institutional finance name building for individual investors for the first time.</p>
-        <dl class="vs-meta">
-          <dt>Duration</dt><dd>2025–2026</dd>
-        </dl>
-        <p class="vs-label">Principles from the voice doc</p>
-        <div class="vs-block"><p class="q">Institutional trust, consumer clarity. Both. Always.</p><p class="n">Principle 01</p></div>
-        <div class="vs-block"><p class="q">Don't soften institutional language. Replace it.</p><p class="n">Principle 02</p></div>
-        <div class="vs-block"><p class="q">Formality is a dial, not a setting.</p><p class="n">Principle 03</p></div>
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">04</span>
+            <h2 class="vs-brand">Evercore</h2>
+            <p class="vs-oneline">Brand voice, tone guidelines, and messaging framework for an institutional finance name building for individual investors for the first time.</p>
+            <dl class="vs-meta">
+              <dt>Category</dt><dd>Institutional finance</dd>
+              <dt>Duration</dt><dd>2025–2026</dd>
+            </dl>
+          </div>
+          <div class="vs-content">
+            <p class="vs-label">Principles from the voice doc</p>
+            <div class="vs-block"><p class="q">Institutional trust, consumer clarity. Both. Always.</p><p class="n">Principle 01</p></div>
+            <div class="vs-block"><p class="q">Don't soften institutional language. Replace it.</p><p class="n">Principle 02</p></div>
+            <div class="vs-block"><p class="q">Formality is a dial, not a setting.</p><p class="n">Principle 03</p></div>
+          </div>
+        </div>
       </section>
+
+      <!-- ============ 05 AMERICAN EXPRESS ============ -->
       <section class="vs-section" id="american-express">
-        <h2 class="vs-brand">American Express</h2>
-        <p class="vs-oneline">Mobile-first campaign and content design, with copy tested directly in the flow rather than in brand decks.</p>
-        <dl class="vs-meta">
-          <dt>Agency</dt><dd>Huge</dd>
-          <dt>Recognition</dt><dd>Silver, Best Mobile Marketing Campaign, NYC Design Awards</dd>
-        </dl>
-        <p class="vs-label">The principle</p>
-        <div class="vs-block"><p class="q">Every word earns its space. On a small screen, there's no room for a second draft.</p><p class="n">Working principle</p></div>
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">05</span>
+            <h2 class="vs-brand">American Express</h2>
+            <p class="vs-oneline">Mobile-first campaign and content design, with copy tested directly in the flow rather than in brand decks.</p>
+            <dl class="vs-meta">
+              <dt>Agency</dt><dd>Huge</dd>
+              <dt>Recognition</dt><dd>Silver, Best Mobile Marketing Campaign, NYC Design Awards</dd>
+            </dl>
+          </div>
+          <div class="vs-content">
+            <p class="vs-label">The principle</p>
+            <div class="vs-block"><p class="q">Every word earns its space. On a small screen, there's no room for a second draft.</p><p class="n">Working principle</p></div>
+
+            <p class="vs-label">In the flow</p>
+            <figure class="vs-fig">
+              <img src="../images/voice-systems/amex-homepage.webp" alt="American Express homepage with a Find Your Perfect Card panel and a Member Because testimonial module, layout grid overlaid." width="1260" height="720" loading="lazy" decoding="async">
+              <figcaption>Homepage, with the layout grid visible.</figcaption>
+            </figure>
+            <div class="vs-figgrid">
+              <figure class="vs-fig">
+                <img src="../images/voice-systems/amex-cards.webp" alt="American Express personal cards browse page showing twenty cards filtered by features, partner cards and card type." width="1260" height="720" loading="lazy" decoding="async">
+                <figcaption>Card portfolio browse and compare.</figcaption>
+              </figure>
+              <figure class="vs-fig">
+                <img src="../images/voice-systems/amex-mobile.webp" alt="Three American Express mobile screens covering card detail, a Let's get started application intro and a completed basic information step." width="1260" height="720" loading="lazy" decoding="async">
+                <figcaption>Mobile application flow.</figcaption>
+              </figure>
+            </div>
+            <p class="vs-note">Card names, benefit language, and application steps all had to read consistently across a portfolio of twenty products. The copy problem was less about persuasion than about making twenty near-identical things distinguishable in a glance.</p>
+          </div>
+        </div>
       </section>
+
+      <!-- ============ 06 SOUNDCLOUD ============ -->
       <section class="vs-section" id="soundcloud">
-        <h2 class="vs-brand">SoundCloud</h2>
-        <p class="vs-oneline">First dedicated writer in the company's history. I built the brand voice from zero and launched the subscription that asked 175 million free users to start paying.</p>
-        <p class="vs-fullcase"><a href="../work/soundcloud">Full case study →</a></p>
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">06</span>
+            <h2 class="vs-brand">SoundCloud</h2>
+            <p class="vs-oneline">First dedicated writer in the company's history. I built the brand voice and launched the subscription that asked 175 million free users to start paying.</p>
+          </div>
+          <div class="vs-content">
+            <p class="vs-fullcase"><a href="../work/soundcloud">Full case study →</a></p>
+          </div>
+        </div>
       </section>
+
     </div>
 
     <div class="vs-container">
       <div class="vs-close">
-        <p class="vs-close-body">Five voice systems built from zero. Product writing across mortgage, wealth management, telecom, and enterprise finance. More than a decade of turning compliance-written copy into something fit for a human to read.</p>
+        <p class="vs-close-body">Five voice systems, each one started from nothing. More than a decade of product writing across mortgage, wealth management, telecom, and institutional finance. The job, every time, was turning copy written for compliance into copy a person can read.</p>
       </div>
       <div class="vs-footer-cta">
         <a href="../index.html">See the brand work →</a><span class="vs-cta-sep">·</span>
