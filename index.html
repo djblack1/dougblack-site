@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="../favicon.svg">  <style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="favicon.svg">  <style>
     /* Homepage rebuild — left-aligned hero, card proof/links, client line */
     .hero-statement { text-align: center; }
     .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -68,7 +68,7 @@
     }
   </style>
 </head>
-<body>
+<body data-gate="off">
 
   <!-- PASSWORD GATE -->
   <div id="password-gate">
@@ -292,117 +292,8 @@
     </footer>
 
   </div><!-- /#site -->
-  <script>
-    (function() {
-      var PASSWORD = 'greatwork';
-      var SESSION_KEY = 'db_auth';
-
-      function unlock(animate) {
-        var gate = document.getElementById('password-gate');
-        var site = document.getElementById('site');
-        site.classList.remove('hidden');
-        if (animate) {
-          gate.classList.add('fade-out');
-          setTimeout(function() {
-            gate.style.display = 'none';
-            site.classList.add('visible');
-          }, 500);
-        } else {
-          gate.style.display = 'none';
-          site.classList.add('visible');
-        }
-      }
-
-      function init() {
-        // Homepage is ungated — clear auth so gated pages require password
-        localStorage.removeItem(SESSION_KEY);
-        unlock(false);
-        return;
-        var input = document.getElementById('password-input');
-        var btn = document.getElementById('password-submit');
-        var error = document.getElementById('gate-error');
-
-        function attempt() {
-          if (input.value.toLowerCase().trim() === PASSWORD) {
-            sessionStorage.setItem(SESSION_KEY, 'true'); if(typeof gtag !== 'undefined'){gtag('event','page_view',{'page_title':document.title,'page_location':window.location.href});};
-            unlock(true);
-          } else {
-            error.classList.add('visible');
-            input.value = '';
-            input.focus();
-            setTimeout(function() { error.classList.remove('visible'); }, 2000);
-          }
-        }
-
-        btn.addEventListener('click', attempt);
-        input.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') attempt();
-        });
-        setTimeout(function() { input.focus(); }, 100);
-      }
-
-      // Nav scroll
-      var nav = document.querySelector('nav');
-      if (nav) {
-        window.addEventListener('scroll', function() {
-          nav.classList.toggle('scrolled', window.scrollY > 20);
-        }, { passive: true });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
+  <script src="js/main.js"></script>
 <script>
-(function() {
-  var PASSWORD = 'greatwork';
-  var SESSION_KEY = 'db_auth';
-  function unlock(animate) {
-    var gate = document.getElementById('password-gate');
-    var site = document.getElementById('site');
-    if (!gate || !site) return;
-    site.classList.remove('hidden');
-    if (animate) {
-      gate.classList.add('fade-out');
-      setTimeout(function() {
-        gate.style.display = 'none';
-        site.classList.add('visible');
-      }, 500);
-    } else {
-      gate.style.display = 'none';
-      site.classList.add('visible');
-    }
-  }
-  function init() {
-    localStorage.removeItem(SESSION_KEY);
-    unlock(false); return;
-    var input = document.getElementById('password-input');
-    var btn = document.getElementById('password-submit');
-    var error = document.getElementById('gate-error');
-    if (!input || !btn) return;
-    function attempt() {
-      if (input.value.toLowerCase().trim() === PASSWORD) {
-        sessionStorage.setItem(SESSION_KEY, 'true'); if(typeof gtag !== 'undefined'){gtag('event','page_view',{'page_title':document.title,'page_location':window.location.href});};
-        unlock(true);
-      } else {
-        if (error) error.classList.add('visible');
-        input.value = '';
-        input.focus();
-        setTimeout(function() { if (error) error.classList.remove('visible'); }, 2000);
-      }
-    }
-    btn.addEventListener('click', attempt);
-    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') attempt(); });
-    setTimeout(function() { input.focus(); }, 100);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
-</script><script>
 document.querySelectorAll('a[href*="cdn-cgi"]').forEach(function(a) {
   a.href = 'mailto:dougblack1@gmail.com';
   if (a.textContent.includes('protected')) a.textContent = 'dougblack1@gmail.com';
