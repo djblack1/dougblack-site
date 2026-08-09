@@ -11,33 +11,33 @@
   <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="favicon.svg">  <style>
     /* Homepage rebuild — left-aligned hero, card proof/links, client line */
-    .hero-statement { text-align: center; }
+    /* LEFT-ALIGNED HERO.
+       The left edge must match the first work-grid thumbnail exactly.
+       .page-with-sidebar below is max-width:1200px; margin:0 auto; padding:0 40px.
+       style.css gives .hero-statement its own var(--gutter) padding (24-80px),
+       which on top of the inner's 40px would land the hero 64-120px in while the
+       grid sits at 40px. So the section's horizontal padding is zeroed here and
+       .hero-statement-inner alone supplies the 40px. Vertical padding untouched. */
+    .hero-statement {
+      text-align: left;
+      align-items: stretch;
+      padding-left: 0;
+      padding-right: 0;
+    }
     .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .hero-statement-h1 { text-align: center; }
+    .hero-statement-h1 { text-align: left; }
     .hero-statement-sub {
-      text-align: center;
-      max-width: 640px;
+      text-align: left;
+      max-width: 620px;
       font-size: 20px;
       line-height: 1.6;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Standalone coda under the hero sub: 85% of the 20px body size,
-       the same dim grey as the meta text, with a wider gap above than a
-       normal paragraph break. */
-    .hero-statement-note {
-      text-align: center;
-      max-width: 640px;
-      margin: 22px auto 0;
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.6;
-      color: var(--ink-faint, #9a948a);
+      margin-left: 0;
+      margin-right: 0;
     }
     .hero-statement-links {
       margin-top: 24px;
       font-size: 16px;
-      text-align: center;
+      text-align: left;
     }
     .hero-inline { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
     .hero-inline:hover { color: var(--amber); }
@@ -76,7 +76,7 @@
       margin: 24px 0 0 0;
     }
     @media (max-width: 768px) {
-      .hero-statement-sub, .hero-statement-note, .hero-statement-links { max-width: 100%; }
+      .hero-statement-sub, .hero-statement-links { max-width: 100%; }
     }
   </style>
 </head>
@@ -112,11 +112,9 @@
     <!-- HERO -->
     <section class="hero-statement">
       <div class="hero-statement-inner">
-        <h1 class="hero-statement-h1">Most brand problems are writing problems.</h1>
-        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/#goldman-sachs" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>. I've led campaigns that win awards and built brand voice systems that probably should.</p>
-        <p class="hero-statement-note">One of them still runs a company I left in 2017.</p>
-        <p class="hero-statement-links"><a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
-        <a href="mailto:dougblack1@gmail.com" class="hero-cta">Let's get to work →</a>
+        <h1 class="hero-statement-h1">Most brand problems are<br>writing problems.</h1>
+        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/#goldman-sachs" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>. I've led campaigns that win awards and built brand voice systems that probably should. One of them still runs a company I left in 2017.</p>
+        <p class="hero-statement-links"><a href="#work" class="hero-link">See the work →</a> &nbsp;·&nbsp; <a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
       </div>
     </section>
 
