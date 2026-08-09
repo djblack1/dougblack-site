@@ -15,13 +15,14 @@
 
     /* ---------- HERO ---------- */
     .vs-hero { padding:clamp(48px,7vw,104px) 0 clamp(28px,4vw,48px); }
-    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 26px; max-width:15ch; }
+    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 26px; max-width:19ch; }
 
     /* Engraved / negative-space treatment. Text colour is transparent; the glyph
        is described only by a light shadow below-right and a dark one above-left,
        so the word reads as pressed into the paper rather than printed on it. */
     .vs-hero-h1 .vs-inv {
       font-style:italic;
+      white-space:nowrap;
       color:transparent;
       text-shadow:
         1px 1px 0 rgba(255,255,255,0.95),
@@ -86,6 +87,14 @@
     /* ---------- IMAGERY ---------- */
     .vs-fig { margin:26px 0 0; }
     .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; background:#fff; }
+
+    /* Click to enlarge. Same overlay pattern as the SoundCloud case study. */
+    .zoomable { cursor:zoom-in; }
+    .zoomable:focus-visible { outline:2px solid var(--amber); outline-offset:3px; }
+    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center; }
+    #lb-overlay.open { display:flex; }
+    #lb-overlay img { max-width:94vw; max-height:94vh; object-fit:contain; }
+    #lb-hint { position:fixed; bottom:22px; left:0; right:0; text-align:center; font-family:'DM Sans',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); pointer-events:none; }
     .vs-fig figcaption { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:10px 0 0; }
     .vs-fig--narrow { max-width:300px; }
     .vs-figgrid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:26px 0 0; }
@@ -142,8 +151,8 @@
 
     <div class="vs-container">
       <header class="vs-hero">
-        <h1 class="vs-hero-h1">The best interface copy is <span class="vs-inv">invisible</span>.</h1>
-        <p class="vs-hero-sub">Five voice systems built from zero. Four of them in regulated categories, where every line is read by someone whose job is to remove it. This is the work I'm proudest of and the work nobody sees.</p>
+        <h1 class="vs-hero-h1">My best writing is the writing <span class="vs-inv">nobody reads.</span></h1>
+        <p class="vs-hero-sub">The work I'm proudest of isn't a headline. It's the system underneath it: the rules that decide every word a brand produces, so a junior writer down the line knows exactly what to say. A good voice system outlives even the greatest line.</p>
       </header>
     </div>
 
@@ -231,11 +240,11 @@
             <div class="vs-block"><p class="q">"We didn't hear back from the underwriter. That's normal, we'll ping them again tomorrow."</p><p class="n">Error / delay state</p></div>
             <p class="vs-label">In the flow</p>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/better-hero.webp" alt="Better.com homepage reading The right mortgage could save you thousands, with a ZIP code field and three benefit checks: 24/7 support, zero commissions and lender fees, simple online experience." width="1400" height="746" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/better-hero.webp" alt="Better.com homepage reading The right mortgage could save you thousands, with a ZIP code field and three benefit checks: 24/7 support, zero commissions and lender fees, simple online experience." width="1400" height="746" loading="lazy" decoding="async">
               <figcaption>Homepage. The offer, three proof points, and one field.</figcaption>
             </figure>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/better-features.webp" alt="Better.com product page headed What you need, when you need it, listing zero commissions and zero lender fees, pre-approval in as little as 3 minutes, closing up to 10 days faster than average, and 24/7 contact." width="1400" height="793" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/better-features.webp" alt="Better.com product page headed What you need, when you need it, listing zero commissions and zero lender fees, pre-approval in as little as 3 minutes, closing up to 10 days faster than average, and 24/7 contact." width="1400" height="793" loading="lazy" decoding="async">
               <figcaption>Four claims, each one a headline and a single sentence. In a category that answers questions with paragraphs, the brevity is the argument.</figcaption>
             </figure>
 
@@ -272,19 +281,19 @@
 
             <p class="vs-label">In the app</p>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/vz-app-store.webp" alt="Three MyVerizon app screens with the headlines All you need to know at a glance, Change plans or upgrade to Unlimited anytime anywhere, and Your bill simplified." width="1000" height="563" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-app-store.webp" alt="Three MyVerizon app screens with the headlines All you need to know at a glance, Change plans or upgrade to Unlimited anytime anywhere, and Your bill simplified." width="1000" height="563" loading="lazy" decoding="async">
               <figcaption>MyVerizon app, store listing screens.</figcaption>
             </figure>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/vz-data-hub.webp" alt="A hand holding a phone showing the MyVerizon data hub with the headline You have plenty of data remaining for the month above a 94 percent dial." width="637" height="357" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-data-hub.webp" alt="A hand holding a phone showing the MyVerizon data hub with the headline You have plenty of data remaining for the month above a 94 percent dial." width="637" height="357" loading="lazy" decoding="async">
               <figcaption>Data hub, positive state. The dial carries the number, so the headline only has to carry the reassurance.</figcaption>
             </figure>
             <figure class="vs-fig vs-fig--narrow">
-              <img src="../images/voice-systems/vz-data-remaining.webp" alt="MyVerizon home screen reading You have 33% data remaining, with a supporting line reading You're good on data, 1.3 GB remaining with 21 days left." width="574" height="932" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-data-remaining.webp" alt="MyVerizon home screen reading You have 33% data remaining, with a supporting line reading You're good on data, 1.3 GB remaining with 21 days left." width="574" height="932" loading="lazy" decoding="async">
               <figcaption>Same pattern, different threshold. The headline states the number, the line under it says whether the number is a problem.</figcaption>
             </figure>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/vz-plan-spec.webp" alt="Annotated specification page titled Explore Multi-Line Plan Sizes, showing dynamic headline logic for the 4 GB, 8 GB and unlimited plan cards." width="636" height="359" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-plan-spec.webp" alt="Annotated specification page titled Explore Multi-Line Plan Sizes, showing dynamic headline logic for the 4 GB, 8 GB and unlimited plan cards." width="636" height="359" loading="lazy" decoding="async">
               <figcaption>How the dynamic headlines were specified: one pattern, populated against whatever plan the customer is already on.</figcaption>
             </figure>
             <p class="vs-note">A pattern is worth more than a line here. The dynamic plan headline had to work for every combination of current plan and available upgrade, which means the writing had to survive being assembled by a system rather than a person.</p>
@@ -331,16 +340,16 @@
 
             <p class="vs-label">In the flow</p>
             <figure class="vs-fig">
-              <img src="../images/voice-systems/amex-homepage.webp" alt="American Express homepage with a Find Your Perfect Card panel and a Member Because testimonial module, layout grid overlaid." width="1260" height="720" loading="lazy" decoding="async">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-homepage.webp" alt="American Express homepage with a Find Your Perfect Card panel and a Member Because testimonial module, layout grid overlaid." width="1260" height="720" loading="lazy" decoding="async">
               <figcaption>Homepage, with the layout grid visible.</figcaption>
             </figure>
             <div class="vs-figgrid">
               <figure class="vs-fig">
-                <img src="../images/voice-systems/amex-cards.webp" alt="American Express personal cards browse page showing twenty cards filtered by features, partner cards and card type." width="1260" height="720" loading="lazy" decoding="async">
+                <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-cards.webp" alt="American Express personal cards browse page showing twenty cards filtered by features, partner cards and card type." width="1260" height="720" loading="lazy" decoding="async">
                 <figcaption>Card portfolio browse and compare.</figcaption>
               </figure>
               <figure class="vs-fig">
-                <img src="../images/voice-systems/amex-mobile.webp" alt="Three American Express mobile screens covering card detail, a Let's get started application intro and a completed basic information step." width="1260" height="720" loading="lazy" decoding="async">
+                <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-mobile.webp" alt="Three American Express mobile screens covering card detail, a Let's get started application intro and a completed basic information step." width="1260" height="720" loading="lazy" decoding="async">
                 <figcaption>Mobile application flow.</figcaption>
               </figure>
             </div>
@@ -386,5 +395,24 @@
     </footer>
   </div>
   <script src="../js/main.js"></script>
+  <div id="lb-overlay" onclick="this.classList.remove('open')" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <img id="lb-img" src="" alt="">
+    <span id="lb-hint">Click anywhere or press Esc to close</span>
+  </div>
+  <script>
+    function lb(src, alt) {
+      var img = document.getElementById('lb-img');
+      img.src = src;
+      img.alt = alt || '';
+      document.getElementById('lb-overlay').classList.add('open');
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') document.getElementById('lb-overlay').classList.remove('open');
+      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.classList.contains('zoomable')) {
+        e.preventDefault();
+        lb(document.activeElement.src, document.activeElement.alt);
+      }
+    });
+  </script>
 </body>
 </html>

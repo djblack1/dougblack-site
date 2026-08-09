@@ -144,6 +144,11 @@
       padding: clamp(40px, 5vw, 64px) 0;
       border-top: 1px solid var(--rule);
     }
+    /* Text-only block: no image column to fill, so run one column and
+       hold the measure at a readable width. */
+    .lc-block--full { grid-template-columns: 1fr; }
+    .lc-block--full .lc-block-text { max-width: 68ch; }
+    .lc-block--full .lc-block-body + .lc-block-body { margin-top: 20px; }
     .lc-block-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 24px;
@@ -313,9 +318,9 @@
       <img src="../images/sc-billboard.png" alt="SoundCloud Go — campaign billboard" class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
-        <h1 class="lc-hero-h1">I built SoundCloud's brand voice from zero.</h1>
+        <h1 class="lc-hero-h1">How to ask 175 million people to pay for free music.</h1>
         <p class="lc-hero-sub">First dedicated writer. Launch campaign. Subscription rollout.</p>
-        <span class="lc-hero-credit">SoundCloud Go &nbsp;·&nbsp; November 2016 – February 2017</span>
+        <span class="lc-hero-credit">SoundCloud Go &nbsp;·&nbsp; October 2015 – July 2017</span>
       </div>
     </section>
 
@@ -344,7 +349,7 @@
       <!-- ── SECTION 3: THE BET ───────────────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The bet.</h2>
-        <p class="lc-body-text">SoundCloud was the free internet's favorite music platform, 175 million users, fiercely loyal, and almost none of them paying. The business needed a subscription model. The audience needed a reason not to revolt. The voice that convinced them had to sound like SoundCloud, self-aware, enthusiastic, a little breathless, without apologizing for the ask. When I arrived, it didn't yet exist.</p>
+        <p class="lc-body-text">SoundCloud was the free internet's favorite music platform: 175 million users, fiercely loyal, and almost none of them paying. The business needed a subscription model. The audience needed a reason not to revolt, and the voice that convinced them didn't exist yet.</p>
       </section>
 
       <!-- ── SECTION 4: WHAT I BUILT ─────────────── -->
@@ -355,7 +360,7 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The voice.</h3>
-            <p class="lc-block-body">SoundCloud had no brand voice when I arrived. No guidelines, no legacy tone, just a platform with a fiercely specific culture and an audience that could smell corporate from a mile away. I built the voice system from scratch, enthusiast, self-aware, a little breathless on purpose, acknowledging we were living through a genuinely weird moment in music history. The voice was ready by launch. The hard part came next.</p>
+            <p class="lc-block-body">SoundCloud had no brand voice. No guidelines, no legacy tone, just a platform with a fervent culture and an audience that could sniff out anything corporate from miles away. I wrote the voice system that didn't exist: enthusiastic, self-aware, acknowledging that we were living through a weird moment in music history. The voice was ready by launch. The hard part came next.</p>
           </div>
           <div class="lc-block-image">
             <div class="lc-video-wrap">
@@ -368,7 +373,7 @@
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The launch.</h3>
-            <p class="lc-block-body">Video, web, email, social, in-product. The films were designed to feel native to the platform: energetic, a little chaotic, unapologetically music-obsessed. Not polished brand film, something that could live on SoundCloud itself without feeling out of place.</p>
+            <p class="lc-block-body">Video, web, email, social, in-product. The films were built to feel native to the platform: energetic, a bit chaotic, and unapologetically music-obsessed. We avoided polished brand film. We wanted it to look, sound, and feel like something that could live on SoundCloud itself.</p>
             <div class="lc-three-up" style="margin-top: clamp(24px, 3vw, 40px);">
               <img src="../images/sc-billboard.png" alt="SoundCloud Go OOH billboard" class="zoomable" onclick="lb(this.src)">
               <img src="../images/sc-subway.png" alt="SoundCloud Go subway" class="zoomable" onclick="lb(this.src)">
@@ -383,11 +388,20 @@
           </div>
         </div>
 
-        <!-- Block 3: The hard email -->
+        <!-- Block 3: What went wrong, at first -->
+        <div class="lc-block lc-block--full">
+          <div class="lc-block-text">
+            <h3 class="lc-block-title">What went wrong… at first.</h3>
+            <p class="lc-block-body">The launch didn't land exactly as we'd hoped. The price was right for Spotify's audience, but wrong for a community of bedroom producers. The messaging asked people to compare 135 million tracks against a number nobody had ever published, and promised an ad-free experience to some users who had never heard an ad. Meanwhile, the free tier quietly got worse: full tracks became thirty-second previews.</p>
+            <p class="lc-block-body">The criticism that stung wasn't about price. It was that we'd made the thing people loved feel like a demo of itself. This is where the real work began. We listened to the complaints, and we adapted to the feedback. The SoundCloud listener was used to freedom and options. If they were going to pay for the thing they love, there would have to be options, and one would have to be free. I advocated for and wrote the new tiered system that exists today.</p>
+          </div>
+        </div>
+
+        <!-- Block 4: The hard email -->
         <div class="lc-block">
           <div class="lc-block-text">
             <h3 class="lc-block-title">The hard email.</h3>
-            <p class="lc-block-body">Email was the part that could've blown up. I had to ask a free user base with 175 million people to start paying, and not make them feel like the thing they loved had been replaced by something worse. The campaign had to be additive, not subtractive. Open rates told us the voice was working.</p>
+            <p class="lc-block-body">Email was the part that could have blown up. I had to ask a free user base of 175 million to start paying, without making them feel the thing they loved was getting taken away. The campaign had to be additive, not subtractive.</p>
           </div>
           <div class="lc-block-image">
             <img src="../images/sc-laptop.png" alt="SoundCloud Go microsite" class="zoomable" onclick="lb(this.src)">
@@ -400,7 +414,7 @@
       <!-- ── SECTION 5: WHAT CHANGED ─────────────── -->
       <section class="lc-section lc-section-last">
         <h2 class="lc-h2">What changed.</h2>
-        <p class="lc-closing-body">SoundCloud Go didn't save the company on its own, almost every streaming service loses money, but it gave them a runway and proved the voice could carry a commercial ask without betraying the audience. The voice I built for the launch became the voice of the company. It still is.</p>
+        <p class="lc-closing-body">SoundCloud Go didn't save the company on its own. Almost every streaming service loses money. But it bought a runway, and it proved the voice could carry a commercial ask without betraying the audience. The voice I wrote for the launch became the voice of the company. It still is.</p>
         <p class="lc-closing-quote">The free internet didn't need to be sold to. It needed to be respected. That's what we wrote.</p>
       </section>
 
