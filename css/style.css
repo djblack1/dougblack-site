@@ -1762,5 +1762,8 @@ footer {
   flex-shrink: 0;
 }
 .work-sidebar .meta-value {
-  white-space: nowrap;
+  /* Was nowrap, which pushed these strings straight through the 200px
+     column and off the right edge of the viewport. They have to wrap. */
+  white-space: normal;
+  overflow-wrap: break-word;
 }

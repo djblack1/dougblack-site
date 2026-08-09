@@ -12,17 +12,25 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/svg+xml" href="favicon.svg">  <style>
     /* Homepage rebuild — left-aligned hero, card proof/links, client line */
     /* LEFT-ALIGNED HERO.
-       The left edge must match the first work-grid thumbnail exactly.
-       .page-with-sidebar below is max-width:1200px; margin:0 auto; padding:0 40px.
-       style.css gives .hero-statement its own var(--gutter) padding (24-80px),
-       which on top of the inner's 40px would land the hero 64-120px in while the
-       grid sits at 40px. So the section's horizontal padding is zeroed here and
-       .hero-statement-inner alone supplies the 40px. Vertical padding untouched. */
+       .hero-statement-inner must be geometrically identical to .page-with-sidebar
+       below it (max-width:1200px; margin:0 auto; padding:0 40px) so the "M" in
+       "Most" lands on the same x as the Lincoln thumbnail.
+
+       style.css makes .hero-statement a centered flex column with its own
+       var(--gutter) padding. Two things had to go:
+       1. the gutter, which stacked on top of the inner's 40px;
+       2. display:flex. In flexbox an auto margin on the cross axis beats
+          align-items:stretch, so the inner's margin:0 auto shrank it to
+          fit-content and re-centered it. Going back to display:block makes
+          margin:0 auto behave normally and centre the 1200px box instead.
+       Vertical padding is left alone to preserve the existing rhythm. */
     .hero-statement {
-      text-align: left;
-      align-items: stretch;
+      display: block;
+      max-width: none;
+      margin: 0;
       padding-left: 0;
       padding-right: 0;
+      text-align: left;
     }
     .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
     .hero-statement-h1 { text-align: left; }
@@ -114,7 +122,7 @@
       <div class="hero-statement-inner">
         <h1 class="hero-statement-h1">Most brand problems are<br>writing problems.</h1>
         <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/#goldman-sachs" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>. I've led campaigns that win awards and built brand voice systems that probably should. One of them still runs a company I left in 2017.</p>
-        <p class="hero-statement-links"><a href="#work" class="hero-link">See the work →</a> &nbsp;·&nbsp; <a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
+        <p class="hero-statement-links"><a href="mailto:dougblack1@gmail.com" class="hero-link">Let's get to work →</a></p>
       </div>
     </section>
 
