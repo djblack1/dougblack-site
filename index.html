@@ -22,6 +22,18 @@
       margin-left: auto;
       margin-right: auto;
     }
+    /* Standalone coda under the hero sub: 85% of the 20px body size,
+       the same dim grey as the meta text, with a wider gap above than a
+       normal paragraph break. */
+    .hero-statement-note {
+      text-align: center;
+      max-width: 640px;
+      margin: 22px auto 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-faint, #9a948a);
+    }
     .hero-statement-links {
       margin-top: 24px;
       font-size: 16px;
@@ -64,7 +76,7 @@
       margin: 24px 0 0 0;
     }
     @media (max-width: 768px) {
-      .hero-statement-sub, .hero-statement-links { max-width: 100%; }
+      .hero-statement-sub, .hero-statement-note, .hero-statement-links { max-width: 100%; }
     }
   </style>
 </head>
@@ -101,7 +113,8 @@
     <section class="hero-statement">
       <div class="hero-statement-inner">
         <h1 class="hero-statement-h1">Most brand problems are writing problems.</h1>
-        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/#goldman-sachs" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>. I've led campaigns that win awards and built brand voice systems that probably should. One of them still runs a company I left in 2017.</p>
+        <p class="hero-statement-sub">I've spent fifteen years solving them for <a href="/work/lincoln" class="hero-inline">Lincoln</a>, <a href="/work/soundcloud" class="hero-inline">SoundCloud</a>, <a href="/voice-systems/#goldman-sachs" class="hero-inline">Goldman Sachs</a>, and <a href="/work/pepsi" class="hero-inline">Pepsi</a>. I've led campaigns that win awards and built brand voice systems that probably should.</p>
+        <p class="hero-statement-note">One of them still runs a company I left in 2017.</p>
         <p class="hero-statement-links"><a href="/doug-black-resume.pdf" class="hero-link">Resume →</a></p>
         <a href="mailto:dougblack1@gmail.com" class="hero-cta">Let's get to work →</a>
       </div>

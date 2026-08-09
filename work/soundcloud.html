@@ -58,6 +58,12 @@
       color: #F5F2EC;
       margin: 0 0 12px 0;
       letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+    /* The <br> sets the two-line break on desktop. Below 560px the line is
+       too long for the viewport either way, so drop it and let the type wrap. */
+    @media (max-width: 560px) {
+      .lc-hero-h1 br { display: none; }
     }
     .lc-hero-sub {
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -318,7 +324,7 @@
       <img src="../images/sc-billboard.png" alt="SoundCloud Go — campaign billboard" class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
-        <h1 class="lc-hero-h1">How to ask 175 million people to pay for free music.</h1>
+        <h1 class="lc-hero-h1">Asking 175 million people<br>to pay for free music.</h1>
         <p class="lc-hero-sub">First dedicated writer. Launch campaign. Subscription rollout.</p>
         <span class="lc-hero-credit">SoundCloud Go &nbsp;·&nbsp; October 2015 – July 2017</span>
       </div>
