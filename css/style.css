@@ -1745,21 +1745,35 @@ footer {
 /* =============================================
    WORK PAGE LAYOUT — REBALANCED
    ============================================= */
+/* justify-content:center was leaving 92px of free space in the row
+   (780 + 48 + 200 inside a 1120px box) and splitting it 46px to each side,
+   which pushed the grid right of the nav and hero and left dead space
+   beside the sidebar. The main column now flexes to fill the row instead,
+   so there is no free space left to distribute. */
 .page-with-sidebar {
-  justify-content: center;
+  justify-content: flex-start;
   gap: 48px;
 }
 .page-sidebar-main {
-  max-width: 780px;
-  flex: none;
-  width: 780px;
+  flex: 1 1 auto;
+  width: auto;
+  max-width: none;
+  min-width: 0;
 }
 .page-sidebar-main .work-grid {
   grid-template-columns: repeat(2, 1fr) !important;
 }
-.work-sidebar {
-  width: 200px !important;
+/* Scoped by parent rather than !important. The old `width: 200px !important`
+   also beat the max-width:768px rule below, so the sidebar stayed pinned to a
+   narrow fixed width on phones instead of going full width. */
+.page-with-sidebar .work-sidebar {
+  width: 280px;
   flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .page-with-sidebar .work-sidebar {
+    width: 100%;
+  }
 }
 .work-sidebar .meta-value {
   /* Was nowrap, which pushed these strings straight through the 200px

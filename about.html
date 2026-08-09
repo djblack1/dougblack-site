@@ -27,8 +27,12 @@
     .ab-hero {
       padding-top: clamp(48px, 10vw, 120px);
       padding-bottom: clamp(32px, 6vw, 72px);
-      text-align: center;
+      text-align: left;
     }
+    /* Was a centered flex column of nowrap spans. The second span was wider
+       than the container at every desktop width, so the headline overflowed
+       and forced a horizontal scrollbar. Now a plain block that wraps at a
+       controlled measure, flush to the same left edge as the body copy. */
     .ab-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(26px, 5vw, 68px);
@@ -36,12 +40,10 @@
       line-height: 1.1;
       letter-spacing: -0.01em;
       color: var(--ink);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0;
+      max-width: 30ch;
+      text-align: left;
     }
-    .ab-hero-h1 span { white-space: nowrap; }
 
     /* ── TWO-COLUMN BODY ─────────────────────────── */
     .ab-body {
@@ -123,6 +125,7 @@
       line-height: 1.8;
       color: var(--ink-light);
       margin: 0 0 24px 0;
+      max-width: 620px;
     }
     .ab-bio p:last-child { margin-bottom: 0; }
 
@@ -158,13 +161,14 @@
       line-height: 1.8;
       color: var(--ink-light);
       margin: 0;
+      max-width: 620px;
     }
 
     /* ── CLOSING CTA ─────────────────────────────── */
     .ab-cta {
       padding-top: clamp(48px, 6vw, 72px);
       padding-bottom: clamp(48px, 6vw, 72px);
-      text-align: center;
+      text-align: left;
       border-top: 1px solid var(--rule);
     }
     .ab-cta p {
@@ -255,7 +259,7 @@
     </nav>
 
     <section class="ab-hero">
-      <h1 class="ab-hero-h1"><span>I help brands, apps, start-ups, tech giants,</span><span>and the occasional luxury sedan say what they mean.</span></h1>
+      <h1 class="ab-hero-h1">I help start-ups, tech giants, banks, and the occasional luxury sedan say what they mean.</h1>
     </section>
 
     <div class="ab-body">
@@ -292,7 +296,7 @@
 
         <div class="ab-meta-block">
           <h3>Campaigns &amp; Copy</h3>
-          <p>Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx</p>
+          <p>Lincoln, Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx</p>
         </div>
 
         <div class="ab-meta-block">
@@ -314,16 +318,15 @@
       <!-- RIGHT COLUMN -->
       <div class="ab-right">
         <div class="ab-bio">
-          <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="/voice-systems" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. Which helps when you want people to read stuff on their computers.</p>
-          <p>I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I don't particularly care whether the answer is a campaign, a film, a brand manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
+          <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="/voice-systems" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I'm not dogmatic about whether the answer is a campaign, a manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
         </div>
 
         <div class="ab-how">
           <p class="ab-how-eyebrow">How I Work</p>
           <div class="ab-how-blocks">
             <div class="ab-how-block">
-              <p class="ab-how-title">Building voice from zero.</p>
-              <p class="ab-how-body">I've done it five times and counting. The approach is always the same: read everything the brand has ever published, find the three sentences they keep trying to write, and build the system that lets them finish those sentences out loud. It's both simpler and harder than it sounds.</p>
+              <p class="ab-how-title">Building a voice where none exists.</p>
+              <p class="ab-how-body">I've done it six times. The approach is always the same: read everything the brand has ever published, find the three sentences they keep trying to write, and build the system that lets them finish those sentences out loud. It's both simpler and harder than it sounds.</p>
             </div>
             <div class="ab-how-block">
               <p class="ab-how-title">Partnering with clients.</p>

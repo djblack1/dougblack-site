@@ -32,7 +32,7 @@
       padding-right: 0;
       text-align: left;
     }
-    .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .hero-statement-inner { max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
     .hero-statement-h1 { text-align: left; }
     .hero-statement-sub {
       text-align: left;
@@ -72,7 +72,7 @@
     .client-line {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 32px 40px 80px;
+      padding: 32px var(--gutter) 80px;
       border-top: 1px solid var(--rule, #e5e0d5);
     }
     .client-line p {
@@ -127,8 +127,8 @@
     </section>
 
     <!-- MAIN CONTENT: WORK GRID + SIDEBAR -->
-    <div class="page-with-sidebar" style="display:flex;align-items:flex-start;gap:48px;max-width:1200px;margin:0 auto;padding:0 40px 80px;">
-      <div class="page-sidebar-main" style="flex:1;min-width:0;" id="work">
+    <div class="page-with-sidebar" style="display:flex;align-items:flex-start;justify-content:flex-start;gap:48px;max-width:1200px;margin:0 auto;padding:0 var(--gutter) 80px;">
+      <div class="page-sidebar-main" style="flex:1 1 auto;min-width:0;width:auto;max-width:none;" id="work">
         <section class="work-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:40px;width:100%;max-width:none;margin:0;padding:0;">
 
       <article class="work-item work-item--featured" data-index="01">
@@ -282,10 +282,6 @@
           <div class="credential-meta-item" style="margin-top: 24px;">
             <span class="meta-label">Most Recently</span>
             <span class="meta-value">Creative Director, Hudson Rouge (WPP)</span>
-          </div>
-          <div class="credential-meta-item" style="margin-top: 24px;">
-            <span class="meta-label">Currently</span>
-            <span class="meta-value">Brand voice and site copy, AREA15 Las Vegas</span>
           </div>
         </div>
       </aside>
