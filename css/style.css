@@ -1764,15 +1764,43 @@ footer {
   grid-template-columns: repeat(2, 1fr) !important;
 }
 /* Scoped by parent rather than !important. The old `width: 200px !important`
-   also beat the max-width:768px rule below, so the sidebar stayed pinned to a
-   narrow fixed width on phones instead of going full width. */
+   also beat the max-width:768px rule further up, so the sidebar stayed pinned
+   to a narrow fixed width on phones instead of going full width. */
 .page-with-sidebar .work-sidebar {
   width: 280px;
   flex-shrink: 0;
 }
-@media (max-width: 768px) {
+
+/* ── SINGLE-COLUMN RANGE ──────────────────────────────────────────────
+   Must be the LAST rule touching these selectors. Everything above sets
+   desktop values at the same specificity, so an earlier media query loses
+   on source order no matter how narrow the viewport is. That is what kept
+   the grid at two columns on phones despite a max-width:768px rule already
+   asking for one, and it is why this block sits at the very end.
+
+   Below 900px: one case study per row, full width, and the sidebar moves
+   under the grid. Previously the sidebar only stacked at 768px, so between
+   769 and 900 a single card was squeezed to ~410px beside a 280px sidebar,
+   narrower than the same card at 768px. Card width now grows smoothly as
+   the viewport narrows.
+   ------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .page-sidebar-main .work-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .page-with-sidebar {
+    flex-direction: column;
+  }
   .page-with-sidebar .work-sidebar {
     width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    padding-left: 0;
+    padding-top: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    position: static;
   }
 }
 .work-sidebar .meta-value {
