@@ -1809,3 +1809,120 @@ footer {
   white-space: normal;
   overflow-wrap: break-word;
 }
+
+/* =============================================
+   SHARED CASE-STUDY COMPONENTS
+   Promoted out of the AREA15 and Lincoln page-local <style> blocks so
+   every case study can reuse them instead of redefining them. Those two
+   pages keep their local copies, which are identical and still win on
+   source order, so neither page changes.
+   ============================================= */
+
+/* Dark copy-sample block, the Air Co. treatment */
+.ux-sample-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 36px 0 12px;
+}
+.ux-sample-block {
+  background: #1A1714;
+  border-radius: 6px;
+  padding: 26px 30px;
+  margin: 0 0 12px;
+}
+.ux-sample-text {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.9vw, 21px);
+  font-weight: 300;
+  font-style: italic;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.ux-sample-text:last-child { margin-bottom: 0; }
+.ux-sample-head {
+  font-size: clamp(19px, 2.4vw, 27px);
+  font-style: normal;
+  font-weight: 400;
+}
+.ux-sample-meta {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--amber);
+}
+
+/* Cream note with a gold label */
+.case-note {
+  margin: 8px 0 40px;
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.case-note p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-light);
+  margin: 0;
+}
+.note-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 10px;
+}
+
+/* Meta rows: role, agency, format */
+.case-leadership { margin: 0; padding: 0; list-style: none; }
+.case-leadership li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.case-leadership li:first-child { border-top: 1px solid var(--rule); }
+.case-leadership .k {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 4px;
+}
+.case-leadership span:not(.k) {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-light);
+}
+
+/* Opt-in sub-line for a case title. Scoped to its own class rather than
+   styling every `.case-title em`, because Air Co. and Pepsi rely on their
+   italic line rendering at the full display size. */
+.case-title .case-subline {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 34px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink-light);
+  letter-spacing: 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .case-leadership li { grid-template-columns: 1fr; gap: 8px; }
+}
