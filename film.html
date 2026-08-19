@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Film &amp; Scripts — Doug Black</title>
+  <title>Film and video — Doug Black</title>
   <meta name="description" content="Scripts and film work by Doug Black: a branded documentary for Audi, the SoundCloud Go launch, Google for Work spots, and an exhibition film series for Intel and Milk Studios.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,11 @@
       max-width: 620px;
     }
 
+    /* Each section: title, one-line description, film, meta, problem,
+       script, note, link. The border-top is the section rule; the last
+       section carries a bottom rule so the page closes cleanly. */
     .fl-project { padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--rule); }
+    .fl-project:last-of-type { border-bottom: 1px solid var(--rule); }
     .fl-num {
       display: block;
       font-family: var(--font-body);
@@ -61,28 +65,17 @@
       margin: 0 0 32px;
       max-width: 620px;
     }
-    .fl-body { font-family: var(--font-body); font-size: 17px; line-height: 1.8; color: var(--ink-light); margin: 32px 0 0; max-width: 620px; }
-    .fl-scripts { margin: 28px 0 0; max-width: 760px; }
-    .fl-embeds { margin: 32px 0 0; max-width: 860px; display: grid; gap: 16px; }
+    .fl-body { font-family: var(--font-body); font-size: 17px; line-height: 1.8; color: var(--ink-light); margin: 24px 0 0; max-width: 620px; }
+    .fl-scripts { margin: 32px 0 0; max-width: 760px; }
+    .fl-embeds { margin: 0; max-width: 860px; display: grid; gap: 16px; }
     .fl-embed { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; background: #1A1714; }
     .fl-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .fl-embed-label { display: block; font-family: var(--font-body); font-size: 12px; color: var(--ink-faint); margin: 10px 0 0; }
-    .fl-note { max-width: 760px; }
+    .fl-project .case-leadership { margin-top: 36px; }
+    .fl-note { max-width: 760px; margin-top: 32px; }
     .fl-link { font-family: var(--font-body); font-size: 15px; margin: 24px 0 0; }
     .fl-link a { color: var(--amber); font-weight: 500; }
     .fl-link a:hover { text-decoration: underline; }
-
-    .fl-close { padding: clamp(56px, 8vw, 96px) 0; border-top: 1px solid var(--rule); }
-    .fl-close p {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--ink);
-      margin: 0;
-      max-width: 900px;
-    }
   </style>
 </head>
 <body>
@@ -112,8 +105,8 @@
 
     <div class="fl-container">
       <header class="fl-hero">
-        <h1 class="fl-hero-h1">Writing for picture is a different job.</h1>
-        <p class="fl-hero-sub">Four films. A branded documentary that doesn't show the car until the end. A subscription launch built to live natively on the platform it was selling. B2B spots about the people behind the IT department. And a gallery series on the history of wearable technology. The scripts are below, as text. The films are underneath them.</p>
+        <h1 class="fl-hero-h1">Film and video.</h1>
+        <p class="fl-hero-sub">If web copy is writing for space, then video scripts are writing for time. Every moment is more valuable, and every line gets heard exactly once.</p>
       </header>
 
       <!-- ============ 01 AUDI ============ -->
@@ -121,6 +114,15 @@
         <span class="fl-num">01</span>
         <h2 class="fl-name">Audi: Plugging In</h2>
         <p class="fl-desc">Concept, narrative construction, and voiceover for a branded documentary on Audi's first plug-in hybrid.</p>
+
+        <div class="fl-embeds">
+          <div>
+            <div class="fl-embed">
+              <iframe src="https://www.youtube.com/embed/lT9sQwddcnQ" title="Plugging In, featuring Jim James, Courtney Barnett and Colin Meloy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <span class="fl-embed-label">Plugging In, the full documentary.</span>
+          </div>
+        </div>
 
         <ul class="case-leadership">
           <li><span class="k">Role</span><span>Concept development, narrative construction, voiceover script</span></li>
@@ -138,15 +140,6 @@
           <div class="ux-sample-block"><p class="ux-sample-text">Plugging-in changes everything, and there's no looking back.</p></div>
         </div>
 
-        <div class="fl-embeds">
-          <div>
-            <div class="fl-embed">
-              <iframe src="https://www.youtube.com/embed/lT9sQwddcnQ" title="Plugging In, featuring Jim James, Courtney Barnett and Colin Meloy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <span class="fl-embed-label">Plugging In, the full documentary.</span>
-          </div>
-        </div>
-
         <div class="case-note fl-note">
           <span class="note-label">Why it works</span>
           <p>The film has to travel fifty years and arrive at a car without the arrival feeling like the point, so the voiceover does the traveling. "We could hear the future, and it was loud" is the hinge. It's about 1965 when you hear it, and about the e-tron by the time the film ends.</p>
@@ -160,6 +153,15 @@
         <span class="fl-num">02</span>
         <h2 class="fl-name">SoundCloud Go</h2>
         <p class="fl-desc">Launch films, social, and campaign copy for SoundCloud's first subscription.</p>
+
+        <div class="fl-embeds">
+          <div>
+            <div class="fl-embed">
+              <iframe src="https://player.vimeo.com/video/220871179" title="SoundCloud Go campaign film" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <span class="fl-embed-label">SoundCloud Go, campaign film.</span>
+          </div>
+        </div>
 
         <ul class="case-leadership">
           <li><span class="k">Role</span><span>Brand voice, launch copy, scripts</span></li>
@@ -178,15 +180,6 @@
           <div class="ux-sample-block"><p class="ux-sample-text">From yacht rock to pirate metal.</p></div>
         </div>
 
-        <div class="fl-embeds">
-          <div>
-            <div class="fl-embed">
-              <iframe src="https://player.vimeo.com/video/220871179" title="SoundCloud Go campaign film" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <span class="fl-embed-label">SoundCloud Go, campaign film.</span>
-          </div>
-        </div>
-
         <div class="case-note fl-note">
           <span class="note-label">Why it works</span>
           <p>Every line is a range, and every range is a joke that only lands if you know both ends of it. The campaign's argument was that the platform contained multitudes, so the copy had to prove it five words at a time rather than claim it in a sentence.</p>
@@ -201,14 +194,6 @@
         <h2 class="fl-name">Google for Work</h2>
         <p class="fl-desc">Concept and scripts for digital spots connecting IT professionals to the people they support.</p>
 
-        <ul class="case-leadership">
-          <li><span class="k">Role</span><span>Concept, script</span></li>
-          <li><span class="k">Agency</span><span>Stink Studios</span></li>
-          <li><span class="k">Format</span><span>Digital spots, B2B</span></li>
-        </ul>
-
-        <p class="fl-body">B2B technology advertising usually addresses the buyer and forgets the user. The idea here was to invert it: build each spot around someone doing physical, industrious work, and let the Android device sit at the centre of it without becoming the subject. The audience was IT professionals, and the argument was about the people they serve.</p>
-
         <div class="fl-embeds">
           <div>
             <div class="fl-embed">
@@ -217,6 +202,14 @@
             <span class="fl-embed-label">Android for Work: Choice, Foundation, and Impact.</span>
           </div>
         </div>
+
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Concept, script</span></li>
+          <li><span class="k">Agency</span><span>Stink Studios</span></li>
+          <li><span class="k">Format</span><span>Digital spots, B2B</span></li>
+        </ul>
+
+        <p class="fl-body">B2B technology advertising usually addresses the buyer and forgets the user. The idea here was to invert it: build each spot around someone doing physical, industrious work, and let the Android device sit at the centre of it without becoming the subject. The audience was IT professionals, and the argument was about the people they serve.</p>
       </section>
 
       <!-- ============ 04 INTEL / MILK STUDIOS ============ -->
@@ -224,14 +217,6 @@
         <span class="fl-num">04</span>
         <h2 class="fl-name">Intel and Milk Studios: Adorned</h2>
         <p class="fl-desc">Creative direction and scripts for a film series on the history of wearable technology, shown at the Adorned exhibition at Milk Gallery.</p>
-
-        <ul class="case-leadership">
-          <li><span class="k">Role</span><span>Creative direction, scripts</span></li>
-          <li><span class="k">Agency</span><span>Milk Studios</span></li>
-          <li><span class="k">Format</span><span>Exhibition film series</span></li>
-        </ul>
-
-        <p class="fl-body">Intel and Milk built MUZSE around the point where technology meets fashion, and these films had to work in a gallery rather than a feed. No scroll, no skip, an audience standing still and choosing to watch. That changes what a script can do. It can be slower, and it has to be worth the standing.</p>
 
         <div class="fl-embeds">
           <div>
@@ -253,11 +238,15 @@
             <span class="fl-embed-label">The Things We Wear: Glasses.</span>
           </div>
         </div>
-      </section>
 
-      <div class="fl-close">
-        <p>Scripts are the most compressed writing there is. Every line has to survive being spoken out loud, cut for time, and heard exactly once.</p>
-      </div>
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Creative direction, scripts</span></li>
+          <li><span class="k">Agency</span><span>Milk Studios</span></li>
+          <li><span class="k">Format</span><span>Exhibition film series</span></li>
+        </ul>
+
+        <p class="fl-body">Intel and Milk built MUZSE around the point where technology meets fashion, and these films had to work in a gallery rather than a feed. No scroll, no skip, an audience standing still and choosing to watch. That changes what a script can do. It can be slower, and it has to be worth the standing.</p>
+      </section>
     </div>
 
     <footer>
