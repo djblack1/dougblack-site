@@ -123,7 +123,7 @@
       font-size: 18px;
       line-height: 1.8;
       color: var(--ink-light);
-      max-width: 660px;
+      max-width: 620px;
     }
     .lc-body-text em {
       font-style: italic;
@@ -228,7 +228,52 @@
     /* Self-hosted film. preload="none" plus a poster means the browser
        fetches a 42KB image and nothing else until someone presses play,
        so the 16MB never loads for a visitor who scrolls past. */
-    .lc-film { margin: 0 0 clamp(28px, 3.5vw, 48px); max-width: 860px; }
+    /* ── RESTRUCTURE ──────────────────────────────────
+       One measure for all body copy, every artifact full container
+       width, real paragraph spacing, and two spacing values so the
+       hierarchy reads: large gap before an H2, smaller before a sub-head. */
+    .lc-body-text + .lc-body-text { margin-top: 20px; }
+    .lc-subhead {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin: 0 0 clamp(16px, 2vw, 24px) 0;
+    }
+    /* Rule dividers sit between sub-items inside The work, nowhere else. */
+    .lc-item {
+      padding-bottom: clamp(44px, 5.5vw, 72px);
+      margin-bottom: clamp(44px, 5.5vw, 72px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lc-item:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
+    .lc-artifact { margin: clamp(28px, 3.5vw, 44px) 0 0; width: 100%; }
+    .lc-artifact + .lc-artifact { margin-top: 12px; }
+    .lc-artifact img { width: 100%; height: auto; display: block; border-radius: 3px; }
+    .lc-artifact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: clamp(28px, 3.5vw, 44px) 0 0;
+    }
+    .lc-artifact-row img { width: 100%; height: auto; display: block; border-radius: 3px; }
+    .lc-pull {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.35;
+      max-width: 720px;
+      margin: clamp(24px, 3vw, 36px) 0 0;
+    }
+    .lc-role-block { margin: 0 0 clamp(52px, 6.5vw, 88px); }
+    @media (max-width: 700px) {
+      .lc-artifact-row { grid-template-columns: 1fr; }
+    }
+
+    .lc-film { margin: clamp(28px, 3.5vw, 44px) 0 0; max-width: none; }
     .lc-film video {
       width: 100%;
       height: auto;
@@ -254,11 +299,6 @@
       line-height: 1.35;
       max-width: 720px;
       margin: 0 0 clamp(28px, 3.5vw, 48px) 0;
-    }
-    .lc-display-line--close {
-      margin: clamp(28px, 3.5vw, 48px) 0 0 0;
-      padding-top: clamp(28px, 3.5vw, 44px);
-      border-top: 1px solid var(--rule);
     }
     .lc-closing-quote {
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -405,7 +445,7 @@
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
         <h1 class="lc-hero-h1">I directed Lincoln's voice for five years.</h1>
-        <p class="lc-hero-sub">Every digital surface. Every launch. One language.</p>
+        <p class="lc-hero-sub">Four vehicle launches, a centennial, and one language across all of it.</p>
         <span class="lc-hero-credit">Creative Director, Copy, Digital &amp; Platform &nbsp;·&nbsp; Hudson Rouge / WPP &nbsp;·&nbsp; 2021–2026</span>
       </div>
     </section>
@@ -425,53 +465,100 @@
         <span class="lc-proof-label">Comprehensive<br>vehicle launches</span>
       </div>
       <div class="lc-proof-cell">
-        <span class="lc-proof-number">+17</span>
-        <span class="lc-proof-label">Consumer Reports 2026 Brand Report Card.<br>Highest-ranked American brand, biggest jump on the list</span>
+        <span class="lc-proof-number">#7</span>
+        <span class="lc-proof-label">Consumer Reports 2026 Brand Report Card.<br>Highest-ranked American brand, up 17 spots, the biggest jump on the list</span>
       </div>
     </div>
 
     <div class="lc-body">
 
-      <!-- ── SECTION 3: THE BET ───────────────────── -->
+      <!-- ── 3. THE MANDATE ───────────────────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The mandate.</h2>
-        <div class="lc-block">
-          <div class="lc-block-text">
-            <p class="lc-block-body">Lincoln was a premium brand running on mass-market rules: louder websites, more features, more noise. Every competitor was doing the same thing, and the category couldn't hear itself anymore.</p>
-            <p class="lc-block-body">I made the opposite argument: <em>luxury isn't visual, it's physiological.</em> You don't tell someone that a car is calm. You make the writing calm and let them feel it.</p>
-          </div>
-          <div class="lc-block-image">
-            <img src="../images/lincoln/lincoln-journey.jpg" alt="Lincoln campaign — Your journey awaits." class="zoomable" onclick="lb(this.src)">
+        <p class="lc-body-text">Lincoln was a premium brand running on mass-market rules: louder websites, more features, more noise. Every competitor was doing the same thing, and the category couldn't hear itself anymore.</p>
+        <p class="lc-body-text">I made the opposite argument: <em>luxury isn't visual, it's physiological.</em> You don't tell someone that a car is calm. You make the writing calm and let them feel it.</p>
+      </section>
+
+      <!-- ── 4. ROLE BLOCK, no heading. Orientation before the work. ── -->
+      <div class="lc-role-block">
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Creative Director, Copy, Digital &amp; Platform</span></li>
+          <li><span class="k">Reported to</span><span>SVP, Group Creative Director</span></li>
+          <li><span class="k">Scope</span><span>Lincoln.com, four vehicle launches, the centennial, CRM, campaigns, product naming</span></li>
+          <li><span class="k">Owned</span><span>The voice system, copy quality across every digital surface, naming, and the standard the work was measured against</span></li>
+        </ul>
+      </div>
+
+      <!-- ── 5. THE WORK ──────────────────────────── -->
+      <section class="lc-section">
+        <h2 class="lc-h2">The work.</h2>
+
+        <!-- 5a -->
+        <div class="lc-item">
+          <h3 class="lc-subhead">100 Years of Lincoln.</h3>
+          <p class="lc-display-line">Measured by humanity.</p>
+          <p class="lc-body-text">Lincoln turned a hundred in 2022. A car company's instinct at a centennial is to count things: horsepower, sales, trophies, years. The film opens by asking that question and refusing it.</p>
+          <p class="lc-body-text">I contributed copy and creative direction to the film.</p>
+
+          <figure class="lc-film">
+            <video controls preload="none" playsinline
+                   poster="../assets/lincoln/lincoln-100-years-poster.jpg"
+                   width="1280" height="720">
+              <source src="../assets/lincoln/lincoln-100-years-web.mp4" type="video/mp4">
+              <a href="../assets/lincoln/lincoln-100-years-web.mp4">Download the film</a>
+            </video>
+            <figcaption>100 Years of Lincoln &middot; 2:08 &middot; Hudson Rouge for Lincoln, 2022</figcaption>
+          </figure>
+
+          <p class="lc-pull">To a new century of you.</p>
+        </div>
+
+        <!-- 5b -->
+        <div class="lc-item">
+          <h3 class="lc-subhead">Lincoln Rejuvenate.</h3>
+          <p class="lc-body-text">I concepted and wrote the launch of <em>Lincoln Rejuvenate</em>&trade;, the brand's in-vehicle wellness experience. The naming, the voice, and the digital campaign.</p>
+          <p class="lc-body-text">Naming a category the customer has never heard of is the part of the job with the least cover, because there's no benchmark to point at when someone asks whether it's right. We answered with prototypes: enough care in the visual and verbal rendering that it transported the user anyway.</p>
+          <p class="lc-pull">Take a seat. It'll take it from here.</p>
+          <div class="lc-artifact-row">
+            <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
+            <img src="../images/lincoln/rejuvenate_invehicle.png" alt="Lincoln Rejuvenate, in-vehicle" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
+            <img src="../images/lincoln/rejuvenate_waterfalls.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
           </div>
         </div>
+
+        <!-- 5c -->
+        <div class="lc-item">
+          <h3 class="lc-subhead">Lincoln.com.</h3>
+          <p class="lc-body-text">I led the rebuild of the Lincoln.com experience around presence instead of performance specs. We cut the feature tables. We led with photography, breath, and restraint.</p>
+          <p class="lc-body-text">Cutting spec tables from a car website isn't a copy decision, it's a business argument, and it gets made against people whose job is comparison shopping. SEO and strategy had reservations. We pushed for experience over feature lists and won.</p>
+          <div class="lc-artifact">
+            <img src="../images/lincoln/black_label_new.png" alt="Lincoln Black Label" class="zoomable" onclick="lb(this.src)">
+          </div>
+          <div class="lc-artifact">
+            <img src="../images/lincoln/hybrid_vehicles.png" alt="Lincoln vehicle page" class="zoomable" onclick="lb(this.src)">
+          </div>
+        </div>
+
+        <!-- 5d -->
+        <div class="lc-item">
+          <h3 class="lc-subhead">Redeem Your Dream &amp; 100 Faces of Lincoln.</h3>
+          <p class="lc-body-text"><strong style="color:var(--ink);font-weight:600;">Redeem Your Dream.</strong> I led the writing: the name, the platform line, campaign voice, social, and .com expressions.</p>
+          <p class="lc-body-text"><strong style="color:var(--ink);font-weight:600;">100 Faces of Lincoln.</strong> A year-long creator platform: 100 owners, their stories in their words. I shaped the voice and editorial framework, with the Hudson Rouge team.</p>
+          <div class="lc-artifact-row">
+            <img src="../images/lincoln/redeemthedream1.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+            <img src="../images/lincoln/redeemthedream2.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+            <img src="../images/lincoln/redeemthedream3.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
+          </div>
+        </div>
+
       </section>
 
-      <!-- ── SECTION 4a: 100 YEARS OF LINCOLN ─────── -->
+      <!-- ── 6. THE SYSTEM. After the work, so it reads as conclusion. ── -->
       <section class="lc-section">
-        <h2 class="lc-h2">100 Years of Lincoln.</h2>
-
-        <p class="lc-display-line">Measured by humanity.</p>
-
-        <p class="lc-body-text" style="margin-bottom: clamp(20px, 2.5vw, 28px);">Lincoln turned a hundred in 2022. A car company's instinct at a centennial is to count things: horsepower, sales, trophies, years. The film opens by asking that question and refusing it.</p>
-        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 44px);">I contributed copy and creative direction to the film.</p>
-
-        <figure class="lc-film">
-          <video controls preload="none" playsinline
-                 poster="../assets/lincoln/lincoln-100-years-poster.jpg"
-                 width="1280" height="720">
-            <source src="../assets/lincoln/lincoln-100-years-web.mp4" type="video/mp4">
-            <a href="../assets/lincoln/lincoln-100-years-web.mp4">Download the film</a>
-          </video>
-          <figcaption>100 Years of Lincoln &middot; 2:08 &middot; Hudson Rouge for Lincoln, 2022</figcaption>
-        </figure>
-
-        <p class="lc-display-line lc-display-line--close">To a new century of you.</p>
-      </section>
-
-      <!-- ── SECTION 4b: THE WRITING, SHOWN ───────── -->
-      <section class="lc-section">
-        <h2 class="lc-h2">The writing.</h2>
-        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Three design features, each one a thing the customer can hear or feel but not see on a spec sheet. The job was to name them and write them so the restraint was the product.</p>
+        <h2 class="lc-h2">The system.</h2>
+        <p class="lc-body-text">I owned the New York side of the brand voice system that governed every line of Lincoln copy for five years: .com, product launches, campaigns, CRM. Built with the Detroit team and held across both offices. Fewer adjectives. More silence. Sentences that sound the way the vehicles feel.</p>
+        <p class="lc-body-text">The system's job was never to make my writing better. A voice system works when a junior writer can make the right call on a CRM subject line without hesitating.</p>
+        <p class="lc-body-text" style="margin-top: clamp(28px, 3.5vw, 44px);">Three design features, each one a thing the customer can hear or feel but not see on a spec sheet. The job was to name them and write them so the restraint was the product.</p>
 
         <div class="ux-sample-block">
           <p class="ux-sample-text ux-sample-head">The Guiding Star</p>
@@ -492,82 +579,8 @@
         </div>
       </section>
 
-      <section class="lc-section">
-        <h2 class="lc-h2">What I built.</h2>
-
-        <!-- Block 1: The voice -->
-        <div class="lc-block">
-          <div class="lc-block-text">
-            <h3 class="lc-block-title">The voice.</h3>
-            <p class="lc-block-body">I owned the New York side of the brand voice system that governed every line of Lincoln copy for five years: .com, product launches, campaigns, CRM. Built with the Detroit team and held across both offices. Fewer adjectives. More silence. Sentences that sound the way the vehicles feel.</p>
-            <p class="lc-block-body">The system's job was never to make my writing better. A voice system works when a junior writer can make the right call on a CRM subject line without hesitating.</p>
-          </div>
-          <div class="lc-block-image">
-            <img src="../images/lincoln/hybrid_vehicles.png" alt="Lincoln — vehicle page" class="zoomable" onclick="lb(this.src)">
-          </div>
-        </div>
-
-        <!-- Block 2: The architecture -->
-        <div class="lc-block">
-          <div class="lc-block-text">
-            <h3 class="lc-block-title">The architecture.</h3>
-            <p class="lc-block-body">I led the rebuild of the Lincoln.com experience around presence instead of performance specs. We cut the feature tables. We led with photography, breath, and restraint.</p>
-            <p class="lc-block-body">Cutting spec tables from a car website isn't a copy decision, it's a business argument, and it gets made against people whose job is comparison shopping. SEO and strategy had reservations. We pushed for experience over feature lists and won.</p>
-          </div>
-          <div class="lc-block-image">
-            <img src="../images/lincoln/black_label_new.png" alt="Lincoln Black Label" class="zoomable" onclick="lb(this.src)">
-          </div>
-        </div>
-
-        <!-- Block 3: The platform -->
-        <div class="lc-block">
-          <div class="lc-block-text">
-            <h3 class="lc-block-title">The platform.</h3>
-            <p class="lc-block-body">I concepted and wrote the launch of <em>Lincoln Rejuvenate</em>&trade;, the brand's in-vehicle wellness experience. The naming, the voice, and the digital campaign.</p>
-            <p class="lc-block-body"><strong style="color:var(--ink);font-weight:600;">Take a seat. It'll take it from here.</strong></p>
-            <p class="lc-block-body">Naming a category the customer has never heard of is the part of the job with the least cover, because there's no benchmark to point at when someone asks whether it's right. We answered with prototypes: enough care in the visual and verbal rendering that it transported the user anyway.</p>
-          </div>
-          <div class="lc-block-image lc-rejuvenate">
-            <img src="../images/lincoln/lincoln_rejuvenate.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
-            <img src="../images/lincoln/rejuvenate_invehicle.png" alt="Lincoln Rejuvenate in-vehicle" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
-            <img src="../images/lincoln/rejuvenate_waterfalls.png" alt="Lincoln Rejuvenate" class="zoomable" onclick="lb(this.src)" style="background:#1A1714;">
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ── SECTION 5: THE CULTURAL LAYER ───────────── -->
-      <section class="lc-section">
-        <h2 class="lc-h2">The cultural layer.</h2>
-        <p class="lc-body-text" style="margin-bottom: clamp(24px, 3vw, 40px);">Two platforms that took Lincoln's voice past owned surfaces.</p>
-
-        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">Redeem Your Dream.</strong> I led the writing: the name, the platform line, campaign voice, social, and .com expressions.</p>
-
-        <p class="lc-body-text" style="margin-bottom: clamp(28px, 3.5vw, 48px);"><strong style="color:var(--ink);font-weight:600;">100 Faces of Lincoln.</strong> A year-long creator platform: 100 owners, their stories in their words. I shaped the voice and editorial framework, with the Hudson Rouge team.</p>
-        <p class="lc-stat-line">52M impressions. 7.6% engagement. Silver Shorty Honor.</p>
-        <div class="lc-faces-images" style="margin-top:0;">
-          <img src="../images/lincoln/redeemthedream1.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/redeemthedream2.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
-          <img src="../images/lincoln/redeemthedream3.png" alt="100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
-        </div>
-      </section>
-
-      <!-- ── SECTION 7: WHAT CHANGED ───────────────── -->
-      <section class="lc-section">
-        <h2 class="lc-h2">How it ran.</h2>
-        <ul class="case-leadership">
-          <li><span class="k">Role</span><span>Creative Director, Copy, Digital &amp; Platform</span></li>
-          <li><span class="k">Reported to</span><span>SVP, Group Creative Director</span></li>
-          <li><span class="k">Team</span><span>Senior copy Creative Director on the Lincoln account in New York. Partnered daily with art directors and writers across the New York and Detroit offices.</span></li>
-          <li><span class="k">Presented to</span><span>Lincoln marketing leadership, including brand managers for each nameplate and the Lincoln Access Rewards team.</span></li>
-          <li><span class="k">Scope</span><span>Lincoln.com, four vehicle launches, the centennial, CRM, campaigns, product naming.</span></li>
-          <li><span class="k">Owned</span><span>The voice system, copy quality across every digital surface, naming, and the standard the work was measured against.</span></li>
-        </ul>
-      </section>
-
       <section class="lc-section lc-section-last">
         <h2 class="lc-h2">What changed.</h2>
-        <p class="lc-closing-body">Hundreds of digital experiences. Dozens of launches. One language across every surface Lincoln has.</p>
         <div class="lc-results">
           <p class="lc-result-line">J.D. Power manufacturer website rankings: 16th to 6th, winter 2024 to winter 2025.</p>
           <p class="lc-result-line">Consumer Reports 2026 Brand Report Card: highest-ranked American brand, up 17 spots, the biggest jump on the list.</p>
