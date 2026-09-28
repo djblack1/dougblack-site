@@ -60,7 +60,27 @@
     /* Card fixes: one aspect ratio so rows line up, a two-line title floor
        so every description starts on the same baseline, and a metric line
        at body-copy value rather than the faintest thing on the page. */
-    .work-item-image { aspect-ratio: 16 / 10; margin-bottom: 20px; }
+    /* The container alone decides the box. The image is taken out of flow and
+       pinned to all four edges, so it can never influence the height. The
+       previous version relied on height:100% resolving against a height the
+       parent derived from aspect-ratio, which is the combination that renders
+       inconsistently and made two cards in the same row differ. */
+    .work-item-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: #1A1714;
+    }
+    .work-item-image .work-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
     .work-item-title { line-height: 1.25; min-height: 2.5em; }
     .hero-statement-h1 { text-align: left; }
     .hero-statement-sub {
@@ -177,10 +197,10 @@
     <div class="work-section" id="work">
       <section class="work-grid" style="display:grid;width:100%;margin:0;padding:0;">
 
-<article class="work-item work-item--featured" data-index="01">
+<article class="work-item" data-index="01">
         <a class='work-item-inner' href='/work/lincoln'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/lincoln/lincoln-sketch.jpeg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Lincoln Motor Company">
+          <div class="work-item-image">
+            <img src="/images/lincoln/lincoln-sketch.jpeg" class="work-thumb" alt="Lincoln Motor Company">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -194,8 +214,8 @@
 
       <article class="work-item" data-index="02">
         <a class='work-item-inner' href='/work/area15'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/area15-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="AREA15">
+          <div class="work-item-image">
+            <img src="/images/area15-thumb.jpg" class="work-thumb" alt="AREA15">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -209,8 +229,8 @@
 
       <article class="work-item" data-index="03">
         <a class='work-item-inner' href='/work/soundcloud'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/soundcloud-headphones.png" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="SoundCloud Go">
+          <div class="work-item-image">
+            <img src="/images/soundcloud-headphones.png" class="work-thumb" alt="SoundCloud Go">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -224,8 +244,8 @@
 
       <article class="work-item" data-index="04">
         <a class='work-item-inner' href='/voice-systems/goldman-sachs/'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/goldman-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Goldman Sachs Private Wealth">
+          <div class="work-item-image">
+            <img src="/images/goldman-thumb.jpg" class="work-thumb" alt="Goldman Sachs Private Wealth">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -239,8 +259,8 @@
 
       <article class="work-item" data-index="05">
         <a class='work-item-inner' href='/work/airco'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/airco/airco4.webp" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Air Co.">
+          <div class="work-item-image">
+            <img src="/images/airco/airco4.webp" class="work-thumb" alt="Air Co.">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -254,8 +274,8 @@
 
       <article class="work-item" data-index="06">
         <a class='work-item-inner' href='/work/pepsi'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/pepsi/pepsi-thumb2.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;object-position:right center;" alt="Pepsi Refresh Project">
+          <div class="work-item-image">
+            <img src="/images/pepsi/pepsi-thumb2.jpg" class="work-thumb" alt="Pepsi Refresh Project">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -269,8 +289,8 @@
 
       <article class="work-item" data-index="07">
         <a class='work-item-inner' href='/work/fourseasons'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/fourseasons/fourseasons-thumb.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Four Seasons">
+          <div class="work-item-image">
+            <img src="/images/fourseasons/fourseasons-thumb.jpg" class="work-thumb" alt="Four Seasons">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
@@ -284,8 +304,8 @@
 
       <article class="work-item" data-index="08">
         <a class='work-item-inner' href='/work/audi'>
-          <div class="work-item-image" style="width:100%;overflow:hidden;position:relative;background:#1A1714;">
-            <img src="/images/audi-hero.jpg" class="work-thumb" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Audi: Plugging In">
+          <div class="work-item-image">
+            <img src="/images/audi-hero.jpg" class="work-thumb" alt="Audi: Plugging In">
           </div>
           <div class="work-item-info">
             <div class="work-item-header">
