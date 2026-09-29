@@ -14,6 +14,8 @@
     /* ── CONTAINER ──────────────────────────────── */
     .ab-hero,
     .ab-body,
+    .ab-how,
+    .ab-tracks,
     .ab-cta,
     .ab-clients {
       max-width: var(--max-width);
@@ -69,49 +71,6 @@
       display: block;
       border-radius: 2px;
     }
-    .ab-meta-block {
-      padding-top: 24px;
-      margin-top: 0;
-      border-top: 1px solid var(--rule);
-      margin-bottom: 0;
-    }
-    .ab-meta-block + .ab-meta-block { margin-top: 24px; }
-    .ab-meta-block h3 {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin: 0 0 8px 0;
-    }
-    .ab-meta-block ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .ab-meta-block ul li {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 14px;
-      color: var(--ink-light);
-      line-height: 1.85;
-    }
-    .ab-meta-block p {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 14px;
-      color: var(--ink-light);
-      line-height: 1.7;
-      margin: 0;
-    }
-    .sidebar-cta {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 13px;
-      color: var(--amber);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      display: inline-block;
-      margin-top: 6px;
-    }
-    .sidebar-cta:hover { opacity: 0.75; }
 
     /* ── RIGHT COLUMN ────────────────────────────── */
     .ab-right {
@@ -129,11 +88,56 @@
     }
     .ab-bio p:last-child { margin-bottom: 0; }
 
-    /* How I Work — inside right column */
+    /* How I Work — promoted to full width, above the metadata. */
     .ab-how {
-      margin-top: clamp(36px, 5vw, 56px);
-      padding-top: clamp(32px, 4vw, 48px);
+      padding-top: clamp(40px, 5vw, 64px);
+      padding-bottom: clamp(40px, 5vw, 64px);
       border-top: 1px solid var(--rule);
+    }
+
+    /* Credentials, collapsed from seven metadata blocks to three lines. */
+    .ab-tracks {
+      padding-top: clamp(40px, 5vw, 64px);
+      padding-bottom: clamp(40px, 5vw, 64px);
+      border-top: 1px solid var(--rule);
+    }
+    .ab-cred {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      margin: 0 0 clamp(32px, 4vw, 48px) 0;
+    }
+    .ab-tracks-lede {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.35;
+      margin: 0 0 clamp(20px, 2.5vw, 28px) 0;
+    }
+    .ab-track-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(28px, 4vw, 56px);
+      max-width: 860px;
+    }
+    .ab-track-label {
+      display: block;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 10px 0;
+    }
+    .ab-track-list {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-light);
+      margin: 0;
     }
     .ab-how-eyebrow {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -262,96 +266,68 @@
       <h1 class="ab-hero-h1">I help start-ups, tech giants, banks, and the occasional luxury sedan say what they mean.</h1>
     </section>
 
+    <!-- 2. PHOTO + INTRO -->
     <div class="ab-body">
-
-      <!-- LEFT COLUMN -->
       <div class="ab-left">
         <div class="ab-photo">
-          <img src="images/doug-portrait.jpg" alt="Doug Black" width="1241" height="1268">
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Experience</h3>
-          <p>Creative Director · Writer · Content Designer · 15 years</p>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Recently</h3>
-          <p>Creative Director, Hudson Rouge</p>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>What I Do</h3>
-          <ul>
-            <li>Creative Direction</li>
-            <li>Brand Voice &amp; Tone</li>
-            <li>Content Strategy</li>
-            <li>Editorial Strategy</li>
-            <li>Voice Systems</li>
-            <li>UX Writing &amp; Product Copy</li>
-            <li>Naming &amp; Taglines</li>
-            <li>Campaign Leadership</li>
-          </ul>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Campaigns &amp; Copy</h3>
-          <p>Lincoln, Pepsi, Audi, Louis Vuitton, Four Seasons, AmEx</p>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Voice Systems</h3>
-          <p>Goldman Sachs, SoundCloud, Verizon, Better</p>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Open To</h3>
-          <p>Full-time, freelance, or fractional. NYC, remote, or hybrid.</p>
-        </div>
-
-        <div class="ab-meta-block">
-          <h3>Based In</h3>
-          <p>New York City / The Catskills</p>
-        </div>
+            <img src="images/doug-portrait.jpg" alt="Doug Black" width="1241" height="1268">
+          </div>
       </div>
-
-      <!-- RIGHT COLUMN -->
       <div class="ab-right">
         <div class="ab-bio">
-          <p>I'm a <a href="work/lincoln.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">creative director</a>, <a href="work/fourseasons.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">copywriter</a>, and <a href="/voice-systems" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">content designer</a> who started out in journalism. I take a channel-agnostic approach to solving creative problems. Which is an obnoxious way of saying I'm not dogmatic about whether the answer is a campaign, a manifesto, an expansive content strategy, or a really good tweet. I care that it works.</p>
-        </div>
-
-        <div class="ab-how">
-          <p class="ab-how-eyebrow">How I Work</p>
-          <div class="ab-how-blocks">
-            <div class="ab-how-block">
-              <p class="ab-how-title">Building a voice where none exists.</p>
-              <p class="ab-how-body">I've done it six times. The approach is always the same: read everything the brand has ever published, find the three sentences they keep trying to write, and build the system that lets them finish those sentences out loud. It's both simpler and harder than it sounds.</p>
-            </div>
-            <div class="ab-how-block">
-              <p class="ab-how-title">Partnering with clients.</p>
-              <p class="ab-how-body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
-            </div>
-            <div class="ab-how-block">
-              <p class="ab-how-title">Working in regulated categories.</p>
-              <p class="ab-how-body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
-            </div>
-            <div class="ab-how-block">
-              <p class="ab-how-title">Writing for readers who aren't people.</p>
-              <p class="ab-how-body">Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p>
-            </div>
-          </div>
+          <p>I'm a creative director and copywriter who started out as a journalist, which mostly means I ask a lot of questions before I write anything. Sometimes the answer is a campaign. Other times it's a manifesto, or a naming system, or one word on a button. Deciding which is the whole job.</p>
         </div>
       </div>
-
-    </div><!-- /.ab-body -->
-
-    <!-- CLOSING CTA -->
-    <div class="ab-cta">
-      <p>The fastest way to start something is <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
     </div>
 
-    <!-- CLIENTS -->
+    <!-- 3. HOW I WORK — promoted, full width, five entries -->
+    <div class="ab-how">
+      <p class="ab-how-eyebrow">How I Work</p>
+      <div class="ab-how-blocks">
+        <div class="ab-how-block">
+          <p class="ab-how-title">Writing for readers who aren't people.</p>
+          <p class="ab-how-body">Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p>
+        </div>
+        <div class="ab-how-block">
+          <p class="ab-how-title">Building a voice where none exists.</p>
+          <p class="ab-how-body">It starts with reading everything the brand has ever published, then finding the three sentences it keeps trying to write. I build the system that lets it finish them. It's both simpler and harder than it sounds.</p>
+        </div>
+        <div class="ab-how-block">
+          <p class="ab-how-title">Partnering with clients.</p>
+          <p class="ab-how-body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
+        </div>
+        <div class="ab-how-block">
+          <p class="ab-how-title">The best compliance copy doesn't sound like it.</p>
+          <p class="ab-how-body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
+        </div>
+        <div class="ab-how-block">
+          <p class="ab-how-title">Less relevant prior experience.</p>
+          <p class="ab-how-body">Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CREDENTIALS + THE TWO TRACKS -->
+    <div class="ab-tracks">
+      <p class="ab-cred">
+        Creative Director, Writer, Content Designer &middot; 15 years<br>
+        Most recently Creative Director at Hudson Rouge<br>
+        New York City and the Catskills &middot; Full-time, freelance, or fractional
+      </p>
+      <p class="ab-tracks-lede">Two tracks, run at the same time.</p>
+      <div class="ab-track-grid">
+        <div>
+          <span class="ab-track-label">Campaigns</span>
+          <p class="ab-track-list">Lincoln &middot; Pepsi &middot; Audi &middot; Louis Vuitton &middot; Four Seasons &middot; American Express</p>
+        </div>
+        <div>
+          <span class="ab-track-label">Voice Systems</span>
+          <p class="ab-track-list">Goldman Sachs &middot; SoundCloud &middot; Verizon &middot; Better</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CLIENTS -->
     <div class="ab-clients">
       <p class="ab-clients-label">Clients</p>
       <div class="ab-client-grid">
@@ -364,9 +340,19 @@
         <div class="ab-client-cat"><span class="ab-cat-label">Luxury</span><span>Four Seasons</span><span>Louis Vuitton</span><span>Barneys New York</span></div>
         <div class="ab-client-cat"><span class="ab-cat-label">Media</span><span>Bloomberg</span><span>Viacom</span><span>Verizon Wireless</span><span>Comcast</span><span>Optimum</span></div>
         <div class="ab-client-cat"><span class="ab-cat-label">Music</span><span>SoundCloud</span><span>JBL</span><span>Harmon Kardon</span></div>
-        <div class="ab-client-cat"><span class="ab-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span></div>
-        <div class="ab-client-cat"><span class="ab-cat-label">Studios</span><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
+        <div class="ab-client-cat"><span class="ab-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span>
       </div>
+      <p class="ab-clients-label" style="margin-top: clamp(32px, 4vw, 48px);">Agencies</p>
+      <div class="ab-client-grid">
+        <div class="ab-client-cat" style="grid-column: 1 / -1;"><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
+      </div>
+    </div>
+
+    <!-- 6. EMAIL -->
+    <div class="ab-cta">
+      <p>The fastest way to start something is <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
+    </div>
+
     </div>
 
     <footer>
