@@ -101,13 +101,6 @@
       padding-bottom: clamp(40px, 5vw, 64px);
       border-top: 1px solid var(--rule);
     }
-    .ab-cred {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--ink-light);
-      margin: 0 0 clamp(32px, 4vw, 48px) 0;
-    }
     .ab-tracks-lede {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(22px, 2.6vw, 32px);
@@ -119,9 +112,9 @@
     }
     .ab-track-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(28px, 4vw, 56px);
-      max-width: 860px;
+      /* Weighted to the longer list so "American Express" stays on one line. */
+      grid-template-columns: 1.5fr 1fr;
+      gap: clamp(24px, 3vw, 48px);
     }
     .ab-track-label {
       display: block;
@@ -134,7 +127,7 @@
     }
     .ab-track-list {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.75;
       color: var(--ink-light);
       margin: 0;
@@ -234,6 +227,47 @@
       .ab-hero-h1 { font-size: clamp(22px, 6vw, 36px); }
       .ab-client-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    /* ── LAYOUT CORRECTION ─────────────────────────────
+       The previous pass read "full text measure" as "move out of the right
+       column", which left every block in a narrow left column with the right
+       half empty. These rules put the width back to work. */
+
+    /* Credentials now sit under the intro, in the right column. */
+    .ab-cred {
+      margin: clamp(28px, 3.5vw, 40px) 0 0 0;
+      padding-top: clamp(20px, 2.5vw, 28px);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* Four craft entries two-up, the fifth full width beneath them. */
+    .ab-how-blocks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 64px;
+    }
+    .ab-how-blocks .ab-how-block:last-child { grid-column: 1 / -1; }
+    .ab-how-body { max-width: none; }
+
+    /* Two tracks runs the full container so nothing wraps. */
+
+    /* Agencies on its own row beneath the clients grid. */
+    .ab-agencies {
+      margin-top: clamp(32px, 4vw, 48px);
+      padding-top: clamp(24px, 3vw, 32px);
+      border-top: 1px solid var(--rule);
+    }
+    .ab-agency-list {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .ab-how-blocks { grid-template-columns: 1fr; gap: 32px; }
+      .ab-track-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body data-gate="off">
@@ -277,6 +311,11 @@
         <div class="ab-bio">
           <p>I'm a creative director and copywriter who started out as a journalist, which mostly means I ask a lot of questions before I write anything. Sometimes the answer is a campaign. Other times it's a manifesto, or a naming system, or one word on a button. Deciding which is the whole job.</p>
         </div>
+        <p class="ab-cred">
+        Creative Director, Writer, Content Designer &middot; 15 years<br>
+        Most recently Creative Director at Hudson Rouge<br>
+        New York City and the Catskills &middot; Full-time, freelance, or fractional
+        </p>
       </div>
     </div>
 
@@ -309,11 +348,6 @@
 
     <!-- 4. CREDENTIALS + THE TWO TRACKS -->
     <div class="ab-tracks">
-      <p class="ab-cred">
-        Creative Director, Writer, Content Designer &middot; 15 years<br>
-        Most recently Creative Director at Hudson Rouge<br>
-        New York City and the Catskills &middot; Full-time, freelance, or fractional
-      </p>
       <p class="ab-tracks-lede">Two tracks, run at the same time.</p>
       <div class="ab-track-grid">
         <div>
@@ -342,9 +376,9 @@
         <div class="ab-client-cat"><span class="ab-cat-label">Music</span><span>SoundCloud</span><span>JBL</span><span>Harmon Kardon</span></div>
         <div class="ab-client-cat"><span class="ab-cat-label">Tech</span><span>Google</span><span>Intel</span><span>Air Co.</span><span>GoDaddy</span><span>AWS Wickr</span>
       </div>
-      <p class="ab-clients-label" style="margin-top: clamp(32px, 4vw, 48px);">Agencies</p>
-      <div class="ab-client-grid">
-        <div class="ab-client-cat" style="grid-column: 1 / -1;"><span>AKQA</span><span>Big Spaceship</span><span>Chandelier Creative</span><span>Code and Theory</span><span>Huge</span><span>KBS+P</span><span>Matte Projects</span><span>Publicis</span><span>Wednesday</span><span>Work and Co.</span></div>
+      <div class="ab-agencies">
+        <p class="ab-clients-label">Agencies</p>
+        <p class="ab-agency-list">AKQA &middot; Big Spaceship &middot; Chandelier Creative &middot; Code and Theory &middot; Huge &middot; KBS+P &middot; Matte Projects &middot; Publicis &middot; Wednesday &middot; Work and Co.</p>
       </div>
     </div>
 
