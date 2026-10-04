@@ -30,6 +30,11 @@
       margin: 0;
       padding-left: 0;
       padding-right: 0;
+      /* Trimmed from clamp(80,14vw,160)/clamp(60,10vw,120). At the old values
+         the hero filled a 1280x800 laptop exactly and card one was entirely
+         below the fold, so the page read as containing nothing but a headline. */
+      padding-top: clamp(56px, 7vw, 96px);
+      padding-bottom: clamp(48px, 6vw, 72px);
       text-align: left;
     }
     /* Hero is two columns: copy left, availability right. This fills the
@@ -55,33 +60,7 @@
       margin: 0 auto;
       padding: 0 var(--gutter) 80px;
     }
-    .work-grid { grid-template-columns: repeat(2, 1fr); gap: 72px 48px; }
 
-    /* Card fixes: one aspect ratio so rows line up, a two-line title floor
-       so every description starts on the same baseline, and a metric line
-       at body-copy value rather than the faintest thing on the page. */
-    /* The container alone decides the box. The image is taken out of flow and
-       pinned to all four edges, so it can never influence the height. The
-       previous version relied on height:100% resolving against a height the
-       parent derived from aspect-ratio, which is the combination that renders
-       inconsistently and made two cards in the same row differ. */
-    .work-item-image {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      margin-bottom: 20px;
-      background: #1A1714;
-    }
-    .work-item-image .work-thumb {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .work-item-title { line-height: 1.25; min-height: 2.5em; }
     .hero-statement-h1 { text-align: left; }
     .hero-statement-sub {
       text-align: left;
@@ -99,25 +78,64 @@
     .hero-inline { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
     .hero-inline:hover { color: var(--amber); }
     .hero-statement-links .hero-link { font-weight: 500; }
-    .work-item-proof {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 15px;
-      color: var(--ink-light);
-      margin: 8px 0 0 0;
-      line-height: 1.55;
-    }
-    .work-item-links {
-      margin: 14px 0 0 0;
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 13px;
-    }
-    .work-item-links .wcard-link {
-      color: var(--amber, #b08d3f);
+
+    /* ── CARD SYSTEM: seven full-width rows, image left, text right ──
+       The spec's `grid-template-columns: 60% 40%` plus a 48px gap totals
+       100% + 48px and overflows the container. 3fr/2fr splits the space
+       that remains AFTER the gap, which is the 60/40 that was intended.
+       The grid lives on the anchor itself rather than using
+       `a { display: contents }`, so the whole card is one link without
+       relying on a property that historically dropped links out of the
+       accessibility tree. */
+    .work-card {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 88px;
+      color: inherit;
       text-decoration: none;
-      letter-spacing: 0.02em;
     }
-    .work-item-links .wcard-link:hover { text-decoration: underline; }
-    .work-item-links .wcard-sep { color: var(--ink-faint, #c9c3b8); margin: 0 4px; }
+    .work-card:last-child { margin-bottom: 0; }
+    .work-card__media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 3px;
+      background: #1A1714;
+    }
+    .work-card__text { max-width: 420px; }
+    .work-card__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      margin: 0 0 12px 0;
+      transition: color 0.2s;
+    }
+    .work-card:hover .work-card__title { color: var(--amber); }
+    .work-card__desc {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--ink-light);
+      margin: 0 0 12px 0;
+    }
+    .work-card__metric {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-light);
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .work-card { grid-template-columns: 1fr; gap: 20px; margin-bottom: 56px; }
+      .work-card__text { max-width: none; }
+    }
     .client-line {
       max-width: 1200px;
       margin: 0 auto;
@@ -139,7 +157,6 @@
     @media (max-width: 900px) {
       .hero-statement-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-availability { padding-top: 0; }
-      .work-grid { grid-template-columns: 1fr; gap: 48px; }
     }
   </style>
 </head>
@@ -195,134 +212,87 @@
 
     <!-- MAIN CONTENT: WORK GRID + SIDEBAR -->
     <div class="work-section" id="work">
-      <section class="work-grid" style="display:grid;width:100%;margin:0;padding:0;">
+      <a class="work-card" href="/work/lincoln">
+        <div class="work-card__media">
+          <img src="/images/lincoln/lincoln-sketch.jpeg" alt="Lincoln Motor Company">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">Lincoln Motor Company</h2>
+          <p class="work-card__desc">Five years building one voice and defending it across every surface and every market.</p>
+          <p class="work-card__metric">J.D. Power manufacturer website ranking: 16th to 6th in twelve months.</p>
+        </div>
+      </a>
 
-<article class="work-item" data-index="01">
-        <a class='work-item-inner' href='/work/lincoln'>
-          <div class="work-item-image">
-            <img src="/images/lincoln/lincoln-sketch.jpeg" class="work-thumb" alt="Lincoln Motor Company">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Lincoln Motor Company</h2>
-            </div>
-            <p class="work-item-desc">Five years leading digital copy for one brand, across .com, launches, campaigns, and CRM.</p>
-            <p class="work-item-proof">J.D. Power manufacturer website ranking: 16th to 6th in twelve months.</p>
-          </div>
-        </a>
-      </article>
+      <a class="work-card" href="/work/area15">
+        <div class="work-card__media">
+          <img src="/images/area15-thumb.jpg" alt="AREA15">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">AREA15</h2>
+          <p class="work-card__desc">Forty-plus attractions, each its own brand, all had to sound like one place.</p>
+          <p class="work-card__metric">Thirty pages, ten weeks, one writer.</p>
+        </div>
+      </a>
 
-      <article class="work-item" data-index="02">
-        <a class='work-item-inner' href='/work/area15'>
-          <div class="work-item-image">
-            <img src="/images/area15-thumb.jpg" class="work-thumb" alt="AREA15">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">AREA15</h2>
-            </div>
-            <p class="work-item-desc">Full-site voice and copy for a 35-acre immersive entertainment district off the Las Vegas Strip.</p>
-            <p class="work-item-proof">Thirty pages, forty-plus attractions, ten weeks, one writer.</p>
-          </div>
-        </a>
-      </article>
+      <a class="work-card" href="/work/soundcloud">
+        <div class="work-card__media">
+          <img src="/images/soundcloud-headphones.png" alt="SoundCloud Go">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">SoundCloud Go</h2>
+          <p class="work-card__desc">I wrote the brand voice, then used it to ask 175 million free users to start paying.</p>
+          <p class="work-card__metric">First dedicated writer in the company's history. The voice is still running.</p>
+        </div>
+      </a>
 
-      <article class="work-item" data-index="03">
-        <a class='work-item-inner' href='/work/soundcloud'>
-          <div class="work-item-image">
-            <img src="/images/soundcloud-headphones.png" class="work-thumb" alt="SoundCloud Go">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">SoundCloud Go</h2>
-            </div>
-            <p class="work-item-desc">First dedicated writer in the company's history. I built the brand voice and launched the subscription.</p>
-            <p class="work-item-proof">175 million free users, asked to start paying. The voice is still running.</p>
-          </div>
-        </a>
-      </article>
+      <a class="work-card" href="/voice-systems/goldman-sachs/">
+        <div class="work-card__media">
+          <img src="/images/goldman-thumb.jpg" alt="Goldman Sachs Private Wealth">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">Goldman Sachs Private Wealth</h2>
+          <p class="work-card__desc">A voice and content system for a platform serving clients with $10M+ invested.</p>
+          <p class="work-card__metric">Written to survive compliance and still sound like a person.</p>
+        </div>
+      </a>
 
-      <article class="work-item" data-index="04">
-        <a class='work-item-inner' href='/voice-systems/goldman-sachs/'>
-          <div class="work-item-image">
-            <img src="/images/goldman-thumb.jpg" class="work-thumb" alt="Goldman Sachs Private Wealth">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Goldman Sachs Private Wealth</h2>
-            </div>
-            <p class="work-item-desc">A voice and content system for a platform serving clients with $10M+ in investable assets.</p>
-            <p class="work-item-proof">Written to survive compliance and still sound like a person.</p>
-          </div>
-        </a>
-      </article>
+      <a class="work-card" href="/work/airco">
+        <div class="work-card__media">
+          <img src="/images/airco/airco4.webp" alt="Air Co.">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">Air Co.</h2>
+          <p class="work-card__desc">Brand voice, manifesto, and taglines for a vodka distilled from carbon pulled out of the air.</p>
+          <p class="work-card__metric">Fast Company Top 10 Product Launches. Stocked at Michelin-starred restaurants.</p>
+        </div>
+      </a>
 
-      <article class="work-item" data-index="05">
-        <a class='work-item-inner' href='/work/airco'>
-          <div class="work-item-image">
-            <img src="/images/airco/airco4.webp" class="work-thumb" alt="Air Co.">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Air Co.</h2>
-            </div>
-            <p class="work-item-desc">Brand voice, manifesto, and tagline for a vodka distilled from atmospheric carbon.</p>
-            <p class="work-item-proof">Fast Company Top 10 Product Launches.</p>
-          </div>
-        </a>
-      </article>
+      <a class="work-card" href="/work/pepsi">
+        <div class="work-card__media">
+          <img src="/images/pepsi/pepsi-thumb2.jpg" alt="Pepsi Refresh Project">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">Pepsi Refresh Project</h2>
+          <p class="work-card__desc">First writer on the platform that redirected Pepsi's $20M Super Bowl budget into public grants.</p>
+          <p class="work-card__metric">87 million votes cast. Pepsi went from #16 to #5 among America's most reputable brands.</p>
+        </div>
+      </a>
 
-      <article class="work-item" data-index="06">
-        <a class='work-item-inner' href='/work/pepsi'>
-          <div class="work-item-image">
-            <img src="/images/pepsi/pepsi-thumb2.jpg" class="work-thumb" alt="Pepsi Refresh Project">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Pepsi Refresh Project</h2>
-            </div>
-            <p class="work-item-desc">First writer on the platform that redirected Pepsi's $20M Super Bowl budget into public grants.</p>
-            <p class="work-item-proof">87 million votes cast. #16 to #5 among America's most reputable brands.</p>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item" data-index="07">
-        <a class='work-item-inner' href='/work/fourseasons'>
-          <div class="work-item-image">
-            <img src="/images/fourseasons/fourseasons-thumb.jpg" class="work-thumb" alt="Four Seasons">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Four Seasons</h2>
-            </div>
-            <p class="work-item-desc">Huge rebranded Four Seasons. I built the editorial framework and reported the stories that filled it.</p>
-            <p class="work-item-proof">30+ properties, dozens of languages. International Design Awards: Gold.</p>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-item" data-index="08">
-        <a class='work-item-inner' href='/work/audi'>
-          <div class="work-item-image">
-            <img src="/images/audi-hero.jpg" class="work-thumb" alt="Audi: Plugging In">
-          </div>
-          <div class="work-item-info">
-            <div class="work-item-header">
-              <h2 class="work-item-title">Audi Plugging In</h2>
-            </div>
-            <p class="work-item-desc">Concept and script for a branded documentary on Audi's first plug-in hybrid.</p>
-            <p class="work-item-proof">Fifty years after Dylan went electric at Newport, another first plug.</p>
-          </div>
-        </a>
-      </article>
-
-      </section>
+      <a class="work-card" href="/work/fourseasons">
+        <div class="work-card__media">
+          <img src="/images/fourseasons/fourseasons-thumb.jpg" alt="Four Seasons">
+        </div>
+        <div class="work-card__text">
+          <h2 class="work-card__title">Four Seasons</h2>
+          <p class="work-card__desc">I built the editorial framework for the rebrand and reported the stories that filled it.</p>
+          <p class="work-card__metric">30+ properties, dozens of languages. International Design Awards: Gold.</p>
+        </div>
+      </a>
     </div>
 
     <!-- CLIENT GRID -->
     <div class="client-line">
-      <p>Also: American Express · Verizon · Better · Evercore · Louis Vuitton · Mercedes-Benz · Bulleit · Chipotle · Google · Intel · GE · Pfizer · Target · Bloomberg</p>
+      <p>Also: American Express · Verizon · Google · Intel · GE · Bloomberg · Mercedes-Benz · Chipotle</p>
     </div>
 
     <!-- FOOTER -->
