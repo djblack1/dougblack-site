@@ -105,6 +105,9 @@
       object-fit: cover;
       border-radius: 3px;
       background: #1A1714;
+      /* Air Co. is white product on white; without this its top and right
+         edges dissolve into the cream page. Invisible on the darker six. */
+      box-shadow: inset 0 0 0 1px var(--rule);
     }
     .work-card__text { max-width: 420px; }
     .work-card__title {
@@ -258,7 +261,7 @@
 
       <a class="work-card" href="/work/airco">
         <div class="work-card__media">
-          <img src="/images/airco/airco4.webp" alt="Air Co.">
+          <img src="/images/airco/airco-vodka.webp" alt="Air Co.">
         </div>
         <div class="work-card__text">
           <h2 class="work-card__title">Air Co.</h2>
@@ -269,7 +272,7 @@
 
       <a class="work-card" href="/work/pepsi">
         <div class="work-card__media">
-          <img src="/images/pepsi/pepsi-thumb2.jpg" alt="Pepsi Refresh Project">
+          <img src="/images/pepsi/pepsi-refresh-card.webp" alt="Pepsi Refresh Project">
         </div>
         <div class="work-card__text">
           <h2 class="work-card__title">Pepsi Refresh Project</h2>
