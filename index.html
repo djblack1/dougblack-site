@@ -161,14 +161,22 @@
       padding: 32px var(--gutter) 80px;
       border-top: 1px solid var(--rule, #e5e0d5);
     }
+    /* A sentence, not a call-to-action block: body size and measure, no
+       button, border or background of its own. */
     .client-line p {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 13px;
-      color: var(--ink-faint, #9a948a);
-      letter-spacing: 0.03em;
-      line-height: 1.9;
+      font-size: 20px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      max-width: 620px;
       margin: 24px 0 0 0;
     }
+    .client-line a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .client-line a:hover { color: var(--amber); }
     @media (max-width: 768px) {
       .hero-statement-sub, .hero-statement-links { max-width: 100%; }
     }
@@ -311,7 +319,7 @@
 
     <!-- CLIENT GRID -->
     <div class="client-line">
-      <p>Also: American Express · Verizon · Google · Intel · GE · Bloomberg · Mercedes-Benz · Chipotle</p>
+      <p>This is a very small sample of a very large body of work. If you want to see a particular type of project, writing style, or sector, I'm sure I have something to show you. <a href="mailto:dougblack1@gmail.com">Just ask.</a></p>
     </div>
 
     <!-- FOOTER -->
