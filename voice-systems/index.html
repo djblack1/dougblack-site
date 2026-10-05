@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <style>
-    .vs-container { max-width:1200px; margin:0 auto; padding:0 40px; }
+    .vs-container { max-width:1200px; margin:0 auto; padding:0 var(--gutter); }
 
     /* ---------- HERO ---------- */
     .vs-hero { padding:clamp(48px,7vw,104px) 0 clamp(28px,4vw,48px); }
@@ -23,12 +23,13 @@
     .vs-hero-h1 .vs-inv {
       font-style:italic;
       white-space:nowrap;
-      color:transparent;
+      /* Was transparent with only a shadow describing the glyph: 1:1 contrast.
+         #6E6862 is 4.92:1 on the cream page, so it reads on the first pass,
+         while the body's #1A1714 sits at 15.97:1 and still clearly leads. */
+      color:#6E6862;
       text-shadow:
-        1px 1px 0 rgba(255,255,255,0.95),
-        2px 2px 2px rgba(255,255,255,0.55),
-        -1px -1px 0 rgba(26,23,20,0.26),
-        -2px -2px 3px rgba(26,23,20,0.10);
+        1px 1px 0 rgba(255,255,255,0.65),
+        -1px -1px 0 rgba(26,23,20,0.14);
       transition:color .5s ease, text-shadow .5s ease;
     }
     .vs-hero-h1:hover .vs-inv { color:var(--ink); text-shadow:none; }
@@ -47,12 +48,22 @@
 
     /* ---------- STICKY JUMP NAV ---------- */
     .vs-jump { position:sticky; top:0; z-index:50; background:var(--bg,#f5f1e8); border-bottom:1px solid var(--rule); }
-    .vs-jump-inner { max-width:1200px; margin:0 auto; padding:15px 40px; font-family:'DM Sans',system-ui,sans-serif; font-size:13px; letter-spacing:0.02em; display:flex; flex-wrap:wrap; gap:4px 0; }
-    .vs-jump a { color:var(--ink-light); text-decoration:none; white-space:nowrap; }
+    .vs-jump-inner { max-width:1200px; margin:0 auto; padding:15px var(--gutter); font-family:'DM Sans',system-ui,sans-serif; font-size:13px; letter-spacing:0.02em; display:flex; flex-wrap:wrap; gap:4px 0; }
+    .vs-jump a { color:var(--ink); text-decoration:none; white-space:nowrap; }
     .vs-jump a:hover { color:var(--amber); }
-    .vs-jump a i { font-style:normal; color:var(--ink-faint); font-size:11px; letter-spacing:0.06em; margin-right:6px; }
+    .vs-jump a i { font-style:normal; color:var(--ink-light); font-size:11px; letter-spacing:0.06em; margin-right:6px; }
     .vs-jump a:hover i { color:var(--amber); }
     .vs-jump .vs-jump-sep { color:var(--ink-faint); margin:0 12px; }
+
+    /* ---------- CONTENTS ---------- */
+    .vs-contents { padding:clamp(36px,4.5vw,56px) 0; border-bottom:1px solid var(--rule); }
+    .vs-contents-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 20px; }
+    .vs-contents-row { display:grid; grid-template-columns:minmax(200px,280px) minmax(0,1fr); gap:16px 32px; padding:14px 0; border-top:1px solid var(--rule); align-items:baseline; }
+    .vs-contents-row:first-of-type { border-top:none; padding-top:0; }
+    .vs-contents-row a { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(19px,2.1vw,24px); font-weight:600; color:var(--ink); text-decoration:none; }
+    .vs-contents-row a:hover { color:var(--amber); }
+    .vs-contents-row p { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.6; color:var(--ink-light); margin:0; }
+    @media (max-width:700px) { .vs-contents-row { grid-template-columns:1fr; gap:4px; } }
 
     /* ---------- TWO-COLUMN BANDS ---------- */
     .vs-section { padding:clamp(52px,7vw,96px) 0; border-bottom:1px solid var(--rule); scroll-margin-top:60px; }
@@ -81,7 +92,7 @@
 
     /* Air Co. dark-block sample treatment */
     .vs-block { background:#1A1714; border-radius:6px; padding:26px 30px; margin-bottom:10px; }
-    .vs-block p.q { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.55 !important; margin:0 !important; }
+    .vs-block p.q { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.7 !important; margin:0 !important; }
     .vs-block p.n { font-family:'DM Sans',system-ui,sans-serif !important; font-size:11px !important; letter-spacing:0.1em !important; text-transform:uppercase !important; color:var(--amber) !important; margin:12px 0 0 !important; }
 
     /* ---------- IMAGERY ---------- */
@@ -116,11 +127,11 @@
       .vs-meta { margin-top:22px; }
     }
     @media (max-width:768px) {
-      .vs-container { padding:0 22px; }
+      
       .vs-stats { grid-template-columns:1fr 1fr; }
       .vs-stat:nth-child(2) { border-right:none; }
       .vs-stat:nth-child(1), .vs-stat:nth-child(2) { border-bottom:1px solid var(--rule); }
-      .vs-jump-inner { padding:14px 22px; font-size:12px; }
+      .vs-jump-inner { font-size:12px; }
       .vs-jump .vs-jump-sep { margin:0 8px; }
       .vs-figgrid { grid-template-columns:1fr; }
       .vs-fig--narrow { max-width:240px; }
@@ -158,10 +169,10 @@
 
     <div class="vs-container">
       <div class="vs-stats">
-        <div class="vs-stat"><p class="vs-stat-num">5</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">6</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
         <div class="vs-stat"><p class="vs-stat-num">10+</p><p class="vs-stat-label">Years of embedded product writing</p></div>
         <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
-        <div class="vs-stat"><p class="vs-stat-num">Silver</p><p class="vs-stat-label">NYC Design Awards, Best Mobile Marketing (American Express)</p></div>
+        <div class="vs-stat"><p class="vs-stat-num">113M</p><p class="vs-stat-label">Subscribers reached through a single vocabulary (Verizon)</p></div>
       </div>
     </div>
 
@@ -172,8 +183,39 @@
         <a href="#verizon"><i>03</i>Verizon</a><span class="vs-jump-sep">·</span>
         <a href="#evercore"><i>04</i>Evercore</a><span class="vs-jump-sep">·</span>
         <a href="#american-express"><i>05</i>American Express</a><span class="vs-jump-sep">·</span>
-        <a href="#soundcloud"><i>06</i>SoundCloud</a>
+        <a href="#soundcloud"><i>06</i>SoundCloud</a><span class="vs-jump-sep">·</span>
+        <a href="#voice-systems-now"><i>07</i>What a voice system is now</a>
       </div>
+    </div>
+
+    <div class="vs-container">
+      <section class="vs-contents">
+        <p class="vs-contents-label">The six</p>
+        <div class="vs-contents-row">
+          <a href="#goldman-sachs">Goldman Sachs Private Wealth</a>
+          <p>Private wealth platform. Every line read by Legal.</p>
+        </div>
+        <div class="vs-contents-row">
+          <a href="#better">Better.com</a>
+          <p>Mortgage, written for people at their most anxious.</p>
+        </div>
+        <div class="vs-contents-row">
+          <a href="#verizon">Verizon Wireless</a>
+          <p>One vocabulary for 113 million subscribers.</p>
+        </div>
+        <div class="vs-contents-row">
+          <a href="#evercore">Evercore</a>
+          <p>Institutional finance, speaking to individuals for the first time.</p>
+        </div>
+        <div class="vs-contents-row">
+          <a href="#american-express">American Express</a>
+          <p>Mobile-first card messaging, tested in the flow.</p>
+        </div>
+        <div class="vs-contents-row">
+          <a href="#soundcloud">SoundCloud</a>
+          <p>No voice existed. I wrote one, and it is still running.</p>
+        </div>
+      </section>
     </div>
 
     <div class="vs-container">
@@ -204,7 +246,7 @@
             <p class="vs-body">So the work was not really about writing good lines. It was about building the standards, terminology, and patterns that let the platform's teams stay on voice without a writer sitting in every review.</p>
 
             <p class="vs-label">What I owned</p>
-            <p class="vs-body">Voice architecture, tone principles, terminology, navigation and data-display standards, onboarding, alerts, and error states. I wrote the documentation that made those decisions repeatable, then handed it to teams who used it without me. Hiring was part of the role: I recruited a junior writer onto the team, onboarded him, and managed his daily work.</p>
+            <p class="vs-body">Voice architecture, tone principles, terminology, navigation and data-display standards, onboarding, alerts, and error states. I wrote the documentation that made those decisions repeatable, then handed it to teams who used it without me. Hiring was part of the role: I&nbsp;recruited a junior writer onto the team, onboarded him, and managed his daily work.</p>
 
             <p class="vs-label">The persona</p>
             <div class="vs-block"><p class="q">Confident but not cocky. Smart but not stodgy. Helpful but not pushy. Expert but not bossy.</p></div>
@@ -368,6 +410,22 @@
           </div>
           <div class="vs-content">
             <p class="vs-fullcase"><a href="../work/soundcloud">Full case study →</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CLOSING: WHAT A VOICE SYSTEM IS NOW ============ -->
+      <section class="vs-section" id="voice-systems-now">
+        <div class="vs-band">
+          <div class="vs-rail">
+            <span class="vs-num">07</span>
+            <h2 class="vs-brand">What a voice system is now</h2>
+            <p class="vs-oneline">The same problem, with a reader that cannot be reasoned with.</p>
+          </div>
+          <div class="vs-content">
+            <p class="vs-body">A voice guideline written for people does not work as a guardrail for a model. "Fewer words always win" is useful to a writer and useless to a machine, because it is not testable.</p>
+            <p class="vs-body">The conversion is the same design problem I solved at Goldman, where the guidelines had to let product owners who were not writers make the right call without a writer in the room. That is a guardrail. It just ran on people.</p>
+            <p class="vs-body">It takes three things. Rules with a pass and a fail attached to each one, because the examples are what the boundary is actually made of. A gold-standard set, meaning copy the brand agrees is right alongside near-misses with a note on why each one fails. And a list of what the system must never do, which in regulated categories is the difference between shipping and not.</p>
           </div>
         </div>
       </section>
