@@ -145,20 +145,67 @@
       flex-direction: column;
       gap: 32px;
     }
-    .ab-how-title {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--ink);
-      margin: 0 0 8px 0;
+
+    /* ── HOW I WORK: five stacked rows, headline left, paragraph right.
+       The point is that the left edge is readable on its own, so the
+       headlines move from 18px bold sans to 25px serif at normal weight:
+       family and size do the work that weight alone could not. */
+    .ab-how-blocks { display: block; }
+    .how-row {
+      display: grid;
+      grid-template-columns: 33% 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 36px 0;
+      border-top: 1px solid var(--rule);
     }
-    .ab-how-body {
+    .how-row:last-of-type { border-bottom: 1px solid var(--rule); }
+    .how-row__head {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0;
+    }
+    .how-row__body {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.8;
       color: var(--ink-light);
       margin: 0;
       max-width: 620px;
+    }
+
+    /* ── CREDENTIALS: labelled rows, no middots doing structural work. */
+    .cred {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 10px 20px;
+      align-items: baseline;
+      margin: clamp(28px, 3.5vw, 40px) 0 0 0;
+      padding-top: clamp(20px, 2.5vw, 28px);
+      border-top: 1px solid var(--rule);
+    }
+    .cred dt {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .cred dd {
+      margin: 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-light);
+    }
+
+    @media (max-width: 900px) {
+      .how-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+      .cred { grid-template-columns: 1fr; gap: 2px 0; }
+      .cred dd { margin-bottom: 14px; }
     }
 
     /* ── CLOSING CTA ─────────────────────────────── */
@@ -233,11 +280,6 @@
        half empty. These rules put the width back to work. */
 
     /* Credentials now sit under the intro, in the right column. */
-    .ab-cred {
-      margin: clamp(28px, 3.5vw, 40px) 0 0 0;
-      padding-top: clamp(20px, 2.5vw, 28px);
-      border-top: 1px solid var(--rule);
-    }
 
     /* Four craft entries two-up, the fifth full width beneath them. */
     .ab-how-blocks {
@@ -246,7 +288,6 @@
       gap: 56px 64px;
     }
     .ab-how-blocks .ab-how-block:last-child { grid-column: 1 / -1; }
-    .ab-how-body { max-width: none; }
 
     /* Two tracks runs the full container so nothing wraps. */
 
@@ -311,11 +352,12 @@
         <div class="ab-bio">
           <p>I'm a creative director and copywriter who started out as a journalist, which mostly means I ask a lot of questions before I write anything. Sometimes the answer is a campaign. Other times it's a manifesto, or a naming system, or one word on a button. Deciding which is the whole job.</p>
         </div>
-        <p class="ab-cred">
-        Creative Director, Writer, Content Designer &middot; 15 years<br>
-        Most recently Creative Director at Hudson Rouge<br>
-        New York City and the Catskills &middot; Full-time, freelance, or fractional
-        </p>
+        <dl class="cred">
+          <dt>Role</dt><dd>Creative Director, Writer, Content Designer. Fifteen years.</dd>
+          <dt>Recently</dt><dd>Creative Director at Hudson Rouge</dd>
+          <dt>Based</dt><dd>New York City and the Catskills</dd>
+          <dt>Open to</dt><dd>Full-time, freelance, or fractional</dd>
+        </dl>
       </div>
     </div>
 
@@ -323,25 +365,25 @@
     <div class="ab-how">
       <p class="ab-how-eyebrow">How I Work</p>
       <div class="ab-how-blocks">
-        <div class="ab-how-block">
-          <p class="ab-how-title">Writing for readers who aren't people.</p>
-          <p class="ab-how-body">Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p>
+        <div class="how-row">
+          <h3 class="how-row__head">Writing for readers who aren't people.</h3>
+          <p class="how-row__body">Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p>
         </div>
-        <div class="ab-how-block">
-          <p class="ab-how-title">Building a voice where none exists.</p>
-          <p class="ab-how-body">It starts with reading everything the brand has ever published, then finding the three sentences it keeps trying to write. I build the system that lets it finish them. It's both simpler and harder than it sounds.</p>
+        <div class="how-row">
+          <h3 class="how-row__head">Building a voice where none exists.</h3>
+          <p class="how-row__body">It starts with reading everything the brand has ever published, then finding the three sentences it keeps trying to write. I build the system that lets it finish them. It's both simpler and harder than it sounds.</p>
         </div>
-        <div class="ab-how-block">
-          <p class="ab-how-title">Partnering with clients.</p>
-          <p class="ab-how-body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
+        <div class="how-row">
+          <h3 class="how-row__head">I used to interview people for a living.</h3>
+          <p class="how-row__body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
         </div>
-        <div class="ab-how-block">
-          <p class="ab-how-title">The best compliance copy doesn't sound like it.</p>
-          <p class="ab-how-body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
+        <div class="how-row">
+          <h3 class="how-row__head">The best compliance copy doesn't sound like it.</h3>
+          <p class="how-row__body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
         </div>
-        <div class="ab-how-block">
-          <p class="ab-how-title">Less relevant prior experience.</p>
-          <p class="ab-how-body">Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
+        <div class="how-row">
+          <h3 class="how-row__head">Less relevant prior experience.</h3>
+          <p class="how-row__body">Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
         </div>
       </div>
     </div>
