@@ -140,20 +140,15 @@
       color: var(--ink-faint);
       margin: 0 0 32px 0;
     }
-    .ab-how-blocks {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
 
     /* ── HOW I WORK: five stacked rows, headline left, paragraph right.
        The point is that the left edge is readable on its own, so the
        headlines move from 18px bold sans to 25px serif at normal weight:
        family and size do the work that weight alone could not. */
-    .ab-how-blocks { display: block; }
     .how-row {
       display: grid;
       grid-template-columns: 33% 1fr;
+      width: 100%;
       gap: 48px;
       align-items: start;
       padding: 36px 0;
@@ -173,15 +168,13 @@
       font-size: 17px;
       line-height: 1.8;
       color: var(--ink-light);
-      margin: 0;
-      max-width: 620px;
     }
+    .how-row__body p { margin: 0; }
 
     /* Row five only. Headline above the paragraph, both spanning the
        container. The headline keeps the identical serif, size, weight and
        colour it has in rows one to four; only its column changes. */
     .how-row--full { grid-template-columns: 1fr; gap: 14px; }
-    .how-row--full .how-row__body { max-width: none; }
 
     /* ── CREDENTIALS: labelled rows, no middots doing structural work. */
     .cred {
@@ -288,12 +281,6 @@
     /* Credentials now sit under the intro, in the right column. */
 
     /* Four craft entries two-up, the fifth full width beneath them. */
-    .ab-how-blocks {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 56px 64px;
-    }
-    .ab-how-blocks .ab-how-block:last-child { grid-column: 1 / -1; }
 
     /* Two tracks runs the full container so nothing wraps. */
 
@@ -312,7 +299,6 @@
     }
 
     @media (max-width: 860px) {
-      .ab-how-blocks { grid-template-columns: 1fr; gap: 32px; }
       .ab-track-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -370,27 +356,25 @@
     <!-- 3. HOW I WORK — promoted, full width, five entries -->
     <div class="ab-how">
       <p class="ab-how-eyebrow">How I Work</p>
-      <div class="ab-how-blocks">
-        <div class="how-row">
-          <h3 class="how-row__head">Writing for readers who aren't people.</h3>
-          <p class="how-row__body">Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p>
-        </div>
-        <div class="how-row">
-          <h3 class="how-row__head">Building a voice where none exists.</h3>
-          <p class="how-row__body">It starts with reading everything the brand has ever published, then finding the three sentences it keeps trying to write. I build the system that lets it finish them. It's both simpler and harder than it sounds.</p>
-        </div>
-        <div class="how-row">
-          <h3 class="how-row__head">I used to interview people for a living.</h3>
-          <p class="how-row__body">Interviewing people for a living is the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p>
-        </div>
-        <div class="how-row">
-          <h3 class="how-row__head">The best compliance copy doesn't sound like it.</h3>
-          <p class="how-row__body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
-        </div>
-        <div class="how-row how-row--full">
-          <h3 class="how-row__head">Less relevant prior experience.</h3>
-          <p class="how-row__body">Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
-        </div>
+      <div class="how-row">
+        <h3 class="how-row__head">Writing for readers who aren't people.</h3>
+        <div class="how-row__body"><p>Every line now has to work for a potential customer, a search engine, and the model deciding whether your brand is worth citing. Most of what gets sold as AEO and GEO is a brand voice problem dressed up as a technical one. A model cites only what it can extract cleanly and sees consistently stated everywhere it looks. Which means precise, authoritative writing on every touchpoint doesn't just carry the message, it recruits the messengers.</p></div>
+      </div>
+      <div class="how-row">
+        <h3 class="how-row__head">Building a voice where none exists.</h3>
+        <div class="how-row__body"><p>It starts with reading everything the brand has ever published, then finding the three sentences it keeps trying to write. I build the system that lets it finish them. It's both simpler and harder than it sounds.</p></div>
+      </div>
+      <div class="how-row">
+        <h3 class="how-row__head">I used to interview people for a living.</h3>
+        <div class="how-row__body"><p>It's the best preparation for sitting across from a CMO. I get the business problem first. The writing comes second.</p></div>
+      </div>
+      <div class="how-row">
+        <h3 class="how-row__head">The best compliance copy doesn't sound like it.</h3>
+        <div class="how-row__body"><p>Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p></div>
+      </div>
+      <div class="how-row how-row--full">
+        <h3 class="how-row__head">Less relevant prior experience.</h3>
+        <div class="how-row__body"><p>Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p></div>
       </div>
     </div>
 
