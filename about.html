@@ -176,16 +176,12 @@
       margin: 0;
       max-width: 620px;
     }
-    /* The closing row drops out of the two-column grid entirely: headline on
-       its own line, body spanning the whole container. Capping it to the 1fr
-       column only bought 40px, which is not a visible change. At full width
-       the paragraph runs about half the depth of the rows above it, which is
-       what makes the last entry land. */
-    .how-row:last-of-type {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-    .how-row:last-of-type .how-row__body { max-width: none; }
+
+    /* Row five only. Headline above the paragraph, both spanning the
+       container. The headline keeps the identical serif, size, weight and
+       colour it has in rows one to four; only its column changes. */
+    .how-row--full { grid-template-columns: 1fr; gap: 14px; }
+    .how-row--full .how-row__body { max-width: none; }
 
     /* ── CREDENTIALS: labelled rows, no middots doing structural work. */
     .cred {
@@ -391,7 +387,7 @@
           <h3 class="how-row__head">The best compliance copy doesn't sound like it.</h3>
           <p class="how-row__body">Years of working in financial services taught me the discipline. The copy that moves a Goldman or AmEx product is the copy that doesn't get cut by legal. It's underrated work.</p>
         </div>
-        <div class="how-row">
+        <div class="how-row how-row--full">
           <h3 class="how-row__head">Less relevant prior experience.</h3>
           <p class="how-row__body">Pizza deliveryman, guitarist in a nationally touring punk band, funeral assistant, golf caddy, Berlin bicycle tour guide, and editorial translator for the Italian government. I also have a Level 1 Chainsaw Safety certificate and am happy to provide logging references.</p>
         </div>
