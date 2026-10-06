@@ -176,8 +176,15 @@
       margin: 0;
       max-width: 620px;
     }
-    /* The closing row runs the full width of the right column: its body is
-       uncapped so the copy reaches the same right edge as the hairline above it. */
+    /* The closing row drops out of the two-column grid entirely: headline on
+       its own line, body spanning the whole container. Capping it to the 1fr
+       column only bought 40px, which is not a visible change. At full width
+       the paragraph runs about half the depth of the rows above it, which is
+       what makes the last entry land. */
+    .how-row:last-of-type {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
     .how-row:last-of-type .how-row__body { max-width: none; }
 
     /* ── CREDENTIALS: labelled rows, no middots doing structural work. */
