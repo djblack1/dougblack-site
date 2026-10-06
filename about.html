@@ -176,6 +176,9 @@
       margin: 0;
       max-width: 620px;
     }
+    /* The closing row runs the full width of the right column: its body is
+       uncapped so the copy reaches the same right edge as the hairline above it. */
+    .how-row:last-of-type .how-row__body { max-width: none; }
 
     /* ── CREDENTIALS: labelled rows, no middots doing structural work. */
     .cred {
@@ -350,7 +353,7 @@
       </div>
       <div class="ab-right">
         <div class="ab-bio">
-          <p>I'm a creative director and copywriter who started out as a journalist, which mostly means I ask a lot of questions before I write anything. Sometimes the answer is a campaign. Other times it's a manifesto, or a naming system, or one word on a button. Deciding which is the whole job.</p>
+          <p>I'm a creative director and copywriter who started out as a journalist, which mostly means I ask a lot of questions before I write anything. Sometimes the answer is a campaign. Other times it's a manifesto, or a naming system, or one word on a button. Deciding which is half the job.</p>
         </div>
         <dl class="cred">
           <dt>Role</dt><dd>Creative Director, Writer, Content Designer. Fifteen years.</dd>
@@ -390,7 +393,7 @@
 
     <!-- 4. CREDENTIALS + THE TWO TRACKS -->
     <div class="ab-tracks">
-      <p class="ab-tracks-lede">Two tracks, run at the same time.</p>
+      <p class="ab-tracks-lede">Two great skills that go great together.</p>
       <div class="ab-track-grid">
         <div>
           <span class="ab-track-label">Campaigns</span>
@@ -426,7 +429,7 @@
 
     <!-- 6. EMAIL -->
     <div class="ab-cta">
-      <p>The fastest way to start something is <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>.</p>
+      <p>If you've gotten this far, <a href="mailto:dougblack1@gmail.com">we should chat.</a></p>
     </div>
 
     </div>
