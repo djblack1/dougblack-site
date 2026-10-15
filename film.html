@@ -27,10 +27,24 @@
       max-width: 24ch;
     }
 
+    /* Jump nav, same pattern as the Voice Systems page. Full-bleed
+       bar, sticky, inner block on the shared 1200/gutter geometry. */
+    .fl-jump { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 1px solid var(--rule); }
+    .fl-jump-inner { max-width: var(--max-width); margin: 0 auto; padding: 15px var(--gutter); font-family: var(--font-body); font-size: 13px; letter-spacing: 0.02em; display: flex; flex-wrap: wrap; gap: 4px 0; }
+    .fl-jump a { color: var(--ink); text-decoration: none; white-space: nowrap; }
+    .fl-jump a:hover { color: var(--amber); }
+    .fl-jump a i { font-style: normal; color: var(--ink-light); font-size: 11px; letter-spacing: 0.06em; margin-right: 6px; }
+    .fl-jump a:hover i { color: var(--amber); }
+    .fl-jump .fl-jump-sep { color: var(--ink-faint); margin: 0 12px; }
+
     /* Each section: title, one-line description, film, meta, problem,
        script, note, link. The border-top is the section rule; the last
-       section carries a bottom rule so the page closes cleanly. */
-    .fl-project { padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--rule); }
+       section carries a bottom rule so the page closes cleanly. The
+       first section drops its top rule: the jump bar's bottom border
+       already sits directly above it. scroll-margin clears the sticky
+       site nav so a jumped-to heading is not hidden underneath it. */
+    .fl-project { padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--rule); scroll-margin-top: 96px; }
+    .fl-project:first-of-type { border-top: 0; }
     .fl-project:last-of-type { border-bottom: 1px solid var(--rule); }
     .fl-num {
       display: block;
@@ -68,6 +82,11 @@
     .fl-link { font-family: var(--font-body); font-size: 15px; margin: 24px 0 0; }
     .fl-link a { color: var(--amber); font-weight: 500; }
     .fl-link a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .fl-jump-inner { font-size: 12px; }
+      .fl-jump .fl-jump-sep { margin: 0 8px; }
+    }
   </style>
 </head>
 <body>
@@ -99,9 +118,21 @@
       <header class="fl-hero">
         <h1 class="fl-hero-h1">Film and video.</h1>
       </header>
+    </div>
+
+    <div class="fl-jump">
+      <div class="fl-jump-inner">
+        <a href="#audi"><i>01</i>Audi</a><span class="fl-jump-sep">·</span>
+        <a href="#soundcloud-go"><i>02</i>SoundCloud Go</a><span class="fl-jump-sep">·</span>
+        <a href="#google-for-work"><i>03</i>Google for Work</a><span class="fl-jump-sep">·</span>
+        <a href="#adorned"><i>04</i>Intel and Milk</a>
+      </div>
+    </div>
+
+    <div class="fl-container">
 
       <!-- ============ 01 AUDI ============ -->
-      <section class="fl-project">
+      <section class="fl-project" id="audi">
         <span class="fl-num">01</span>
         <h2 class="fl-name">Audi: Plugging In</h2>
         <p class="fl-desc">Concept, narrative construction, and voiceover for a branded documentary on Audi's first plug-in hybrid.</p>
@@ -140,7 +171,7 @@
       </section>
 
       <!-- ============ 02 SOUNDCLOUD ============ -->
-      <section class="fl-project">
+      <section class="fl-project" id="soundcloud-go">
         <span class="fl-num">02</span>
         <h2 class="fl-name">SoundCloud Go</h2>
         <p class="fl-desc">Launch films, social, and campaign copy for SoundCloud's first subscription.</p>
@@ -180,7 +211,7 @@
       </section>
 
       <!-- ============ 03 GOOGLE FOR WORK ============ -->
-      <section class="fl-project">
+      <section class="fl-project" id="google-for-work">
         <span class="fl-num">03</span>
         <h2 class="fl-name">Google for Work</h2>
         <p class="fl-desc">Concept and scripts for digital spots connecting IT professionals to the people they support.</p>
@@ -204,7 +235,7 @@
       </section>
 
       <!-- ============ 04 INTEL / MILK STUDIOS ============ -->
-      <section class="fl-project">
+      <section class="fl-project" id="adorned">
         <span class="fl-num">04</span>
         <h2 class="fl-name">Intel and Milk Studios: Adorned</h2>
         <p class="fl-desc">Creative direction and scripts for a film series on the history of wearable technology, shown at the Adorned exhibition at Milk Gallery.</p>
