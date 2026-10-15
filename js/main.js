@@ -13,6 +13,11 @@
       is stripped from the URL immediately afterwards.
    4. If gate markup is missing on a gated page, reveal the site
       rather than throwing. A throw here renders a blank screen.
+   5. OPEN_UNTIL holds the gate open for everyone until a fixed
+      moment, then the gate resumes by itself with no deploy.
+      It deliberately does NOT store a token, so visitors during
+      the open window are not permanently unlocked afterwards.
+      Set OPEN_UNTIL to null to re-gate the site immediately.
    ============================================= */
 
 (function () {
@@ -22,6 +27,17 @@
   var AUTH_KEY = 'db_auth';
   var UNLOCK_PARAM = 'k';
   var COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+  /* Site is open to everyone until this moment, then re-gates
+     itself. Tuesday 20 October 2026, 11:59pm US Eastern. */
+  var OPEN_UNTIL = '2026-10-20T23:59:59-04:00';
+
+  function isOpenWindow() {
+    if (!OPEN_UNTIL) return false;
+    var until = Date.parse(OPEN_UNTIL);
+    if (isNaN(until)) return false;
+    return Date.now() < until;
+  }
 
   /* ─── STORAGE ─────────────────────────────── */
 
@@ -92,6 +108,11 @@
 
   function initGate() {
     if (document.body && document.body.getAttribute('data-gate') === 'off') {
+      reveal(false);
+      return;
+    }
+
+    if (isOpenWindow()) {
       reveal(false);
       return;
     }
