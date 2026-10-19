@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 40%;
+      object-position: 32% 40%;
       display: block;
     }
     .lc-hero-overlay {
@@ -486,7 +486,15 @@
 
     <!-- ── SECTION 1: HERO ─────────────────────────── -->
     <section class="lc-hero">
-      <img src="../images/lincoln/lincoln-hero-new.jpg" alt="Lincoln Motor Company" class="zoomable" onclick="lb(this.src)">
+      <img src="../images/lincoln/lincoln-hero-2026.jpg"
+           srcset="../images/lincoln/lincoln-hero-2026-1200.webp 1200w,
+                   ../images/lincoln/lincoln-hero-2026-1800.webp 1800w,
+                   ../images/lincoln/lincoln-hero-2026-2400.webp 2400w"
+           sizes="100vw"
+           width="2400" height="1601"
+           alt="A Lincoln Navigator parked on a palm-lined street, a woman standing at the front of the vehicle."
+           fetchpriority="high"
+           class="zoomable" onclick="lb(this.src)">
       <div class="lc-hero-overlay"></div>
       <div class="lc-hero-text">
         <h1 class="lc-hero-h1">I directed Lincoln's voice for five years.</h1>
