@@ -384,7 +384,7 @@
        keeps a playable embed because it is the only moving work. ── */
     .lc-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: clamp(24px, 3vw, 40px);
       align-items: start;
       margin-top: clamp(8px, 1.5vw, 16px);
@@ -513,6 +513,30 @@
 
     <div class="lc-body">
 
+      <!-- ── 2b. THE CENTENNIAL FILM. Lifted out of the campaign
+           strip and placed directly under the stats: it is the only
+           moving work on the page and it is worth more running than
+           compressed into a third of a column. No heading, so the
+           page's first h2 is still The mandate. ── -->
+      <section class="lc-section">
+        <p class="lc-body-text">A car company's instinct at a centennial is to count things: horsepower, sales, trophies, years. The film opens by asking that question and refusing it.</p>
+
+        <figure class="lc-film">
+          <video controls preload="none" playsinline
+                 poster="../assets/lincoln/lincoln-100-years-poster.jpg"
+                 width="1280" height="720">
+            <source src="../assets/lincoln/lincoln-100-years-web.mp4" type="video/mp4">
+            <a href="../assets/lincoln/lincoln-100-years-web.mp4">Download the film</a>
+          </video>
+          <figcaption>100 Years of Lincoln &middot; 2:08 &middot; Hudson Rouge for Lincoln, 2022</figcaption>
+        </figure>
+
+        <!-- PENDING, PASS TWO: the role-first line. Every other item on this
+             page starts with what Doug did; the centennial still cannot until
+             he says what his role on the film was. -->
+        <p class="lc-pull">To a new century of you.</p>
+      </section>
+
       <!-- ── 3. THE MANDATE ───────────────────────── -->
       <section class="lc-section">
         <h2 class="lc-h2">The mandate.</h2>
@@ -630,24 +654,6 @@
         <h2 class="lc-h2">The campaigns.</h2>
 
         <div class="lc-strip">
-
-          <div class="lc-strip-item">
-            <figure style="margin:0;">
-              <video controls preload="none" playsinline
-                     poster="../assets/lincoln/lincoln-100-years-poster.jpg"
-                     width="1280" height="720">
-                <source src="../assets/lincoln/lincoln-100-years-web.mp4" type="video/mp4">
-                <a href="../assets/lincoln/lincoln-100-years-web.mp4">Download the film</a>
-              </video>
-              <figcaption>100 Years of Lincoln &middot; 2:08 &middot; Hudson Rouge for Lincoln, 2022</figcaption>
-            </figure>
-            <h3 class="lc-strip-title">100 Years of Lincoln.</h3>
-            <!-- PENDING, PASS TWO: the role-first opening line. Every other
-                 item in this strip starts with what Doug did; this one cannot
-                 until he says what his role on the film was. -->
-            <p class="lc-strip-body">A car company's instinct at a centennial is to count things: horsepower, sales, trophies, years. The film opens by asking that question and refusing it.</p>
-            <p class="lc-strip-pull">To a new century of you.</p>
-          </div>
 
           <div class="lc-strip-item">
             <h3 class="lc-strip-title">Redeem Your Dream.</h3>
