@@ -15,9 +15,28 @@
 
     /* ---------- HERO ---------- */
     .vs-hero { padding:clamp(48px,7vw,104px) 0 clamp(28px,4vw,48px); }
-    .vs-hero-h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,7vw,88px); font-weight:600; line-height:1.02; letter-spacing:-0.015em; color:var(--ink); margin:0 0 26px; max-width:19ch; }
+    /* Page header, matching .hero-statement-h1 in css/style.css, which the
+       About and Film heroes also follow. This page was the outlier at
+       88px/1.02/-0.015em; it now conforms rather than the pages conforming
+       to it. text-wrap:balance keeps the second line from orphaning a word
+       where the sentence is too long to set on one. */
+    .vs-hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 68px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 clamp(24px, 3vw, 40px);
+      /* No ch cap: the container is the only limit, so the sentence sets on
+         one line at any width that can hold it. .hero-statement-h1 on the
+         homepage is likewise uncapped. */
+      text-wrap: balance;
+    }
 
-    /* Engraved / negative-space treatment. Text colour is transparent; the glyph
+    /* UNUSED as of the headline rewrite: no .vs-inv span in the markup now.
+       Kept so the engraved treatment can be put back on a clause in one edit.
+       Engraved / negative-space treatment. Text colour is transparent; the glyph
        is described only by a light shadow below-right and a dark one above-left,
        so the word reads as pressed into the paper rather than printed on it. */
     .vs-hero-h1 .vs-inv {
@@ -37,7 +56,15 @@
       .vs-hero-h1 .vs-inv { color:CanvasText; text-shadow:none; }
     }
 
-    .vs-hero-sub { font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(18px,2vw,21px); line-height:1.65; color:var(--ink-light); margin:0; max-width:620px; }
+    /* Intro paragraph on the homepage measure: 20px/1.6 at 620px. */
+    .vs-hero-sub {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--ink-light);
+      margin: 0;
+      max-width: 620px;
+    }
 
     /* ---------- STAT BAR ---------- */
     .vs-stats { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
@@ -131,6 +158,8 @@
       .vs-stats { grid-template-columns:1fr 1fr; }
       .vs-stat:nth-child(2) { border-right:none; }
       .vs-stat:nth-child(1), .vs-stat:nth-child(2) { border-bottom:1px solid var(--rule); }
+      .vs-hero-h1 { font-size:clamp(28px,8vw,52px); max-width:none; }
+      .vs-hero-sub { font-size:18px; }
       .vs-jump-inner { font-size:12px; }
       .vs-jump .vs-jump-sep { margin:0 8px; }
       .vs-figgrid { grid-template-columns:1fr; }
@@ -162,8 +191,8 @@
 
     <div class="vs-container">
       <header class="vs-hero">
-        <h1 class="vs-hero-h1">My best writing is the writing <span class="vs-inv">nobody reads.</span></h1>
-        <p class="vs-hero-sub">The work I'm proudest of is the system underneath the headline: the rules that decide every word a brand produces, so a writer who arrives after me knows what to say and how to say it. A voice system outlives even the greatest line.</p>
+        <h1 class="vs-hero-h1">My best writing is the writing almost no one sees.</h1>
+        <p class="vs-hero-sub">A voice system is the rules underneath the headline: the internal guide to what a brand says, how it says it, and the things it never does. It’s written so every writer after me knows what to say, and every word after mine keeps the brand sounding exactly like itself.</p>
       </header>
     </div>
 
