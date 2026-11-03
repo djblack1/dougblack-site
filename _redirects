@@ -8,8 +8,9 @@
 /voice-systems/evercore/          /voice-systems/#evercore             301
 /voice-systems/american-express   /voice-systems/#american-express     301
 /voice-systems/american-express/  /voice-systems/#american-express     301
-/ux            /voice-systems/   301
-/ux/           /voice-systems/   301
-/ux-product    /voice-systems/   301
-/ux-product/   /voice-systems/   301
-/ux.html       /voice-systems/   301
+# /ux is a targeted landing page Doug sends directly on content design
+# applications. It used to redirect to /voice-systems/, which meant the
+# URL on those applications never reached the page. It serves itself now.
+/ux-product    /ux        301
+/ux-product/   /ux        301
+/ux.html       /ux        301
