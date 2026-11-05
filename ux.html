@@ -72,12 +72,42 @@
     }
     .ux-proof-label {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.14em;
+      font-size: 13px;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--ink-faint);
+      /* was var(--ink-faint) #9A9590, 2.66:1 on cream. #6E6862 is 4.92:1,
+         the value already used on Lincoln and the Brand Voice page. */
+      color: #6E6862;
       line-height: 1.6;
+      display: block;
     }
+
+    /* Quoted client copy. Marked as quotation because it is written in
+       Goldman's first person plural, so without the treatment "we" and
+       "our" read as this page talking about itself. */
+    .ux-quote {
+      margin: 16px 0 0;
+      padding: 18px 0 18px 22px;
+      border-left: 2px solid var(--amber);
+      background: rgba(184,144,58,0.045);
+    }
+    .ux-quote p {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-light);
+      margin: 0 0 12px;
+      padding-right: 18px;
+    }
+    .ux-quote p:last-of-type { margin-bottom: 14px; }
+    .ux-quote strong { color: var(--ink); font-weight: 600; }
+    .ux-quote footer {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #6E6862;
+    }
+    .ux-quote a, .ux-principle-text a { color: var(--amber); }
 
     /* ── HOW I GOT HERE ───────────────────────────── */
     .ux-section {
@@ -305,22 +335,22 @@
     <!-- ── SECTION 1: HERO ─────────────────────────── -->
     <section class="ux-hero">
       <h1 class="ux-hero-h1">The best interface copy is <span class="ux-invisible-word">invisible</span>.</h1>
-      <p class="ux-hero-sub">Some of the work of which I'm proudest lives at the product level, the UX journeys for Goldman Sachs, Verizon, American Express, and many others. It's a different craft than snappy headlines, but it follows the same thesis: writing should exist to help someone do a task, as clearly and easily as possible.</p>
+      <p class="ux-hero-sub">The work I'm proudest of lives at the product level: the UX journeys for SoundCloud, Verizon, Better.com, American Express, and Goldman Sachs. It’s a different craft than a campaign headline, and the goal is simpler. The writing exists to help someone finish what they came to do. More recently, that means writing the rules a model follows when it does the writing instead.</p>
     </section>
 
     <!-- ── SECTION 2: PROOF STRIP ──────────────────── -->
     <div class="ux-proof">
       <div class="ux-proof-cell">
-        <span class="ux-proof-number">~40</span>
-        <span class="ux-proof-label">Components given a language layer,<br>Goldman Sachs design system</span>
+        <span class="ux-proof-number">175M</span>
+        <span class="ux-proof-label">Free users asked to start paying,<br>SoundCloud Go</span>
       </div>
       <div class="ux-proof-cell">
         <span class="ux-proof-number">113M</span>
-        <span class="ux-proof-label">Subscribers reached through<br>one vocabulary, Verizon</span>
+        <span class="ux-proof-label">Subscribers managing their own accounts,<br>Verizon</span>
       </div>
       <div class="ux-proof-cell">
-        <span class="ux-proof-number">Financial Services</span>
-        <span class="ux-proof-label">Fintech, mortgage, wealth, telecom,<br>and private wealth. Heavily regulated copy.</span>
+        <span class="ux-proof-number">~40</span>
+        <span class="ux-proof-label">Components given a language layer,<br>Goldman Sachs design system</span>
       </div>
       <div class="ux-proof-cell">
         <span class="ux-proof-number">Silver, NYC Design Awards</span>
@@ -328,26 +358,28 @@
       </div>
     </div>
 
-    <!-- ── SECTION 3: HOW I GOT HERE ──────────────── -->
-    <section class="ux-section">
-      <h2 class="ux-h2">How I got here.</h2>
-      <p class="ux-body-text">I started as a journalist, then I moved to brand copywriting. Along the way, the work shifted: the copy that mattered most was no longer the flashy ad. It was the button no one noticed and the onboarding step no one dreaded. The brands that take that seriously are the brands I want to work with.</p>
-    </section>
-
-    <!-- ── SECTION 3b: AI. The content design cut of the argument:
+    <!-- ── SECTION 3: AI. Above the career arc, because it is the reason
+         this page was updated and many visitors never scroll past the
+         first screen. The content design cut of the argument:
          writing the rule that writes the line, then grading the output.
          Deliberately not the /voice-systems/ framing. Method only, no
          Lincoln rules or vocabulary, and the AI client stays unnamed
          because the work is under NDA. ── -->
     <section class="ux-section">
-      <h2 class="ux-h2">When the surface writes itself.</h2>
-      <p class="ux-body-text">For much of my career the job was writing the line. On a generative surface the job is writing the rule that writes the line, and then deciding whether what came out is any good. Those are two disciplines. I do both.</p>
+      <h2 class="ux-h2">When AI writes the copy.</h2>
+      <p class="ux-body-text">For much of my career the job was writing the line. When a model writes the line, the job becomes writing the rule underneath it, and then deciding whether what came out is any good. Those are two disciplines. I do both.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the guidelines.</strong> A voice guideline written for a person and one written for a model are never the same document. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference. On Lincoln I built the brand's voice and style rules into a working model as an instruction set, with a strict and steadily growing list of guardrails. That way product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the rules.</strong> A voice guideline written for a person and one written for a model are never the same. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference. On Lincoln, I built the brand's voice and style rules into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading results.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes vagueness that the human version got away with.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the thing the system runs on. They need examples, counterexamples, and a way to measure drift, and they need rewriting every time the model changes. The document is never finished, which is a different relationship to a style guide than most writers are used to.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the engine the system runs on. They need examples, counterexamples, and a way to measure drift. They also need to be rewritten every time the model changes. The document is never finished.</p>
+    </section>
+
+    <!-- ── SECTION 3: HOW I GOT HERE ──────────────── -->
+    <section class="ux-section">
+      <h2 class="ux-h2">How I got here.</h2>
+      <p class="ux-body-text">I started as a journalist, then I moved to brand copywriting. Along the way, the work shifted: the copy that mattered most was no longer the flashy ad. It was the button no one noticed and the onboarding step no one dreaded. The brands that take that seriously are the brands I want to work with.</p>
     </section>
 
     <!-- ── SECTION 4: CASE STUDIES ─────────────────── -->
@@ -356,12 +388,39 @@
     </section>
 
     <div class="ux-cases">
+      <!-- SoundCloud Go -->
+      <!-- The sample copy block specified in the brief is omitted: Doug has
+           not supplied real lines, and substitutes were explicitly ruled out.
+           The four prose blocks stand on their own. -->
+      <div class="ux-case">
+        <div class="ux-case-left">
+          <h3 class="ux-case-client">SoundCloud Go</h3>
+          <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
+          <p class="ux-case-desc">SoundCloud hired me as the first dedicated writer in the company's history. The work that mattered most was the product it had never had: a paid subscription, launched to an audience of 175 million people who had never paid for anything.</p>
+        </div>
+        <div class="ux-case-right">
+          <span class="ux-sample-label">The hardest sentence in the product</span>
+          <div class="ux-principle-block">
+            <p class="ux-principle-text">A free user hitting a paywall is being told that something they already use is about to cost money. There is no version of that sentence that is entirely welcome. The copy has to make the offer clearly, name the price without flinching, and leave the person who says no still feeling like a customer. Most of the writing in a subscription flow is managing that second outcome, because most people say no.</p>
+          </div>
+          <span class="ux-sample-label" style="margin-top:24px;display:block;">What went wrong first</span>
+          <div class="ux-principle-block">
+            <p class="ux-principle-text">The first launch led with everything the subscription included and put the cost further down. Read in order, it sounded like the free product was being taken away and sold back. The audience said so immediately and at volume.</p>
+          </div>
+          <span class="ux-sample-label" style="margin-top:24px;display:block;">The second launch</span>
+          <div class="ux-principle-block">
+            <p class="ux-principle-text">I read the complaints instead of defending the work, and argued internally for inverting the structure: free as the baseline, stated plainly and first, with the subscription as an upgrade on top of it. Then I wrote that launch. It replaced the original and it is still what SoundCloud runs. The lesson was not about the lines. It was that the order of the argument was doing more work than any sentence in it.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Better.com -->
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Better.com</h3>
           <p class="ux-case-meta">Mortgage &nbsp;·&nbsp; 2020–2021<br>Role: Embedded product writer across UX, brand, and product copy, working in Figma alongside design, product, and legal.</p>
           <p class="ux-case-desc">Better was moving one of the most anxiety-inducing financial processes in American life entirely online. I spent a year embedded across onboarding flows, loan application processes, error states, email sequences, and the brand voice system that governed how to sound Better across every surface.</p>
+          <p class="ux-case-desc">A mortgage application is one of the most anxiety-inducing processes in American life, and error and delay states are the hardest copy in it. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them. I worked in Figma alongside design, product, and legal, which is the only way that copy survives review with the reassurance still in it.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
             <img src="images/better-hero.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com homepage">
             <img src="images/better-features.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com features">
@@ -400,6 +459,22 @@
           <div class="ux-principle-block">
             <p class="ux-principle-text">The test wasn’t whether the lines were good. It was whether a product manager on deadline, with no writer available, would make the correct call. That meant terminology settled in advance and rules written so that whoever reads them will arrive at the right line.</p>
           </div>
+          <span class="ux-sample-label" style="margin-top:24px;display:block;">What is still readable</span>
+          <div class="ux-principle-block">
+            <p class="ux-principle-text">The system's home page was public from February 2020, and I wrote it. The design principles below were published under the firm's name and are <a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">still in the Internet Archive</a>. I write principles as instructions rather than aspirations, which is easy to claim and harder to show, so here is the version that shipped.</p>
+          </div>
+          <!-- Verbatim quotation of published client copy. Do not edit, reorder,
+               trim, or apply house style to the four principles below. -->
+          <blockquote class="ux-quote">
+            <p><strong>Start with users.</strong> Watch them using tools. Chart their processes. Map their workflows. To solve the right problem, we must first study users' behavior and struggles.</p>
+            <p><strong>Clarify complexity.</strong> Financial tools are rarely simple. But they can always be clear.</p>
+            <p><strong>Deliver value, not features.</strong> Pare it down. Get it out. Measure. Iterate.</p>
+            <p><strong>Consistent, not creaky.</strong> Stick with existing patterns and components as much as possible, while constantly adapting to evolving needs.</p>
+            <footer>Goldman Sachs Design System, design.gs.com, published February 2020.</footer>
+          </blockquote>
+          <div class="ux-principle-block">
+            <p class="ux-principle-text">Every one of them is an imperative a product manager can act on without a writer in the room, which was the whole point.</p>
+          </div>
         </div>
       </div>
 
@@ -420,7 +495,7 @@
         <div class="ux-case-right">
           <span class="ux-sample-label">The principle</span>
           <div class="ux-principle-block">
-            <p class="ux-principle-text">Every word earns its space. On a small screen, there's no room for a second draft.</p>
+            <p class="ux-principle-text">Mobile-first content design across a portfolio of twenty consumer card products, with copy tested in the flow rather than presented in brand decks. Every word earns its space. On a small screen, there's no room for a second draft.</p>
           </div>
         </div>
       </div>
@@ -430,7 +505,7 @@
         <div class="ux-case-left">
           <h3 class="ux-case-client">Evercore</h3>
           <p class="ux-case-meta">Fintech &nbsp;·&nbsp; Consumer Product &nbsp;·&nbsp; 2025–2026 &nbsp;·&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, working in Figma alongside design and inside the bank’s own project systems.</p>
-          <p class="ux-case-desc">Evercore, one of the most respected names in institutional finance, was building for individual investors for the first time. The voice system had to honor institutional credibility while reaching an entirely new audience. I helped build it from zero.</p>
+          <p class="ux-case-desc">Evercore is an institutional finance name building for individual investors for the first time. Everything the firm already knew how to say was written for institutions, so the voice, the tone guidelines, and the messaging framework all had to be built for a reader who had never been the customer before.</p>
         </div>
         <div class="ux-case-right">
         </div>
@@ -440,9 +515,9 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Verizon Wireless</h3>
-          <p class="ux-case-meta">Telecom &nbsp;·&nbsp; Full Redesign &nbsp;·&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
+          <p class="ux-case-meta">Telecom &nbsp;·&nbsp; Full Redesign &nbsp;·&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
           <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States, serving 113 million subscribers. The existing site had accumulated years of copy written by different teams with different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging across VerizonWireless.com and the MyVerizon app.</p>
-          <p class="ux-case-desc">Within seven months of launch: mobile sales conversion rose 15.6x. Overall usage up over 50%. Bill payment in-app increased from 68% to 85%. Autopay enrollment up 27%.</p>
+          <p class="ux-case-desc">Within seven months of launch, in-app bill payment moved from 68% to 85%, mobile sales conversion rose 15.6x, overall usage rose more than 50%, and autopay enrollment rose 27%. Those are the numbers that tell you whether account copy is working. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
             <img src="images/verizon-app.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app, Data Hub">
             <img src="images/verizon-spec.webp" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app, plan copy spec">
