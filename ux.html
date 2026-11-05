@@ -146,10 +146,71 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      padding: clamp(48px, 6vw, 80px) 0;
+      /* More air between case studies so each reads as its own object
+         rather than as a continuing column of text. */
+      padding: clamp(72px, 9vw, 128px) 0;
       border-top: 1px solid var(--rule);
       align-items: start;
     }
+    /* A case with no set-apart evidence runs as one measured column
+       rather than leaving half the grid empty. */
+    .ux-case--solo { grid-template-columns: 1fr; }
+    .ux-case--solo .ux-case-left { max-width: 620px; }
+
+    /* The claim line. One per case study, stated as a claim. */
+    .ux-claim {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(20px, 2.1vw, 26px);
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--ink);
+      margin: 0 0 22px 0;
+      max-width: 30ch;
+    }
+
+    /* ONE typographic treatment for every piece of set-apart evidence:
+       quoted sample copy, quoted client principles, and figures. This is
+       the page's rhythm, so the prose between can stay short. */
+    .ux-evidence { margin: 0; }
+    .ux-evidence-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(21px, 2.3vw, 29px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0 0 10px 0;
+    }
+    .ux-evidence-note {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #6E6862;
+      margin: 0 0 34px 0;
+    }
+    .ux-evidence > *:last-child { margin-bottom: 0; }
+    .ux-evidence-src {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      color: #6E6862;
+      margin: 18px 0 0 0;
+    }
+    .ux-figure-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0 0 8px 0;
+    }
+    .ux-archive-link { font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; margin: 18px 0 0; }
+    .ux-archive-link a { color: var(--amber); font-weight: 500; text-decoration: none; }
+    .ux-archive-link a:hover { text-decoration: underline; }
+
+    /* One image per case study, at the full width of its column. */
+    .ux-shot { margin: 32px 0 0; }
+    .ux-shot img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
     .ux-case:last-child {
       border-bottom: 1px solid var(--rule);
     }
@@ -373,7 +434,7 @@
 
       <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the engine the system runs on. They need examples, counterexamples, and a way to measure drift. They also need to be rewritten every time the model changes. The document is never finished.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the engine the system runs on. They need examples, counterexamples, a way to measure drift, and rewriting every time the model changes.</p>
     </section>
 
     <!-- ── SECTION 3: HOW I GOT HERE ──────────────── -->
@@ -388,29 +449,16 @@
     </section>
 
     <div class="ux-cases">
-      <!-- SoundCloud Go -->
-      <!-- The sample copy block specified in the brief is omitted: Doug has
-           not supplied real lines, and substitutes were explicitly ruled out.
-           The four prose blocks stand on their own. -->
-      <div class="ux-case">
+
+      <!-- SoundCloud Go. No evidence block: Doug has not supplied real
+           sample lines and substitutes were ruled out, so this case runs
+           as a single column rather than leaving half the grid empty. -->
+      <div class="ux-case ux-case--solo">
         <div class="ux-case-left">
           <h3 class="ux-case-client">SoundCloud Go</h3>
           <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
-          <p class="ux-case-desc">SoundCloud hired me as the first dedicated writer in the company's history. The work that mattered most was the product it had never had: a paid subscription, launched to an audience of 175 million people who had never paid for anything.</p>
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">The hardest sentence in the product</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">A free user hitting a paywall is being told that something they already use is about to cost money. There is no version of that sentence that is entirely welcome. The copy has to make the offer clearly, name the price without flinching, and leave the person who says no still feeling like a customer. Most of the writing in a subscription flow is managing that second outcome, because most people say no.</p>
-          </div>
-          <span class="ux-sample-label" style="margin-top:24px;display:block;">What went wrong first</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">The first launch led with everything the subscription included and put the cost further down. Read in order, it sounded like the free product was being taken away and sold back. The audience said so immediately and at volume.</p>
-          </div>
-          <span class="ux-sample-label" style="margin-top:24px;display:block;">The second launch</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">I read the complaints instead of defending the work, and argued internally for inverting the structure: free as the baseline, stated plainly and first, with the subscription as an upgrade on top of it. Then I wrote that launch. It replaced the original and it is still what SoundCloud runs. The lesson was not about the lines. It was that the order of the argument was doing more work than any sentence in it.</p>
-          </div>
+          <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
+          <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
         </div>
       </div>
 
@@ -418,27 +466,21 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Better.com</h3>
-          <p class="ux-case-meta">Mortgage &nbsp;·&nbsp; 2020–2021<br>Role: Embedded product writer across UX, brand, and product copy, working in Figma alongside design, product, and legal.</p>
-          <p class="ux-case-desc">Better was moving one of the most anxiety-inducing financial processes in American life entirely online. I spent a year embedded across onboarding flows, loan application processes, error states, email sequences, and the brand voice system that governed how to sound Better across every surface.</p>
-          <p class="ux-case-desc">A mortgage application is one of the most anxiety-inducing processes in American life, and error and delay states are the hardest copy in it. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them. I worked in Figma alongside design, product, and legal, which is the only way that copy survives review with the reassurance still in it.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/better-hero.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com homepage">
-            <img src="images/better-features.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com features">
+          <p class="ux-case-meta">Mortgage &nbsp;&middot;&nbsp; 2020&ndash;2021<br>Role: Embedded product writer across UX, brand, and product copy, in Figma alongside design, product, and legal.</p>
+          <p class="ux-claim">One of the most anxiety-inducing processes in American life, moved entirely online.</p>
+          <p class="ux-case-desc">I spent a year embedded across onboarding flows, loan applications, error states, email sequences, and the brand voice system that governed how to sound like Better on every surface. Error and delay states are the hardest copy in a mortgage flow. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them.</p>
+          <div class="ux-shot">
+            <img src="images/better-hero.png" onclick="lbux(this.src)" alt="Better.com homepage">
           </div>
         </div>
         <div class="ux-case-right">
-          <span class="ux-sample-label">Sample copy</span>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p>
-            <p class="ux-sample-note">Rate lock confirmation</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"This is the part most lenders make complicated. We're going to make it a checklist."</p>
-            <p class="ux-sample-note">Document upload intro</p>
-          </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"We didn't hear back from the underwriter. That's normal, we'll ping them again tomorrow."</p>
-            <p class="ux-sample-note">Error / delay state</p>
+          <div class="ux-evidence">
+            <p class="ux-evidence-line">&ldquo;Your rate is locked. That means it won&rsquo;t change no matter what happens to the market while your loan is processing.&rdquo;</p>
+            <p class="ux-evidence-note">Rate lock confirmation</p>
+            <p class="ux-evidence-line">&ldquo;This is the part most lenders make complicated. We&rsquo;re going to make it a checklist.&rdquo;</p>
+            <p class="ux-evidence-note">Document upload intro</p>
+            <p class="ux-evidence-line">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
+            <p class="ux-evidence-note">Error and delay state</p>
           </div>
         </div>
       </div>
@@ -447,67 +489,17 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Goldman Sachs</h3>
-          <p class="ux-case-meta">Financial Services &nbsp;·&nbsp; Private Wealth Management &nbsp;·&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for Goldman Sachs PWM, serving ultra-high-net-worth clients with $10M+ in investable assets.</p>
-          <p class="ux-case-desc">Enterprise financial products are typically written by compliance teams, not communicators, which produces language that is legally accurate and humanly dense. I built the voice and content system for Goldman's Private Wealth Management platform: defining how it should sound across navigation, data display, alerts, onboarding, and error states, and creating the documentation that let a large product team make consistent copy decisions without a writer in every room. I also recruited junior writers onto the team, onboarded them, and managed their daily work.</p>
+          <p class="ux-case-meta">Private wealth management &nbsp;&middot;&nbsp; 2018&ndash;2020 &nbsp;&middot;&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for a platform serving clients with $10M or more in investable assets.</p>
+          <p class="ux-claim">Language for a design system used by teams I would never meet.</p>
+          <p class="ux-case-desc">I led the copy on the language layer of Goldman's public design system, launched February 2020: labels, empty states, and error messages written once and then used by teams I would never meet. The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. I wrote the system's principles too, as titled imperatives rather than adjectives, including one called "Consistent, not creaky."</p>
+          <p class="ux-archive-link"><a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
         </div>
         <div class="ux-case-right">
-          <span class="ux-sample-label">The design system</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">I led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Every label, every empty state, every error message, written once and then used by future teams I would never meet.</p>
+          <!-- Verbatim quotation of published client copy. Do not edit. -->
+          <div class="ux-evidence">
+            <p class="ux-evidence-line">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
+            <p class="ux-evidence-src">Goldman Sachs Design System, design.gs.com, published February 2020.</p>
           </div>
-          <span class="ux-sample-label" style="margin-top:24px;display:block;">What it had to survive</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">The test wasn’t whether the lines were good. It was whether a product manager on deadline, with no writer available, would make the correct call. That meant terminology settled in advance and rules written so that whoever reads them will arrive at the right line.</p>
-          </div>
-          <span class="ux-sample-label" style="margin-top:24px;display:block;">What is still readable</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">The system's home page was public from February 2020, and I wrote it. The design principles below were published under the firm's name and are <a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">still in the Internet Archive</a>. I write principles as instructions rather than aspirations, which is easy to claim and harder to show, so here is the version that shipped.</p>
-          </div>
-          <!-- Verbatim quotation of published client copy. Do not edit, reorder,
-               trim, or apply house style to the four principles below. -->
-          <blockquote class="ux-quote">
-            <p><strong>Start with users.</strong> Watch them using tools. Chart their processes. Map their workflows. To solve the right problem, we must first study users' behavior and struggles.</p>
-            <p><strong>Clarify complexity.</strong> Financial tools are rarely simple. But they can always be clear.</p>
-            <p><strong>Deliver value, not features.</strong> Pare it down. Get it out. Measure. Iterate.</p>
-            <p><strong>Consistent, not creaky.</strong> Stick with existing patterns and components as much as possible, while constantly adapting to evolving needs.</p>
-            <footer>Goldman Sachs Design System, design.gs.com, published February 2020.</footer>
-          </blockquote>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Every one of them is an imperative a product manager can act on without a writer in the room, which was the whole point.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- American Express -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">American Express</h3>
-          <p class="ux-case-meta">Financial Services &nbsp;·&nbsp; Mobile Campaign &nbsp;·&nbsp; 2013 &nbsp;·&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
-          <p class="ux-case-desc">This project had one foot in content design and the other in campaign creative. I designed mobile-first experiences where the copy had the clarity and purpose of great UX writing while delivering pitch-perfect campaign messaging. We tested language decisions directly in the flow, not in brand decks. We developed copy and content in close collaboration with the UX and visual design teams at Huge.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex mobile application flow">
-            <img src="images/amex-cards.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex card comparison">
-            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex real cardmembers">
-            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Amex reviews">
-          </div>
-          <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;margin-top:8px;" alt="Amex homepage">
-        </div>
-        <div class="ux-case-right">
-          <span class="ux-sample-label">The principle</span>
-          <div class="ux-principle-block">
-            <p class="ux-principle-text">Mobile-first content design across a portfolio of twenty consumer card products, with copy tested in the flow rather than presented in brand decks. Every word earns its space. On a small screen, there's no room for a second draft.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Evercore -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Evercore</h3>
-          <p class="ux-case-meta">Fintech &nbsp;·&nbsp; Consumer Product &nbsp;·&nbsp; 2025–2026 &nbsp;·&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, working in Figma alongside design and inside the bank’s own project systems.</p>
-          <p class="ux-case-desc">Evercore is an institutional finance name building for individual investors for the first time. Everything the firm already knew how to say was written for institutions, so the voice, the tone guidelines, and the messaging framework all had to be built for a reader who had never been the customer before.</p>
-        </div>
-        <div class="ux-case-right">
         </div>
       </div>
 
@@ -515,27 +507,50 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Verizon Wireless</h3>
-          <p class="ux-case-meta">Telecom &nbsp;·&nbsp; Full Redesign &nbsp;·&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
-          <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States, serving 113 million subscribers. The existing site had accumulated years of copy written by different teams with different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging across VerizonWireless.com and the MyVerizon app.</p>
-          <p class="ux-case-desc">Within seven months of launch, in-app bill payment moved from 68% to 85%, mobile sales conversion rose 15.6x, overall usage rose more than 50%, and autopay enrollment rose 27%. Those are the numbers that tell you whether account copy is working. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
-            <img src="images/verizon-app.jpg" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app, Data Hub">
-            <img src="images/verizon-spec.webp" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="MyVerizon app, plan copy spec">
+          <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
+          <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
+          <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
+          <div class="ux-shot">
+            <img src="images/verizon-app.jpg" onclick="lbux(this.src)" alt="MyVerizon app, Data Hub">
           </div>
         </div>
         <div class="ux-case-right">
-          <span class="ux-sample-label">Sample copy, MyVerizon app</span>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"You have plenty of data remaining for the month."</p>
-            <p class="ux-sample-note">Data hub, positive state headline</p>
+          <div class="ux-evidence">
+            <p class="ux-figure-num">68% &rarr; 85%</p>
+            <p class="ux-evidence-note">In-app bill payment, within seven months of launch</p>
+            <p class="ux-figure-num">15.6x</p>
+            <p class="ux-evidence-note">Mobile sales conversion</p>
+            <p class="ux-figure-num">+27%</p>
+            <p class="ux-evidence-note">Autopay enrollment</p>
           </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Say goodbye to data limits with unlimited data."</p>
-            <p class="ux-sample-note">Plan upgrade, unlimited tier CTA</p>
+        </div>
+      </div>
+
+      <!-- Evercore -->
+      <div class="ux-case ux-case--solo">
+        <div class="ux-case-left">
+          <h3 class="ux-case-client">Evercore</h3>
+          <p class="ux-case-meta">Institutional finance &nbsp;&middot;&nbsp; 2025&ndash;2026 &nbsp;&middot;&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, in Figma alongside design and inside the bank&rsquo;s own project systems.</p>
+          <p class="ux-claim">An institutional finance name writing for individual investors for the first time.</p>
+          <p class="ux-case-desc">Everything the firm already knew how to say was written for institutions, so the voice, the tone guidelines, and the messaging framework all had to be built for a reader who had never been the customer before.</p>
+        </div>
+      </div>
+
+      <!-- American Express -->
+      <div class="ux-case">
+        <div class="ux-case-left">
+          <h3 class="ux-case-client">American Express</h3>
+          <p class="ux-case-meta">Mobile campaign &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
+          <p class="ux-claim">Content design with one foot in campaign creative.</p>
+          <p class="ux-case-desc">Mobile-first experiences where the copy had the clarity and purpose of UX writing while still carrying the campaign. We tested language decisions in the flow rather than in brand decks, working closely with the UX and visual design teams at Huge.</p>
+          <div class="ux-shot">
+            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" alt="Amex mobile application flow">
           </div>
-          <div class="ux-sample-block">
-            <p class="ux-sample-text">"Switch to a 4 GB data limit to save $60/mo."</p>
-            <p class="ux-sample-note">Dynamic plan headline, personalized to the current plan</p>
+        </div>
+        <div class="ux-case-right">
+          <div class="ux-evidence">
+            <p class="ux-evidence-line">Every word earns its space. On a small screen, there&rsquo;s no room for a second draft.</p>
+            <p class="ux-evidence-note">Working principle</p>
           </div>
         </div>
       </div>
@@ -545,7 +560,7 @@
     <!-- ── SECTION 5: WHAT I ACTUALLY DO ───────────── -->
     <section class="ux-section ux-section-last">
       <h2 class="ux-h2">What I do.</h2>
-      <p class="ux-closing-body">Product writing across mortgage, wealth management, telecom, and enterprise finance, in Figma alongside design and product. Turning compliance-written copy into something fit for a human to read.</p>
+      <p class="ux-closing-body">Product writing across mortgage, wealth management, telecom, and enterprise finance, in Figma alongside design and product. Turning compliance-written copy into something fit for a human to read. At Goldman I also recruited junior writers onto the team, onboarded them, and managed their daily work.</p>
     </section>
 
     <!-- ── FOOTER CTA ──────────────────────────────── -->
