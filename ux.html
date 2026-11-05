@@ -334,6 +334,22 @@
       <p class="ux-body-text">I started as a journalist, then I moved to brand copywriting. Along the way, the work shifted: the copy that mattered most was no longer the flashy ad. It was the button no one noticed and the onboarding step no one dreaded. The brands that take that seriously are the brands I want to work with.</p>
     </section>
 
+    <!-- ── SECTION 3b: AI. The content design cut of the argument:
+         writing the rule that writes the line, then grading the output.
+         Deliberately not the /voice-systems/ framing. Method only, no
+         Lincoln rules or vocabulary, and the AI client stays unnamed
+         because the work is under NDA. ── -->
+    <section class="ux-section">
+      <h2 class="ux-h2">When the surface writes itself.</h2>
+      <p class="ux-body-text">For much of my career the job was writing the line. On a generative surface the job is writing the rule that writes the line, and then deciding whether what came out is any good. Those are two disciplines. I do both.</p>
+
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the guidelines.</strong> A voice guideline written for a person and one written for a model are never the same document. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference. On Lincoln I built the brand's voice and style rules into a working model as an instruction set, with a strict and steadily growing list of guardrails. That way product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
+
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading results.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes vagueness that the human version got away with.</p>
+
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the thing the system runs on. They need examples, counterexamples, and a way to measure drift, and they need rewriting every time the model changes. The document is never finished, which is a different relationship to a style guide than most writers are used to.</p>
+    </section>
+
     <!-- ── SECTION 4: CASE STUDIES ─────────────────── -->
     <section class="ux-section" style="padding-bottom: 0;">
       <h2 class="ux-h2">The work.</h2>
@@ -344,7 +360,7 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Better.com</h3>
-          <p class="ux-case-meta">Mortgage &nbsp;·&nbsp; 2020–2021<br>Role: Embedded product writer across UX, brand, and product copy.</p>
+          <p class="ux-case-meta">Mortgage &nbsp;·&nbsp; 2020–2021<br>Role: Embedded product writer across UX, brand, and product copy, working in Figma alongside design, product, and legal.</p>
           <p class="ux-case-desc">Better was moving one of the most anxiety-inducing financial processes in American life entirely online. I spent a year embedded across onboarding flows, loan application processes, error states, email sequences, and the brand voice system that governed how to sound Better across every surface.</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;">
             <img src="images/better-hero.png" onclick="lbux(this.src)" style="width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in;" alt="Better.com homepage">
@@ -373,16 +389,16 @@
         <div class="ux-case-left">
           <h3 class="ux-case-client">Goldman Sachs</h3>
           <p class="ux-case-meta">Financial Services &nbsp;·&nbsp; Private Wealth Management &nbsp;·&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for Goldman Sachs PWM, serving ultra-high-net-worth clients with $10M+ in investable assets.</p>
-          <p class="ux-case-desc">Enterprise financial products are typically written by compliance teams, not communicators, which produces language that is legally accurate and humanly dense. I built the voice and content system for Goldman's Private Wealth Management platform: defining how it should sound across navigation, data display, alerts, onboarding, and error states, and creating the documentation that let a large product team make consistent copy decisions without a writer in every room.</p>
+          <p class="ux-case-desc">Enterprise financial products are typically written by compliance teams, not communicators, which produces language that is legally accurate and humanly dense. I built the voice and content system for Goldman's Private Wealth Management platform: defining how it should sound across navigation, data display, alerts, onboarding, and error states, and creating the documentation that let a large product team make consistent copy decisions without a writer in every room. I also recruited junior writers onto the team, onboarded them, and managed their daily work.</p>
         </div>
         <div class="ux-case-right">
           <span class="ux-sample-label">The design system</span>
           <div class="ux-principle-block">
-            <p class="ux-principle-text">I led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Every label, every empty state, every error message, written once and then used by teams I would never meet. Component language is the least glamorous writing in the building. It is also the writing that appears the most times.</p>
+            <p class="ux-principle-text">I led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Every label, every empty state, every error message, written once and then used by future teams I would never meet.</p>
           </div>
           <span class="ux-sample-label" style="margin-top:24px;display:block;">What it had to survive</span>
           <div class="ux-principle-block">
-            <p class="ux-principle-text">The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. That meant terminology settled in advance instead of argued each time, and rules written so that two people reading them arrive at the same line.</p>
+            <p class="ux-principle-text">The test wasn’t whether the lines were good. It was whether a product manager on deadline, with no writer available, would make the correct call. That meant terminology settled in advance and rules written so that whoever reads them will arrive at the right line.</p>
           </div>
         </div>
       </div>
@@ -413,7 +429,7 @@
       <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Evercore</h3>
-          <p class="ux-case-meta">Fintech &nbsp;·&nbsp; Consumer Product &nbsp;·&nbsp; 2025–2026 &nbsp;·&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework.</p>
+          <p class="ux-case-meta">Fintech &nbsp;·&nbsp; Consumer Product &nbsp;·&nbsp; 2025–2026 &nbsp;·&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, working in Figma alongside design and inside the bank’s own project systems.</p>
           <p class="ux-case-desc">Evercore, one of the most respected names in institutional finance, was building for individual investors for the first time. The voice system had to honor institutional credibility while reaching an entirely new audience. I helped build it from zero.</p>
         </div>
         <div class="ux-case-right">
@@ -454,7 +470,7 @@
     <!-- ── SECTION 5: WHAT I ACTUALLY DO ───────────── -->
     <section class="ux-section ux-section-last">
       <h2 class="ux-h2">What I do.</h2>
-      <p class="ux-closing-body">Product writing across mortgage, wealth management, telecom, and enterprise finance. Turning compliance-written copy into something fit for a human to read.</p>
+      <p class="ux-closing-body">Product writing across mortgage, wealth management, telecom, and enterprise finance, in Figma alongside design and product. Turning compliance-written copy into something fit for a human to read.</p>
     </section>
 
     <!-- ── FOOTER CTA ──────────────────────────────── -->
