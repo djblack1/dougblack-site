@@ -143,6 +143,34 @@
     .ux-feature .ux-claim { color: var(--cream); max-width: 34ch; }
     .ux-feature .ux-case-desc { color: rgba(245,242,236,0.78); max-width: 620px; }
     .ux-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .ux-feature-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+      margin: clamp(36px, 4.5vw, 56px) 0 0;
+    }
+    @media (max-width: 860px) { .ux-feature-row { grid-template-columns: 1fr; gap: 40px; } }
+    /* 578px native, shown at 300, so it stays sharp on a retina screen. */
+    .ux-phone { margin: 0; max-width: 300px; }
+    .ux-phone img { width: 100%; height: auto; display: block; border-radius: 6px; cursor: zoom-in; }
+    .ux-phone figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      color: rgba(245,242,236,0.55);
+      margin: 12px 0 0;
+    }
+    .ux-evidence--dark .ux-evidence-line { color: var(--cream); }
+    .ux-evidence--dark .ux-evidence-note { color: rgba(245,242,236,0.6); }
+    .ux-evidence--dark { margin-bottom: clamp(28px, 3.5vw, 40px); }
+    .ux-evidence-sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(17px, 1.7vw, 21px);
+      font-style: italic;
+      line-height: 1.45;
+      color: rgba(245,242,236,0.8);
+      margin: 14px 0 0;
+    }
     .ux-feature-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; }
     .ux-feature-shot img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
     /* Edge to edge of the dark band, so the screenshot stops reading as a
@@ -670,25 +698,34 @@
       <h2 class="ux-h2">The work.</h2>
     </section>
 
-    <!-- SoundCloud Go. The page's one tonal break: full bleed, inverted,
-         largest image. First case study, strongest consumer story. -->
+    <!-- SoundCloud Go. The page's one tonal break: full bleed and
+         inverted. Also the only case study with a side-by-side image,
+         which is the composition's own rhythm break. -->
     <section class="ux-feature">
       <div class="ux-feature-inner">
-        <div class="ux-feature-grid">
+
+        <h3 class="ux-case-client">SoundCloud Go</h3>
+        <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
+        <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
+
+        <div class="ux-feature-row">
+          <figure class="ux-phone">
+            <img src="images/soundcloud-go-offline-screen.webp" onclick="lbux(this.src)" width="578" height="1034" loading="lazy" decoding="async" alt="A SoundCloud Go app screen headed Save everything automatically, explaining how to make current and future likes and playlists available offline, with two buttons reading Save everything now and Choose what to save.">
+            <figcaption>The offline listening prompt.</figcaption>
+          </figure>
+
           <div>
-            <h3 class="ux-case-client">SoundCloud Go</h3>
-            <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
-          </div>
-          <div>
-            <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
+            <div class="ux-evidence ux-evidence--dark">
+              <p class="ux-evidence-line">&ldquo;Save everything now&rdquo;</p>
+              <p class="ux-evidence-line">&ldquo;Choose what to save&rdquo;</p>
+              <p class="ux-evidence-sub">&ldquo;Want to skip the extra details and start listening?&rdquo;</p>
+              <p class="ux-evidence-note">Three places in the flow where the job was giving somebody a way out of doing more work.</p>
+            </div>
             <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
           </div>
         </div>
+
       </div>
-      <figure class="ux-feature-shot ux-feature-bleed">
-          <img src="images/soundcloud-go-headline.webp" onclick="lbux(this.src)" width="1540" height="700" loading="lazy" decoding="async" alt="The SoundCloud Go launch headline: Introducing SoundCloud Go. Even more tracks, offline and ad-free. From Top 40 to the underground. Takeoff to touchdown. Try it free for 30 days, 9.99 a month after.">
-          <figcaption class="ux-feature-bleed-cap">The SoundCloud Go launch, cropped to the lines.</figcaption>
-      </figure>
     </section>
 
     <div class="ux-cases">
