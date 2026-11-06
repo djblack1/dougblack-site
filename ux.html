@@ -16,10 +16,10 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: clamp(80px, 14vw, 160px) var(--gutter) clamp(64px, 10vw, 120px);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      /* Was centred, the only centred intro on the site. Centred body copy
+         gives every line a ragged left edge, so the reader has to find the
+         start of each one. Homepage, Brand Voice, and Film all run left. */
+      text-align: left;
     }
     .ux-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
@@ -41,8 +41,8 @@
       line-height: 1.75;
       color: var(--ink-light);
       max-width: 640px;
-      text-align: center;
-      margin: 0 auto;
+      text-align: left;
+      margin: 0;
     }
 
     /* ── PROOF STRIP ──────────────────────────────── */
@@ -160,12 +160,14 @@
     /* The claim line. One per case study, stated as a claim. */
     .ux-claim {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(20px, 2.1vw, 26px);
+      /* Was 26px against 29px evidence, so claim and evidence read as one
+         tier. The ladder is now client 40, claim 34, evidence 29, body 17. */
+      font-size: clamp(22px, 2.7vw, 34px);
       font-weight: 400;
-      line-height: 1.35;
+      line-height: 1.3;
       color: var(--ink);
-      margin: 0 0 22px 0;
-      max-width: 30ch;
+      margin: 0 0 24px 0;
+      max-width: 26ch;
     }
 
     /* ONE typographic treatment for every piece of set-apart evidence:
@@ -211,6 +213,24 @@
     /* One image per case study, at the full width of its column. */
     .ux-shot { margin: 32px 0 0; }
     .ux-shot img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .ux-shot figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #6E6862;
+      margin: 10px 0 0;
+    }
+    /* One line pulled out of the AI section in the page's evidence
+       treatment, so that section follows the same grammar as the cases. */
+    .ux-display {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 2.6vw, 33px);
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--ink);
+      max-width: 820px;
+      margin: clamp(32px, 4vw, 48px) 0;
+    }
     .ux-case:last-child {
       border-bottom: 1px solid var(--rule);
     }
@@ -430,9 +450,13 @@
       <h2 class="ux-h2">When AI writes the copy.</h2>
       <p class="ux-body-text">For much of my career the job was writing the line. When a model writes the line, the job becomes writing the rule underneath it, and then deciding whether what came out is any good. Those are two disciplines. I do both.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the rules.</strong> A voice guideline written for a person and one written for a model are never the same. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference. On Lincoln, I built the brand's voice and style rules into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the rules.</strong> A voice guideline written for a person and one written for a model are never the same. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
+      <p class="ux-body-text">On Lincoln, I built the brand's voice and style rules into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
+
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards.</p>
+
+      <p class="ux-display">A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
 
       <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the engine the system runs on. They need examples, counterexamples, a way to measure drift, and rewriting every time the model changes.</p>
     </section>
@@ -453,12 +477,18 @@
       <!-- SoundCloud Go. No evidence block: Doug has not supplied real
            sample lines and substitutes were ruled out, so this case runs
            as a single column rather than leaving half the grid empty. -->
-      <div class="ux-case ux-case--solo">
+      <div class="ux-case">
         <div class="ux-case-left">
           <h3 class="ux-case-client">SoundCloud Go</h3>
           <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
           <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
           <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
+        </div>
+        <div class="ux-case-right">
+          <figure class="ux-shot" style="margin-top:0;">
+            <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
+            <figcaption>The SoundCloud Go launch page.</figcaption>
+          </figure>
         </div>
       </div>
 
@@ -510,9 +540,10 @@
           <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
           <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
           <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
-          <div class="ux-shot">
-            <img src="images/verizon-app.jpg" onclick="lbux(this.src)" alt="MyVerizon app, Data Hub">
-          </div>
+          <figure class="ux-shot">
+            <img src="images/verizon-spec.webp" onclick="lbux(this.src)" alt="A MyVerizon copy spec: an annotated plan comparison screen showing the dynamic headline rule for the S, M, and L plans, with the personalised saving calculated against the customer's current plan.">
+            <figcaption>A copy spec, not a screenshot. The dynamic headline is specified as a rule, so the system assembles the line against whatever plan the customer is already on.</figcaption>
+          </figure>
         </div>
         <div class="ux-case-right">
           <div class="ux-evidence">
