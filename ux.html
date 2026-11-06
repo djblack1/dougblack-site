@@ -354,6 +354,8 @@
     /* One image per case study, at the full width of its column. */
     .ux-shot { margin: 32px 0 0; }
     .ux-shot img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .ux-shot--inset { max-width: 70%; }
+    @media (max-width: 860px) { .ux-shot--inset { max-width: 100%; } }
     .ux-shot figcaption {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 12px;
@@ -707,16 +709,24 @@
       <!-- Goldman Sachs -->
       <div class="ux-case">
         <div class="ux-case-left">
+          <figure class="ux-shot" style="margin:0 0 28px;">
+            <img src="images/goldman/gs-design-hero.webp" onclick="lbux(this.src)" width="1800" height="872" loading="lazy" decoding="async" alt="The Goldman Sachs Design home page: the Goldman Sachs Design lockup on a blue field beside the line Building digital products that put clients first, with phone screens showing trading grids, a donut chart of total assets, and a research article.">
+            <figcaption>Goldman Sachs Design, the firm&rsquo;s public design system. Launched February 2020, taken offline in 2024. I wrote the copy; the design and the product screens are not mine.</figcaption>
+          </figure>
           <h3 class="ux-case-client">Goldman Sachs</h3>
           <p class="ux-case-meta">Private wealth management &nbsp;&middot;&nbsp; 2018&ndash;2020 &nbsp;&middot;&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for a platform serving clients with $10M or more in investable assets.</p>
           <p class="ux-claim">Language for a design system used by teams I would never meet.</p>
-          <p class="ux-case-desc">I led the copy on the language layer of Goldman's public design system, launched February 2020: labels, empty states, and error messages written once and then used by teams I would never meet. The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. I wrote the system's principles too, as titled imperatives rather than adjectives, including one called "Consistent, not creaky."</p>
+          <p class="ux-case-desc">I led the copy on the language layer of Goldman's design system: labels, empty states, and error messages written once and then used by teams I would never meet. The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. I wrote the system's principles too, as titled imperatives rather than adjectives, including one called "Consistent, not creaky." "Empower clients" was another. It later became the headline of the color system page.</p>
+          <figure class="ux-shot ux-shot--inset">
+            <img src="images/goldman/gs-foundation-writing-guidelines.webp" onclick="lbux(this.src)" width="1400" height="716" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+            <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
+          </figure>
           <p class="ux-archive-link"><a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
         </div>
         <div class="ux-case-right">
           <!-- Verbatim quotation of published client copy. Do not edit. -->
           <div class="ux-evidence">
-            <p class="ux-evidence-line">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
+            <p class="ux-evidence-line">&ldquo;Financial tools are rarely simple. But they can always be clear. With elegant craftsmanship, we create intuitive workflows that give users confidence in their actions.&rdquo;</p>
             <p class="ux-evidence-src">Goldman Sachs Design System, design.gs.com, published February 2020.</p>
           </div>
         </div>
