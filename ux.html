@@ -23,11 +23,14 @@
     }
     .ux-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      /* Largest type on the page by a clear margin: 96 against 44 for a
-         section heading and 34 for a client name. */
-      font-size: clamp(40px, 7.4vw, 96px);
+      /* Matches .hero-statement-h1, .vs-hero-h1, and .fl-hero-h1, which all
+         cap at 68. The hero's left column is about 574px at desktop, so the
+         line cannot fit on one row; balance splits it after "design" instead
+         of leaving "writing." alone on the second line. */
+      font-size: clamp(32px, 5vw, 68px);
       font-weight: 600;
-      line-height: 1.02;
+      line-height: 1.05;
+      text-wrap: balance;
       letter-spacing: -0.02em;
       color: var(--ink);
       margin: 0 0 clamp(24px, 3vw, 40px) 0;
