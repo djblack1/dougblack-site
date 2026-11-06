@@ -67,12 +67,11 @@
     @media (max-width: 860px) {
       .ux-hero-grid { grid-template-columns: 1fr; gap: 40px; }
     }
-    .ux-proof-cell:last-child .ux-proof-number { font-size: clamp(17px, 1.8vw, 22px); line-height: 1.25; }
     .ux-proof-number {
       font-family: 'Cormorant Garamond', Georgia, serif;
       /* Display scale: these are the first thing to look at on a page with
          no hero image, so they have to read as graphic elements. */
-      font-size: clamp(28px, 3.4vw, 44px);
+      font-size: clamp(36px, 4.6vw, 62px);
       font-weight: 600;
       color: var(--ink);
       line-height: 1.1;
@@ -189,81 +188,74 @@
       .ux-feature-grid { grid-template-columns: 1fr; gap: 32px; }
     }
 
-    /* ── VOICE DIAGRAM (supplied component, tokens remapped) ─────
-       Five tokens point at the site's own values. The gold is a
-       darkened amber: the site's --amber #B8903A is 2.65:1 on cream,
-       which fails AA at the 10 and 11px the labels are set in.
-       #86692C reads as the same hue at 4.62:1. ── */
+    /* ── VOICE DIAGRAM v2 (supplied component, tokens remapped) ──
+       Gold is a darkened amber: the site's --amber #B8903A is 2.65:1 on
+       cream and these labels run at 10.5 and 11px. #86692C is 4.62:1. ── */
     .voice-diagram {
       --vd-ink:   var(--ink);
       --vd-dim:   #6E6862;
       --vd-gold:  #86692C;
       --vd-rule:  var(--rule);
       --vd-bg:    var(--cream);
+      --vd-spec:  #EDE8DD;
 
       --vd-serif: 'Cormorant Garamond', Georgia, serif;
       --vd-sans:  'DM Sans', system-ui, sans-serif;
+      --vd-mono:  ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-      margin: clamp(36px, 4.5vw, 56px) 0 0;
-      padding: 0;
-      max-width: 920px;
+      margin: clamp(40px, 5vw, 64px) 0;
       color: var(--vd-ink);
       font-family: var(--vd-sans);
+      max-width: 1100px;
     }
     .voice-diagram * { box-sizing: border-box; }
-    .vd-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      border-top: 1px solid var(--vd-rule);
-      border-bottom: 1px solid var(--vd-rule);
-    }
-    .vd-col { padding: 30px 0; }
-    .vd-col + .vd-col { border-top: 1px solid var(--vd-rule); }
-    @media (min-width: 720px) {
-      .vd-grid { grid-template-columns: 1fr 1fr; }
-      .vd-col { padding: 34px 40px 34px 0; display: flex; flex-direction: column; }
-      .vd-col + .vd-col { border-top: 0; border-left: 1px solid var(--vd-rule); padding: 34px 0 34px 40px; }
-      .vd-inner { margin: auto 0; }
-    }
+    .vd-grid { display: grid; grid-template-columns: 1fr; gap: 2px; border-top: 1px solid var(--vd-rule); }
+    @media (min-width: 820px) { .vd-grid { grid-template-columns: 1fr 1fr; } }
+    .vd-side { padding: 30px 0 34px; }
     .vd-label {
-      margin: 0 0 18px;
+      margin: 0 0 26px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--vd-gold);
     }
+    .vd-foot { margin: 26px 0 0; font-size: 13px; line-height: 1.55; color: var(--vd-dim); max-width: 34em; }
+    .vd-human { padding-right: 0; }
+    @media (min-width: 820px) { .vd-human { padding-right: 56px; } }
     .vd-attr {
-      margin: 0 0 12px;
+      margin: 0 0 18px;
       font-family: var(--vd-serif);
-      font-size: 22px;
-      line-height: 1.25;
+      font-size: clamp(30px, 4.4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
       color: var(--vd-ink);
     }
-    .vd-body { margin: 0; font-size: 15px; line-height: 1.6; color: var(--vd-ink); }
-    .vd-spec { margin: 0; }
-    .vd-spec dt {
-      margin: 0 0 3px;
-      font-size: 10px;
+    .vd-gloss { margin: 0; font-size: 16px; line-height: 1.6; color: var(--vd-ink); max-width: 26em; }
+    .vd-model { background: var(--vd-spec); padding: 30px 26px 34px; }
+    @media (min-width: 820px) { .vd-model { padding: 30px 32px 34px; } }
+    .vd-rows { margin: 0; }
+    .vd-row { display: grid; grid-template-columns: 1fr; gap: 2px 18px; padding: 11px 0; border-top: 1px solid var(--vd-rule); }
+    .vd-row:first-child { border-top: 0; padding-top: 0; }
+    @media (min-width: 560px) { .vd-row { grid-template-columns: 86px 1fr; gap: 0 18px; } }
+    .vd-key {
+      font-family: var(--vd-mono);
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--vd-gold);
+      padding-top: 2px;
     }
-    .vd-spec dd { margin: 0 0 16px; font-size: 15px; line-height: 1.55; color: var(--vd-ink); }
-    .vd-spec dd:last-of-type { margin-bottom: 0; }
-    .vd-quote { font-family: var(--vd-serif); font-style: italic; }
-    .vd-spec dd.vd-miss { color: var(--vd-dim); }
-    .vd-note {
-      margin: 22px 0 0;
-      padding-top: 16px;
-      border-top: 1px solid var(--vd-rule);
-      font-size: 13px;
-      line-height: 1.55;
+    .vd-val { font-family: var(--vd-mono); font-size: 13.5px; line-height: 1.55; color: var(--vd-ink); }
+    .vd-val em { font-style: normal; color: var(--vd-dim); }
+    .vd-row--fail .vd-key { color: var(--vd-dim); }
+    .vd-row--fail .vd-val {
       color: var(--vd-dim);
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--vd-rule);
     }
-    .vd-caption { margin: 20px 0 0; font-size: 13px; line-height: 1.55; color: var(--vd-dim); }
 
     /* ── HOW I GOT HERE ───────────────────────────── */
     .ux-section {
@@ -600,10 +592,6 @@
             <span class="ux-proof-number">~40</span>
             <span class="ux-proof-label">Components given a language layer, Goldman Sachs design system</span>
           </div>
-          <div class="ux-proof-cell">
-            <span class="ux-proof-number">Silver, NYC Design Awards</span>
-            <span class="ux-proof-label">Best mobile marketing, American Express (with Huge)</span>
-          </div>
         </div>
       </div>
     </section>
@@ -626,50 +614,48 @@
       <figure class="voice-diagram">
         <div class="vd-grid">
 
-          <div class="vd-col">
+          <div class="vd-side vd-human">
             <p class="vd-label">Written for a person</p>
-            <div class="vd-inner">
-              <p class="vd-attr">Confident, not arrogant.</p>
-              <p class="vd-body">
-                We are self-assured without boasting. State what we know. Do not
-                oversell.
-              </p>
-              <p class="vd-note">
-                A writer reads this and interprets it. Two writers will interpret it
-                two ways, and both will be able to defend their version.
-              </p>
-            </div>
+            <p class="vd-attr">Confident,<br>not arrogant.</p>
+            <p class="vd-gloss">
+              We are self-assured without boasting. State what we know. Do not
+              oversell.
+            </p>
+            <p class="vd-foot">
+              Two writers read this and write two different lines. Both can defend
+              theirs.
+            </p>
           </div>
 
-          <div class="vd-col">
+          <div class="vd-side vd-model">
             <p class="vd-label">Written for a model</p>
-            <div class="vd-inner">
-            <dl class="vd-spec">
 
-              <dt>The rule</dt>
-              <dd>State capability as fact. No superlatives, no comparison against a
-                  competitor.</dd>
+            <div class="vd-rows">
+              <div class="vd-row">
+                <div class="vd-key">Rule</div>
+                <div class="vd-val">State capability as fact. No superlatives, no comparison against a competitor.</div>
+              </div>
+              <div class="vd-row">
+                <div class="vd-key">Boundary</div>
+                <div class="vd-val">Never &ldquo;best&rdquo;, &ldquo;leading&rdquo;, &ldquo;unmatched&rdquo;. Never a comparison against a rival, named or implied.</div>
+              </div>
+              <div class="vd-row">
+                <div class="vd-key">Pass</div>
+                <div class="vd-val">&ldquo;Runs at 42 decibels.&rdquo;</div>
+              </div>
+              <div class="vd-row vd-row--fail">
+                <div class="vd-key">Fail</div>
+                <div class="vd-val">&ldquo;The quietest in its class.&rdquo;</div>
+              </div>
+              <div class="vd-row">
+                <div class="vd-key">Why</div>
+                <div class="vd-val"><em>The near miss makes a comparison the reader cannot check, which is the boast the attribute exists to prevent.</em></div>
+              </div>
+            </div>
 
-              <dt>The boundary</dt>
-              <dd>Never &ldquo;best,&rdquo; &ldquo;leading,&rdquo; &ldquo;unmatched.&rdquo; Never a comparison against a
-                  rival, named or implied.</dd>
-
-              <dt>Correct</dt>
-              <dd class="vd-quote">&ldquo;Runs at 42 decibels.&rdquo;</dd>
-
-              <dt>Nearly correct</dt>
-              <dd class="vd-quote vd-miss">&ldquo;The quietest in its class.&rdquo;</dd>
-
-              <dt>How to tell them apart</dt>
-              <dd>The near miss makes a comparison the reader cannot check, which is
-                  the boast the attribute exists to prevent. The correct version
-                  gives the number and lets the reader draw the conclusion.</dd>
-
-            </dl>
-            <p class="vd-note">
+            <p class="vd-foot">
               Same attribute. Now it can be followed, tested, and graded.
             </p>
-            </div>
           </div>
 
         </div>
@@ -700,8 +686,8 @@
         </div>
       </div>
       <figure class="ux-feature-shot ux-feature-bleed">
-          <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
-          <figcaption class="ux-feature-bleed-cap">The SoundCloud Go launch page.</figcaption>
+          <img src="images/soundcloud-go-headline.webp" onclick="lbux(this.src)" width="1540" height="700" loading="lazy" decoding="async" alt="The SoundCloud Go launch headline: Introducing SoundCloud Go. Even more tracks, offline and ad-free. From Top 40 to the underground. Takeoff to touchdown. Try it free for 30 days, 9.99 a month after.">
+          <figcaption class="ux-feature-bleed-cap">The SoundCloud Go launch, cropped to the lines.</figcaption>
       </figure>
     </section>
 
@@ -747,7 +733,7 @@
         </figure>
         <p class="ux-archive-link"><a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
         <figure class="ux-shot">
-          <img src="images/goldman/gs-foundation-writing-guidelines.webp" onclick="lbux(this.src)" width="1400" height="716" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+          <img src="images/goldman/gs-foundation-writing-guidelines.webp" onclick="lbux(this.src)" width="1180" height="760" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
           <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
         </figure>
       </div>
