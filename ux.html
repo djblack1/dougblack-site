@@ -56,14 +56,17 @@
       border-bottom: 1px solid var(--rule);
     }
     .ux-proof-cell {
-      padding: 24px 32px;
+      padding: 40px 32px 44px;
       border-right: 1px solid var(--rule);
     }
     .ux-proof-cell:first-child { padding-left: 0; }
     .ux-proof-cell:last-child { border-right: none; padding-right: 0; }
+    .ux-proof-cell:last-child .ux-proof-number { font-size: clamp(19px, 2vw, 26px); line-height: 1.2; }
     .ux-proof-number {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(18px, 2.4vw, 30px);
+      /* Display scale: these are the first thing to look at on a page with
+         no hero image, so they have to read as graphic elements. */
+      font-size: clamp(30px, 4.4vw, 58px);
       font-weight: 600;
       color: var(--ink);
       line-height: 1.1;
@@ -108,6 +111,144 @@
       color: #6E6862;
     }
     .ux-quote a, .ux-principle-text a { color: var(--amber); }
+
+    .ux-page-label {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin: 0 0 18px 0;
+    }
+
+    /* The page's one tonal break. Full bleed, inverted, and it carries the
+       largest image on the page. One such moment only. */
+    .ux-feature {
+      background: var(--ink);
+      padding: clamp(64px, 8vw, 104px) 0 clamp(56px, 7vw, 88px);
+      margin: clamp(32px, 4vw, 56px) 0 0;
+    }
+    .ux-feature-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .ux-feature .ux-case-client { color: var(--cream); }
+    .ux-feature .ux-case-meta { color: rgba(245,242,236,0.55); }
+    .ux-feature .ux-claim { color: var(--cream); max-width: 34ch; }
+    .ux-feature .ux-case-desc { color: rgba(245,242,236,0.78); max-width: 620px; }
+    .ux-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .ux-feature-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; }
+    .ux-feature-shot img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
+    .ux-feature-shot figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px;
+      color: rgba(245,242,236,0.55);
+      margin: 12px 0 0;
+    }
+
+    /* Evercore: the deliberate pause. Quote-led, no image, lots of air. */
+    .ux-case--quote { grid-template-columns: 1fr; padding: clamp(96px, 12vw, 168px) 0; }
+    .ux-case--quote .ux-case-left { max-width: 760px; }
+    .ux-case--quote .ux-claim {
+      font-size: clamp(26px, 3.4vw, 44px);
+      line-height: 1.25;
+      max-width: 22ch;
+      margin-bottom: 28px;
+    }
+
+    .ux-closing-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+      max-width: 22ch;
+      margin: clamp(32px, 4vw, 52px) 0 20px;
+    }
+    .ux-closing-contact { font-family: 'DM Sans', system-ui, sans-serif; font-size: 17px; margin: 0; }
+    .ux-closing-contact a { color: var(--amber); font-weight: 500; text-decoration: none; }
+    .ux-closing-contact a:hover { text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .ux-feature-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── VOICE DIAGRAM (supplied component, tokens remapped) ─────
+       Five tokens point at the site's own values. The gold is a
+       darkened amber: the site's --amber #B8903A is 2.65:1 on cream,
+       which fails AA at the 10 and 11px the labels are set in.
+       #86692C reads as the same hue at 4.62:1. ── */
+    .voice-diagram {
+      --vd-ink:   var(--ink);
+      --vd-dim:   #6E6862;
+      --vd-gold:  #86692C;
+      --vd-rule:  var(--rule);
+      --vd-bg:    var(--cream);
+
+      --vd-serif: 'Cormorant Garamond', Georgia, serif;
+      --vd-sans:  'DM Sans', system-ui, sans-serif;
+
+      margin: clamp(36px, 4.5vw, 56px) 0 0;
+      padding: 0;
+      max-width: 920px;
+      color: var(--vd-ink);
+      font-family: var(--vd-sans);
+    }
+    .voice-diagram * { box-sizing: border-box; }
+    .vd-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--vd-rule);
+      border-bottom: 1px solid var(--vd-rule);
+    }
+    .vd-col { padding: 30px 0; }
+    .vd-col + .vd-col { border-top: 1px solid var(--vd-rule); }
+    @media (min-width: 720px) {
+      .vd-grid { grid-template-columns: 1fr 1fr; }
+      .vd-col { padding: 34px 40px 34px 0; display: flex; flex-direction: column; }
+      .vd-col + .vd-col { border-top: 0; border-left: 1px solid var(--vd-rule); padding: 34px 0 34px 40px; }
+      .vd-inner { margin: auto 0; }
+    }
+    .vd-label {
+      margin: 0 0 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--vd-gold);
+    }
+    .vd-attr {
+      margin: 0 0 12px;
+      font-family: var(--vd-serif);
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--vd-ink);
+    }
+    .vd-body { margin: 0; font-size: 15px; line-height: 1.6; color: var(--vd-ink); }
+    .vd-spec { margin: 0; }
+    .vd-spec dt {
+      margin: 0 0 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--vd-gold);
+    }
+    .vd-spec dd { margin: 0 0 16px; font-size: 15px; line-height: 1.55; color: var(--vd-ink); }
+    .vd-spec dd:last-of-type { margin-bottom: 0; }
+    .vd-quote { font-family: var(--vd-serif); font-style: italic; }
+    .vd-spec dd.vd-miss { color: var(--vd-dim); }
+    .vd-note {
+      margin: 22px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--vd-rule);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--vd-dim);
+    }
+    .vd-caption { margin: 20px 0 0; font-size: 13px; line-height: 1.55; color: var(--vd-dim); }
 
     /* ── HOW I GOT HERE ───────────────────────────── */
     .ux-section {
@@ -415,6 +556,7 @@
 
     <!-- ── SECTION 1: HERO ─────────────────────────── -->
     <section class="ux-hero">
+      <p class="ux-page-label">Content design and UX writing</p>
       <h1 class="ux-hero-h1">The best interface copy is <span class="ux-invisible-word">invisible</span>.</h1>
       <p class="ux-hero-sub">The work I'm proudest of lives at the product level: the UX journeys for SoundCloud, Verizon, Better.com, American Express, and Goldman Sachs. It’s a different craft than a campaign headline, and the goal is simpler. The writing exists to help someone finish what they came to do. More recently, that means writing the rules a model follows when it does the writing instead.</p>
     </section>
@@ -450,15 +592,70 @@
       <h2 class="ux-h2">When AI writes the copy.</h2>
       <p class="ux-body-text">For much of my career the job was writing the line. When a model writes the line, the job becomes writing the rule underneath it, and then deciding whether what came out is any good. Those are two disciplines. I do both.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the rules.</strong> A voice guideline written for a person and one written for a model are never the same. A person reads a tone attribute and interprets it. A model needs the rule, the boundary, a correct example, a nearly correct example, and a way to tell the difference.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Writing the rules.</strong> A voice guideline written for a person and one written for a model are never the same. A person reads a tone attribute and interprets it.</p>
 
       <p class="ux-body-text">On Lincoln, I built the brand's voice and style rules into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed at all, so the rules and the instruction set were written at the same time.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards.</p>
+      <figure class="voice-diagram">
+        <div class="vd-grid">
+
+          <div class="vd-col">
+            <p class="vd-label">Written for a person</p>
+            <div class="vd-inner">
+              <p class="vd-attr">Confident, not arrogant.</p>
+              <p class="vd-body">
+                We are self-assured without boasting. State what we know. Do not
+                oversell.
+              </p>
+              <p class="vd-note">
+                A writer reads this and interprets it. Two writers will interpret it
+                two ways, and both will be able to defend their version.
+              </p>
+            </div>
+          </div>
+
+          <div class="vd-col">
+            <p class="vd-label">Written for a model</p>
+            <div class="vd-inner">
+            <dl class="vd-spec">
+
+              <dt>The rule</dt>
+              <dd>State capability as fact. No superlatives, no comparison against a
+                  competitor.</dd>
+
+              <dt>The boundary</dt>
+              <dd>Never &ldquo;best,&rdquo; &ldquo;leading,&rdquo; &ldquo;unmatched.&rdquo; Never a comparison against a
+                  rival, named or implied.</dd>
+
+              <dt>Correct</dt>
+              <dd class="vd-quote">&ldquo;Runs at 42 decibels.&rdquo;</dd>
+
+              <dt>Nearly correct</dt>
+              <dd class="vd-quote vd-miss">&ldquo;The quietest in its class.&rdquo;</dd>
+
+              <dt>How to tell them apart</dt>
+              <dd>The near miss makes a comparison the reader cannot check, which is
+                  the boast the attribute exists to prevent. The correct version
+                  gives the number and lets the reader draw the conclusion.</dd>
+
+            </dl>
+            <p class="vd-note">
+              Same attribute. Now it can be followed, tested, and graded.
+            </p>
+            </div>
+          </div>
+
+        </div>
+
+        <figcaption class="vd-caption">
+          An illustrative rule, not a client&rsquo;s. The method is the point.
+        </figcaption>
+      </figure>
+
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards, and it is why the guidelines get rewritten every time the model changes.</p>
 
       <p class="ux-display">A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">A living document.</strong> The guidelines stop being a document somebody reads once and become the engine the system runs on. They need examples, counterexamples, a way to measure drift, and rewriting every time the model changes.</p>
     </section>
 
     <!-- ── SECTION 3: HOW I GOT HERE ──────────────── -->
@@ -472,25 +669,28 @@
       <h2 class="ux-h2">The work.</h2>
     </section>
 
-    <div class="ux-cases">
-
-      <!-- SoundCloud Go. No evidence block: Doug has not supplied real
-           sample lines and substitutes were ruled out, so this case runs
-           as a single column rather than leaving half the grid empty. -->
-      <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">SoundCloud Go</h3>
-          <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
-          <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
-          <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
+    <!-- SoundCloud Go. The page's one tonal break: full bleed, inverted,
+         largest image. First case study, strongest consumer story. -->
+    <section class="ux-feature">
+      <div class="ux-feature-inner">
+        <div class="ux-feature-grid">
+          <div>
+            <h3 class="ux-case-client">SoundCloud Go</h3>
+            <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
+          </div>
+          <div>
+            <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
+            <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
+          </div>
         </div>
-        <div class="ux-case-right">
-          <figure class="ux-shot" style="margin-top:0;">
-            <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
-            <figcaption>The SoundCloud Go launch page.</figcaption>
-          </figure>
-        </div>
+        <figure class="ux-feature-shot">
+          <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
+          <figcaption>The SoundCloud Go launch page.</figcaption>
+        </figure>
       </div>
+    </section>
+
+    <div class="ux-cases">
 
       <!-- Better.com -->
       <div class="ux-case">
@@ -558,7 +758,7 @@
       </div>
 
       <!-- Evercore -->
-      <div class="ux-case ux-case--solo">
+      <div class="ux-case ux-case--quote">
         <div class="ux-case-left">
           <h3 class="ux-case-client">Evercore</h3>
           <p class="ux-case-meta">Institutional finance &nbsp;&middot;&nbsp; 2025&ndash;2026 &nbsp;&middot;&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, in Figma alongside design and inside the bank&rsquo;s own project systems.</p>
@@ -575,7 +775,7 @@
           <p class="ux-claim">Content design with one foot in campaign creative.</p>
           <p class="ux-case-desc">Mobile-first experiences where the copy had the clarity and purpose of UX writing while still carrying the campaign. We tested language decisions in the flow rather than in brand decks, working closely with the UX and visual design teams at Huge.</p>
           <div class="ux-shot">
-            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" alt="Amex mobile application flow">
+            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" alt="An American Express page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits with the card each one holds.">
           </div>
         </div>
         <div class="ux-case-right">
@@ -590,8 +790,9 @@
 
     <!-- ── SECTION 5: WHAT I ACTUALLY DO ───────────── -->
     <section class="ux-section ux-section-last">
-      <h2 class="ux-h2">What I do.</h2>
       <p class="ux-closing-body">Product writing across mortgage, wealth management, telecom, and enterprise finance, in Figma alongside design and product. Turning compliance-written copy into something fit for a human to read. At Goldman I also recruited junior writers onto the team, onboarded them, and managed their daily work.</p>
+      <p class="ux-closing-line">If your product has to say something difficult and say it clearly, I would like to hear about it.</p>
+      <p class="ux-closing-contact"><a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com &rarr;</a></p>
     </section>
 
     <!-- ── FOOTER CTA ──────────────────────────────── -->
