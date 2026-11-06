@@ -15,7 +15,7 @@
     .ux-hero {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: clamp(80px, 14vw, 160px) var(--gutter) clamp(64px, 10vw, 120px);
+      padding: clamp(72px, 11vw, 132px) var(--gutter) clamp(56px, 8vw, 96px);
       /* Was centred, the only centred intro on the site. Centred body copy
          gives every line a ragged left edge, so the reader has to find the
          start of each one. Homepage, Brand Voice, and Film all run left. */
@@ -23,9 +23,11 @@
     }
     .ux-hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(32px, 5vw, 68px);
+      /* Largest type on the page by a clear margin: 96 against 44 for a
+         section heading and 34 for a client name. */
+      font-size: clamp(40px, 7.4vw, 96px);
       font-weight: 600;
-      line-height: 1.05;
+      line-height: 1.02;
       letter-spacing: -0.02em;
       color: var(--ink);
       margin: 0 0 clamp(24px, 3vw, 40px) 0;
@@ -46,27 +48,28 @@
     }
 
     /* ── PROOF STRIP ──────────────────────────────── */
-    .ux-proof {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
+    /* The stats moved into the hero's empty right half, stacked. */
+    .ux-hero-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
+      grid-template-columns: 1.45fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
     }
+    .ux-proof { display: block; padding-top: clamp(6px, 1vw, 14px); }
     .ux-proof-cell {
-      padding: 40px 32px 44px;
-      border-right: 1px solid var(--rule);
+      padding: 20px 0 22px;
+      border-top: 1px solid var(--rule);
     }
-    .ux-proof-cell:first-child { padding-left: 0; }
-    .ux-proof-cell:last-child { border-right: none; padding-right: 0; }
-    .ux-proof-cell:last-child .ux-proof-number { font-size: clamp(19px, 2vw, 26px); line-height: 1.2; }
+    .ux-proof-cell:last-child { border-bottom: 1px solid var(--rule); }
+    @media (max-width: 860px) {
+      .ux-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .ux-proof-cell:last-child .ux-proof-number { font-size: clamp(17px, 1.8vw, 22px); line-height: 1.25; }
     .ux-proof-number {
       font-family: 'Cormorant Garamond', Georgia, serif;
       /* Display scale: these are the first thing to look at on a page with
          no hero image, so they have to read as graphic elements. */
-      font-size: clamp(30px, 4.4vw, 58px);
+      font-size: clamp(28px, 3.4vw, 44px);
       font-weight: 600;
       color: var(--ink);
       line-height: 1.1;
@@ -140,6 +143,15 @@
     .ux-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .ux-feature-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; }
     .ux-feature-shot img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
+    /* Edge to edge of the dark band, so the screenshot stops reading as a
+       light card pasted into the middle of the inverted section. */
+    .ux-feature-bleed { margin: clamp(36px, 4.5vw, 56px) 0 0; }
+    .ux-feature-bleed img { border-radius: 0; }
+    .ux-feature-bleed-cap {
+      max-width: var(--max-width);
+      margin: 12px auto 0;
+      padding: 0 var(--gutter);
+    }
     .ux-feature-shot figcaption {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 12px;
@@ -148,10 +160,10 @@
     }
 
     /* Evercore: the deliberate pause. Quote-led, no image, lots of air. */
-    .ux-case--quote { grid-template-columns: 1fr; padding: clamp(96px, 12vw, 168px) 0; }
-    .ux-case--quote .ux-case-left { max-width: 760px; }
+    .ux-case--quote { padding: clamp(96px, 12vw, 168px) 0; }
     .ux-case--quote .ux-claim {
-      font-size: clamp(26px, 3.4vw, 44px);
+      /* Bigger than a normal claim, still clearly under a section heading. */
+      font-size: clamp(24px, 2.9vw, 38px);
       line-height: 1.25;
       max-width: 22ch;
       margin-bottom: 28px;
@@ -261,7 +273,7 @@
     }
     .ux-h2 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 48px);
+      font-size: clamp(26px, 3.2vw, 44px);
       font-weight: 400;
       color: var(--ink);
       margin: 0 0 clamp(28px, 3.5vw, 40px) 0;
@@ -283,32 +295,40 @@
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
-    .ux-case {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+    /* One skeleton for every case study. The case itself is a block, so
+       the image can run the full content width; only the prose and the
+       evidence share a two-column row. Variation comes from which
+       elements are present, never from where they sit. */
+    .ux-case { display: block;
       /* More air between case studies so each reads as its own object
          rather than as a continuing column of text. */
       padding: clamp(72px, 9vw, 128px) 0;
       border-top: 1px solid var(--rule);
       align-items: start;
     }
-    /* A case with no set-apart evidence runs as one measured column
-       rather than leaving half the grid empty. */
-    .ux-case--solo { grid-template-columns: 1fr; }
-    .ux-case--solo .ux-case-left { max-width: 620px; }
+    .ux-case-cols {
+      display: grid;
+      grid-template-columns: 1.52fr 1fr;
+      gap: clamp(32px, 4.5vw, 72px);
+      align-items: start;
+    }
+    .ux-case-cols--single { grid-template-columns: 1fr; }
+    .ux-case-cols--single .ux-case-desc { max-width: 680px; }
+    @media (max-width: 860px) {
+      .ux-case-cols { grid-template-columns: 1fr; gap: 36px; }
+    }
 
     /* The claim line. One per case study, stated as a claim. */
     .ux-claim {
       font-family: 'Cormorant Garamond', Georgia, serif;
       /* Was 26px against 29px evidence, so claim and evidence read as one
          tier. The ladder is now client 40, claim 34, evidence 29, body 17. */
-      font-size: clamp(22px, 2.7vw, 34px);
+      font-size: clamp(20px, 2.3vw, 28px);
       font-weight: 400;
       line-height: 1.3;
       color: var(--ink);
-      margin: 0 0 24px 0;
-      max-width: 26ch;
+      margin: 0 0 28px 0;
+      max-width: 30ch;
     }
 
     /* ONE typographic treatment for every piece of set-apart evidence:
@@ -317,9 +337,9 @@
     .ux-evidence { margin: 0; }
     .ux-evidence-line {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(21px, 2.3vw, 29px);
+      font-size: clamp(19px, 2.1vw, 26px);
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.45;
       color: var(--ink);
       margin: 0 0 10px 0;
     }
@@ -352,10 +372,10 @@
     .ux-archive-link a:hover { text-decoration: underline; }
 
     /* One image per case study, at the full width of its column. */
-    .ux-shot { margin: 32px 0 0; }
+    /* Every image: the full content width, same left and right edge as
+       the text above it. The only exception is the SoundCloud full bleed. */
+    .ux-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; width: 100%; }
     .ux-shot img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
-    .ux-shot--inset { max-width: 70%; }
-    @media (max-width: 860px) { .ux-shot--inset { max-width: 100%; } }
     .ux-shot figcaption {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 12px;
@@ -381,7 +401,7 @@
     /* Left column */
     .ux-case-client {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(24px, 3vw, 40px);
+      font-size: clamp(22px, 2.6vw, 34px);
       font-weight: 600;
       color: var(--ink);
       margin: 0 0 6px 0;
@@ -556,31 +576,34 @@
       </div>
     </nav>
 
-    <!-- ── SECTION 1: HERO ─────────────────────────── -->
+    <!-- ── SECTION 1: HERO. Two columns: the argument on the left,
+         the figures in what used to be empty space on the right. ── -->
     <section class="ux-hero">
-      <h1 class="ux-hero-h1">Content design and UX writing.</h1>
-      <p class="ux-hero-sub">The work I'm proudest of lives at the product level: the UX journeys for SoundCloud, Verizon, Better.com, American Express, and Goldman Sachs. It’s a different craft than a campaign headline, and the goal is simpler. The writing exists to help someone finish what they came to do. More recently, that means writing the rules a model follows when it does the writing instead.</p>
+      <div class="ux-hero-grid">
+        <div>
+          <h1 class="ux-hero-h1">Content design and UX writing.</h1>
+          <p class="ux-hero-sub">The work I'm proudest of lives at the product level: the UX journeys for SoundCloud, Verizon, Better.com, American Express, and Goldman Sachs. It’s a different craft than a campaign headline, and the goal is simpler. The writing exists to help someone finish what they came to do. More recently, that means writing the rules a model follows when it does the writing instead.</p>
+        </div>
+        <div class="ux-proof">
+          <div class="ux-proof-cell">
+            <span class="ux-proof-number">175M</span>
+            <span class="ux-proof-label">Free users asked to start paying, SoundCloud Go</span>
+          </div>
+          <div class="ux-proof-cell">
+            <span class="ux-proof-number">113M</span>
+            <span class="ux-proof-label">Subscribers managing their own accounts, Verizon</span>
+          </div>
+          <div class="ux-proof-cell">
+            <span class="ux-proof-number">~40</span>
+            <span class="ux-proof-label">Components given a language layer, Goldman Sachs design system</span>
+          </div>
+          <div class="ux-proof-cell">
+            <span class="ux-proof-number">Silver, NYC Design Awards</span>
+            <span class="ux-proof-label">Best mobile marketing, American Express (with Huge)</span>
+          </div>
+        </div>
+      </div>
     </section>
-
-    <!-- ── SECTION 2: PROOF STRIP ──────────────────── -->
-    <div class="ux-proof">
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">175M</span>
-        <span class="ux-proof-label">Free users asked to start paying,<br>SoundCloud Go</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">113M</span>
-        <span class="ux-proof-label">Subscribers managing their own accounts,<br>Verizon</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">~40</span>
-        <span class="ux-proof-label">Components given a language layer,<br>Goldman Sachs design system</span>
-      </div>
-      <div class="ux-proof-cell">
-        <span class="ux-proof-number">Silver, NYC Design Awards</span>
-        <span class="ux-proof-label">Best mobile marketing,<br>American Express (with Huge)</span>
-      </div>
-    </div>
 
     <!-- ── SECTION 3: AI. Above the career arc, because it is the reason
          this page was updated and many visitors never scroll past the
@@ -649,9 +672,7 @@
         </div>
       </figure>
 
-      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards, and it is why the guidelines get rewritten every time the model changes.</p>
-
-      <p class="ux-display">A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
+      <p class="ux-body-text"><strong style="color:var(--ink);font-weight:600;">Grading the output.</strong> I train and evaluate AI models on writing quality for an AI company, under NDA. That means sitting with generated text and deciding, line by line, what separates fluent from good, with the reasoning written out. Doing both sides changed how I write standards. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it, which is also why the guidelines get rewritten every time the model changes.</p>
 
     </section>
 
@@ -674,27 +695,22 @@
             <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
           </div>
         </div>
-        <figure class="ux-feature-shot">
-          <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
-          <figcaption>The SoundCloud Go launch page.</figcaption>
-        </figure>
       </div>
+      <figure class="ux-feature-shot ux-feature-bleed">
+          <img src="images/soundcloud-app.avif" onclick="lbux(this.src)" alt="The SoundCloud Go launch page: Introducing SoundCloud Go, even more tracks, offline and ad-free, from Top 40 to the underground, takeoff to touchdown, with a 30-day free trial.">
+          <figcaption class="ux-feature-bleed-cap">The SoundCloud Go launch page.</figcaption>
+      </figure>
     </section>
 
     <div class="ux-cases">
 
       <!-- Better.com -->
       <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Better.com</h3>
-          <p class="ux-case-meta">Mortgage &nbsp;&middot;&nbsp; 2020&ndash;2021<br>Role: Embedded product writer across UX, brand, and product copy, in Figma alongside design, product, and legal.</p>
-          <p class="ux-claim">One of the most anxiety-inducing processes in American life, moved entirely online.</p>
+        <h3 class="ux-case-client">Better.com</h3>
+        <p class="ux-case-meta">Mortgage &nbsp;&middot;&nbsp; 2020&ndash;2021<br>Role: Embedded product writer across UX, brand, and product copy, in Figma alongside design, product, and legal.</p>
+        <p class="ux-claim">One of the most anxiety-inducing processes in American life, moved entirely online.</p>
+        <div class="ux-case-cols">
           <p class="ux-case-desc">I spent a year embedded across onboarding flows, loan applications, error states, email sequences, and the brand voice system that governed how to sound like Better on every surface. Error and delay states are the hardest copy in a mortgage flow. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them.</p>
-          <div class="ux-shot">
-            <img src="images/better-hero.png" onclick="lbux(this.src)" alt="Better.com homepage">
-          </div>
-        </div>
-        <div class="ux-case-right">
           <div class="ux-evidence">
             <p class="ux-evidence-line">&ldquo;Your rate is locked. That means it won&rsquo;t change no matter what happens to the market while your loan is processing.&rdquo;</p>
             <p class="ux-evidence-note">Rate lock confirmation</p>
@@ -704,47 +720,42 @@
             <p class="ux-evidence-note">Error and delay state</p>
           </div>
         </div>
+        <figure class="ux-shot">
+          <img src="images/better-hero.png" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The Better.com homepage, headed The right mortgage could save you thousands, with a ZIP code field.">
+        </figure>
       </div>
 
       <!-- Goldman Sachs -->
       <div class="ux-case">
-        <div class="ux-case-left">
-          <figure class="ux-shot" style="margin:0 0 28px;">
-            <img src="images/goldman/gs-design-hero.webp" onclick="lbux(this.src)" width="1800" height="872" loading="lazy" decoding="async" alt="The Goldman Sachs Design home page: the Goldman Sachs Design lockup on a blue field beside the line Building digital products that put clients first, with phone screens showing trading grids, a donut chart of total assets, and a research article.">
-            <figcaption>Goldman Sachs Design, the firm&rsquo;s public design system. Launched February 2020, taken offline in 2024. I wrote the copy; the design and the product screens are not mine.</figcaption>
-          </figure>
-          <h3 class="ux-case-client">Goldman Sachs</h3>
-          <p class="ux-case-meta">Private wealth management &nbsp;&middot;&nbsp; 2018&ndash;2020 &nbsp;&middot;&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for a platform serving clients with $10M or more in investable assets.</p>
-          <p class="ux-claim">Language for a design system used by teams I would never meet.</p>
+        <h3 class="ux-case-client">Goldman Sachs</h3>
+        <p class="ux-case-meta">Private wealth management &nbsp;&middot;&nbsp; 2018&ndash;2020 &nbsp;&middot;&nbsp; NDA<br>Role: Voice architecture, tone guidelines, and copy standards for a platform serving clients with $10M or more in investable assets.</p>
+        <p class="ux-claim">Language for a design system used by teams I would never meet.</p>
+        <div class="ux-case-cols">
           <p class="ux-case-desc">I led the copy on the language layer of Goldman's design system: labels, empty states, and error messages written once and then used by teams I would never meet. The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. I wrote the system's principles too, as titled imperatives rather than adjectives, including one called "Consistent, not creaky." "Empower clients" was another. It later became the headline of the color system page.</p>
-          <figure class="ux-shot ux-shot--inset">
-            <img src="images/goldman/gs-foundation-writing-guidelines.webp" onclick="lbux(this.src)" width="1400" height="716" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
-            <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
-          </figure>
-          <p class="ux-archive-link"><a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
-        </div>
-        <div class="ux-case-right">
           <!-- Verbatim quotation of published client copy. Do not edit. -->
           <div class="ux-evidence">
             <p class="ux-evidence-line">&ldquo;Financial tools are rarely simple. But they can always be clear. With elegant craftsmanship, we create intuitive workflows that give users confidence in their actions.&rdquo;</p>
             <p class="ux-evidence-src">Goldman Sachs Design System, design.gs.com, published February 2020.</p>
           </div>
         </div>
+        <figure class="ux-shot">
+          <img src="images/goldman/gs-design-hero.webp" onclick="lbux(this.src)" width="1800" height="872" loading="lazy" decoding="async" alt="The Goldman Sachs Design home page: the Goldman Sachs Design lockup on a blue field beside the line Building digital products that put clients first, with phone screens showing trading grids, a donut chart of total assets, and a research article.">
+          <figcaption>Goldman Sachs Design, the firm&rsquo;s public design system. Launched February 2020, taken offline in 2024. I wrote the copy; the design and the product screens are not mine.</figcaption>
+        </figure>
+        <p class="ux-archive-link"><a href="https://web.archive.org/web/20210413032934/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
+        <figure class="ux-shot">
+          <img src="images/goldman/gs-foundation-writing-guidelines.webp" onclick="lbux(this.src)" width="1400" height="716" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+          <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
+        </figure>
       </div>
 
       <!-- Verizon Wireless -->
       <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Verizon Wireless</h3>
-          <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
-          <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
+        <h3 class="ux-case-client">Verizon Wireless</h3>
+        <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
+        <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
+        <div class="ux-case-cols">
           <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
-          <figure class="ux-shot">
-            <img src="images/verizon-spec.webp" onclick="lbux(this.src)" alt="A MyVerizon copy spec: an annotated plan comparison screen showing the dynamic headline rule for the S, M, and L plans, with the personalised saving calculated against the customer's current plan.">
-            <figcaption>A copy spec, not a screenshot. The dynamic headline is specified as a rule, so the system assembles the line against whatever plan the customer is already on.</figcaption>
-          </figure>
-        </div>
-        <div class="ux-case-right">
           <div class="ux-evidence">
             <p class="ux-figure-num">68% &rarr; 85%</p>
             <p class="ux-evidence-note">In-app bill payment, within seven months of launch</p>
@@ -754,35 +765,38 @@
             <p class="ux-evidence-note">Autopay enrollment</p>
           </div>
         </div>
+        <figure class="ux-shot">
+          <img src="images/verizon-spec.webp" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A MyVerizon copy spec: an annotated plan comparison screen showing the dynamic headline rule for the S, M, and L plans, with the personalised saving calculated against the customer's current plan.">
+          <figcaption>A copy spec, not a screenshot. The dynamic headline is specified as a rule, so the system assembles the line against whatever plan the customer is already on.</figcaption>
+        </figure>
       </div>
 
-      <!-- Evercore -->
+      <!-- Evercore. The rhythm break: no image, no evidence, quote-led. -->
       <div class="ux-case ux-case--quote">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">Evercore</h3>
-          <p class="ux-case-meta">Institutional finance &nbsp;&middot;&nbsp; 2025&ndash;2026 &nbsp;&middot;&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, in Figma alongside design and inside the bank&rsquo;s own project systems.</p>
-          <p class="ux-claim">An institutional finance name writing for individual investors for the first time.</p>
+        <h3 class="ux-case-client">Evercore</h3>
+        <p class="ux-case-meta">Institutional finance &nbsp;&middot;&nbsp; 2025&ndash;2026 &nbsp;&middot;&nbsp; NDA<br>Role: Brand voice, tone guidelines, and messaging framework, in Figma alongside design and inside the bank&rsquo;s own project systems.</p>
+        <p class="ux-claim">An institutional finance name writing for individual investors for the first time.</p>
+        <div class="ux-case-cols ux-case-cols--single">
           <p class="ux-case-desc">Everything the firm already knew how to say was written for institutions, so the voice, the tone guidelines, and the messaging framework all had to be built for a reader who had never been the customer before.</p>
         </div>
       </div>
 
       <!-- American Express -->
       <div class="ux-case">
-        <div class="ux-case-left">
-          <h3 class="ux-case-client">American Express</h3>
-          <p class="ux-case-meta">Mobile campaign &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
-          <p class="ux-claim">Content design with one foot in campaign creative.</p>
+        <h3 class="ux-case-client">American Express</h3>
+        <p class="ux-case-meta">Mobile campaign &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
+        <p class="ux-claim">Content design with one foot in campaign creative.</p>
+        <div class="ux-case-cols">
           <p class="ux-case-desc">Mobile-first experiences where the copy had the clarity and purpose of UX writing while still carrying the campaign. We tested language decisions in the flow rather than in brand decks, working closely with the UX and visual design teams at Huge.</p>
-          <div class="ux-shot">
-            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" alt="An American Express page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits with the card each one holds.">
-          </div>
-        </div>
-        <div class="ux-case-right">
           <div class="ux-evidence">
             <p class="ux-evidence-line">Every word earns its space. On a small screen, there&rsquo;s no room for a second draft.</p>
             <p class="ux-evidence-note">Working principle</p>
           </div>
         </div>
+        <figure class="ux-shot">
+          <img src="images/amex-cards.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
+          <figcaption>The card browser. Twenty products, one set of rules for naming, ordering, and comparing them.</figcaption>
+        </figure>
       </div>
 
     </div><!-- /.ux-cases -->
