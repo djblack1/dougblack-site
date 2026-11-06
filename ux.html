@@ -145,7 +145,7 @@
     .ux-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .ux-feature-row {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 1.25fr;
       gap: clamp(32px, 5vw, 80px);
       align-items: start;
       margin: clamp(36px, 4.5vw, 56px) 0 0;
@@ -172,7 +172,9 @@
       margin: 14px 0 0;
     }
     .ux-feature-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; }
-    .ux-feature-shot img { width: 100%; height: auto; display: block; border-radius: 4px; cursor: zoom-in; }
+    /* The composite ships with a transparent background, so no radius and
+       no ground: it sits directly on the dark band. */
+    .ux-feature-shot img { width: 100%; height: auto; display: block; cursor: zoom-in; }
     /* Edge to edge of the dark band, so the screenshot stops reading as a
        light card pasted into the middle of the inverted section. */
     .ux-feature-bleed { margin: clamp(36px, 4.5vw, 56px) 0 0; }
@@ -186,7 +188,7 @@
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 12px;
       color: rgba(245,242,236,0.55);
-      margin: 12px 0 0;
+      margin: 14px 0 0;
     }
 
     /* Evercore: the deliberate pause. Quote-led, no image, lots of air. */
@@ -708,21 +710,19 @@
         <p class="ux-case-meta">Music streaming &nbsp;&middot;&nbsp; 2015&ndash;2017<br>Role: First dedicated writer at the company. Brand voice, subscription product copy, and launch.</p>
         <p class="ux-claim">A paid tier launched to 175 million people who had never paid for anything. The first version failed. I wrote the second.</p>
 
-        <div class="ux-feature-row">
-          <figure class="ux-phone">
-            <img src="images/soundcloud-go-offline-screen.webp" onclick="lbux(this.src)" width="578" height="1034" loading="lazy" decoding="async" alt="A SoundCloud Go app screen headed Save everything automatically, explaining how to make current and future likes and playlists available offline, with two buttons reading Save everything now and Choose what to save.">
-            <figcaption>The offline listening prompt.</figcaption>
-          </figure>
+        <figure class="ux-feature-shot">
+          <img src="images/soundcloud-go-establishing.webp" onclick="lbux(this.src)" width="1900" height="1291" loading="lazy" decoding="async" alt="The SoundCloud Go welcome page in a browser window, headed Welcome to SoundCloud Go, with the offline listening set-up section below it, and the mobile Save everything automatically screen layered over the lower right showing the buttons Save everything now and Choose what to save.">
+          <figcaption>The welcome page a new subscriber saw, and the offline listening prompt in the app.</figcaption>
+        </figure>
 
-          <div>
-            <div class="ux-evidence ux-evidence--dark">
-              <p class="ux-evidence-line">&ldquo;Save everything now&rdquo;</p>
-              <p class="ux-evidence-line">&ldquo;Choose what to save&rdquo;</p>
-              <p class="ux-evidence-sub">&ldquo;Want to skip the extra details and start listening?&rdquo;</p>
-              <p class="ux-evidence-note">Three places in the flow where the job was giving somebody a way out of doing more work.</p>
-            </div>
-            <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
+        <div class="ux-feature-row">
+          <div class="ux-evidence ux-evidence--dark">
+            <p class="ux-evidence-line">&ldquo;Save everything now&rdquo;</p>
+            <p class="ux-evidence-line">&ldquo;Choose what to save&rdquo;</p>
+            <p class="ux-evidence-sub">&ldquo;Want to skip the extra details and start listening?&rdquo;</p>
+            <p class="ux-evidence-note">Three places in the flow where the job was giving somebody a way out of doing more work.</p>
           </div>
+          <p class="ux-case-desc">The first launch led with everything the subscription included and put the price further down, so it read as the free product being taken away and sold back. The audience said so immediately. I argued internally for inverting it, free stated plainly and first, subscription as an upgrade on top, and wrote that version. It replaced the original and it is still what SoundCloud runs.</p>
         </div>
 
       </div>
