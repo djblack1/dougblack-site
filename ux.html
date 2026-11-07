@@ -401,6 +401,20 @@
        the text above it. The only exception is the SoundCloud full bleed. */
     .ux-shot { margin: clamp(36px, 4.5vw, 56px) 0 0; width: 100%; }
     .ux-shot img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    /* Two up, so each still renders around 500px rather than as a thumbnail. */
+    .ux-shot-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 2vw, 28px);
+      margin: clamp(16px, 2vw, 28px) 0 0;
+      align-items: start;
+    }
+    .ux-shot-grid figure { margin: 0; }
+    .ux-shot-grid img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .ux-shot-grid figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px; line-height: 1.6; color: #6E6862; margin: 10px 0 0;
+    }
+    @media (max-width: 760px) { .ux-shot-grid { grid-template-columns: 1fr; } }
     .ux-shot figcaption {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 12px;
@@ -823,6 +837,24 @@
           <img src="images/amex-cards.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
           <figcaption>The card browser. Twenty products, one set of rules for naming, ordering, and comparing them.</figcaption>
         </figure>
+        <div class="ux-shot-grid">
+          <figure>
+            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="Mobile application screens: Let's get started, a name and email form, an application progress list, and a rewards summary.">
+            <figcaption>The application flow, written for a phone.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="An American Express page with a Find Your Perfect Card panel, a Member Because testimonial, and a row of featured offers.">
+            <figcaption>Find Your Perfect Card, the entry point to the same twenty products.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits beside the card each one holds.">
+            <figcaption>Real Cardmembers. Real Reviews.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A customer service and card benefits panel carrying a cardmember quote about hotel upgrades and access to international travel agents.">
+            <figcaption>Reviews surfaced in the flow rather than collected on a separate page.</figcaption>
+          </figure>
+        </div>
       </div>
 
     </div><!-- /.ux-cases -->
