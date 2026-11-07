@@ -151,19 +151,38 @@
     /* Act three inverts. The diagram was built for cream, so its two
        ground tokens are re-pointed and its rules lightened. */
     .vs-act--dark .vs-act-title,
-    .vs-act--dark .vs-client { color:var(--cream); }
-    .vs-act--dark .vs-act-line { color:rgba(245,242,236,0.75); border-bottom-color:rgba(245,242,236,0.18); }
-    .vs-act--dark .vs-body { color:rgba(245,242,236,0.78); }
+    .vs-act--dark .vs-client,
+    .vs-act--dark .vs-pull,
+    .vs-act--dark .vs-names { color:#F2EDE3; }
+    .vs-act--dark .vs-act-line { color:#C9C3B8; border-bottom-color:#3A3733; }
+    .vs-act--dark .vs-body,
+    .vs-act--dark .vs-note { color:#C9C3B8; }
     .vs-act--dark .vs-act-label,
-    .vs-act--dark .vs-part { color:var(--amber-light); }
+    .vs-act--dark .vs-part { color:#C9A961; }
+    .vs-act--dark .vs-attrib,
+    .vs-act--dark .vs-fig figcaption,
+    .vs-act--dark .vs-trio figcaption { color:#9A958B; }
+    .vs-act--dark .vs-more a { color:#C9A961; }
+    /* The spec panel inverts its logic here: on cream it is a step down
+       from the ground, on dark it has to be a step up or it disappears. */
     .vs-act--dark .voice-diagram {
-      --vd-ink:  var(--cream);
-      --vd-dim:  rgba(245,242,236,0.6);
-      --vd-gold: var(--amber-light);
-      --vd-rule: rgba(245,242,236,0.22);
-      --vd-bg:   var(--ink);
-      --vd-spec: #252220;
+      --vd-ink:  #F2EDE3;
+      --vd-dim:  #9A958B;
+      --vd-gold: #C9A961;
+      --vd-rule: #3A3733;
+      --vd-bg:   transparent;
+      --vd-spec: #252320;
     }
+    /* Before and after, set as type. */
+    .vs-ba {
+      display:grid; grid-template-columns:1fr 1.6fr;
+      gap:clamp(28px,4vw,64px);
+      margin:clamp(32px,4vw,48px) 0 0;
+      padding-top:clamp(28px,3.5vw,40px);
+      border-top:1px solid #3A3733;
+      align-items:start;
+    }
+    @media (max-width:760px) { .vs-ba { grid-template-columns:1fr; gap:28px; } }
 
     @media (max-width:760px) {
       .vs-trio { grid-template-columns:1fr; }
@@ -171,11 +190,13 @@
     }
 
     /* ---------- STAT BAR ---------- */
-    .vs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
-    .vs-stat { padding:28px 24px 30px; border-right:1px solid var(--rule); }
-    .vs-stat:last-child { border-right:none; }
-    .vs-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,52px); font-weight:600; line-height:1; color:var(--ink); margin:0 0 10px; }
-    .vs-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-faint); margin:0; }
+    .vs-hero-grid { display:grid; grid-template-columns:1.45fr 1fr; gap:clamp(40px,6vw,96px); align-items:start; }
+    .vs-stats { display:block; padding-top:clamp(6px,1vw,14px); }
+    .vs-stat { padding:20px 0 22px; border-top:1px solid var(--rule); }
+    .vs-stat:last-child { border-bottom:1px solid var(--rule); }
+    @media (max-width:860px) { .vs-hero-grid { grid-template-columns:1fr; gap:40px; } }
+    .vs-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(36px,4.6vw,62px); font-weight:600; line-height:1; color:var(--ink); margin:0 0 10px; }
+    .vs-stat-label { font-family:'DM Sans',system-ui,sans-serif; font-size:13px; line-height:1.55; color:#6E6862; margin:0; }
 
     /* ---------- STICKY JUMP NAV ---------- */
     .vs-jump { position:sticky; top:0; z-index:50; background:var(--bg,#f5f1e8); border-bottom:1px solid var(--rule); }
@@ -295,17 +316,18 @@
 
     <div class="vs-container">
       <header class="vs-hero">
-        <h1 class="vs-hero-h1">Brand voice systems.</h1>
-        <p class="vs-hero-sub">These are the rules behind the headline: what a brand says, how it says it, and what it never does. I write them so the writers who come after me land in the same place, and the thousandth line still sounds like the first.</p>
+        <div class="vs-hero-grid">
+          <div>
+            <h1 class="vs-hero-h1">Brand voice systems.</h1>
+            <p class="vs-hero-sub">These are the rules behind the headline: what a brand says, how it says it, and what it never does. I write them so the writers who come after me land in the same place, and the thousandth line still sounds like the first.</p>
+          </div>
+          <div class="vs-stats">
+            <div class="vs-stat"><p class="vs-stat-num">6</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
+            <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
+            <div class="vs-stat"><p class="vs-stat-num">2</p><p class="vs-stat-label">Written at the same time as the model instruction set that runs them</p></div>
+          </div>
+        </div>
       </header>
-    </div>
-
-    <div class="vs-container">
-      <div class="vs-stats">
-        <div class="vs-stat"><p class="vs-stat-num">6</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
-        <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
-        <div class="vs-stat"><p class="vs-stat-num">2</p><p class="vs-stat-label">Written at the same time as the model instruction set that runs them</p></div>
-      </div>
     </div>
 
     <!-- ═══ ACT ONE, on cream ═════════════════════════════════════
@@ -319,15 +341,6 @@
         <p class="vs-act-line">The parts every voice system has, in roughly the order they get decided.</p>
 
         <div class="vs-entry">
-          <h3 class="vs-client">Goldman Sachs</h3>
-          <p class="vs-part">The persona and the principles</p>
-          <p class="vs-body">Embedded at the firm's headquarters across two engagements, writing the voice guidelines for a Private Wealth platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking.</p>
-          <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
-          <p class="vs-attrib">A principle I wrote, published at design.gs.com, February 2020</p>
-          <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
-        </div>
-
-        <div class="vs-entry">
           <h3 class="vs-client">Verizon</h3>
           <p class="vs-part">Terminology and nomenclature</p>
           <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns, for a service with 113 million subscribers. Most of a voice system is settling what things are called before anybody has to argue about it.</p>
@@ -338,6 +351,19 @@
           <figure class="vs-fig">
             <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/verizon-app.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A hand holding a phone showing the MyVerizon data hub, headed You have plenty of data remaining for the month, above a dial reading 94 percent.">
           </figure>
+        </div>
+
+        <div class="vs-entry">
+          <h3 class="vs-client">Goldman Sachs</h3>
+          <p class="vs-part">The persona and the principles</p>
+          <p class="vs-body">Embedded at the firm's headquarters across two engagements, writing the voice guidelines for a Private Wealth platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking.</p>
+          <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
+          <p class="vs-attrib">A principle I wrote, published at design.gs.com, February 2020</p>
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/goldman/gs-foundation-writing-guidelines.webp" width="1180" height="760" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+            <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
+          </figure>
+          <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
         </div>
 
         <div class="vs-entry">
@@ -368,20 +394,12 @@
           <h3 class="vs-client">Lincoln</h3>
           <p class="vs-part">Many hands</p>
           <p class="vs-body">Five years owning one brand's voice across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system is only real when people who have never met apply it the same way, which makes arbitration most of the job.</p>
-          <div class="vs-trio">
-            <figure>
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further.">
-              <figcaption>Lincoln.com</figcaption>
-            </figure>
-            <figure>
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/redeem-instagram.png" loading="lazy" decoding="async" alt="A dealer social post carrying the Redeem Your Dream Sweepstakes lockup over a Lincoln Navigator.">
-              <figcaption>Campaign, run by dealers</figcaption>
-            </figure>
-            <figure>
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/legacy-timeline-1.png" loading="lazy" decoding="async" alt="A Lincoln Through the Years timeline, four cards covering 1922 to 1938, each with a dated headline and a short paragraph.">
-              <figcaption>Editorial</figcaption>
-            </figure>
-          </div>
+          <p class="vs-pull">&ldquo;To a new century of you.&rdquo;</p>
+          <p class="vs-attrib">The centennial line, 2022</p>
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further, above a paragraph about materials chosen for how they feel.">
+            <figcaption>Lincoln.com. The same voice a dealer in another market had to reach on their own.</figcaption>
+          </figure>
           <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
         </div>
 
@@ -401,9 +419,20 @@
         </div>
 
         <div class="vs-entry">
-          <h3 class="vs-client">SoundCloud and Air Company</h3>
+          <h3 class="vs-client">SoundCloud</h3>
           <p class="vs-part">A blank page</p>
-          <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company's history. Air Company had a novel technology and a luxury bottle and nothing in between. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
+          <p class="vs-body">Hired as the first dedicated writer in the company's history, with no guidelines, no legacy tone, and an audience that could identify anything corporate instantly. The voice written for the SoundCloud Go launch became the voice of the company.</p>
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/soundcloud-go-welcome.webp" width="1600" height="1102" loading="lazy" decoding="async" alt="The SoundCloud Go welcome page, headed Welcome to SoundCloud Go, with a Set up offline listening section below it.">
+            <figcaption>The page a new subscriber landed on.</figcaption>
+          </figure>
+          <p class="vs-more"><a href="/work/soundcloud">The full SoundCloud case &rarr;</a></p>
+        </div>
+
+        <div class="vs-entry">
+          <h3 class="vs-client">Air Company</h3>
+          <p class="vs-part">A blank page</p>
+          <p class="vs-body">A novel carbon-capture technology, a luxury bottle, and nothing in between. I wrote the manifesto, the tagline, and the brand book, which had to explain the science without turning the product into a lecture. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
           <figure class="vs-fig">
             <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco-back-label.webp" width="1799" height="1546" loading="lazy" decoding="async" alt="The back label of an Air Co. vodka bottle, headed Batch No 07, Made by Staff, Vodka made from air, water and sun, above a paragraph beginning The bottle you're holding contains the world's most sustainable vodka.">
             <figcaption>Air Company. Two hundred words on the back of a bottle, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
@@ -479,9 +508,19 @@
         </div>
 
         <div class="vs-entry vs-entry--last">
-          <h3 class="vs-client">Under NDA</h3>
-          <p class="vs-part">Grading what comes out</p>
-          <p class="vs-body">I train and evaluate AI models on writing quality for an AI company. Writing the standard and then grading against it changes how the standard gets written. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
+          <h3 class="vs-client">Model evaluation</h3>
+          <p class="vs-part">Writing the standard, then testing it</p>
+          <p class="vs-body">I train and evaluate AI models on writing quality for an AI company, under NDA. Writing the standard and then grading against it changes how the standard gets written. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
+          <div class="vs-ba">
+            <div>
+              <p class="vs-pull vs-pull--sm">&ldquo;Too clinical.&rdquo;</p>
+              <p class="vs-attrib">A reaction</p>
+            </div>
+            <div>
+              <p class="vs-pull vs-pull--sm">&ldquo;Shifts to third person in the second sentence. Register holds at second person throughout. Rule: never change person inside one response.&rdquo;</p>
+              <p class="vs-attrib">Something an engineer can build against</p>
+            </div>
+          </div>
         </div>
 
       </div>
