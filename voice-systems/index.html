@@ -70,6 +70,76 @@
     .vs-caselink a { color:var(--amber); font-weight:500; text-decoration:none; }
     .vs-caselink a:hover { text-decoration:underline; }
 
+    /* ---------- VOICE DIAGRAM ----------
+       The base component. It was missing from this page entirely, so every
+       vd- element fell back to default black on the dark act-three ground.
+       Lifted verbatim from /ux; the dark-ground token overrides are below. */
+    .voice-diagram {
+      --vd-ink:   var(--ink);
+      --vd-dim:   #6E6862;
+      --vd-gold:  #86692C;
+      --vd-rule:  var(--rule);
+      --vd-bg:    var(--cream);
+      --vd-spec:  #EDE8DD;
+
+      --vd-serif: 'Cormorant Garamond', Georgia, serif;
+      --vd-sans:  'DM Sans', system-ui, sans-serif;
+      --vd-mono:  ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      margin: clamp(40px, 5vw, 64px) 0;
+      color: var(--vd-ink);
+      font-family: var(--vd-sans);
+      max-width: 1100px;
+    }
+    .voice-diagram * { box-sizing: border-box; }
+    .vd-grid { display: grid; grid-template-columns: 1fr; gap: 2px; border-top: 1px solid var(--vd-rule); }
+    @media (min-width: 820px) { .vd-grid { grid-template-columns: 1fr 1fr; } }
+    .vd-side { padding: 30px 0 34px; }
+    .vd-label {
+      margin: 0 0 26px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--vd-gold);
+    }
+    .vd-foot { margin: 26px 0 0; font-size: 13px; line-height: 1.55; color: var(--vd-dim); max-width: 34em; }
+    .vd-human { padding-right: 0; }
+    @media (min-width: 820px) { .vd-human { padding-right: 56px; } }
+    .vd-attr {
+      margin: 0 0 18px;
+      font-family: var(--vd-serif);
+      font-size: clamp(30px, 4.4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--vd-ink);
+    }
+    .vd-gloss { margin: 0; font-size: 16px; line-height: 1.6; color: var(--vd-ink); max-width: 26em; }
+    .vd-model { background: var(--vd-spec); padding: 30px 26px 34px; }
+    @media (min-width: 820px) { .vd-model { padding: 30px 32px 34px; } }
+    .vd-rows { margin: 0; }
+    .vd-row { display: grid; grid-template-columns: 1fr; gap: 2px 18px; padding: 11px 0; border-top: 1px solid var(--vd-rule); }
+    .vd-row:first-child { border-top: 0; padding-top: 0; }
+    @media (min-width: 560px) { .vd-row { grid-template-columns: 86px 1fr; gap: 0 18px; } }
+    .vd-key {
+      font-family: var(--vd-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--vd-gold);
+      padding-top: 2px;
+    }
+    .vd-val { font-family: var(--vd-mono); font-size: 13.5px; line-height: 1.55; color: var(--vd-ink); }
+    .vd-val em { font-style: normal; color: var(--vd-dim); }
+    .vd-row--fail .vd-key { color: var(--vd-dim); }
+    .vd-row--fail .vd-val {
+      color: var(--vd-dim);
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--vd-rule);
+    }
+
     /* ---------- METHOD PAGE: THREE ACTS, THREE GROUNDS ----------
        Light to dark down the page, tracking foundational to hardest to
        newest. Colours come from the existing palette. */
@@ -359,10 +429,6 @@
           <p class="vs-body">Embedded at the firm's headquarters across two engagements, writing the voice guidelines for a Private Wealth platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking.</p>
           <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
           <p class="vs-attrib">A principle I wrote, published at design.gs.com, February 2020</p>
-          <figure class="vs-fig">
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/goldman/gs-foundation-writing-guidelines.webp" width="1180" height="760" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
-            <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
-          </figure>
           <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
         </div>
 
@@ -396,8 +462,8 @@
           <p class="vs-body">Five years owning one brand's voice across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system is only real when people who have never met apply it the same way, which makes arbitration most of the job.</p>
           <p class="vs-pull">&ldquo;To a new century of you.&rdquo;</p>
           <p class="vs-attrib">The centennial line, 2022</p>
-          <figure class="vs-fig">
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further, above a paragraph about materials chosen for how they feel.">
+          <figure class="vs-fig vs-fig--mid">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/hybrid_vehicles.png" loading="lazy" decoding="async" alt="A Lincoln hybrid vehicles page headed The road goes further now, above a line about Lincoln hybrids offering the most dynamic and advanced performance.">
             <figcaption>Lincoln.com. The same voice a dealer in another market had to reach on their own.</figcaption>
           </figure>
           <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
@@ -422,10 +488,6 @@
           <h3 class="vs-client">SoundCloud</h3>
           <p class="vs-part">A blank page</p>
           <p class="vs-body">Hired as the first dedicated writer in the company's history, with no guidelines, no legacy tone, and an audience that could identify anything corporate instantly. The voice written for the SoundCloud Go launch became the voice of the company.</p>
-          <figure class="vs-fig">
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/soundcloud-go-welcome.webp" width="1600" height="1102" loading="lazy" decoding="async" alt="The SoundCloud Go welcome page, headed Welcome to SoundCloud Go, with a Set up offline listening section below it.">
-            <figcaption>The page a new subscriber landed on.</figcaption>
-          </figure>
           <p class="vs-more"><a href="/work/soundcloud">The full SoundCloud case &rarr;</a></p>
         </div>
 
@@ -433,7 +495,7 @@
           <h3 class="vs-client">Air Company</h3>
           <p class="vs-part">A blank page</p>
           <p class="vs-body">A novel carbon-capture technology, a luxury bottle, and nothing in between. I wrote the manifesto, the tagline, and the brand book, which had to explain the science without turning the product into a lecture. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
-          <figure class="vs-fig">
+          <figure class="vs-fig vs-fig--mid">
             <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco-back-label.webp" width="1799" height="1546" loading="lazy" decoding="async" alt="The back label of an Air Co. vodka bottle, headed Batch No 07, Made by Staff, Vodka made from air, water and sun, above a paragraph beginning The bottle you're holding contains the world's most sustainable vodka.">
             <figcaption>Air Company. Two hundred words on the back of a bottle, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
           </figure>
