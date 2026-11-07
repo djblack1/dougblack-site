@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goldman Sachs — Doug Black</title>
+  <meta name="description" content="Brand voice for Goldman Sachs Private Wealth Management and the language layer of the firm's public design system. Embedded at Goldman headquarters across two engagements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    .gs-body { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+    .gs-section { padding-top: clamp(56px, 7vw, 96px); }
+    .gs-section--last { padding-bottom: clamp(64px, 9vw, 112px); }
+    .gs-h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 3.2vw, 44px);
+      font-weight: 400; line-height: 1.15; color: var(--ink);
+      margin: 0 0 clamp(22px, 2.6vw, 32px);
+    }
+    .gs-text {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px; line-height: 1.8; color: var(--ink-light); max-width: 680px;
+    }
+    .gs-text + .gs-text { margin-top: 20px; }
+
+    .gs-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+      margin-top: clamp(36px, 4.5vw, 56px);
+    }
+    .gs-stat { padding: 28px 24px 30px; border-right: 1px solid var(--rule); }
+    .gs-stat:first-child { padding-left: 0; }
+    .gs-stat:last-child { border-right: none; padding-right: 0; }
+    .gs-stat-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 4vw, 52px); font-weight: 600; line-height: 1;
+      color: var(--ink); margin: 0 0 10px;
+    }
+    .gs-stat-label {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px;
+      line-height: 1.55; color: #6E6862; margin: 0;
+    }
+
+    .gs-fig { margin: clamp(32px, 4vw, 52px) 0 0; }
+    .gs-fig img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .gs-fig figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.6;
+      color: #6E6862; margin: 12px 0 0; max-width: 68ch;
+    }
+
+    .gs-pull {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(22px, 2.7vw, 34px); font-weight: 400; line-height: 1.4;
+      color: var(--ink); max-width: 26ch; margin: clamp(32px, 4vw, 48px) 0 12px;
+    }
+    .gs-attrib {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.08em; text-transform: uppercase; color: #6E6862; margin: 0;
+    }
+    .gs-link { font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px; margin: 24px 0 0; }
+    .gs-link a { color: var(--amber); font-weight: 500; text-decoration: none; }
+    .gs-link a:hover { text-decoration: underline; }
+
+    .gs-cta {
+      border-top: 1px solid var(--rule);
+      padding: clamp(44px, 6vw, 72px) var(--gutter);
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px;
+    }
+    .gs-cta a { color: var(--ink-light); text-decoration: none; }
+    .gs-cta a:hover { color: var(--amber); }
+    .gs-cta-sep { color: var(--rule); }
+
+    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center; }
+    #lb-overlay.open { display:flex; }
+    #lb-overlay img { max-width:94vw; max-height:94vh; object-fit:contain; }
+
+    @media (max-width: 760px) {
+      .gs-stats { grid-template-columns: 1fr; }
+      .gs-stat { border-right: none; border-top: 1px solid var(--rule); padding-left: 0; padding-right: 0; }
+      .gs-stat:first-child { border-top: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="password-gate">
+    <div class="gate-inner">
+      <div class="gate-form">
+        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
+        <button id="password-submit">→</button>
+      </div>
+      <span class="gate-error" id="gate-error">try again</span>
+      <p class="gate-hint">Some client work is under NDA. Email me and I'll send the password right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div id="site" class="hidden">
+
+    <nav>
+      <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Copywriter</a>
+      <div class="nav-links">
+        <a class="nav-link active" href="/">Work</a>
+        <a class="nav-link" href="/voice-systems">Brand Voice</a>
+        <a class="nav-link" href="/film">Film</a>
+        <a class="nav-link" href="/about">About</a>
+      </div>
+    </nav>
+
+    <div class="gs-body">
+
+      <header class="gs-section">
+        <h1 class="gs-h2" style="font-size:clamp(32px,5vw,68px);font-weight:600;line-height:1.1;letter-spacing:-0.01em;text-wrap:balance;max-width:20ch;">Goldman Sachs</h1>
+        <p class="gs-text">Brand voice for Private Wealth Management, and the language layer of the firm's public design system. Embedded at Goldman Sachs headquarters across two engagements, 2018 to 2020, through Publicis Sapient.</p>
+        <div class="gs-stats">
+          <div class="gs-stat"><p class="gs-stat-num">$10M+</p><p class="gs-stat-label">Investable assets, the client base the platform served</p></div>
+          <div class="gs-stat"><p class="gs-stat-num">~40</p><p class="gs-stat-label">Components given a language layer, across 60 pages</p></div>
+          <div class="gs-stat"><p class="gs-stat-num">Feb 2020</p><p class="gs-stat-label">The design system published publicly at design.gs.com</p></div>
+        </div>
+      </header>
+
+      <section class="gs-section">
+        <h2 class="gs-h2">The voice.</h2>
+        <p class="gs-text">I wrote the brand voice guidelines for the Private Wealth Management platform: the persona, the principles, and the terminology. The audience was Goldman's high-net-worth clients. The constraint was writing that had to satisfy Legal and compliance and still sound like a person wrote it. Those two demands pull against each other, and most platforms settle the argument by default rather than on purpose.</p>
+        <p class="gs-text">So the work came down to standards, terminology, and patterns that let the platform's teams stay on voice without a writer sitting in every review. Good lines were the easy part.</p>
+      </section>
+
+      <section class="gs-section">
+        <h2 class="gs-h2">The design system.</h2>
+        <p class="gs-text">I led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Every label, every empty state, every error message, written once and then used by teams I would never meet.</p>
+        <p class="gs-text">The test was never whether the lines were good. It was whether a product manager on a deadline, with no writer available, would make the same call I would. That meant terminology settled in advance and rules written so that whoever reads them arrives at the right line.</p>
+
+        <figure class="gs-fig">
+          <img class="zoomable" onclick="lb(this.src)" src="../images/goldman/gs-design-hero.webp" width="1800" height="872" loading="lazy" decoding="async" alt="The Goldman Sachs Design home page: the Goldman Sachs Design lockup on a blue field beside the line Building digital products that put clients first, with phone screens showing trading grids, a donut chart of total assets, and a research article.">
+          <figcaption>Goldman Sachs Design, the firm's public design system. Launched February 2020, taken offline in 2024. I wrote the copy; the design and the product screens are not mine.</figcaption>
+        </figure>
+
+        <figure class="gs-fig">
+          <img class="zoomable" onclick="lb(this.src)" src="../images/goldman/gs-foundation-writing-guidelines.webp" width="1180" height="760" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+          <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
+        </figure>
+      </section>
+
+      <section class="gs-section">
+        <h2 class="gs-h2">The principles, still readable.</h2>
+        <p class="gs-text">The system's home page was public from February 2020, and I wrote it. The design principles were published under the firm's name and are still in the Internet Archive, which makes them the one credential here a reader can check rather than take on trust. I write principles as instructions rather than aspirations, which is easy to claim and harder to show.</p>
+        <!-- Verbatim quotation of published client copy. Do not edit. -->
+        <p class="gs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear. With elegant craftsmanship, we create intuitive workflows that give users confidence in their actions.&rdquo;</p>
+        <p class="gs-attrib">Clarify complexity, one of five design principles. Goldman Sachs Design System, February 2020.</p>
+        <p class="gs-text" style="margin-top:28px;">&ldquo;Empower clients&rdquo; was another. It later became the headline of the color system page.</p>
+        <p class="gs-link"><a href="https://web.archive.org/web/20210413032934if_/https://design.gs.com/home" target="_blank" rel="noopener">Read it in the Internet Archive, April 2021 &rarr;</a></p>
+      </section>
+
+      <section class="gs-section gs-section--last">
+        <h2 class="gs-h2">The team.</h2>
+        <p class="gs-text">Hiring was part of the role. I recruited junior writers onto the team, onboarded them, and managed their daily work. I also led naming and product language on an internal analytics platform, wrote its technical documentation, and wrote the executive narrative that introduced it to firm leadership. Three very different registers for the same product, which is a useful test of whether a voice system actually holds.</p>
+      </section>
+
+    </div>
+
+    <div class="gs-cta">
+      <a href="/voice-systems">How the systems get built &rarr;</a>
+      <span class="gs-cta-sep">&middot;</span>
+      <a href="/work/lincoln">Next case study: Lincoln &rarr;</a>
+      <span class="gs-cta-sep">&middot;</span>
+      <a href="mailto:dougblack1@gmail.com">Let's talk &rarr;</a>
+    </div>
+
+    <footer>
+      <div class="footer-left">
+        <span class="footer-name">Doug Black</span>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>
+        <a href="https://linkedin.com/in/douglasblack/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/dougblack" target="_blank" rel="noopener">Instagram</a>
+        <a href="/doug-black-resume.pdf">Resume</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+  <div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
+  <script>
+    function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
+  </script>
+</body>
+</html>

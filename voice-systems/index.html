@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brand Voice — Doug Black</title>
-  <meta name="description" content="Brand voice and content design systems for Goldman Sachs, Better, Verizon, Evercore, American Express, and SoundCloud. Product writing in regulated categories.">
+  <meta name="description" content="How brand voice systems get built: persona and principles, terminology, surviving many hands, and writing rules a model can follow. Goldman Sachs, Verizon, AREA15, Lincoln, Better.com, SoundCloud, and Air Company.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -70,8 +70,74 @@
     .vs-caselink a { color:var(--amber); font-weight:500; text-decoration:none; }
     .vs-caselink a:hover { text-decoration:underline; }
 
+    /* ---------- METHOD PAGE ---------- */
+    .vs-act {
+      font-family:'DM Sans',system-ui,sans-serif;
+      font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+      color:#86692C; margin:clamp(64px,8vw,104px) 0 0;
+      padding-bottom:14px; border-bottom:1px solid var(--rule);
+    }
+    .vs-section { padding:clamp(44px,5.5vw,72px) 0 0; }
+    .vs-section--last { padding-bottom:clamp(64px,8vw,104px); }
+    .vs-method {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(26px,3.2vw,44px); font-weight:400; line-height:1.15;
+      color:var(--ink); margin:0 0 22px;
+    }
+    .vs-pull {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(21px,2.5vw,32px); font-weight:400; line-height:1.4;
+      color:var(--ink); max-width:24ch; margin:clamp(28px,3.5vw,40px) 0 10px;
+    }
+    .vs-pull--sm { font-size:clamp(18px,2vw,25px); max-width:28ch; margin-top:0; }
+    .vs-split > div .vs-pull--sm + .vs-attrib + .vs-pull--sm { margin-top:28px; }
+    .vs-attrib {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:12px;
+      letter-spacing:0.08em; text-transform:uppercase; color:#6E6862; margin:0;
+    }
+    .vs-names {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(24px,2.9vw,38px); font-weight:400; line-height:1.3;
+      color:var(--ink); max-width:24ch; margin:clamp(28px,3.5vw,40px) 0 14px;
+    }
+    .vs-figure { display:flex; align-items:baseline; gap:16px; margin:clamp(28px,3.5vw,40px) 0 0; flex-wrap:wrap; }
+    .vs-figure-num {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(40px,5.4vw,76px); font-weight:600; line-height:1; color:var(--ink);
+    }
+    .vs-figure-cap {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:13px;
+      letter-spacing:0.06em; text-transform:uppercase; color:#6E6862;
+    }
+    .vs-fig { margin:clamp(28px,3.5vw,44px) 0 0; }
+    .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; }
+    .vs-fig--narrow { max-width:420px; }
+    .vs-fig figcaption {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:13px; line-height:1.6;
+      color:#6E6862; margin:12px 0 0; max-width:62ch;
+    }
+    .vs-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:clamp(28px,3.5vw,44px) 0 0; align-items:start; }
+    .vs-trio figure { margin:0; }
+    .vs-trio img { width:100%; height:auto; display:block; border-radius:3px; }
+    .vs-trio figcaption {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:12px;
+      letter-spacing:0.06em; text-transform:uppercase; color:#6E6862; margin:10px 0 0;
+    }
+    .vs-split { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(28px,4vw,56px); align-items:start; margin:clamp(28px,3.5vw,44px) 0 0; }
+    .vs-note {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.7;
+      color:var(--ink-light); margin:22px 0 0; max-width:60ch;
+    }
+    .vs-more { font-family:'DM Sans',system-ui,sans-serif; font-size:15px; margin:22px 0 0; }
+    .vs-more a { color:var(--amber); font-weight:500; text-decoration:none; }
+    .vs-more a:hover { text-decoration:underline; }
+    @media (max-width:760px) {
+      .vs-trio { grid-template-columns:1fr; }
+      .vs-split { grid-template-columns:1fr; }
+    }
+
     /* ---------- STAT BAR ---------- */
-    .vs-stats { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .vs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     .vs-stat { padding:28px 24px 30px; border-right:1px solid var(--rule); }
     .vs-stat:last-child { border-right:none; }
     .vs-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,52px); font-weight:600; line-height:1; color:var(--ink); margin:0 0 10px; }
@@ -201,265 +267,111 @@
     </div>
 
     <div class="vs-container">
-      <!-- ============ THE CLAIM, ahead of the evidence ============ -->
-      <section class="vs-section" id="voice-systems-now">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <h2 class="vs-brand">Voice systems for machines</h2>
-            <p class="vs-oneline">AI presents the same challenges, with an audience that's both superhuman and hyper-literal.</p>
-          </div>
-          <div class="vs-content">
-            <p class="vs-body">A voice guideline written for people is not a guardrail for a model. If a voice system describes a character and trusts a writer to play it, a system built for AI has to describe the character, the stage directions, the lines a character never says, and how to tell when the performance is a flop.</p>
-            <p class="vs-body">The skill is knowing which parts of a voice can be extrapolated, and which need every word, action, and stage direction on the page.</p>
-            <p class="vs-body">For Lincoln, I built the voice guidelines into a working model as an instruction set with a growing list of guardrails, so product owners who weren't writers could draft on brand. Nothing reached the client without a writer’s eyes first.</p>
-            <p class="vs-caselink"><a href="/work/lincoln">Read the full case &rarr;</a></p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="vs-container">
       <div class="vs-stats">
         <div class="vs-stat"><p class="vs-stat-num">6</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
-        <div class="vs-stat"><p class="vs-stat-num">10+</p><p class="vs-stat-label">Years of embedded product writing</p></div>
         <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
-        <div class="vs-stat"><p class="vs-stat-num">113M</p><p class="vs-stat-label">Subscribers reached through a single vocabulary (Verizon)</p></div>
-      </div>
-    </div>
-
-    <div class="vs-jump">
-      <div class="vs-jump-inner">
-        <a href="#goldman-sachs"><i>01</i>Goldman Sachs</a><span class="vs-jump-sep">·</span>
-        <a href="#better"><i>02</i>Better</a><span class="vs-jump-sep">·</span>
-        <a href="#verizon"><i>03</i>Verizon</a><span class="vs-jump-sep">·</span>
-        <a href="#evercore"><i>04</i>Evercore</a><span class="vs-jump-sep">·</span>
-        <a href="#american-express"><i>05</i>American Express</a><span class="vs-jump-sep">·</span>
-        <a href="#soundcloud"><i>06</i>SoundCloud</a>
+        <div class="vs-stat"><p class="vs-stat-num">2</p><p class="vs-stat-label">Written at the same time as the model instruction set that runs them</p></div>
       </div>
     </div>
 
     <div class="vs-container">
-      <section class="vs-contents">
-        <p class="vs-contents-label">The six</p>
-        <div class="vs-contents-row">
-          <a href="#goldman-sachs">Goldman Sachs</a>
-          <p>Private wealth platform. Every line read by Legal.</p>
-        </div>
-        <div class="vs-contents-row">
-          <a href="#better">Better.com</a>
-          <p>Mortgage, written for people at their most anxious.</p>
-        </div>
-        <div class="vs-contents-row">
-          <a href="#verizon">Verizon Wireless</a>
-          <p>One vocabulary for 113 million subscribers.</p>
-        </div>
-        <div class="vs-contents-row">
-          <a href="#evercore">Evercore</a>
-          <p>Institutional finance, speaking to individuals for the first time.</p>
-        </div>
-        <div class="vs-contents-row">
-          <a href="#american-express">American Express</a>
-          <p>Mobile-first card messaging, tested in the flow.</p>
-        </div>
-        <div class="vs-contents-row">
-          <a href="#soundcloud">SoundCloud</a>
-          <p>No voice existed. I wrote one, and it is still running.</p>
-        </div>
-      </section>
-    </div>
 
-    <div class="vs-container">
+      <!-- ═══ ACT ONE ═══════════════════════════════════════════
+           Sections are named for parts of the method. Clients are
+           named inside them, never in a heading. ═══════════════ -->
+      <p class="vs-act">What is in one</p>
 
-      <!-- ============ 01 GOLDMAN SACHS ============ -->
-      <section class="vs-section" id="goldman-sachs">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">01</span>
-            <h2 class="vs-brand">Goldman Sachs</h2>
-            <p class="vs-oneline">A voice and content system for a platform serving clients with $10M or more in investable assets.</p>
-            <dl class="vs-meta">
-              <dt>Role</dt><dd>Copy lead and brand voice</dd>
-              <dt>Category</dt><dd>Private wealth management. Every line read by Legal and compliance.</dd>
-              <dt>Duration</dt><dd>Two engagements, 2018–2020, embedded at Goldman Sachs HQ</dd>
-            </dl>
-          </div>
-          <div class="vs-content">
-            <div class="vs-inner-stats">
-              <div><p class="vs-inner-stat-num">$10M+</p><p class="vs-inner-stat-label">Investable assets, client base</p></div>
-              <div><p class="vs-inner-stat-num">~40</p><p class="vs-inner-stat-label">Design system components given a language layer</p></div>
-              <div><p class="vs-inner-stat-num">60</p><p class="vs-inner-stat-label">Pages of public design system, launched February 2020</p></div>
-            </div>
-
-            <p class="vs-label">The engagement</p>
-            <p class="vs-body">Two separate engagements, both embedded at Goldman Sachs headquarters. I wrote the brand voice guidelines for Goldman's Private Wealth Management platform and ran the copy team that built the content system on top of them.</p>
-            <p class="vs-body">The audience was Goldman's high-net-worth clients. The constraint was writing that had to satisfy Legal and compliance and still sound like a person wrote it. Those two demands pull against each other, and most platforms settle the argument by default rather than on purpose.</p>
-            <p class="vs-body">So the work came down to standards, terminology, and patterns that let the platform's teams stay on voice without a writer sitting in every review. Good lines were the easy part.</p>
-
-            <p class="vs-label">What I owned</p>
-            <p class="vs-body">Voice architecture, tone principles, terminology, navigation and data-display standards, onboarding, alerts, and error states. I wrote the documentation that made those decisions repeatable, then handed it to teams who used it without me. Hiring was part of the role: I&nbsp;recruited junior writers onto the team, onboarded them, and managed their daily work.</p>
-
-            <p class="vs-label">The persona</p>
-            <p class="vs-body">Four tone attributes, each written as a pair: what the voice is, and the adjacent thing it must never become. The pairing is the whole trick. One adjective is not a rule, because "professional" on its own gets you a bank that sounds like a disclosure document, and nobody writing at six o'clock can tell the difference without the second half.</p>
-
-            <p class="vs-label">The principles</p>
-            <div class="vs-block"><p class="q">Written as instructions, not aspirations. "Be concise" is not a rule. A rule tells you what to cut.</p><p class="n">Principle 01</p></div>
-            <div class="vs-block"><p class="q">Each one resolvable by somebody who is not a writer. If two people read the same rule and write different lines, the rule is not finished.</p><p class="n">Principle 02</p></div>
-            <div class="vs-block"><p class="q">Specific words ruled in and out, not general tones. Terminology decisions survive a change of staff. Taste does not.</p><p class="n">Principle 03</p></div>
-
-            <p class="vs-label">Beyond the client platform</p>
-            <p class="vs-body">I led naming and product language on an internal analytics platform, wrote its technical documentation, and wrote the executive narrative that introduced it to firm leadership. Three very different registers for the same product, which is a useful test of whether a voice system actually holds.</p>
-            <p class="vs-body">I also led the copy on the language layer of Goldman's public design system: roughly 40 components across 60 pages, launched February 2020. Component language is the least glamorous writing in the building. It is also the writing that appears the most times.</p>
-          </div>
-        </div>
+      <section class="vs-section">
+        <h2 class="vs-method">The persona and the principles</h2>
+        <p class="vs-body">At Goldman Sachs Private Wealth I was embedded at the firm's headquarters across two engagements, writing the voice guidelines for a platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking. Principles written as instructions rather than aspirations.</p>
+        <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
+        <p class="vs-attrib">A principle I wrote for the Goldman Sachs design system, published at design.gs.com, February 2020.</p>
+        <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
       </section>
 
-      <!-- ============ 02 BETTER ============ -->
-      <section class="vs-section" id="better">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">02</span>
-            <h2 class="vs-brand">Better.com</h2>
-            <p class="vs-oneline">Embedded product writer across UX, brand, and product copy for a company moving one of the most anxiety-inducing processes in American life entirely online.</p>
-            <dl class="vs-meta">
-              <dt>Category</dt><dd>Consumer mortgage</dd>
-              <dt>Duration</dt><dd>2020–2021</dd>
-            </dl>
-          </div>
-          <div class="vs-content">
-            <p class="vs-label">Sample copy</p>
-            <div class="vs-block"><p class="q">"Your rate is locked. That means it won't change no matter what happens to the market while your loan is processing."</p><p class="n">Rate lock confirmation</p></div>
-            <p class="vs-label">In the flow</p>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/better-hero.webp" alt="Better.com homepage reading The right mortgage could save you thousands, with a ZIP code field and three benefit checks: 24/7 support, zero commissions and lender fees, simple online experience." width="1400" height="746" loading="lazy" decoding="async">
-              <figcaption>Homepage. The offer, three proof points, and one field.</figcaption>
-            </figure>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/better-features.webp" alt="Better.com product page headed What you need, when you need it, listing zero commissions and zero lender fees, pre-approval in as little as 3 minutes, closing up to 10 days faster than average, and 24/7 contact." width="1400" height="793" loading="lazy" decoding="async">
-              <figcaption>Four claims, each one a headline and a single sentence. In a category that answers questions with paragraphs, the brevity is the argument.</figcaption>
-            </figure>
+      <section class="vs-section">
+        <h2 class="vs-method">Terminology and nomenclature</h2>
+        <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns, for a service with 113 million subscribers. Most of a voice system is settling what things are called before anybody has to argue about it.</p>
+        <p class="vs-figure"><span class="vs-figure-num">113M</span><span class="vs-figure-cap">subscribers reading one vocabulary</span></p>
+        <!-- The three names are the real labels that shipped. Do not
+             paraphrase or re-capitalize them. -->
+        <p class="vs-names">Data hub. Data boost. Safety mode.</p>
+        <p class="vs-note">Plain words, same construction, no invented terms. A customer who learns one can predict the next, which is the only test a naming system has to pass.</p>
+        <figure class="vs-fig">
+          <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/verizon-app.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A hand holding a phone showing the MyVerizon data hub, headed You have plenty of data remaining for the month, above a dial reading 94 percent.">
+          <figcaption>&ldquo;You have plenty of data remaining for the month.&rdquo; The same fact the dial underneath it already shows, said in a sentence.</figcaption>
+        </figure>
+      </section>
 
-            <p class="vs-note">Error and delay states are the hardest copy in a mortgage flow. The customer is already anxious, the news is rarely good, and the wrong tone turns a routine wait into a reason to walk. These lines had to stay calm without lying.</p>
+      <section class="vs-section">
+        <h2 class="vs-method">One voice across many brands</h2>
+        <p class="vs-body">AREA15 is thirty-five acres and forty-plus venues off the Las Vegas Strip, each venue its own brand, all of them required to sound like one place. Sole writer, thirty pages in ten weeks, and no voice guide in existence when I arrived. It is the hardest version of the problem, because the system has to hold one tone steady while the subject changes completely every few hundred words.</p>
+        <p class="vs-more"><a href="/work/area15">The full AREA15 case &rarr;</a></p>
+      </section>
+
+      <!-- ═══ ACT TWO ═══════════════════════════════════════════ -->
+      <p class="vs-act">What it has to survive</p>
+
+      <section class="vs-section">
+        <h2 class="vs-method">Many hands</h2>
+        <p class="vs-body">I owned Lincoln's voice for five years across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system is only real when people who have never met apply it the same way, which makes arbitration most of the job.</p>
+        <div class="vs-trio">
+          <figure>
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further.">
+            <figcaption>Lincoln.com</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/redeem-instagram.png" loading="lazy" decoding="async" alt="A dealer social post carrying the Redeem Your Dream Sweepstakes lockup over a Lincoln Navigator.">
+            <figcaption>Campaign, run by dealers</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/legacy-timeline-1.png" loading="lazy" decoding="async" alt="A Lincoln Through the Years timeline, four cards covering 1922 to 1938, each with a dated headline and a short paragraph.">
+            <figcaption>Editorial</figcaption>
+          </figure>
+        </div>
+        <p class="vs-note">Three formats, three different teams, one voice. The system is what makes that sentence true rather than lucky.</p>
+        <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
+      </section>
+
+      <section class="vs-section">
+        <h2 class="vs-method">Bad news</h2>
+        <p class="vs-body">At Better.com I spent a year on onboarding, loan application flows, and the error and delay states inside a mortgage. Most voice guides specify how a brand sounds when things go well. Almost none say what happens when the news is bad, which is the only part that is actually hard.</p>
+        <div class="vs-split">
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/better-hero.png" loading="lazy" decoding="async" alt="The Better.com homepage, headed The right mortgage could save you thousands, with a ZIP code field.">
+          </figure>
+          <div>
+            <p class="vs-pull vs-pull--sm">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
+            <p class="vs-attrib">Error and delay state</p>
+            <p class="vs-pull vs-pull--sm">&ldquo;This is the part most lenders make complicated. We&rsquo;re going to make it a checklist.&rdquo;</p>
+            <p class="vs-attrib">Document upload intro</p>
           </div>
         </div>
       </section>
 
-      <!-- ============ 03 VERIZON ============ -->
-      <section class="vs-section" id="verizon">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">03</span>
-            <h2 class="vs-brand">Verizon Wireless</h2>
-            <p class="vs-oneline">A vocabulary, nomenclature standard, and copy pattern system across VerizonWireless.com and the MyVerizon app, serving 113 million subscribers.</p>
-            <dl class="vs-meta">
-              <dt>Agency</dt><dd>AKQA</dd>
-              <dt>Category</dt><dd>Telecom</dd>
-              <dt>Recognition</dt><dd>Webby Award Honoree, Mobile Sites &amp; Apps, 2017</dd>
-            </dl>
-          </div>
-          <div class="vs-content">
-            <div class="vs-inner-stats">
-              <div><p class="vs-inner-stat-num">15.6x</p><p class="vs-inner-stat-label">Mobile sales conversion, within seven months</p></div>
-              <div><p class="vs-inner-stat-num">50%+</p><p class="vs-inner-stat-label">Overall usage increase</p></div>
-              <div><p class="vs-inner-stat-num">68→85%</p><p class="vs-inner-stat-label">In-app bill payment</p></div>
-              <div><p class="vs-inner-stat-num">27%</p><p class="vs-inner-stat-label">Autopay enrollment increase</p></div>
-            </div>
-
-            <p class="vs-label">Sample copy, MyVerizon app</p>
-            <div class="vs-block"><p class="q">"You have plenty of data remaining for the month."</p><p class="n">Data hub, positive state headline</p></div>
-
-            <p class="vs-label">In the app</p>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-app-store.webp" alt="Three MyVerizon app screens with the headlines All you need to know at a glance, Change plans or upgrade to Unlimited anytime anywhere, and Your bill simplified." width="1000" height="563" loading="lazy" decoding="async">
-              <figcaption>MyVerizon app, store listing screens.</figcaption>
-            </figure>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-data-hub.webp" alt="A hand holding a phone showing the MyVerizon data hub with the headline You have plenty of data remaining for the month above a 94 percent dial." width="637" height="357" loading="lazy" decoding="async">
-              <figcaption>Data hub, positive state. The dial carries the number, so the headline only has to carry the reassurance.</figcaption>
-            </figure>
-            <figure class="vs-fig vs-fig--narrow">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-data-remaining.webp" alt="MyVerizon home screen reading You have 33% data remaining, with a supporting line reading You're good on data, 1.3 GB remaining with 21 days left." width="574" height="932" loading="lazy" decoding="async">
-              <figcaption>Same pattern, different threshold. The headline states the number, the line under it says whether the number is a problem.</figcaption>
-            </figure>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/vz-plan-spec.webp" alt="Annotated specification page titled Explore Multi-Line Plan Sizes, showing dynamic headline logic for the 4 GB, 8 GB and unlimited plan cards." width="636" height="359" loading="lazy" decoding="async">
-              <figcaption>How the dynamic headlines were specified: one pattern, populated against whatever plan the customer is already on.</figcaption>
-            </figure>
-            <p class="vs-note">A pattern is worth more than a line here. The dynamic plan headline had to work for every combination of current plan and available upgrade, which means the writing had to survive being assembled by a system rather than a person.</p>
-          </div>
-        </div>
+      <section class="vs-section">
+        <h2 class="vs-method">A blank page</h2>
+        <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company's history. Air Company had a novel technology and a luxury bottle and nothing in between. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
+        <figure class="vs-fig vs-fig--narrow">
+          <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco1.webp" width="750" height="1050" loading="lazy" decoding="async" alt="The Air Company brand book, a white cover printed with the words You're holding a bottle of the future.">
+          <figcaption>Air Company. Copy on a physical object, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
+        </figure>
       </section>
 
-      <!-- ============ 04 EVERCORE ============ -->
-      <section class="vs-section" id="evercore">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">04</span>
-            <h2 class="vs-brand">Evercore</h2>
-            <p class="vs-oneline">Brand voice, tone guidelines, and messaging framework for an institutional finance name building for individual investors for the first time.</p>
-            <dl class="vs-meta">
-              <dt>Category</dt><dd>Institutional finance</dd>
-              <dt>Duration</dt><dd>2025–2026</dd>
-            </dl>
-          </div>
-          <div class="vs-content">
-            <p class="vs-label">How the voice doc works</p>
-            <div class="vs-block"><p class="q">Every principle had to resolve a conflict rather than name a quality. The brief was two audiences in one voice, and a rule that only describes the destination leaves the writer to invent the route.</p><p class="n">Principle 01</p></div>
-            <div class="vs-block"><p class="q">Each one had to be executable by somebody outside the brand team. A rule that needs taste to apply is a preference wearing a rule's clothes.</p><p class="n">Principle 02</p></div>
-            <div class="vs-block"><p class="q">The variables had to be named. What moves by audience, what never moves, and who decides. A doc that leaves that implicit gets relitigated every quarter.</p><p class="n">Principle 03</p></div>
-          </div>
-        </div>
+      <!-- ═══ ACT THREE ═════════════════════════════════════════
+           Method only. No Lincoln or AREA15 rules, vocabulary, or
+           guardrails. The voice diagram lives on /ux only. ═════ -->
+      <p class="vs-act">Writing it for machines</p>
+
+      <section class="vs-section">
+        <h2 class="vs-method">Rules a model can follow</h2>
+        <p class="vs-body">A guideline written for a person and one written for a model are not the same document. On Lincoln the voice and style rules were built into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. Same at AREA15, where the rules and the instruction set were written at once.</p>
       </section>
 
-      <!-- ============ 05 AMERICAN EXPRESS ============ -->
-      <section class="vs-section" id="american-express">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">05</span>
-            <h2 class="vs-brand">American Express</h2>
-            <p class="vs-oneline">Mobile-first campaign and content design, with copy tested directly in the flow rather than in brand decks.</p>
-            <dl class="vs-meta">
-              <dt>Agency</dt><dd>Huge</dd>
-              <dt>Recognition</dt><dd>Silver, Best Mobile Marketing Campaign, NYC Design Awards</dd>
-            </dl>
-          </div>
-          <div class="vs-content">
-            <p class="vs-label">The principle</p>
-            <div class="vs-block"><p class="q">Every word earns its space. On a small screen, there's no room for a second draft.</p><p class="n">Working principle</p></div>
-
-            <p class="vs-label">In the flow</p>
-            <figure class="vs-fig">
-              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-homepage.webp" alt="American Express homepage with a Find Your Perfect Card panel and a Member Because testimonial module, layout grid overlaid." width="1260" height="720" loading="lazy" decoding="async">
-              <figcaption>Homepage, with the layout grid visible.</figcaption>
-            </figure>
-            <div class="vs-figgrid">
-              <figure class="vs-fig">
-                <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-cards.webp" alt="American Express personal cards browse page showing twenty cards filtered by features, partner cards and card type." width="1260" height="720" loading="lazy" decoding="async">
-                <figcaption>Card portfolio browse and compare.</figcaption>
-              </figure>
-              <figure class="vs-fig">
-                <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/voice-systems/amex-mobile.webp" alt="Three American Express mobile screens covering card detail, a Let's get started application intro and a completed basic information step." width="1260" height="720" loading="lazy" decoding="async">
-                <figcaption>Mobile application flow.</figcaption>
-              </figure>
-            </div>
-            <p class="vs-note">Card names, benefit language, and application steps all had to read consistently across a portfolio of twenty products. The copy problem was less about persuasion than about making twenty near-identical things distinguishable in a glance.</p>
-          </div>
-        </div>
+      <section class="vs-section vs-section--last">
+        <h2 class="vs-method">Grading what comes out</h2>
+        <p class="vs-body">I train and evaluate AI models on writing quality for an AI company, under NDA. Writing the standard and then grading against it changes how the standard gets written. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
       </section>
-
-      <!-- ============ 06 SOUNDCLOUD ============ -->
-      <section class="vs-section" id="soundcloud">
-        <div class="vs-band">
-          <div class="vs-rail">
-            <span class="vs-num">06</span>
-            <h2 class="vs-brand">SoundCloud</h2>
-            <p class="vs-oneline">First dedicated writer in the company's history. I built the brand voice and launched the subscription that asked 175 million free users to start paying.</p>
-          </div>
-          <div class="vs-content">
-            <p class="vs-fullcase"><a href="../work/soundcloud">Full case study →</a></p>
-          </div>
-        </div>
-      </section>
-
 
     </div>
 

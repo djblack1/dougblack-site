@@ -1,13 +1,15 @@
-/voice-systems/goldman-sachs      /voice-systems/#goldman-sachs        301
-/voice-systems/goldman-sachs/     /voice-systems/#goldman-sachs        301
-/voice-systems/better             /voice-systems/#better               301
-/voice-systems/better/            /voice-systems/#better               301
-/voice-systems/verizon            /voice-systems/#verizon              301
-/voice-systems/verizon/           /voice-systems/#verizon              301
-/voice-systems/evercore           /voice-systems/#evercore             301
-/voice-systems/evercore/          /voice-systems/#evercore             301
-/voice-systems/american-express   /voice-systems/#american-express     301
-/voice-systems/american-express/  /voice-systems/#american-express     301
+/voice-systems/goldman-sachs      /work/goldman-sachs                  301
+/voice-systems/goldman-sachs/     /work/goldman-sachs                  301
+# The per-client sections on /voice-systems/ were replaced by a method
+# page, so these anchors no longer exist. They now land on the page itself.
+/voice-systems/better             /voice-systems/                      301
+/voice-systems/better/            /voice-systems/                      301
+/voice-systems/verizon            /voice-systems/                      301
+/voice-systems/verizon/           /voice-systems/                      301
+/voice-systems/evercore           /voice-systems/                      301
+/voice-systems/evercore/          /voice-systems/                      301
+/voice-systems/american-express   /voice-systems/                      301
+/voice-systems/american-express/  /voice-systems/                      301
 # /ux is a targeted landing page Doug sends directly on content design
 # applications. It used to redirect to /voice-systems/, which meant the
 # URL on those applications never reached the page. It serves itself now.
