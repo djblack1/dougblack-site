@@ -130,6 +130,8 @@
     .vs-fig { margin:clamp(28px,3.5vw,44px) 0 0; }
     .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; }
     .vs-fig--narrow { max-width:420px; }
+    /* Capped at the capture's native width so it is never upscaled. */
+    .vs-fig--mid { max-width:700px; }
     .vs-fig figcaption {
       font-family:'DM Sans',system-ui,sans-serif; font-size:13px; line-height:1.6;
       color:#6E6862; margin:12px 0 0; max-width:62ch;
@@ -342,8 +344,13 @@
           <h3 class="vs-client">AREA15</h3>
           <p class="vs-part">One voice across many brands</p>
           <p class="vs-body">Thirty-five acres and forty-plus venues off the Las Vegas Strip, each venue its own brand, all required to sound like one place. Sole writer, thirty pages in ten weeks, no voice guide in existence on arrival. The hardest version of the problem, because the tone has to hold while the subject changes completely every few hundred words.</p>
-          <!-- PENDING: the area15.com/experiences grid, recaptured at full
-               width. No asset supplied; the reference crop is 700px. -->
+          <!-- This is the 700px reference capture, not the full-width
+               recapture the brief asked for. Held at its native width so it
+               renders sharp; swap in a larger grab and drop .vs-fig--mid. -->
+          <figure class="vs-fig vs-fig--mid">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/area15-experiences-grid.webp" width="700" height="632" loading="lazy" decoding="async" alt="Four AREA15 experience cards side by side: Eye Dropper, a psychedelic drop ride; Interstellar Arc; the John Wick Experience; and Meow Wolf's Omega Mart, each with a one-line description.">
+            <figcaption>Four venues that share nothing visually, described in one voice. Eye Dropper is a drop ride, Omega Mart is a grocery store that isn't.</figcaption>
+          </figure>
           <p class="vs-more"><a href="/work/area15">The full AREA15 case &rarr;</a></p>
         </div>
 
@@ -397,9 +404,9 @@
           <h3 class="vs-client">SoundCloud and Air Company</h3>
           <p class="vs-part">A blank page</p>
           <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company's history. Air Company had a novel technology and a luxury bottle and nothing in between. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
-          <figure class="vs-fig vs-fig--narrow">
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco1.webp" width="750" height="1050" loading="lazy" decoding="async" alt="The Air Company brand book, a white cover printed with the words You're holding a bottle of the future.">
-            <figcaption>Air Company. Copy on a physical object, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco-back-label.webp" width="1799" height="1546" loading="lazy" decoding="async" alt="The back label of an Air Co. vodka bottle, headed Batch No 07, Made by Staff, Vodka made from air, water and sun, above a paragraph beginning The bottle you're holding contains the world's most sustainable vodka.">
+            <figcaption>Air Company. Two hundred words on the back of a bottle, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
           </figure>
         </div>
 
