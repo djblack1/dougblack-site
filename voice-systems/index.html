@@ -70,27 +70,50 @@
     .vs-caselink a { color:var(--amber); font-weight:500; text-decoration:none; }
     .vs-caselink a:hover { text-decoration:underline; }
 
-    /* ---------- METHOD PAGE ---------- */
-    .vs-act {
+    /* ---------- METHOD PAGE: THREE ACTS, THREE GROUNDS ----------
+       Light to dark down the page, tracking foundational to hardest to
+       newest. Colours come from the existing palette. */
+    .vs-act { padding:clamp(56px,7vw,96px) 0 clamp(64px,8vw,104px); }
+    .vs-act--cream { background:var(--cream); }
+    .vs-act--deep  { background:#EDE8DD; }
+    .vs-act--dark  { background:var(--ink); }
+
+    .vs-act-label {
       font-family:'DM Sans',system-ui,sans-serif;
       font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
-      color:#86692C; margin:clamp(64px,8vw,104px) 0 0;
-      padding-bottom:14px; border-bottom:1px solid var(--rule);
+      color:#86692C; margin:0 0 14px;
     }
-    .vs-section { padding:clamp(44px,5.5vw,72px) 0 0; }
-    .vs-section--last { padding-bottom:clamp(64px,8vw,104px); }
-    .vs-method {
+    .vs-act-title {
       font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(26px,3.2vw,44px); font-weight:400; line-height:1.15;
-      color:var(--ink); margin:0 0 22px;
+      font-size:clamp(28px,3.6vw,50px); font-weight:400; line-height:1.12;
+      color:var(--ink); margin:0 0 16px;
     }
+    .vs-act-line {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:17px; line-height:1.7;
+      color:var(--ink-light); margin:0 0 clamp(16px,2vw,24px); max-width:56ch;
+      padding-bottom:clamp(20px,2.5vw,32px); border-bottom:1px solid var(--rule);
+    }
+
+    .vs-entry { padding:clamp(44px,5.5vw,72px) 0 0; }
+    .vs-entry--last { padding-bottom:0; }
+    .vs-client {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(30px,4vw,56px); font-weight:600; line-height:1.05;
+      letter-spacing:-0.01em; color:var(--ink); margin:0 0 10px;
+    }
+    .vs-part {
+      font-family:'DM Sans',system-ui,sans-serif;
+      font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+      color:#86692C; margin:0 0 22px;
+    }
+    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:18px; line-height:1.8; color:var(--ink-light); max-width:680px; margin:0; }
+
     .vs-pull {
       font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(21px,2.5vw,32px); font-weight:400; line-height:1.4;
       color:var(--ink); max-width:24ch; margin:clamp(28px,3.5vw,40px) 0 10px;
     }
     .vs-pull--sm { font-size:clamp(18px,2vw,25px); max-width:28ch; margin-top:0; }
-    .vs-split > div .vs-pull--sm + .vs-attrib + .vs-pull--sm { margin-top:28px; }
     .vs-attrib {
       font-family:'DM Sans',system-ui,sans-serif; font-size:12px;
       letter-spacing:0.08em; text-transform:uppercase; color:#6E6862; margin:0;
@@ -100,14 +123,9 @@
       font-size:clamp(24px,2.9vw,38px); font-weight:400; line-height:1.3;
       color:var(--ink); max-width:24ch; margin:clamp(28px,3.5vw,40px) 0 14px;
     }
-    .vs-figure { display:flex; align-items:baseline; gap:16px; margin:clamp(28px,3.5vw,40px) 0 0; flex-wrap:wrap; }
-    .vs-figure-num {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(40px,5.4vw,76px); font-weight:600; line-height:1; color:var(--ink);
-    }
-    .vs-figure-cap {
-      font-family:'DM Sans',system-ui,sans-serif; font-size:13px;
-      letter-spacing:0.06em; text-transform:uppercase; color:#6E6862;
+    .vs-note {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.7;
+      color:var(--ink-light); margin:0; max-width:60ch;
     }
     .vs-fig { margin:clamp(28px,3.5vw,44px) 0 0; }
     .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; }
@@ -123,14 +141,28 @@
       font-family:'DM Sans',system-ui,sans-serif; font-size:12px;
       letter-spacing:0.06em; text-transform:uppercase; color:#6E6862; margin:10px 0 0;
     }
-    .vs-split { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(28px,4vw,56px); align-items:start; margin:clamp(28px,3.5vw,44px) 0 0; }
-    .vs-note {
-      font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.7;
-      color:var(--ink-light); margin:22px 0 0; max-width:60ch;
-    }
+    .vs-split { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(28px,4vw,56px); align-items:center; margin:clamp(28px,3.5vw,44px) 0 0; }
     .vs-more { font-family:'DM Sans',system-ui,sans-serif; font-size:15px; margin:22px 0 0; }
     .vs-more a { color:var(--amber); font-weight:500; text-decoration:none; }
     .vs-more a:hover { text-decoration:underline; }
+
+    /* Act three inverts. The diagram was built for cream, so its two
+       ground tokens are re-pointed and its rules lightened. */
+    .vs-act--dark .vs-act-title,
+    .vs-act--dark .vs-client { color:var(--cream); }
+    .vs-act--dark .vs-act-line { color:rgba(245,242,236,0.75); border-bottom-color:rgba(245,242,236,0.18); }
+    .vs-act--dark .vs-body { color:rgba(245,242,236,0.78); }
+    .vs-act--dark .vs-act-label,
+    .vs-act--dark .vs-part { color:var(--amber-light); }
+    .vs-act--dark .voice-diagram {
+      --vd-ink:  var(--cream);
+      --vd-dim:  rgba(245,242,236,0.6);
+      --vd-gold: var(--amber-light);
+      --vd-rule: rgba(245,242,236,0.22);
+      --vd-bg:   var(--ink);
+      --vd-spec: #252220;
+    }
+
     @media (max-width:760px) {
       .vs-trio { grid-template-columns:1fr; }
       .vs-split { grid-template-columns:1fr; }
@@ -274,106 +306,179 @@
       </div>
     </div>
 
-    <div class="vs-container">
+    <!-- ═══ ACT ONE, on cream ═════════════════════════════════════
+         The client is the heading, the method is the subhead. Each
+         block: name, method label, 80 words maximum, one piece of
+         evidence, a link where a fuller telling exists. ═════════ -->
+    <section class="vs-act vs-act--cream">
+      <div class="vs-container">
+        <p class="vs-act-label">Act one</p>
+        <h2 class="vs-act-title">What's in one</h2>
+        <p class="vs-act-line">The parts every voice system has, in roughly the order they get decided.</p>
 
-      <!-- ═══ ACT ONE ═══════════════════════════════════════════
-           Sections are named for parts of the method. Clients are
-           named inside them, never in a heading. ═══════════════ -->
-      <p class="vs-act">What is in one</p>
+        <div class="vs-entry">
+          <h3 class="vs-client">Goldman Sachs</h3>
+          <p class="vs-part">The persona and the principles</p>
+          <p class="vs-body">Embedded at the firm's headquarters across two engagements, writing the voice guidelines for a Private Wealth platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking.</p>
+          <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
+          <p class="vs-attrib">A principle I wrote, published at design.gs.com, February 2020</p>
+          <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
+        </div>
 
-      <section class="vs-section">
-        <h2 class="vs-method">The persona and the principles</h2>
-        <p class="vs-body">At Goldman Sachs Private Wealth I was embedded at the firm's headquarters across two engagements, writing the voice guidelines for a platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking. Principles written as instructions rather than aspirations.</p>
-        <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
-        <p class="vs-attrib">A principle I wrote for the Goldman Sachs design system, published at design.gs.com, February 2020.</p>
-        <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
-      </section>
-
-      <section class="vs-section">
-        <h2 class="vs-method">Terminology and nomenclature</h2>
-        <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns, for a service with 113 million subscribers. Most of a voice system is settling what things are called before anybody has to argue about it.</p>
-        <p class="vs-figure"><span class="vs-figure-num">113M</span><span class="vs-figure-cap">subscribers reading one vocabulary</span></p>
-        <!-- The three names are the real labels that shipped. Do not
-             paraphrase or re-capitalize them. -->
-        <p class="vs-names">Data hub. Data boost. Safety mode.</p>
-        <p class="vs-note">Plain words, same construction, no invented terms. A customer who learns one can predict the next, which is the only test a naming system has to pass.</p>
-        <figure class="vs-fig">
-          <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/verizon-app.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A hand holding a phone showing the MyVerizon data hub, headed You have plenty of data remaining for the month, above a dial reading 94 percent.">
-          <figcaption>&ldquo;You have plenty of data remaining for the month.&rdquo; The same fact the dial underneath it already shows, said in a sentence.</figcaption>
-        </figure>
-      </section>
-
-      <section class="vs-section">
-        <h2 class="vs-method">One voice across many brands</h2>
-        <p class="vs-body">AREA15 is thirty-five acres and forty-plus venues off the Las Vegas Strip, each venue its own brand, all of them required to sound like one place. Sole writer, thirty pages in ten weeks, and no voice guide in existence when I arrived. It is the hardest version of the problem, because the system has to hold one tone steady while the subject changes completely every few hundred words.</p>
-        <p class="vs-more"><a href="/work/area15">The full AREA15 case &rarr;</a></p>
-      </section>
-
-      <!-- ═══ ACT TWO ═══════════════════════════════════════════ -->
-      <p class="vs-act">What it has to survive</p>
-
-      <section class="vs-section">
-        <h2 class="vs-method">Many hands</h2>
-        <p class="vs-body">I owned Lincoln's voice for five years across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system is only real when people who have never met apply it the same way, which makes arbitration most of the job.</p>
-        <div class="vs-trio">
-          <figure>
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further.">
-            <figcaption>Lincoln.com</figcaption>
-          </figure>
-          <figure>
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/redeem-instagram.png" loading="lazy" decoding="async" alt="A dealer social post carrying the Redeem Your Dream Sweepstakes lockup over a Lincoln Navigator.">
-            <figcaption>Campaign, run by dealers</figcaption>
-          </figure>
-          <figure>
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/legacy-timeline-1.png" loading="lazy" decoding="async" alt="A Lincoln Through the Years timeline, four cards covering 1922 to 1938, each with a dated headline and a short paragraph.">
-            <figcaption>Editorial</figcaption>
+        <div class="vs-entry">
+          <h3 class="vs-client">Verizon</h3>
+          <p class="vs-part">Terminology and nomenclature</p>
+          <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns, for a service with 113 million subscribers. Most of a voice system is settling what things are called before anybody has to argue about it.</p>
+          <!-- The three names are the real labels that shipped. Do not
+               paraphrase or re-capitalize them. -->
+          <p class="vs-names">Data hub. Data boost. Safety mode.</p>
+          <p class="vs-note">Plain words, same construction, no invented terms. A customer who learns one can predict the next, which is the only test a naming system has to pass.</p>
+          <figure class="vs-fig">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/verizon-app.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A hand holding a phone showing the MyVerizon data hub, headed You have plenty of data remaining for the month, above a dial reading 94 percent.">
           </figure>
         </div>
-        <p class="vs-note">Three formats, three different teams, one voice. The system is what makes that sentence true rather than lucky.</p>
-        <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
-      </section>
 
-      <section class="vs-section">
-        <h2 class="vs-method">Bad news</h2>
-        <p class="vs-body">At Better.com I spent a year on onboarding, loan application flows, and the error and delay states inside a mortgage. Most voice guides specify how a brand sounds when things go well. Almost none say what happens when the news is bad, which is the only part that is actually hard.</p>
-        <div class="vs-split">
-          <figure class="vs-fig">
-            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/better-hero.png" loading="lazy" decoding="async" alt="The Better.com homepage, headed The right mortgage could save you thousands, with a ZIP code field.">
-          </figure>
-          <div>
-            <p class="vs-pull vs-pull--sm">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
-            <p class="vs-attrib">Error and delay state</p>
-            <p class="vs-pull vs-pull--sm">&ldquo;This is the part most lenders make complicated. We&rsquo;re going to make it a checklist.&rdquo;</p>
-            <p class="vs-attrib">Document upload intro</p>
+        <div class="vs-entry">
+          <h3 class="vs-client">AREA15</h3>
+          <p class="vs-part">One voice across many brands</p>
+          <p class="vs-body">Thirty-five acres and forty-plus venues off the Las Vegas Strip, each venue its own brand, all required to sound like one place. Sole writer, thirty pages in ten weeks, no voice guide in existence on arrival. The hardest version of the problem, because the tone has to hold while the subject changes completely every few hundred words.</p>
+          <!-- PENDING: the area15.com/experiences grid, recaptured at full
+               width. No asset supplied; the reference crop is 700px. -->
+          <p class="vs-more"><a href="/work/area15">The full AREA15 case &rarr;</a></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ ACT TWO, on the deeper warm ground ═══════════════════ -->
+    <section class="vs-act vs-act--deep">
+      <div class="vs-container">
+        <p class="vs-act-label">Act two</p>
+        <h2 class="vs-act-title">What it has to survive</h2>
+        <p class="vs-act-line">A system is only worth having if it holds up in the conditions that break a style guide.</p>
+
+        <div class="vs-entry">
+          <h3 class="vs-client">Lincoln</h3>
+          <p class="vs-part">Many hands</p>
+          <p class="vs-body">Five years owning one brand's voice across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system is only real when people who have never met apply it the same way, which makes arbitration most of the job.</p>
+          <div class="vs-trio">
+            <figure>
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/black_label_new.png" loading="lazy" decoding="async" alt="A Lincoln Black Label page reading Curated down to the stitching. Then a little further.">
+              <figcaption>Lincoln.com</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/redeem-instagram.png" loading="lazy" decoding="async" alt="A dealer social post carrying the Redeem Your Dream Sweepstakes lockup over a Lincoln Navigator.">
+              <figcaption>Campaign, run by dealers</figcaption>
+            </figure>
+            <figure>
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/legacy-timeline-1.png" loading="lazy" decoding="async" alt="A Lincoln Through the Years timeline, four cards covering 1922 to 1938, each with a dated headline and a short paragraph.">
+              <figcaption>Editorial</figcaption>
+            </figure>
+          </div>
+          <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
+        </div>
+
+        <div class="vs-entry">
+          <h3 class="vs-client">Better.com</h3>
+          <p class="vs-part">Bad news</p>
+          <p class="vs-body">A year on onboarding, loan application flows, and the error and delay states inside a mortgage. Most voice guides specify how a brand sounds when things go well. Almost none say what happens when the news is bad, which is the only part that is actually hard.</p>
+          <div class="vs-split">
+            <figure class="vs-fig">
+              <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/better-hero.png" loading="lazy" decoding="async" alt="The Better.com homepage, headed The right mortgage could save you thousands, with a ZIP code field.">
+            </figure>
+            <div>
+              <p class="vs-pull vs-pull--sm">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
+              <p class="vs-attrib">Error and delay state</p>
+            </div>
           </div>
         </div>
-      </section>
 
-      <section class="vs-section">
-        <h2 class="vs-method">A blank page</h2>
-        <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company's history. Air Company had a novel technology and a luxury bottle and nothing in between. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
-        <figure class="vs-fig vs-fig--narrow">
-          <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco1.webp" width="750" height="1050" loading="lazy" decoding="async" alt="The Air Company brand book, a white cover printed with the words You're holding a bottle of the future.">
-          <figcaption>Air Company. Copy on a physical object, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
-        </figure>
-      </section>
+        <div class="vs-entry">
+          <h3 class="vs-client">SoundCloud and Air Company</h3>
+          <p class="vs-part">A blank page</p>
+          <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company's history. Air Company had a novel technology and a luxury bottle and nothing in between. Four times now the job has started with no process, no precedent, and nobody to ask.</p>
+          <figure class="vs-fig vs-fig--narrow">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco1.webp" width="750" height="1050" loading="lazy" decoding="async" alt="The Air Company brand book, a white cover printed with the words You're holding a bottle of the future.">
+            <figcaption>Air Company. Copy on a physical object, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
+          </figure>
+        </div>
 
-      <!-- ═══ ACT THREE ═════════════════════════════════════════
-           Method only. No Lincoln or AREA15 rules, vocabulary, or
-           guardrails. The voice diagram lives on /ux only. ═════ -->
-      <p class="vs-act">Writing it for machines</p>
+      </div>
+    </section>
 
-      <section class="vs-section">
-        <h2 class="vs-method">Rules a model can follow</h2>
-        <p class="vs-body">A guideline written for a person and one written for a model are not the same document. On Lincoln the voice and style rules were built into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first. Same at AREA15, where the rules and the instruction set were written at once.</p>
-      </section>
+    <!-- ═══ ACT THREE, on the dark ground ════════════════════════
+         Method only. No Lincoln or AREA15 rules, vocabulary, or
+         guardrails. The diagram's example rule is invented. ════ -->
+    <section class="vs-act vs-act--dark">
+      <div class="vs-container">
+        <p class="vs-act-label">Act three</p>
+        <h2 class="vs-act-title">Writing it for machines</h2>
+        <p class="vs-act-line">What changes when the thing reading the guidelines is not a person.</p>
 
-      <section class="vs-section vs-section--last">
-        <h2 class="vs-method">Grading what comes out</h2>
-        <p class="vs-body">I train and evaluate AI models on writing quality for an AI company, under NDA. Writing the standard and then grading against it changes how the standard gets written. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
-      </section>
+        <div class="vs-entry">
+          <h3 class="vs-client">Lincoln and AREA15</h3>
+          <p class="vs-part">Rules a model can follow</p>
+          <p class="vs-body">A guideline written for a person and one written for a model are not the same document. On Lincoln the voice and style rules were built into a working model as an instruction set, with a strict and growing list of guardrails, so product owners who were not writers could draft on brand. Nothing reached the client without a writer reading it first.</p>
 
-    </div>
+          <figure class="voice-diagram">
+            <div class="vd-grid">
+
+              <div class="vd-side vd-human">
+                <p class="vd-label">Written for a person</p>
+                <p class="vd-attr">Confident,<br>not arrogant.</p>
+                <p class="vd-gloss">
+                  We are self-assured without boasting. State what we know. Do not
+                  oversell.
+                </p>
+                <p class="vd-foot">
+                  Two writers read this and write two different lines. Both can defend
+                  theirs.
+                </p>
+              </div>
+
+              <div class="vd-side vd-model">
+                <p class="vd-label">Written for a model</p>
+
+                <div class="vd-rows">
+                  <div class="vd-row">
+                    <div class="vd-key">Rule</div>
+                    <div class="vd-val">State capability as fact. No superlatives, no comparison against a competitor.</div>
+                  </div>
+                  <div class="vd-row">
+                    <div class="vd-key">Boundary</div>
+                    <div class="vd-val">Never &ldquo;best&rdquo;, &ldquo;leading&rdquo;, &ldquo;unmatched&rdquo;. Never a comparison against a rival, named or implied.</div>
+                  </div>
+                  <div class="vd-row">
+                    <div class="vd-key">Pass</div>
+                    <div class="vd-val">&ldquo;Runs at 42 decibels.&rdquo;</div>
+                  </div>
+                  <div class="vd-row vd-row--fail">
+                    <div class="vd-key">Fail</div>
+                    <div class="vd-val">&ldquo;The quietest in its class.&rdquo;</div>
+                  </div>
+                  <div class="vd-row">
+                    <div class="vd-key">Why</div>
+                    <div class="vd-val"><em>The near miss makes a comparison the reader cannot check, which is the boast the attribute exists to prevent.</em></div>
+                  </div>
+                </div>
+
+                <p class="vd-foot">
+                  Same attribute. Now it can be followed, tested, and graded.
+                </p>
+              </div>
+
+            </div>
+          </figure>
+        </div>
+
+        <div class="vs-entry vs-entry--last">
+          <h3 class="vs-client">Under NDA</h3>
+          <p class="vs-part">Grading what comes out</p>
+          <p class="vs-body">I train and evaluate AI models on writing quality for an AI company. Writing the standard and then grading against it changes how the standard gets written. A rule precise enough for a model to follow exposes every place the human version was vague and got away with it.</p>
+        </div>
+
+      </div>
+    </section>
 
     <div class="vs-container">
       <div class="vs-footer-cta">
