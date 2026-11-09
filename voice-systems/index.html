@@ -153,6 +153,13 @@
       font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
       color:#86692C; margin:0 0 14px;
     }
+    /* Cormorant defaults to oldstyle figures, which rendered AREA15 as
+       AREA with subscript numerals. */
+    .vs-hero-h1, .vs-act-title, .vs-client, .vs-names, .vs-pull,
+    .vs-stat-num, .vs-figure-num {
+      font-variant-numeric: lining-nums;
+      font-feature-settings: "lnum" 1;
+    }
     .vs-act-title {
       font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(28px,3.6vw,50px); font-weight:400; line-height:1.12;
@@ -187,6 +194,15 @@
     .vs-attrib {
       font-family:'DM Sans',system-ui,sans-serif; font-size:12px;
       letter-spacing:0.08em; text-transform:uppercase; color:#6E6862; margin:0;
+    }
+    .vs-figure { display:flex; align-items:baseline; gap:16px; margin:clamp(28px,3.5vw,40px) 0 0; flex-wrap:wrap; }
+    .vs-figure-num {
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(40px,5.4vw,76px); font-weight:600; line-height:1; color:var(--ink);
+    }
+    .vs-figure-cap {
+      font-family:'DM Sans',system-ui,sans-serif; font-size:13px;
+      letter-spacing:0.06em; text-transform:uppercase; color:#6E6862;
     }
     .vs-names {
       font-family:'Cormorant Garamond',Georgia,serif;
@@ -304,9 +320,9 @@
     /* ---------- BAND CONTENT ---------- */
     .vs-label { font-family:'DM Sans',system-ui,sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:44px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
     .vs-content > .vs-label:first-child { margin-top:0; }
-    .vs-body { font-family:'DM Sans',system-ui,sans-serif; font-size:17px; line-height:1.8; color:var(--ink-light); margin:0 0 20px; max-width:62ch; }
-    .vs-body:last-child { margin-bottom:0; }
-    .vs-note { font-family:'DM Sans',system-ui,sans-serif; font-size:16px; line-height:1.75; color:var(--ink-light); margin:22px 0 0; max-width:60ch; font-style:italic; }
+    /* The old .vs-body, .vs-note and .vs-fig rules lived here and, being
+       later in the sheet, beat the method-page versions above. .vs-note
+       carried font-style:italic, which is why that paragraph was italic. */
 
     .vs-inner-stats { display:flex; flex-wrap:wrap; gap:32px; margin:0 0 8px; padding:20px 0 22px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     .vs-inner-stat-num { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(24px,3vw,34px); font-weight:600; color:var(--ink); line-height:1; margin:0 0 6px; }
@@ -317,9 +333,6 @@
     .vs-block p.q { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:clamp(17px,2vw,23px) !important; font-weight:300 !important; font-style:italic !important; color:#FFFFFF !important; line-height:1.7 !important; margin:0 !important; }
     .vs-block p.n { font-family:'DM Sans',system-ui,sans-serif !important; font-size:11px !important; letter-spacing:0.1em !important; text-transform:uppercase !important; color:var(--amber) !important; margin:12px 0 0 !important; }
 
-    /* ---------- IMAGERY ---------- */
-    .vs-fig { margin:26px 0 0; }
-    .vs-fig img { width:100%; height:auto; display:block; border-radius:3px; background:#fff; }
 
     /* Click to enlarge. Same overlay pattern as the SoundCloud case study. */
     .zoomable { cursor:zoom-in; }
@@ -393,8 +406,8 @@
           </div>
           <div class="vs-stats">
             <div class="vs-stat"><p class="vs-stat-num">6</p><p class="vs-stat-label">Voice systems, each one started from nothing</p></div>
-            <div class="vs-stat"><p class="vs-stat-num">4</p><p class="vs-stat-label">Regulated categories: wealth, mortgage, telecom, institutional finance</p></div>
-            <div class="vs-stat"><p class="vs-stat-num">2</p><p class="vs-stat-label">Written at the same time as the model instruction set that runs them</p></div>
+            <div class="vs-stat"><p class="vs-stat-num">7</p><p class="vs-stat-label">Industries, from institutional finance to live entertainment</p></div>
+            <div class="vs-stat"><p class="vs-stat-num">2</p><p class="vs-stat-label">Written twice, once for people and once for an AI model</p></div>
           </div>
         </div>
       </header>
@@ -407,13 +420,13 @@
     <section class="vs-act vs-act--cream">
       <div class="vs-container">
         <p class="vs-act-label">Act one</p>
-        <h2 class="vs-act-title">What it contains.</h2>
-        <p class="vs-act-line">No two voice systems are the same. They all contain some of the same things.</p>
+        <h2 class="vs-act-title">What goes in one.</h2>
+        <p class="vs-act-line">No two voice systems are the same. The structure always is.</p>
 
         <div class="vs-entry">
           <h3 class="vs-client">Verizon</h3>
           <p class="vs-part">Terminology and nomenclature</p>
-          <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns, for a service with 113 million subscribers.</p>
+          <p class="vs-body">At AKQA I replaced years of conflicting convention across VerizonWireless.com and the MyVerizon app with one vocabulary and one set of copy patterns.</p>
           <p class="vs-figure"><span class="vs-figure-num">113M</span><span class="vs-figure-cap">subscribers reading one vocabulary</span></p>
           <!-- The three names are the real labels that shipped. Do not
                paraphrase or re-capitalize them. -->
@@ -430,6 +443,10 @@
           <p class="vs-body">Embedded at the firm's headquarters across two engagements, writing the voice guidelines for a Private Wealth platform serving clients with $10M or more in investable assets. A voice system starts with deciding who the brand is when it talks, then turning that into rules somebody else can apply without asking.</p>
           <p class="vs-pull">&ldquo;Financial tools are rarely simple. But they can always be clear.&rdquo;</p>
           <p class="vs-attrib">A principle I wrote, published at design.gs.com, February 2020</p>
+          <figure class="vs-fig vs-fig--mid">
+            <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/goldman/gs-foundation-writing-guidelines.webp" width="1180" height="760" loading="lazy" decoding="async" alt="A Foundation page of the Goldman Sachs design system. The left sidebar lists Accessibility, Color System, Dark Mode, Design System Concepts, Elevation, Iconography, Imagery, Interaction States, Layout, Mobile, Spacing, Typography, and Writing Guidelines.">
+            <figcaption>Writing Guidelines sat in the Foundation nav, beside color, typography, and spacing.</figcaption>
+          </figure>
           <p class="vs-more"><a href="/work/goldman-sachs">The full Goldman Sachs case &rarr;</a></p>
         </div>
 
@@ -462,7 +479,7 @@
           <p class="vs-body">Five years owning one brand's voice across two offices, every agency partner, and every market, through four vehicle launches and the brand's centennial. A voice system only works when completely different people apply it the exact same way.</p>
           <figure class="vs-fig vs-fig--mid">
             <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/lincoln/hybrid_vehicles.png" loading="lazy" decoding="async" alt="A Lincoln hybrid vehicles page headed The road goes further now, above a line about Lincoln hybrids offering the most dynamic and advanced performance.">
-            <figcaption>Lincoln.com. The same voice a dealer in another market had to reach on their own.</figcaption>
+            <figcaption>Lincoln.com. A dealer in another market, working from the same guidelines, lands in the same place.</figcaption>
           </figure>
           <p class="vs-more"><a href="/work/lincoln">The full Lincoln case &rarr;</a></p>
         </div>
@@ -485,7 +502,7 @@
         <div class="vs-entry">
           <h3 class="vs-client">SoundCloud and Air Company</h3>
           <p class="vs-part">A blank page</p>
-          <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company’s history. Air Company had a novel technology, a luxury vodka, and nothing in between. Four times now I’ve built the voice from the ground up, with no brief and high stakes.</p>
+          <p class="vs-body">SoundCloud hired me as the first dedicated writer in the company’s history. Air Company had a novel technology, a luxury vodka, and nothing in between. Six times now I’ve built the voice from the ground up, with no brief and high stakes.</p>
           <figure class="vs-fig vs-fig--mid">
             <img class="zoomable" tabindex="0" onclick="lb(this.src, this.alt)" src="../images/airco/airco-back-label.webp" width="1799" height="1546" loading="lazy" decoding="async" alt="The back label of an Air Co. vodka bottle, headed Batch No 07, Made by Staff, Vodka made from air, water and sun, above a paragraph beginning The bottle you're holding contains the world's most sustainable vodka.">
             <figcaption>Air Company. Two hundred words on the back of a bottle, which is a useful test of whether a voice holds up without an interface around it.</figcaption>
@@ -547,12 +564,12 @@
                   </div>
                   <div class="vd-row">
                     <div class="vd-key">Why</div>
-                    <div class="vd-val"><em>The near miss makes a comparison the reader cannot check, which is the boast the attribute exists to prevent.</em></div>
+                    <div class="vd-val"><em>The near miss makes a comparison the reader cannot check, which is the boast the rule exists to prevent.</em></div>
                   </div>
                 </div>
 
                 <p class="vd-foot">
-                  Same attribute. Now it can be followed, tested, and graded.
+                  Same rule. Now it can be followed, tested, and graded.
                 </p>
               </div>
 
