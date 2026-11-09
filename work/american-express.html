@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>American Express — Doug Black</title>
+  <meta name="description" content="A mobile campaign for American Express built out of interviews with real cardmembers. Sole writer, with Huge. Silver Award for Best Mobile Marketing Campaign, NYC Design Awards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    .ax-body { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+    .ax-section { padding-top: clamp(56px, 7vw, 96px); }
+    .ax-section--last { padding-bottom: clamp(64px, 9vw, 112px); }
+    .ax-h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 5vw, 68px); font-weight: 600; line-height: 1.1;
+      letter-spacing: -0.01em; color: var(--ink); margin: 0 0 14px;
+      text-wrap: balance; max-width: 20ch;
+      font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1;
+    }
+    .ax-meta {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px;
+      letter-spacing: 0.04em; color: #6E6862; line-height: 1.6; margin: 0 0 clamp(28px, 3.5vw, 44px);
+    }
+    .ax-meta em { color: var(--amber); font-style: normal; }
+    .ax-claim {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3vw, 40px); font-weight: 400; line-height: 1.25;
+      color: var(--ink); margin: 0 0 26px; max-width: 24ch;
+    }
+    .ax-text {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 18px; line-height: 1.8; color: var(--ink-light); max-width: 680px; margin: 0;
+    }
+    .ax-text + .ax-text { margin-top: 20px; }
+    .ax-line {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 3.4vw, 46px); font-weight: 400; line-height: 1.3;
+      color: var(--ink); margin: clamp(36px, 4.5vw, 56px) 0 10px; max-width: 22ch;
+    }
+    .ax-line-note {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.08em; text-transform: uppercase; color: #6E6862; margin: 0;
+    }
+    .ax-fig { margin: clamp(32px, 4vw, 52px) 0 0; }
+    .ax-fig img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .ax-fig figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.6;
+      color: #6E6862; margin: 12px 0 0; max-width: 68ch;
+    }
+    .ax-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px);
+      margin: clamp(16px, 2vw, 28px) 0 0; align-items: start;
+    }
+    .ax-grid figure { margin: 0; }
+    .ax-grid img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
+    .ax-grid figcaption {
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; line-height: 1.6;
+      color: #6E6862; margin: 10px 0 0;
+    }
+    .ax-cta {
+      border-top: 1px solid var(--rule);
+      padding: clamp(44px, 6vw, 72px) var(--gutter);
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px;
+    }
+    .ax-cta a { color: var(--ink-light); text-decoration: none; }
+    .ax-cta a:hover { color: var(--amber); }
+    .ax-cta-sep { color: var(--rule); }
+
+    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center; }
+    #lb-overlay.open { display:flex; }
+    #lb-overlay img { max-width:94vw; max-height:94vh; object-fit:contain; }
+
+    @media (max-width: 760px) { .ax-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div id="password-gate">
+    <div class="gate-inner">
+      <div class="gate-form">
+        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
+        <button id="password-submit">→</button>
+      </div>
+      <span class="gate-error" id="gate-error">try again</span>
+      <p class="gate-hint">Some client work is under NDA. Email me and I'll send the password right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div id="site" class="hidden">
+
+    <nav>
+      <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Copywriter</a>
+      <div class="nav-links">
+        <a class="nav-link active" href="/">Work</a>
+        <a class="nav-link" href="/voice-systems">Brand Voice</a>
+        <a class="nav-link" href="/film">Film</a>
+        <a class="nav-link" href="/about">About</a>
+      </div>
+    </nav>
+
+    <div class="ax-body">
+
+      <header class="ax-section">
+        <h1 class="ax-h1">American Express</h1>
+        <p class="ax-meta">Mobile campaign &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em>Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
+        <p class="ax-claim">The campaign came out of the transcripts.</p>
+        <p class="ax-text">American Express sold twenty personal cards and most people could not tell three of them apart. The category answer to that is usually more aspiration. I worked from interviews with actual cardmembers instead, built the personas out of what they said rather than out of a segmentation deck, and ran the campaign on their own words. Real members, named, beside the card they carry, surfaced inside the shopping flow rather than collected on a testimonials page nobody visits.</p>
+        <p class="ax-text">Sole writer on the project. Everything had to work on a phone in 2013, which meant the campaign line and the interface label were frequently the same words.</p>
+
+        <p class="ax-line">&ldquo;Real Cardmembers. Real Reviews.&rdquo;</p>
+        <p class="ax-line-note">The campaign line</p>
+
+        <figure class="ax-fig">
+          <img class="zoomable" onclick="lb(this.src)" src="../images/amex-cardmembers.jpg" loading="lazy" decoding="async" alt="A page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits beside the card each one holds, each with the member's name.">
+          <figcaption>The members are named and the card they carry is named with them.</figcaption>
+        </figure>
+
+        <div class="ax-grid">
+          <figure>
+            <img class="zoomable" onclick="lb(this.src)" src="../images/amex-reviews.jpg" loading="lazy" decoding="async" alt="A customer service and card benefits panel carrying a cardmember quote about hotel upgrades and access to international travel agents.">
+            <figcaption>Reviews surfaced in the flow rather than collected on a separate page.</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" onclick="lb(this.src)" src="../images/amex-homepage.jpg" loading="lazy" decoding="async" alt="An American Express page with a Find Your Perfect Card panel and a row of featured offers.">
+            <figcaption>Find Your Perfect Card, the entry point to the same twenty products.</figcaption>
+          </figure>
+        </div>
+
+        <figure class="ax-fig">
+          <img class="zoomable" onclick="lb(this.src)" src="../images/amex-cards.jpg" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
+          <figcaption>The card browser. Twenty products, one set of rules for naming, ordering, and comparing them.</figcaption>
+        </figure>
+      </header>
+
+      <section class="ax-section ax-section--last">
+        <p class="ax-text">The interview method is the part that travelled. Finding the piece inside raw transcript, deciding which quote carries the argument and where it belongs, is a reporting skill rather than a copywriting one, and it is the same thing I did later on the Audi documentary and the Lincoln centennial film.</p>
+      </section>
+
+    </div>
+
+    <div class="ax-cta">
+      <a href="/ux">The content design cut of this work &rarr;</a>
+      <span class="ax-cta-sep">&middot;</span>
+      <a href="/work/fourseasons">Next case study: Four Seasons &rarr;</a>
+      <span class="ax-cta-sep">&middot;</span>
+      <a href="mailto:dougblack1@gmail.com">Let's talk &rarr;</a>
+    </div>
+
+    <footer>
+      <div class="footer-left">
+        <span class="footer-name">Doug Black</span>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>
+        <a href="https://linkedin.com/in/douglasblack/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/dougblack" target="_blank" rel="noopener">Instagram</a>
+        <a href="/doug-black-resume.pdf">Resume</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/main.js"></script>
+  <div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
+  <script>
+    function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
+  </script>
+</body>
+</html>
