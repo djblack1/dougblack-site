@@ -1,240 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pantone Connect — Doug Black</title>
-  <meta name="description" content="Three studio films, an email series, social, a microsite, and a live broadcast for the Pantone Connect launch. Scripts built from interviews rather than written lines.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <style>
-    .pt-body { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-    .pt-section { padding-top: clamp(56px, 7vw, 96px); }
-    .pt-section--last { padding-bottom: clamp(64px, 9vw, 112px); }
-    .pt-h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(32px, 5vw, 68px); font-weight: 600; line-height: 1.1;
-      letter-spacing: -0.01em; color: var(--ink); margin: 0 0 14px;
-      text-wrap: balance; max-width: 20ch;
-      font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1;
-    }
-    .pt-h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(26px, 3.2vw, 44px); font-weight: 400; line-height: 1.15;
-      color: var(--ink); margin: 0 0 clamp(22px, 2.6vw, 32px);
-    }
-    .pt-meta {
-      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px;
-      letter-spacing: 0.04em; color: #6E6862; line-height: 1.6;
-      margin: 0 0 clamp(28px, 3.5vw, 44px);
-    }
-    .pt-text {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 18px; line-height: 1.8; color: var(--ink-light); max-width: 680px; margin: 0;
-    }
-    .pt-text + .pt-text { margin-top: 20px; }
-    .pt-text a { color: var(--amber); text-decoration: none; }
-    .pt-text a:hover { text-decoration: underline; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pantone Connect &mdash; Doug Black</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="description" content="Three studio films, an email series, social, a microsite, and a live broadcast for the Pantone Connect launch. Scripts built from interviews rather than written lines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap">
+<style>
+/* Layout: doug.black case template, then three full-bleed color chapters (one per studio) that borrow the colors of Pantone's own launch cards. */
+:root {
+  --bg: #f4f2ed;
+  --fg: #1c1b19;
+  --muted: #7f7a71;
+  --rule: #dcd8ce;
+  --accent: #b08a3e;
+  --serif: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* chapter colors are content, so they stay fixed in both themes */
+  --yellow: #efd841;
+  --green: #a9b72f;
+  --blue: #8ec8ea;
+  --ink: #161513;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #151412; --fg: #ece8df; --muted: #8f8a80; --rule: #33302b; --accent: #c9a458; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #151412; --fg: #ece8df; --muted: #8f8a80; --rule: #33302b; --accent: #c9a458; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.75; }
+a { color: inherit; }
+.wrap { max-width: 1020px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+button { font: inherit; color: inherit; cursor: pointer; }
 
-    .pt-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-      margin-top: clamp(32px, 4vw, 52px);
-    }
-    .pt-stat { padding: 28px 24px 30px; border-right: 1px solid var(--rule); }
-    .pt-stat:first-child { padding-left: 0; }
-    .pt-stat:last-child { border-right: none; padding-right: 0; }
-    .pt-stat-num {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(28px, 3.6vw, 48px); font-weight: 600; line-height: 1;
-      color: var(--ink); margin: 0 0 10px;
-      font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1;
-    }
-    .pt-stat-label {
-      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px;
-      line-height: 1.55; color: #6E6862; margin: 0;
-    }
+header.nav { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+.nav .name { font-family: var(--serif); font-size: 16px; }
+.nav nav { display: flex; gap: 28px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.nav nav a { text-decoration: none; padding-bottom: 3px; }
+.nav nav a.on { color: var(--fg); border-bottom: 1px solid var(--accent); }
 
-    /* Three square social cutdowns, so they sit three up. */
-    .pt-films {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 2vw, 28px);
-      margin: clamp(32px, 4vw, 52px) 0 0; align-items: start;
-    }
-    .pt-films figure { margin: 0; }
-    .pt-films video {
-      width: 100%; height: auto; display: block;
-      border-radius: 3px; background: #000; aspect-ratio: 1 / 1;
-    }
-    .pt-films figcaption {
-      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px;
-      line-height: 1.6; color: #6E6862; margin: 12px 0 0;
-    }
+/* hero */
+.hero { padding-top: 56px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tags span { font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule); padding: 2px 8px; }
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(64px, 12vw, 132px); line-height: .92; letter-spacing: -.015em; margin: 0; }
+h1 em { font-style: italic; }
+.by { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 26px 0 4px; }
+.dek { margin: 0; font-size: 17px; font-weight: 400; max-width: 54ch; }
 
-    .pt-fig { margin: clamp(32px, 4vw, 52px) 0 0; max-width: 480px; }
-    .pt-fig img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
-    .pt-fig figcaption {
-      font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.6;
-      color: #6E6862; margin: 12px 0 0;
-    }
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
+.chip { position: relative; display: block; padding: 0; border: 0; background: none; text-align: left; min-width: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.chip:nth-child(2) { animation-delay: .1s; } .chip:nth-child(3) { animation-delay: .2s; }
+.chip img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+.chip:hover img, .chip:focus-visible img { transform: translateY(-6px); box-shadow: 0 18px 34px -16px rgba(0,0,0,.45); }
+.play { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg); }
+.play i { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--fg); color: var(--bg); transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.play svg { width: 11px; height: 11px; fill: currentColor; margin-left: 2px; }
+.chip:hover .play i, .chip:focus-visible .play i { transform: scale(1.14); }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-    .pt-role { margin: clamp(32px, 4vw, 52px) 0 0; padding: 0; list-style: none; }
-    .pt-role li {
-      display: grid; grid-template-columns: 190px 1fr; gap: 28px;
-      padding: 18px 0; border-bottom: 1px solid var(--rule);
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 16px; line-height: 1.6; color: var(--ink-light);
-    }
-    .pt-role li:first-child { border-top: 1px solid var(--rule); }
-    .pt-role .k {
-      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #6E6862; padding-top: 4px;
-    }
+/* what I did */
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 84px; border-top: 1px solid var(--rule); }
+.role { padding: 30px 28px 34px 0; min-width: 0; }
+.role + .role { padding-left: 28px; border-left: 1px solid var(--rule); }
+.role h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.6vw, 40px); line-height: 1.05; margin: 0 0 14px; }
+.role p { margin: 0; font-size: 14px; color: var(--muted); max-width: 30ch; }
 
-    .pt-cta {
-      border-top: 1px solid var(--rule);
-      padding: clamp(44px, 6vw, 72px) var(--gutter);
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
-      font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px;
-    }
-    .pt-cta a { color: var(--ink-light); text-decoration: none; }
-    .pt-cta a:hover { color: var(--amber); }
-    .pt-cta-sep { color: var(--rule); }
+h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 40px); line-height: 1.12; margin: 0 0 20px; text-wrap: balance; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 64px; padding-block: 72px 80px; }
+.cols p, .event p { margin: 0 0 18px; max-width: 60ch; }
+aside h3 { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin: 0 0 8px; }
+aside ul { list-style: none; margin: 0 0 28px; padding: 0; font-size: 14px; line-height: 1.55; }
+aside li { padding-block: 3px; }
 
-    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center; }
-    #lb-overlay.open { display:flex; }
-    #lb-overlay img { max-width:94vw; max-height:94vh; object-fit:contain; }
+/* chapters */
+.chapter { color: var(--ink); padding-block: 72px 80px; }
+.chapter.y { background: var(--yellow); } .chapter.g { background: var(--green); } .chapter.b { background: var(--blue); }
+.chead { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.chead h2 { margin: 0; font-size: clamp(40px, 6vw, 68px); line-height: 1; }
+.chead .studio { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500; }
+.chead p { margin: 14px 0 0; max-width: 46ch; font-size: 15px; }
+.watch { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; border: 0; padding: 14px 22px 14px 18px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transition: transform .25s; }
+.watch svg { width: 12px; height: 12px; fill: currentColor; }
+.watch:hover { transform: translateY(-3px); }
+.mosaic { --gap: 12px; container-type: inline-size; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); grid-auto-rows: calc((100cqw - 3 * var(--gap)) / 4); }
+.mosaic figure { margin: 0; overflow: hidden; min-width: 0; min-height: 0; background: rgba(0,0,0,.08); }
+.mosaic img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.mosaic figure:hover img { transform: scale(1.04); }
+.s22 { grid-column: span 2; grid-row: span 2; } .s21 { grid-column: span 2; } .s12 { grid-row: span 2; }
+.right .s22 { grid-column: 3 / span 2; grid-row: 1 / span 2; }
 
-    @media (max-width: 760px) {
-      .pt-stats { grid-template-columns: 1fr; }
-      .pt-stat { border-right: none; border-top: 1px solid var(--rule); padding-left: 0; padding-right: 0; }
-      .pt-stat:first-child { border-top: none; }
-      .pt-films { grid-template-columns: 1fr; }
-      .pt-role li { grid-template-columns: 1fr; gap: 6px; }
-    }
-  </style>
+/* event */
+.event { padding-block: 88px; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.split figure { margin: 0; }
+.split img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.split figcaption { margin-top: 10px; font-size: 12px; color: var(--muted); }
+
+.close { border-top: 1px solid var(--rule); padding-block: 72px; text-align: center; }
+.close p { margin: 0 auto; max-width: 40ch; font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3.4vw, 34px); line-height: 1.32; text-wrap: balance; }
+.close a { text-decoration-color: var(--accent); text-underline-offset: 5px; }
+.more { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-block: 34px; font-size: 13px; color: var(--muted); }
+.more a { text-decoration: none; }
+footer { border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-block: 28px 44px; font-size: 12px; color: var(--muted); }
+footer .name { font-family: var(--serif); font-size: 15px; color: var(--fg); }
+footer .links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer a { text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.chapter button:focus-visible { outline-color: var(--ink); }
+
+/* lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center; background: rgba(12,11,10,.92); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb.open { display: flex; animation: fade .25s both; }
+.lb figure { margin: 0; text-align: center; }
+.lb video { display: block; width: min(94vw, 88vh, 900px); height: min(94vw, 88vh, 900px); background: #000; }
+.lb figcaption { margin-top: 12px; color: #d8d3c8; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.lb .x { position: absolute; top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); width: 44px; height: 44px; border: 1px solid #5b574f; background: transparent; color: #fff; font-size: 22px; line-height: 1; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 820px) {
+  .chips { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .roles { grid-template-columns: minmax(0, 1fr); }
+  .role, .role + .role { padding: 24px 0; border-left: 0; }
+  .role + .role { border-top: 1px solid var(--rule); }
+  .cols { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .split { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: calc((100cqw - var(--gap)) / 2); }
+  .s22, .s21, .right .s22 { grid-column: span 2; grid-row: span 2; }
+  .s21 { grid-row: span 1; } .s12 { grid-row: span 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip, .lb.open { animation: none; }
+  .chip img, .play, .mosaic img, .watch { transition: none; }
+}
+
+/* Password gate. Inlined from css/style.css rather than loading that
+   sheet, whose nav, body and footer rules would override this page's
+   own layout. Values match the rest of the site. */
+#password-gate { position:fixed; inset:0; background:#1A1714; z-index:9999; display:flex; align-items:center; justify-content:center; transition:opacity .5s ease; }
+#password-gate.fade-out { opacity:0; pointer-events:none; }
+.gate-inner { display:flex; flex-direction:column; align-items:center; gap:16px; padding:0 24px; }
+.gate-form { display:flex; align-items:center; border-bottom:1px solid #444; padding-bottom:8px; gap:12px; }
+#password-input { background:none; border:none; outline:none; color:#F5F2EC; font-family:'DM Sans',system-ui,sans-serif; font-size:18px; font-weight:300; letter-spacing:.1em; width:200px; }
+#password-input::placeholder { color:#555; }
+#password-submit { background:none; border:none; cursor:pointer; color:#B8903A; font-size:20px; line-height:1; padding:0; transition:transform .2s ease; }
+#password-submit:hover { transform:translateX(4px); }
+.gate-error { font-size:16px; letter-spacing:.1em; color:#c0392b; opacity:0; transition:opacity .3s; }
+.gate-error.visible { opacity:1; }
+.gate-hint { margin-top:20px; max-width:30ch; font-size:16px; line-height:1.6; color:rgba(255,255,255,.45); text-align:center; }
+.gate-hint a { color:#B8903A; text-decoration:none; }
+#site.hidden { display:none; }
+</style>
+
 </head>
 <body>
 
-  <div id="password-gate">
-    <div class="gate-inner">
-      <div class="gate-form">
-        <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
-        <button id="password-submit">→</button>
-      </div>
-      <span class="gate-error" id="gate-error">try again</span>
-      <p class="gate-hint">Some client work is under NDA. Email me and I'll send the password right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a></p>
+<div id="password-gate">
+  <div class="gate-inner">
+    <div class="gate-form">
+      <input type="password" id="password-input" placeholder="enter password" autocomplete="off">
+      <button id="password-submit">&rarr;</button>
     </div>
+    <span class="gate-error" id="gate-error">try again</span>
+    <p class="gate-hint">Some client work is under NDA. Email me and I'll send the password right over: <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a></p>
   </div>
+</div>
 
-  <div id="site" class="hidden">
+<div id="site" class="hidden">
 
-    <nav>
-      <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Copywriter</a>
-      <div class="nav-links">
-        <a class="nav-link active" href="/">Work</a>
-        <a class="nav-link" href="/voice-systems">Brand Voice</a>
-        <a class="nav-link" href="/film">Film</a>
-        <a class="nav-link" href="/about">About</a>
+<div class="wrap">
+  <header class="nav">
+    <a class="name" href="https://doug.black/">Doug Black, Creative Director &amp; Copywriter</a>
+    <nav><a class="on" href="/">Work</a><a href="/voice-systems">Brand Voice</a><a href="/film">Film</a><a href="/about">About</a></nav>
+  </header>
+</div>
+
+<main>
+  <section class="wrap hero">
+    <div class="tags"><span>Product launch</span><span>Film</span><span>Live event</span><span>2021</span></div>
+    <h1>Pantone<br><em>Connect.</em></h1>
+    <p class="by">Pantone / With Present</p>
+    <p class="dek">Creative direction, video production, and event production for the launch of Pantone&rsquo;s color platform.</p>
+
+    <div class="chips">
+      <button class="chip" type="button" data-film="../assets/pantone/taymour" data-title="Hillary Taymour, Collina Strada" aria-label="Play the Hillary Taymour film">
+        <img src="../images/pantone/card-taymour.webp" alt="Pantone card: Hillary Taymour, Collina Strada" width="1100" height="1100">
+        <span class="play"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg></i>Play the film &middot; 0:43</span>
+      </button>
+      <button class="chip" type="button" data-film="../assets/pantone/pecina" data-title="Matt Pecina, Studio Guapo" aria-label="Play the Matt Pecina film">
+        <img src="../images/pantone/card-pecina.webp" alt="Pantone card: Matt Pecina, Studio Guapo" width="1100" height="1100">
+        <span class="play"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg></i>Play the film &middot; 0:40</span>
+      </button>
+      <button class="chip" type="button" data-film="../assets/pantone/works" data-title="Joe Perez and Haris Fazlani, W&Oslash;RKS" aria-label="Play the W&Oslash;RKS film">
+        <img src="../images/pantone/card-works.webp" alt="Pantone card: Joe Perez and Haris Fazlani, WØRKS" width="1100" height="1100">
+        <span class="play"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg></i>Play the film &middot; 0:43</span>
+      </button>
+    </div>
+
+    <div class="roles">
+      <div class="role"><h2>Creative direction</h2><p>I helped conceive the launch and wrote all three films.</p></div>
+      <div class="role"><h2>Video production</h2><p>I interviewed each studio first, then wrote the film and helped shoot it.</p></div>
+      <div class="role"><h2>Event production</h2><p>I wrote everything that happened in the live launch.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap cols">
+    <div>
+      <h2>The script was a list of questions.</h2>
+      <p>Pantone Connect puts 15,000 Pantone colors in a designer&rsquo;s phone, browser, and Adobe apps. It is a utility, and the easy way to launch a utility is to explain its features. We handed it to three working studios in New York instead: Hillary Taymour of Collina Strada, Matt Pecina of Studio Guapo, and Joe Perez and Haris Fazlani of W&Oslash;RKS.</p>
+      <p>I interviewed each of them before I wrote anything. People who are not actors sound stiff reading lines, so the scripts were open questions built from those conversations, with a short list of points every film had to reach: where the color comes from, what happens to it in the design, and how it survives production.</p>
+    </div>
+    <aside>
+      <h3>My role</h3>
+      <ul><li>Creative direction</li><li>Interviews and scripts</li><li>Video production</li><li>Live event script</li><li>Launch email, social, and microsite copy</li></ul>
+      <h3>Agency</h3>
+      <ul><li>Present</li></ul>
+      <h3>Launch</h3>
+      <ul><li>Live stream, November 16, 2021</li></ul>
+    </aside>
+  </section>
+
+  <section class="chapter y" aria-labelledby="c1">
+    <div class="wrap">
+      <div class="chead">
+        <div>
+          <span class="studio">Collina Strada</span>
+          <h2 id="c1">Hillary Taymour</h2>
+          <p>On camera, the color came from the street: a Pantone card held against a cone, an ATM, a forklift, read by the phone.</p>
+        </div>
+        <button class="watch" type="button" data-film="../assets/pantone/taymour" data-title="Hillary Taymour, Collina Strada"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg>Watch the film</button>
       </div>
-    </nav>
-
-    <div class="pt-body">
-
-      <header class="pt-section">
-        <h1 class="pt-h1">Pantone Connect</h1>
-        <p class="pt-meta">Product launch &nbsp;&middot;&nbsp; 2021 &nbsp;&middot;&nbsp; With Present<br>Films, email, social, site, and the live launch event</p>
-        <div class="pt-stats">
-          <div class="pt-stat"><p class="pt-stat-num">3</p><p class="pt-stat-label">Studio films, each scripted from an interview</p></div>
-          <div class="pt-stat"><p class="pt-stat-num">6 weeks</p><p class="pt-stat-label">From first call to live broadcast</p></div>
-          <div class="pt-stat"><p class="pt-stat-num">Nov 16, 2021</p><p class="pt-stat-label">Launch event, streamed live</p></div>
-        </div>
-      </header>
-
-      <section class="pt-section">
-        <h2 class="pt-h2">The script was a list of questions.</h2>
-        <p class="pt-text">Pantone Connect puts 15,000 Pantone colors in a designer&rsquo;s phone, browser, and Adobe apps. It is a utility, and the easy way to launch a utility is to explain its features. This launch handed it to three working studios in New York instead: Hillary Taymour of Collina Strada, Matt Pecina of Studio Guapo, and Joe Perez and Haris Fazlani of W&Oslash;RKS.</p>
-        <p class="pt-text">I interviewed each of them before I wrote anything. People who are not actors sound stiff reading lines, so the scripts were open questions built from those conversations, with a short list of points every film had to reach: where the color comes from, what happens to it in the design, and how it survives production.</p>
-
-        <div class="pt-films">
-          <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/taymour.webp" width="720" height="720">
-              <source src="../assets/pantone/taymour.mp4" type="video/mp4">
-              <a href="../assets/pantone/taymour.mp4">Download the film</a>
-            </video>
-            <figcaption>Hillary Taymour, Collina Strada.</figcaption>
-          </figure>
-          <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/pecina.webp" width="720" height="720">
-              <source src="../assets/pantone/pecina.mp4" type="video/mp4">
-              <a href="../assets/pantone/pecina.mp4">Download the film</a>
-            </video>
-            <figcaption>Matt Pecina, Studio Guapo.</figcaption>
-          </figure>
-          <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/works.webp" width="720" height="720">
-              <source src="../assets/pantone/works.mp4" type="video/mp4">
-              <a href="../assets/pantone/works.mp4">Download the film</a>
-            </video>
-            <figcaption>Joe Perez and Haris Fazlani, W&Oslash;RKS.</figcaption>
-          </figure>
-        </div>
-
-        <ul class="pt-role">
-          <li><span class="k">My role</span><span>Scripts for all three films, the launch email series, paid and organic social, the launch microsite, and the live event script</span></li>
-          <li><span class="k">Agency</span><span>Present</span></li>
-          <li><span class="k">Event</span><span>Virtual launch, November 16, 2021</span></li>
-        </ul>
-      </section>
-
-      <section class="pt-section">
-        <h2 class="pt-h2">Every film ended on a question.</h2>
-        <p class="pt-text">Viewers recorded a video question for the artist they had just watched, and the artists answered them live during the broadcast. The films were the opening of a conversation, so the scripts had to leave room for one.</p>
-        <figure class="pt-fig">
-          <img class="zoomable" onclick="lb(this.src)" src="../images/pantone/endcard.webp" width="720" height="720" loading="lazy" decoding="async" alt="The closing frame of the Collina Strada film: the Pantone wordmark above the line Join the conversation with Hillary and submit your video question in the link below.">
-          <figcaption>The closing frame of the Collina Strada film. Each film ended the same way.</figcaption>
-        </figure>
-      </section>
-
-      <section class="pt-section pt-section--last">
-        <h2 class="pt-h2">One idea, every format.</h2>
-        <p class="pt-text">The same three stages ran through everything else I wrote for the launch: the email series, the paid and organic social, the microsite, and the script for the live broadcast, including the remarks from Pantone&rsquo;s leadership.</p>
-        <p class="pt-text">This is the method I used on <a href="/work/american-express">American Express</a> eight years earlier: start with what real people say about the product, and build the campaign out of that. A credit card and a color tool have nothing else in common.</p>
-      </section>
-
+      <div class="mosaic">
+        <figure class="s22"><img src="../images/pantone/t-atm.webp" alt="Hillary Taymour crouched beside a graffitied ATM, holding a Pantone color card against it"></figure>
+        <figure><img src="../images/pantone/t-cone.webp" alt="Taymour scanning a Pantone card on a traffic cone with her phone"></figure>
+        <figure><img src="../images/pantone/t-forklift.webp" alt="A Pantone card held against a yellow forklift"></figure>
+        <figure class="s21"><img src="../images/pantone/t-cotton.webp" alt="Silk fabric beside a Pantone Cotton Chip Set binder"></figure>
+      </div>
     </div>
+  </section>
 
-    <div class="pt-cta">
-      <a href="/work/american-express">The same method, eight years earlier &rarr;</a>
-      <span class="pt-cta-sep">&middot;</span>
-      <a href="/film">More film and video &rarr;</a>
-      <span class="pt-cta-sep">&middot;</span>
-      <a href="mailto:dougblack1@gmail.com">Let's talk &rarr;</a>
+  <section class="chapter g" aria-labelledby="c2">
+    <div class="wrap">
+      <div class="chead">
+        <div>
+          <span class="studio">Studio Guapo</span>
+          <h2 id="c2">Matt Pecina</h2>
+          <p>Color pulled from torn posters, spray paint, and the stools his studio builds.</p>
+        </div>
+        <button class="watch" type="button" data-film="../assets/pantone/pecina" data-title="Matt Pecina, Studio Guapo"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg>Watch the film</button>
+      </div>
+      <div class="mosaic">
+        <figure class="s22"><img src="../images/pantone/p-phone.webp" alt="Matt Pecina scanning a Pantone card stuck to a collaged stool"></figure>
+        <figure class="s12"><img src="../images/pantone/p-hands.webp" alt="Hands holding a Pantone card against peeling blue and green paint"></figure>
+        <figure class="s12"><img src="../images/pantone/p-street.webp" alt="Matt Pecina pulling down a shop shutter on a Manhattan street"></figure>
+      </div>
     </div>
+  </section>
 
+  <section class="chapter b right" aria-labelledby="c3">
+    <div class="wrap">
+      <div class="chead">
+        <div>
+          <span class="studio">W&Oslash;RKS</span>
+          <h2 id="c3">Joe Perez and Haris Fazlani</h2>
+          <p>Color from record covers, film stills, tour merch, and a table of Pantone binders.</p>
+        </div>
+        <button class="watch" type="button" data-film="../assets/pantone/works" data-title="Joe Perez and Haris Fazlani, W&Oslash;RKS"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 0l10 6-10 6z"/></svg>Watch the film</button>
+      </div>
+      <div class="mosaic">
+        <figure class="s22"><img src="../images/pantone/w-table.webp" alt="Joe Perez and Haris Fazlani at a table of Pantone binders, books, and printed references"></figure>
+        <figure><img src="../images/pantone/w-bridge.webp" alt="A Pantone Color Bridge guide and swatch fan beside printed film stills"></figure>
+        <figure><img src="../images/pantone/w-tote.webp" alt="A hand-painted tote with a skull and roses"></figure>
+        <figure class="s21"><img src="../images/pantone/w-bag.webp" alt="Vacuum-sealed camouflage merch on a white shelf"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap event">
+    <div class="split">
+      <figure>
+        <img src="../images/pantone/endcard.webp" alt="Orange closing card: Join the conversation with Hillary and submit your video question in the link below." width="720" height="720">
+        <figcaption>The last frame of every film.</figcaption>
+      </figure>
+      <div>
+        <h2>Every film ended on a question.</h2>
+        <p>It was November 2021, so the launch was a live stream. Viewers recorded a video question for the artist they had just watched, and the artists answered them on air.</p>
+        <p>I wrote everything that happened in the broadcast, including the remarks from Pantone&rsquo;s leadership. The same three stages ran through the launch emails, the paid and organic social, and the microsite, so the whole launch said one thing in every format.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap close">
+    <!-- href is a placeholder: point it at the American Express case on WORK -->
+    <p>This is the method I used on <a href="/work/american-express">American Express</a> eight years earlier: start with what real people say about the product, and build the campaign out of that. A credit card and a color tool have nothing else in common.</p>
+  </section>
+
+  <div class="wrap">
+    <div class="more"><a href="/work/american-express">The same method, eight years earlier &rarr;</a><a href="/film">More film and video &rarr;</a><a href="mailto:dougblack1@gmail.com">Let&rsquo;s talk &rarr;</a></div>
     <footer>
-      <div class="footer-left">
-        <span class="footer-name">Doug Black</span>
-      </div>
-      <div class="footer-right">
-        <a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a>
-        <a href="https://linkedin.com/in/douglasblack/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://instagram.com/dougblack" target="_blank" rel="noopener">Instagram</a>
-        <a href="/doug-black-resume.pdf">Resume</a>
-      </div>
+      <span class="name">Doug Black</span>
+      <span class="links"><a href="mailto:dougblack1@gmail.com">dougblack1@gmail.com</a><a href="https://linkedin.com/in/douglasblack/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/dougblack" target="_blank" rel="noopener">Instagram</a><a href="/doug-black-resume.pdf">Resume</a></span>
     </footer>
-
   </div>
+</main>
 
-  <script src="../js/main.js"></script>
-  <div id="lb-overlay" onclick="this.classList.remove('open')"><img id="lb-img" src="" alt=""></div>
-  <script>
-    function lb(src){document.getElementById('lb-img').src=src;document.getElementById('lb-overlay').classList.add('open');}
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb-overlay').classList.remove('open');});
-  </script>
+</div><!-- /#site -->
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Film player" hidden>
+  <button class="x" type="button" id="lbx" aria-label="Close film">&times;</button>
+  <figure>
+    <video id="lbv" controls playsinline preload="none"></video>
+    <figcaption id="lbc"></figcaption>
+  </figure>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+(function () {
+  var lb = document.getElementById('lb'), v = document.getElementById('lbv'), cap = document.getElementById('lbc'), last = null;
+  function open(btn) {
+    last = btn;
+    v.src = btn.getAttribute('data-film') + '.mp4';
+    cap.textContent = btn.getAttribute('data-title');
+    lb.hidden = false; lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    document.getElementById('lbx').focus();
+  }
+  function close() {
+    v.pause(); v.removeAttribute('src'); v.load();
+    lb.classList.remove('open'); lb.hidden = true;
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  document.querySelectorAll('[data-film]').forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+  document.getElementById('lbx').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+})();
+</script>
+
 </body>
 </html>
