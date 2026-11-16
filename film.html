@@ -80,7 +80,27 @@
        rather than in the 16:9 embed frame the other projects use. */
     .fl-squares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0; align-items: start; }
     .fl-squares figure { margin: 0; }
-    .fl-squares video { width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; border-radius: 4px; background: #1A1714; }
+    /* Each square is a button. Pressing it opens the film large, rather
+       than playing a 720px clip inside a third of a column. */
+    .fl-play { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+    .fl-play img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 4px; }
+    .fl-play-badge {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 34px; line-height: 1;
+      background: rgba(26,23,20,0.28); border-radius: 4px;
+      transition: background .2s ease;
+    }
+    .fl-play:hover .fl-play-badge, .fl-play:focus-visible .fl-play-badge { background: rgba(26,23,20,0.12); }
+
+    #fl-lb { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; }
+    #fl-lb.open { display: flex; }
+    #fl-lb figure { margin: 0; max-width: min(92vw, 900px); }
+    #fl-lb video { width: 100%; height: auto; max-height: 82vh; display: block; background: #000; border-radius: 4px; }
+    #fl-lb figcaption { font-family: var(--font-body); font-size: 13px; color: rgba(245,242,236,0.6); margin: 12px 0 0; }
+    #fl-lb .fl-lb-x {
+      position: absolute; top: 20px; right: 24px; background: none; border: 0;
+      color: rgba(245,242,236,0.75); font-size: 30px; line-height: 1; cursor: pointer; padding: 6px;
+    }
     @media (max-width: 760px) { .fl-squares { grid-template-columns: 1fr; } }
     .fl-embed-label { display: block; font-family: var(--font-body); font-size: 12px; color: var(--ink-faint); margin: 10px 0 0; }
     .fl-project .case-leadership { margin-top: 36px; }
@@ -262,39 +282,39 @@
       <section class="fl-project" id="pantone">
         <span class="fl-num">05</span>
         <h2 class="fl-name">Pantone Connect</h2>
-        <p class="fl-desc">Three studio films for the launch of Pantone&rsquo;s color platform, each one scripted from an interview rather than written as lines to read.</p>
+        <p class="fl-desc">Three studio films for the launch of Pantone&rsquo;s color platform, each one scripted from a free-flowing interview rather than written as lines to read.</p>
 
         <div class="fl-squares">
           <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/card-taymour.webp" width="720" height="720">
-              <source src="../assets/pantone/taymour.mp4" type="video/mp4">
-              <a href="../assets/pantone/taymour.mp4">Download the film</a>
-            </video>
+            <button class="fl-play" type="button" data-film="../assets/pantone/taymour.mp4" data-title="Hillary Taymour, Collina Strada." aria-label="Play the film: Hillary Taymour, Collina Strada.">
+              <img src="../images/pantone/card-taymour.webp" width="720" height="720" loading="lazy" decoding="async" alt="Pantone launch card for Hillary Taymour, Collina Strada">
+              <span class="fl-play-badge" aria-hidden="true">&#9654;</span>
+            </button>
             <span class="fl-embed-label">Hillary Taymour, Collina Strada.</span>
           </figure>
           <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/card-pecina.webp" width="720" height="720">
-              <source src="../assets/pantone/pecina.mp4" type="video/mp4">
-              <a href="../assets/pantone/pecina.mp4">Download the film</a>
-            </video>
+            <button class="fl-play" type="button" data-film="../assets/pantone/pecina.mp4" data-title="Matt Pecina, Studio Guapo." aria-label="Play the film: Matt Pecina, Studio Guapo.">
+              <img src="../images/pantone/card-pecina.webp" width="720" height="720" loading="lazy" decoding="async" alt="Pantone launch card for Matt Pecina, Studio Guapo">
+              <span class="fl-play-badge" aria-hidden="true">&#9654;</span>
+            </button>
             <span class="fl-embed-label">Matt Pecina, Studio Guapo.</span>
           </figure>
           <figure>
-            <video controls preload="none" playsinline poster="../images/pantone/card-works.webp" width="720" height="720">
-              <source src="../assets/pantone/works.mp4" type="video/mp4">
-              <a href="../assets/pantone/works.mp4">Download the film</a>
-            </video>
+            <button class="fl-play" type="button" data-film="../assets/pantone/works.mp4" data-title="Joe Perez and Haris Fazlani, W&Oslash;RKS." aria-label="Play the film: Joe Perez and Haris Fazlani, W&Oslash;RKS.">
+              <img src="../images/pantone/card-works.webp" width="720" height="720" loading="lazy" decoding="async" alt="Pantone launch card for Joe Perez and Haris Fazlani, WØRKS">
+              <span class="fl-play-badge" aria-hidden="true">&#9654;</span>
+            </button>
             <span class="fl-embed-label">Joe Perez and Haris Fazlani, W&Oslash;RKS.</span>
           </figure>
         </div>
 
         <ul class="case-leadership">
-          <li><span class="k">Role</span><span>Creative direction, interviews and scripts, live event script</span></li>
+          <li><span class="k">Role</span><span>Creative direction, interviews, and scripts, live event script</span></li>
           <li><span class="k">Agency</span><span>Present</span></li>
           <li><span class="k">Format</span><span>Social cutdowns, from a live launch broadcast</span></li>
         </ul>
 
-        <p class="fl-body">Pantone Connect is a utility, and the easy way to launch a utility is to explain its features. We handed it to three working studios in New York instead. I interviewed each of them before writing anything, because people who are not actors sound stiff reading lines, so the scripts were open questions built from those conversations. Every film had to reach the same three points: where the color comes from, what happens to it in the design, and how it survives production.</p>
+        <p class="fl-body">Rather than just detailing the features of Pantone Connect, we put it in the hands of working artists instead. I interviewed each of them in their studio, so the scripts were open questions built from those conversations. Every film had to reach the same three points: where the color comes from, what happens to it in the design, and how it survives production.</p>
         <p class="fl-body">These are the forty-second social cutdowns. Each one ends on an invitation to record a question for the artist, which they answered live on the broadcast.</p>
 
         <p class="fl-link"><a href="/work/pantone-connect">Full case study &rarr;</a></p>
@@ -314,6 +334,43 @@
     </footer>
 
   </div>
+  <div id="fl-lb" role="dialog" aria-modal="true" aria-label="Film player">
+    <button class="fl-lb-x" type="button" id="fl-lb-x" aria-label="Close film">&times;</button>
+    <figure>
+      <video id="fl-lb-v" controls playsinline preload="none"></video>
+      <figcaption id="fl-lb-c"></figcaption>
+    </figure>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+  (function () {
+    var lb = document.getElementById('fl-lb'), v = document.getElementById('fl-lb-v'),
+        cap = document.getElementById('fl-lb-c'), x = document.getElementById('fl-lb-x'), last = null;
+    function open(btn) {
+      last = btn;
+      v.src = btn.getAttribute('data-film');
+      cap.textContent = btn.getAttribute('data-title');
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+      x.focus();
+    }
+    function close() {
+      v.pause(); v.removeAttribute('src'); v.load();
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      if (last) last.focus();
+    }
+    document.querySelectorAll('.fl-play').forEach(function (b) {
+      b.addEventListener('click', function () { open(b); });
+    });
+    x.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('open')) close();
+    });
+  })();
+  </script>
 </body>
 </html>
