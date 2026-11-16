@@ -76,6 +76,12 @@
     .fl-embeds { margin: 0; max-width: 860px; display: grid; gap: 16px; }
     .fl-embed { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; background: #1A1714; }
     .fl-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    /* The Pantone films are square social cutdowns, so they run three up
+       rather than in the 16:9 embed frame the other projects use. */
+    .fl-squares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0; align-items: start; }
+    .fl-squares figure { margin: 0; }
+    .fl-squares video { width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; border-radius: 4px; background: #1A1714; }
+    @media (max-width: 760px) { .fl-squares { grid-template-columns: 1fr; } }
     .fl-embed-label { display: block; font-family: var(--font-body); font-size: 12px; color: var(--ink-faint); margin: 10px 0 0; }
     .fl-project .case-leadership { margin-top: 36px; }
     .fl-note { max-width: 760px; margin-top: 32px; }
@@ -123,9 +129,10 @@
     <div class="fl-jump">
       <div class="fl-jump-inner">
         <a href="#audi"><i>01</i>Audi</a><span class="fl-jump-sep">·</span>
-        <a href="#soundcloud-go"><i>02</i>SoundCloud Go</a><span class="fl-jump-sep">·</span>
-        <a href="#google-for-work"><i>03</i>Google for Work</a><span class="fl-jump-sep">·</span>
-        <a href="#adorned"><i>04</i>Intel and Milk</a>
+        <a href="#google-for-work"><i>02</i>Google for Work</a><span class="fl-jump-sep">·</span>
+        <a href="#soundcloud-go"><i>03</i>SoundCloud Go</a><span class="fl-jump-sep">·</span>
+        <a href="#adorned"><i>04</i>Intel and Milk</a><span class="fl-jump-sep">·</span>
+        <a href="#pantone"><i>05</i>Pantone Connect</a>
       </div>
     </div>
 
@@ -159,9 +166,33 @@
         <p class="fl-link"><a href="/work/audi">Full case study →</a></p>
       </section>
 
-      <!-- ============ 02 SOUNDCLOUD ============ -->
-      <section class="fl-project" id="soundcloud-go">
+      <!-- ============ 02 GOOGLE FOR WORK ============ -->
+      <section class="fl-project" id="google-for-work">
         <span class="fl-num">02</span>
+        <h2 class="fl-name">Google for Work</h2>
+        <p class="fl-desc">Concept and scripts for digital spots connecting IT professionals to the people they support.</p>
+
+        <div class="fl-embeds">
+          <div>
+            <div class="fl-embed">
+              <iframe src="https://player.vimeo.com/video/180543306" title="Google for Work, Android: Choice, Foundation and Impact" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <span class="fl-embed-label">Android for Work: Choice, Foundation, and Impact.</span>
+          </div>
+        </div>
+
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Concept, script</span></li>
+          <li><span class="k">Agency</span><span>Stink Studios</span></li>
+          <li><span class="k">Format</span><span>Digital spots, B2B</span></li>
+        </ul>
+
+        <p class="fl-body">B2B technology advertising usually addresses the buyer and forgets the user. The idea here was to invert it: build each spot around someone doing physical, industrious work, and let the Android device sit at the center of it without becoming the subject. The audience was IT professionals, and the argument was about the people they serve.</p>
+      </section>
+
+      <!-- ============ 03 SOUNDCLOUD ============ -->
+      <section class="fl-project" id="soundcloud-go">
+        <span class="fl-num">03</span>
         <h2 class="fl-name">SoundCloud Go</h2>
         <p class="fl-desc">Launch films, social, and campaign copy for SoundCloud's first subscription.</p>
 
@@ -189,30 +220,6 @@
         </div>
 
         <p class="fl-link"><a href="/work/soundcloud">Full case study →</a></p>
-      </section>
-
-      <!-- ============ 03 GOOGLE FOR WORK ============ -->
-      <section class="fl-project" id="google-for-work">
-        <span class="fl-num">03</span>
-        <h2 class="fl-name">Google for Work</h2>
-        <p class="fl-desc">Concept and scripts for digital spots connecting IT professionals to the people they support.</p>
-
-        <div class="fl-embeds">
-          <div>
-            <div class="fl-embed">
-              <iframe src="https://player.vimeo.com/video/180543306" title="Google for Work, Android: Choice, Foundation and Impact" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <span class="fl-embed-label">Android for Work: Choice, Foundation, and Impact.</span>
-          </div>
-        </div>
-
-        <ul class="case-leadership">
-          <li><span class="k">Role</span><span>Concept, script</span></li>
-          <li><span class="k">Agency</span><span>Stink Studios</span></li>
-          <li><span class="k">Format</span><span>Digital spots, B2B</span></li>
-        </ul>
-
-        <p class="fl-body">B2B technology advertising usually addresses the buyer and forgets the user. The idea here was to invert it: build each spot around someone doing physical, industrious work, and let the Android device sit at the center of it without becoming the subject. The audience was IT professionals, and the argument was about the people they serve.</p>
       </section>
 
       <!-- ============ 04 INTEL / MILK STUDIOS ============ -->
@@ -249,6 +256,48 @@
         </ul>
 
         <p class="fl-body">Intel and Milk built MUZSE around the point where technology meets fashion, and these films had to work in a gallery rather than a feed. No scroll, no skip, an audience standing still and choosing to watch. That changes what a script can do. It can be slower, and it has to be worth the standing.</p>
+      </section>
+
+      <!-- ============ 05 PANTONE CONNECT ============ -->
+      <section class="fl-project" id="pantone">
+        <span class="fl-num">05</span>
+        <h2 class="fl-name">Pantone Connect</h2>
+        <p class="fl-desc">Three studio films for the launch of Pantone&rsquo;s color platform, each one scripted from an interview rather than written as lines to read.</p>
+
+        <div class="fl-squares">
+          <figure>
+            <video controls preload="none" playsinline poster="../images/pantone/card-taymour.webp" width="720" height="720">
+              <source src="../assets/pantone/taymour.mp4" type="video/mp4">
+              <a href="../assets/pantone/taymour.mp4">Download the film</a>
+            </video>
+            <span class="fl-embed-label">Hillary Taymour, Collina Strada.</span>
+          </figure>
+          <figure>
+            <video controls preload="none" playsinline poster="../images/pantone/card-pecina.webp" width="720" height="720">
+              <source src="../assets/pantone/pecina.mp4" type="video/mp4">
+              <a href="../assets/pantone/pecina.mp4">Download the film</a>
+            </video>
+            <span class="fl-embed-label">Matt Pecina, Studio Guapo.</span>
+          </figure>
+          <figure>
+            <video controls preload="none" playsinline poster="../images/pantone/card-works.webp" width="720" height="720">
+              <source src="../assets/pantone/works.mp4" type="video/mp4">
+              <a href="../assets/pantone/works.mp4">Download the film</a>
+            </video>
+            <span class="fl-embed-label">Joe Perez and Haris Fazlani, W&Oslash;RKS.</span>
+          </figure>
+        </div>
+
+        <ul class="case-leadership">
+          <li><span class="k">Role</span><span>Creative direction, interviews and scripts, live event script</span></li>
+          <li><span class="k">Agency</span><span>Present</span></li>
+          <li><span class="k">Format</span><span>Social cutdowns, from a live launch broadcast</span></li>
+        </ul>
+
+        <p class="fl-body">Pantone Connect is a utility, and the easy way to launch a utility is to explain its features. We handed it to three working studios in New York instead. I interviewed each of them before writing anything, because people who are not actors sound stiff reading lines, so the scripts were open questions built from those conversations. Every film had to reach the same three points: where the color comes from, what happens to it in the design, and how it survives production.</p>
+        <p class="fl-body">These are the forty-second social cutdowns. Each one ends on an invitation to record a question for the artist, which they answered live on the broadcast.</p>
+
+        <p class="fl-link"><a href="/work/pantone-connect">Full case study &rarr;</a></p>
       </section>
     </div>
 
