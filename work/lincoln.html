@@ -259,6 +259,7 @@
       margin: clamp(28px, 3.5vw, 44px) 0 0;
     }
     .lc-artifact-row img { width: 100%; height: auto; display: block; border-radius: 3px; }
+    .lc-artifact-row--even img { height: auto; aspect-ratio: 29 / 50; object-fit: cover; object-position: top; }
     .lc-pull {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(22px, 2.8vw, 34px);
@@ -672,7 +673,7 @@
         <!-- The three files are named redeemthedream*.png but carry 100 Faces
              alt text, so they are shown as one row for both campaigns rather
              than split between them on a guess. -->
-        <div class="lc-artifact-row">
+        <div class="lc-artifact-row lc-artifact-row--even">
           <img src="../images/lincoln/redeemthedream1.png" alt="Redeem Your Dream and 100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
           <img src="../images/lincoln/redeemthedream2.png" alt="Redeem Your Dream and 100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
           <img src="../images/lincoln/redeemthedream3.png" alt="Redeem Your Dream and 100 Faces of Lincoln" class="zoomable" onclick="lb(this.src)">
