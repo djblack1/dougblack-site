@@ -586,6 +586,38 @@
       .ux-proof-cell { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
       .ux-proof-cell:first-child { border-top: none; }
     }
+  
+    /* ── CONSUMER PROBLEMS INDEX ── */
+    .ux-problems { list-style: none; margin: clamp(28px, 3.5vw, 40px) 0 0; padding: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(32px, 4.5vw, 72px); }
+    .ux-problems li { border-top: 1px solid var(--rule); }
+    .ux-problems a { display: block; padding: 20px 0 24px; text-decoration: none; }
+    .ux-problems-q { display: block; font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(20px, 2.2vw, 27px); line-height: 1.3; color: var(--ink); }
+    .ux-problems-c { display: block; margin-top: 8px; font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; color: #86692C; }
+    .ux-problems a:hover .ux-problems-q { text-decoration: underline; text-underline-offset: 4px; }
+    @media (max-width: 760px) { .ux-problems { grid-template-columns: 1fr; } }
+    #soundcloud, #better, #verizon, #amex { scroll-margin-top: 24px; }
+
+    /* ── FLOW ROWS: one stage per column, in journey order ── */
+    .ux-flow { list-style: none; margin: clamp(36px, 4.5vw, 56px) 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 44px); }
+    .ux-flow li { border-top: 1px solid var(--rule); padding-top: 18px; }
+    .ux-flow-step { display: block; margin-bottom: 14px; font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; color: #86692C; }
+    .ux-flow-line { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(19px, 2vw, 24px);
+      line-height: 1.45; color: var(--ink); margin: 0 0 12px; }
+    .ux-flow-why { font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.6;
+      color: #6E6862; margin: 0; }
+    @media (max-width: 860px) { .ux-flow { grid-template-columns: 1fr; } }
+    .ux-stage { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #86692C; margin-right: 6px; }
+
+    /* ── GROUP LABEL between consumer work and professional systems ── */
+    .ux-group-label { margin: 0; padding: clamp(56px, 7vw, 96px) 0 0; border-top: 1px solid var(--rule);
+      font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.10em;
+      text-transform: uppercase; color: #6E6862; }
+    .ux-group-label + .ux-case { border-top: none; padding-top: clamp(28px, 3.5vw, 40px); }
   </style>
 </head>
 <body>
@@ -606,7 +638,7 @@
   <div id="site" class="hidden">
 
     <nav>
-      <a href="https://doug.black/" class="nav-name">Doug Black, Creative Director &amp; Copywriter</a>
+      <a href="https://doug.black/" class="nav-name">Doug Black, Content Design and UX Writing</a>
       <div class="nav-links">
         <a class="nav-link" href="/">Work</a>
         <a class="nav-link" href="/voice-systems">Brand Voice</a>
@@ -621,7 +653,7 @@
       <div class="ux-hero-grid">
         <div>
           <h1 class="ux-hero-h1">Content design and UX writing.</h1>
-          <p class="ux-hero-sub">The work I'm proudest of lives at the product level: the UX journeys for SoundCloud, Verizon, Better.com, American Express, and Goldman Sachs. It’s a different craft than a campaign headline, and the goal is simpler. The writing exists to help someone finish what they came to do. More recently, that means writing the rules a model follows when it does the writing instead.</p>
+          <p class="ux-hero-sub">The work I&rsquo;m proudest of lives inside the product. People came to SoundCloud, Verizon, Better.com, and American Express to get something done, and my job was the words between arriving and finishing: the first screen, the decision, the form, the error, the confirmation, the email after. More recently, that means writing the rules a model follows when it writes those words itself.</p>
         </div>
         <div class="ux-proof">
           <div class="ux-proof-cell">
@@ -633,8 +665,8 @@
             <span class="ux-proof-label">Subscribers managing their own accounts, Verizon</span>
           </div>
           <div class="ux-proof-cell">
-            <span class="ux-proof-number">~40</span>
-            <span class="ux-proof-label">Components given a language layer, Goldman Sachs design system</span>
+            <span class="ux-proof-number">20</span>
+            <span class="ux-proof-label">Card products, one way to choose among them, American Express</span>
           </div>
         </div>
       </div>
@@ -712,12 +744,19 @@
     <!-- ── SECTION 4: CASE STUDIES ─────────────────── -->
     <section class="ux-section" style="padding-bottom: 0;">
       <h2 class="ux-h2">The work.</h2>
+      <p class="ux-body-text">Four consumer products, shown as the flows people moved through, then two systems built for professionals.</p>
+      <ol class="ux-problems">
+        <li><a href="#soundcloud"><span class="ux-problems-q">Asking free users to start paying.</span><span class="ux-problems-c">SoundCloud Go</span></a></li>
+        <li><a href="#better"><span class="ux-problems-q">Asking people to trust you with their money.</span><span class="ux-problems-c">Better.com</span></a></li>
+        <li><a href="#verizon"><span class="ux-problems-q">Letting millions of people manage things themselves.</span><span class="ux-problems-c">Verizon</span></a></li>
+        <li><a href="#amex"><span class="ux-problems-q">Helping people choose among many options.</span><span class="ux-problems-c">American Express</span></a></li>
+      </ol>
     </section>
 
     <!-- SoundCloud Go. The page's one tonal break: full bleed and
          inverted. Also the only case study with a side-by-side image,
          which is the composition's own rhythm break. -->
-    <section class="ux-feature">
+    <section class="ux-feature" id="soundcloud">
       <div class="ux-feature-inner">
 
         <h3 class="ux-case-client">SoundCloud Go</h3>
@@ -745,25 +784,94 @@
     <div class="ux-cases">
 
       <!-- Better.com -->
-      <div class="ux-case">
+      <div class="ux-case" id="better">
         <h3 class="ux-case-client">Better.com</h3>
         <p class="ux-case-meta">Mortgage &nbsp;&middot;&nbsp; 2020&ndash;2021<br>Role: Embedded product writer across UX, brand, and product copy, in Figma alongside design, product, and legal.</p>
         <p class="ux-claim">One of the most anxiety-inducing processes in American life, moved entirely online.</p>
-        <div class="ux-case-cols">
-          <p class="ux-case-desc">I spent a year embedded across onboarding flows, loan applications, error states, email sequences, and the brand voice system that governed how to sound like Better on every surface. Error and delay states are the hardest copy in a mortgage flow. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them.</p>
-          <div class="ux-evidence">
-            <p class="ux-evidence-line">&ldquo;Your rate is locked. That means it won&rsquo;t change no matter what happens to the market while your loan is processing.&rdquo;</p>
-            <p class="ux-evidence-note">Rate lock confirmation</p>
-            <p class="ux-evidence-line">&ldquo;This is the part most lenders make complicated. We&rsquo;re going to make it a checklist.&rdquo;</p>
-            <p class="ux-evidence-note">Document upload intro</p>
-            <p class="ux-evidence-line">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
-            <p class="ux-evidence-note">Error and delay state</p>
-          </div>
+        <div class="ux-case-cols ux-case-cols--single">
+          <p class="ux-case-desc">I was embedded across onboarding flows, loan applications, document upload, rate lock, error states, email sequences, and the brand voice system that governed how to sound like Better on every surface. Error and delay states are the hardest copy in a mortgage flow. The customer is already worried, the news is rarely good, and the line has to stay calm without lying to them.</p>
         </div>
+        <ol class="ux-flow">
+          <li>
+            <span class="ux-flow-step">01 &nbsp;Document upload</span>
+            <p class="ux-flow-line">&ldquo;This is the part most lenders make complicated. We&rsquo;re going to make it a checklist.&rdquo;</p>
+            <p class="ux-flow-why">The step people dread most, turned into a list they can finish.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">02 &nbsp;Rate lock</span>
+            <p class="ux-flow-line">&ldquo;Your rate is locked. That means it won&rsquo;t change no matter what happens to the market while your loan is processing.&rdquo;</p>
+            <p class="ux-flow-why">Not just that it happened, but what it means for them.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">03 &nbsp;Underwriting delay</span>
+            <p class="ux-flow-line">&ldquo;We didn&rsquo;t hear back from the underwriter. That&rsquo;s normal, we&rsquo;ll ping them again tomorrow.&rdquo;</p>
+            <p class="ux-flow-why">Bad news, stated as normal, with the next step attached.</p>
+          </li>
+        </ol>
         <figure class="ux-shot">
           <img src="images/better-hero.png" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The Better.com homepage, headed The right mortgage could save you thousands, with a ZIP code field.">
         </figure>
       </div>
+
+      <!-- Verizon Wireless -->
+      <div class="ux-case" id="verizon">
+        <h3 class="ux-case-client">Verizon Wireless</h3>
+        <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
+        <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
+        <div class="ux-case-cols">
+          <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
+          <div class="ux-evidence">
+            <p class="ux-figure-num">68% &rarr; 85%</p>
+            <p class="ux-evidence-note">In-app bill payment, within seven months of launch</p>
+            <p class="ux-figure-num">15.6x</p>
+            <p class="ux-evidence-note">Mobile sales conversion</p>
+            <p class="ux-figure-num">+27%</p>
+            <p class="ux-evidence-note">Autopay enrollment</p>
+          </div>
+        </div>
+        <figure class="ux-shot">
+          <img src="images/verizon-copy-spec-crop.webp" onclick="lbux(this.src)" width="1994" height="1386" loading="lazy" decoding="async" alt="A MyVerizon copy spec: the 8GB plan card reading Switch to an 8 GB data limit to save $40 a month, the unlimited plan screen reading Say goodbye to data limits with unlimited data, and an annotation column specifying the dynamic headline rule, the multi-line carousel, and the Continue action.">
+          <figcaption>A copy spec, not a screenshot. Two plans, one headline slot, filled by rule against whatever the customer is already paying.</figcaption>
+        </figure>
+      </div>
+
+      <!-- American Express -->
+      <div class="ux-case" id="amex">
+        <h3 class="ux-case-client">American Express</h3>
+        <p class="ux-case-meta">Credit cards, mobile &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
+        <p class="ux-claim">Choosing a credit card on a phone, from first look to application.</p>
+        <div class="ux-case-cols">
+          <p class="ux-case-desc">Mobile-first experiences where the copy had the clarity and purpose of UX writing while still carrying the campaign. I tested language decisions in the flow rather than in brand decks, working closely with the UX and visual design teams at Huge.</p>
+          <div class="ux-evidence">
+            <p class="ux-evidence-line">Every word earns its space. On a small screen, there&rsquo;s no room for a second draft.</p>
+            <p class="ux-evidence-note">Working principle</p>
+          </div>
+        </div>
+        <figure class="ux-shot">
+          <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="An American Express page with a Find Your Perfect Card panel, a Member Because testimonial, and a row of featured offers.">
+          <figcaption><span class="ux-stage">01 &nbsp;Start</span> Find Your Perfect Card, the entry point to all twenty products.</figcaption>
+        </figure>
+        <figure class="ux-shot">
+          <img src="images/amex-cards.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
+          <figcaption><span class="ux-stage">02 &nbsp;Compare</span> The card browser. Twenty products, one set of rules for naming, ordering, and comparing them.</figcaption>
+        </figure>
+        <div class="ux-shot-grid">
+          <figure>
+            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits beside the card each one holds.">
+            <figcaption><span class="ux-stage">03 &nbsp;Decide</span> Real Cardmembers. Real Reviews.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A customer service and card benefits panel carrying a cardmember quote about hotel upgrades and access to international travel agents.">
+            <figcaption><span class="ux-stage">03 &nbsp;Decide</span> Reviews surfaced in the flow rather than collected on a separate page.</figcaption>
+          </figure>
+        </div>
+        <figure class="ux-shot">
+          <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="Mobile application screens: Let's get started, a name and email form, an application progress list, and a rewards summary.">
+          <figcaption><span class="ux-stage">04 &nbsp;Apply</span> The application flow, written for a phone.</figcaption>
+        </figure>
+      </div>
+
+      <p class="ux-group-label">Systems built for professionals</p>
 
       <!-- Goldman Sachs -->
       <div class="ux-case">
@@ -789,28 +897,6 @@
         </figure>
       </div>
 
-      <!-- Verizon Wireless -->
-      <div class="ux-case">
-        <h3 class="ux-case-client">Verizon Wireless</h3>
-        <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
-        <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
-        <div class="ux-case-cols">
-          <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
-          <div class="ux-evidence">
-            <p class="ux-figure-num">68% &rarr; 85%</p>
-            <p class="ux-evidence-note">In-app bill payment, within seven months of launch</p>
-            <p class="ux-figure-num">15.6x</p>
-            <p class="ux-evidence-note">Mobile sales conversion</p>
-            <p class="ux-figure-num">+27%</p>
-            <p class="ux-evidence-note">Autopay enrollment</p>
-          </div>
-        </div>
-        <figure class="ux-shot">
-          <img src="images/verizon-copy-spec-crop.webp" onclick="lbux(this.src)" width="1994" height="1386" loading="lazy" decoding="async" alt="A MyVerizon copy spec: the 8GB plan card reading Switch to an 8 GB data limit to save $40 a month, the unlimited plan screen reading Say goodbye to data limits with unlimited data, and an annotation column specifying the dynamic headline rule, the multi-line carousel, and the Continue action.">
-          <figcaption>A copy spec, not a screenshot. Two plans, one headline slot, filled by rule against whatever the customer is already paying.</figcaption>
-        </figure>
-      </div>
-
       <!-- Evercore. The rhythm break: no image, no evidence, quote-led. -->
       <div class="ux-case ux-case--quote">
         <h3 class="ux-case-client">Evercore</h3>
@@ -819,42 +905,6 @@
         <div class="ux-case-cols ux-case-cols--single">
           <p class="ux-case-desc">Evercore's bankers run their relationships through an internal platform: contacts, interactions, company profiles, calendar, notes. I came in partway through the build and set the copy standard from sprint eight onward, which left seven sprints of screens that predated it. So I proposed auditing one historical sprint every cycle alongside the current work, until the whole product named things the same way.</p>
           <p class="ux-case-desc" style="margin-top:20px;">The user is an investment banker. The job was never explaining finance to them. It was making sure a label meant one thing everywhere, and that an empty state told you what to do next instead of announcing that it was empty.</p>
-        </div>
-      </div>
-
-      <!-- American Express -->
-      <div class="ux-case">
-        <h3 class="ux-case-client">American Express</h3>
-        <p class="ux-case-meta">Mobile campaign &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge<br><em style="color:var(--amber);font-style:normal;">Silver Award for Best Mobile Marketing Campaign, NYC Design Awards</em></p>
-        <p class="ux-claim">Content design with one foot in campaign creative.</p>
-        <div class="ux-case-cols">
-          <p class="ux-case-desc">Mobile-first experiences where the copy had the clarity and purpose of UX writing while still carrying the campaign. I tested language decisions in the flow rather than in brand decks, working closely with the UX and visual design teams at Huge.</p>
-          <div class="ux-evidence">
-            <p class="ux-evidence-line">Every word earns its space. On a small screen, there&rsquo;s no room for a second draft.</p>
-            <p class="ux-evidence-note">Working principle</p>
-          </div>
-        </div>
-        <figure class="ux-shot">
-          <img src="images/amex-cards.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
-          <figcaption>The card browser. Twenty products, one set of rules for naming, ordering, and comparing them.</figcaption>
-        </figure>
-        <div class="ux-shot-grid">
-          <figure>
-            <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="Mobile application screens: Let's get started, a name and email form, an application progress list, and a rewards summary.">
-            <figcaption>The application flow, written for a phone.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/amex-homepage.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="An American Express page with a Find Your Perfect Card panel, a Member Because testimonial, and a row of featured offers.">
-            <figcaption>Find Your Perfect Card, the entry point to the same twenty products.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/amex-cardmembers.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A page headed Real Cardmembers. Real Reviews., showing a grid of cardmember portraits beside the card each one holds.">
-            <figcaption>Real Cardmembers. Real Reviews.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/amex-reviews.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="A customer service and card benefits panel carrying a cardmember quote about hotel upgrades and access to international travel agents.">
-            <figcaption>Reviews surfaced in the flow rather than collected on a separate page.</figcaption>
-          </figure>
         </div>
       </div>
 
@@ -868,11 +918,11 @@
 
     <!-- ── FOOTER CTA ──────────────────────────────── -->
     <div class="ux-footer-cta">
-      <a href="/">See the brand work →</a>
-      <span class="ux-footer-cta-divider">|</span>
       <a href="/about">Read about me →</a>
       <span class="ux-footer-cta-divider">|</span>
       <a href="mailto:dougblack1@gmail.com">Let's talk →</a>
+      <span class="ux-footer-cta-divider">|</span>
+      <a href="/">See the brand work →</a>
     </div>
 
     <footer>
