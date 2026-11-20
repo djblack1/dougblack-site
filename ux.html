@@ -618,6 +618,33 @@
       font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.10em;
       text-transform: uppercase; color: #6E6862; }
     .ux-group-label + .ux-case { border-top: none; padding-top: clamp(28px, 3.5vw, 40px); }
+
+    /* ── SHARED IMAGE FRAME: every case image sits on the same panel ── */
+    .ux-shot img, .ux-shot-grid img { background: #ECE7DD; padding: clamp(14px, 2.2vw, 32px); box-sizing: border-box; }
+    .ux-flow--4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 1000px) { .ux-flow--4 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .ux-flow--4 { grid-template-columns: 1fr; } }
+    .ux-flow--tight { margin-top: 18px; }
+    .ux-shot-grid--anywell { grid-template-columns: 1fr 2fr; }
+    @media (max-width: 760px) { .ux-shot-grid--anywell { grid-template-columns: 1fr; } }
+    .ux-flow-label { margin: clamp(40px, 5vw, 64px) 0 0; font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.10em; text-transform: uppercase; color: #6E6862; }
+    #anywell, #more { scroll-margin-top: 24px; }
+
+    /* ── MORE PRODUCT WORK: two compact entries side by side ── */
+    .ux-group-label + .ux-more { padding-top: clamp(28px, 3.5vw, 40px); }
+    .ux-more { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); padding-bottom: clamp(56px, 7vw, 96px); }
+    .ux-more-item { display: flex; flex-direction: column; }
+    .ux-more-item .ux-shot { margin-top: auto; padding-top: 28px; }
+    .ux-more-client { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.8vw, 34px);
+      font-weight: 400; line-height: 1.15; margin: 0 0 10px; color: var(--ink); }
+    .ux-more-desc { font-family: 'DM Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink); margin: 18px 0 0; }
+    .ux-terms { width: 100%; border-collapse: collapse; margin: 24px 0 0; font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; }
+    .ux-terms th { text-align: left; font-size: 12px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase;
+      color: #86692C; padding: 0 0 10px; border-bottom: 1px solid var(--rule); }
+    .ux-terms td { padding: 10px 0; border-bottom: 1px solid var(--rule); color: var(--ink); }
+    .ux-terms td:first-child { color: #6E6862; text-decoration: line-through; text-decoration-color: rgba(110,104,98,0.45); width: 50%; }
+    @media (max-width: 860px) { .ux-more { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -744,12 +771,14 @@
     <!-- ── SECTION 4: CASE STUDIES ─────────────────── -->
     <section class="ux-section" style="padding-bottom: 0;">
       <h2 class="ux-h2">The work.</h2>
-      <p class="ux-body-text">Four consumer products, shown as the flows people moved through, then two systems built for professionals.</p>
+      <p class="ux-body-text">Consumer products first, shown as the flows people moved through, then two systems built for professionals.</p>
       <ol class="ux-problems">
         <li><a href="#soundcloud"><span class="ux-problems-q">Asking free users to start paying.</span><span class="ux-problems-c">SoundCloud Go</span></a></li>
+        <li><a href="#anywell"><span class="ux-problems-q">Designing for the user when someone else is paying.</span><span class="ux-problems-c">Anywell</span></a></li>
         <li><a href="#better"><span class="ux-problems-q">Asking people to trust you with their money.</span><span class="ux-problems-c">Better.com</span></a></li>
         <li><a href="#verizon"><span class="ux-problems-q">Letting millions of people manage things themselves.</span><span class="ux-problems-c">Verizon</span></a></li>
         <li><a href="#amex"><span class="ux-problems-q">Helping people choose among many options.</span><span class="ux-problems-c">American Express</span></a></li>
+        <li><a href="#more"><span class="ux-problems-q">Making security and taxes sound plain.</span><span class="ux-problems-c">Wickr and H&amp;R Block</span></a></li>
       </ol>
     </section>
 
@@ -782,6 +811,70 @@
     </section>
 
     <div class="ux-cases">
+
+      <!-- Anywell -->
+      <div class="ux-case" id="anywell">
+        <h3 class="ux-case-client">Anywell</h3>
+        <p class="ux-case-meta">Workspace booking, app and web &nbsp;&middot;&nbsp; 2021<br>Role: Sole writer. Every word in the member app, the website, the employer and host pages, and the App Store listing. I proposed the naming and the search categories, and we argued them out with the founders.</p>
+        <p class="ux-claim">The person booking the seat was never the person paying for it.</p>
+        <div class="ux-case-cols ux-case-cols--single">
+          <p class="ux-case-desc">Anywell let companies pay for their remote employees to work from caf&eacute;s, hotels, and galleries near home. That gave one product three audiences with three different questions. The member wanted a good place to work tomorrow morning. The employer wanted a budget, limits, and a usage report. The host wanted reliable revenue without giving up control of the room. The hard part was keeping those conversations apart. A member should never feel like an expense line, and a finance lead should never have to read about ambience.</p>
+        </div>
+        <ol class="ux-flow ux-flow--4">
+          <li>
+            <span class="ux-flow-step">01 &nbsp;Find</span>
+            <p class="ux-flow-line">Solo work &middot; 1:1 &middot; Group &middot; Quiet &amp; good wifi</p>
+            <p class="ux-flow-why">Search by what you came to do, not by the features of the room.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">02 &nbsp;Choose</span>
+            <p class="ux-flow-line">&ldquo;Good for&hellip;&rdquo;</p>
+            <p class="ux-flow-why">Each listing says what the place suits before it lists what it has.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">03 &nbsp;Book</span>
+            <p class="ux-flow-line">&ldquo;Workspace guaranteed.&rdquo;</p>
+            <p class="ux-flow-why">The worry about working from a caf&eacute; is not finding a seat. The promise answers it first.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">04 &nbsp;Leave</span>
+            <p class="ux-flow-line">&ldquo;Walk in, get to work. Walk out, hassle-free.&rdquo;</p>
+            <p class="ux-flow-why">The employer pays, so there is no checkout. The line says so without mentioning money.</p>
+          </li>
+        </ol>
+        <p class="ux-flow-label">One product, three vocabularies</p>
+        <ol class="ux-flow ux-flow--tight">
+          <li>
+            <span class="ux-flow-step">Members</span>
+            <p class="ux-flow-line">&ldquo;All paid for by your employer.&rdquo;</p>
+            <p class="ux-flow-why">Money comes up once, as someone else&rsquo;s.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">Employers</span>
+            <p class="ux-flow-line">&ldquo;Control access and set limits.&rdquo;</p>
+            <p class="ux-flow-why">Control first. The perks come later on the page.</p>
+          </li>
+          <li>
+            <span class="ux-flow-step">Hosts</span>
+            <p class="ux-flow-line">&ldquo;Welcome anywell members on your terms.&rdquo;</p>
+            <p class="ux-flow-why">Their space, their hours, their call.</p>
+          </li>
+        </ol>
+        <figure class="ux-shot">
+          <img src="images/anywell-app-store.jpg" onclick="lbux(this.src)" width="1912" height="996" loading="lazy" decoding="async" alt="Four App Store screens for anywell: Explore inspiring workspaces nearby, a cafe interior, Book a local workspace that suits your needs over a map of nearby spaces, and Walk in, get to work. Walk out, hassle-free.">
+          <figcaption>The App Store listing, in the order a member moves: explore, book, arrive, leave.</figcaption>
+        </figure>
+        <div class="ux-shot-grid ux-shot-grid--anywell">
+          <figure>
+            <img src="images/anywell-home.jpg" onclick="lbux(this.src)" width="408" height="860" loading="lazy" decoding="async" alt="The anywell app home screen: Find the perfect workspace, with filters for Quiet and good wifi and Solo work, and rows of nearby locations.">
+            <figcaption>Home. The first choice is what kind of work, not which neighborhood.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/anywell-workspace.jpg" onclick="lbux(this.src)" width="800" height="830" loading="lazy" decoding="async" alt="A phone on a laptop showing an anywell workspace page for Apostrophe Cafe in Tel Aviv, for a group of four tomorrow, with a Select a seating area row.">
+            <figcaption>A workspace page. Who it&rsquo;s for and when, then where you&rsquo;ll sit.</figcaption>
+          </figure>
+        </div>
+      </div>
 
       <!-- Better.com -->
       <div class="ux-case" id="better">
@@ -869,6 +962,37 @@
           <img src="images/amex-mobile.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="Mobile application screens: Let's get started, a name and email form, an application progress list, and a rewards summary.">
           <figcaption><span class="ux-stage">04 &nbsp;Apply</span> The application flow, written for a phone.</figcaption>
         </figure>
+      </div>
+
+      <p class="ux-group-label" id="more">More product work</p>
+      <div class="ux-more">
+        <article class="ux-more-item">
+          <h3 class="ux-more-client">Wickr</h3>
+          <p class="ux-case-meta">Encrypted messaging &nbsp;&middot;&nbsp; 2016 &nbsp;&middot;&nbsp; iOS, Android, and desktop</p>
+          <p class="ux-more-desc">A copy audit of more than 180 screens: registration, sign-in, first use, password rules, errors, empty states, and admin email. Then a glossary, so the product called each thing by one name. I proposed &ldquo;Host&rdquo; for the person who runs a room. Wickr&rsquo;s team argued for &ldquo;Moderator,&rdquo; because the role included administration. They were right, so we used it and kept the alternates on file.</p>
+          <table class="ux-terms">
+            <thead><tr><th>Formerly</th><th>Now</th></tr></thead>
+            <tbody>
+              <tr><td>Room Master</td><td>Moderator</td></tr>
+              <tr><td>ID Verification</td><td>Identity Verification</td></tr>
+              <tr><td>Individuals</td><td>Members</td></tr>
+              <tr><td>Administrator</td><td>Admin</td></tr>
+            </tbody>
+          </table>
+          <figure class="ux-shot">
+            <img src="images/wickr-copy-audit.jpg" onclick="lbux(this.src)" width="2134" height="1200" loading="lazy" decoding="async" alt="A copy audit slide: the Wickr registration screen on iOS and Android, beside a column of revised copy reading Verify your email address, First name, Last name, Business email, and Step 1/3.">
+            <figcaption>One slide of the audit. The screens as they were, my copy beside them.</figcaption>
+          </figure>
+        </article>
+        <article class="ux-more-item">
+          <h3 class="ux-more-client">H&amp;R Block</h3>
+          <p class="ux-case-meta">Tax refund calculator &nbsp;&middot;&nbsp; 2014 &nbsp;&middot;&nbsp; With Code and Theory</p>
+          <p class="ux-more-desc">A refund estimator that began by asking how much help you wanted. Tax Vet: &ldquo;You&rsquo;ve been around the block.&rdquo; Tax Rookie: &ldquo;You&rsquo;d rather we take the lead.&rdquo; Rookies got one plain question per screen, each with a line on why it mattered, and the estimate stayed pinned at the top, changing as they answered. Both paths shipped, and people finished the new calculator more than twice as fast as the old one or the competition&rsquo;s.</p>
+          <figure class="ux-shot">
+            <img src="images/hrblock-calculator.jpg" onclick="lbux(this.src)" width="2557" height="953" loading="lazy" decoding="async" alt="Three H&amp;R Block calculator wireframes: Are you married?, How many dependents are you claiming?, and a summary showing an estimated refund of $2,803.00.">
+            <figcaption>Wireframes from the Rookie path: one question a screen, the running estimate always in view.</figcaption>
+          </figure>
+        </article>
       </div>
 
       <p class="ux-group-label">Systems built for professionals</p>
