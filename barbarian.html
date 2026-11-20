@@ -59,6 +59,8 @@
     .bb-media img { width: 100%; height: auto; display: block; border-radius: 3px; cursor: zoom-in; }
     .bb-media figcaption, .bb-cap { font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.6; color: #6E6862; margin: 12px 0 0; }
     .bb-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); margin-top: clamp(16px, 2vw, 28px); }
+    .bb-video { position: relative; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; background: #111; }
+    .bb-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .bb-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.8vw, 24px); align-items: start; }
 
     .bb-sublabel { font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin: clamp(48px, 6vw, 72px) 0 18px; }
@@ -141,24 +143,15 @@
       <!-- HERO -->
       <header class="bb-hero">
         <h1 class="bb-h1">Selected work for <em>Barbarian</em></h1>
-        <p class="bb-dek">Four campaigns, each built on one insight and made to run for months, not a day.</p>
+        <p class="bb-dek">Four campaigns, each built on one insight and designed to run for months.</p>
 
         <ol class="bb-index">
           <li><a href="#amex"><span class="n">01</span><span class="t">American Express: Member Because</span><span class="s">With Huge</span></a></li>
           <li><a href="#lincoln"><span class="n">02</span><span class="t">Lincoln: Redeem Your Dream</span><span class="s">Hudson Rouge</span></a></li>
-          <li><a href="#pantone"><span class="n">03</span><span class="t">Pantone Connect: Meet the Artists at Work</span><span class="s">With Present</span></a></li>
-          <li><a href="#soundcloud"><span class="n">04</span><span class="t">SoundCloud Go: Online and Ad-Free</span><span class="s">SoundCloud</span></a></li>
+          <li><a href="#pantone"><span class="n">03</span><span class="t">Pantone Connect</span><span class="s"></span></a></li>
+          <li><a href="#soundcloud"><span class="n">04</span><span class="t">SoundCloud Go</span><span class="s"></span></a></li>
         </ol>
       </header>
-
-      <!-- POV -->
-      <section class="bb-pov">
-        <p class="bb-label">How I think about social</p>
-        <div>
-          <p class="big">TV makes the promise. Social is where people check it.</p>
-          <p class="body">So the work should show a brand paying off for real people. I look for an idea that becomes a format, so the hundredth post comes as easily as the first, in a voice that holds up at that volume.</p>
-        </div>
-      </section>
 
       <!-- 01 AMEX -->
       <section class="bb-case" id="amex">
@@ -169,13 +162,13 @@
 
         <dl class="bb-facts">
           <dt>Insight</dt>
-          <dd class="lead">Service described in the abstract does nothing for someone choosing between twenty cards. People believe other members.</dd>
+          <dd class="lead">Marketing does nothing for someone choosing between twenty cards. People believe other members.</dd>
           <dt>Idea</dt>
           <dd>Member Because. Real cardmembers explain why they love their card, in their own words.</dd>
           <dt>How it showed up</dt>
-          <dd>We built the personas from cardmember interviews. Their faces, names, and words ran inside the shopping flow, next to the card each one carries.</dd>
+          <dd>I built the personas from cardmember interviews. Their faces, names, and words ran inside the shopping flow, next to the card each one carries.</dd>
           <dt>My role</dt>
-          <dd>Sole writer. I turned the interview transcripts into the personas.</dd>
+          <dd>Sole writer.</dd>
         </dl>
 
         <p class="bb-line">&ldquo;Real Cardmembers. Real Reviews.&rdquo;</p>
@@ -200,7 +193,7 @@
 
         <div class="bb-why">
           <p class="bb-label">Why it&rsquo;s here</p>
-          <p>Membership is most persuasive when members describe it.</p>
+          <p>Membership is most persuasive when the voice is from members.</p>
         </div>
       </section>
 
@@ -213,13 +206,13 @@
 
         <dl class="bb-facts">
           <dt>Insight</dt>
-          <dd class="lead">Nobody dreams about owning a Lincoln. They dream about what they&rsquo;ll do once they have one.</dd>
+          <dd class="lead">Most Lincoln owners don&rsquo;t realize how close their points already put them to something lavish. They just need someone to show them.</dd>
           <dt>Idea</dt>
-          <dd>Turn Lincoln Access Rewards from points and discounts into culture, wellness, and adventure, written to read like an invitation.</dd>
+          <dd>Ask members what they would do with up to 800,000 points. The best dreams get redeemed.</dd>
           <dt>How it showed up</dt>
           <dd>A sweepstakes built for social first, across Instagram, Facebook, and TikTok, then lincoln.com.</dd>
           <dt>My role</dt>
-          <dd>I named it and led the writing across social and .com.</dd>
+          <dd>I conceived it, named it, and led the writing across social and .com.</dd>
         </dl>
 
         <p class="bb-sublabel">In the feed</p>
@@ -240,7 +233,7 @@
 
         <div class="bb-why">
           <p class="bb-label">Why it&rsquo;s here</p>
-          <p>What running one lane of one big client looks like over years.</p>
+          <p>What running the voice of one big client looks like over years.</p>
         </div>
       </section>
 
@@ -255,13 +248,13 @@
           <dt>Insight</dt>
           <dd class="lead">Inspiration doesn&rsquo;t wait for a designer to get back to the studio. When it strikes, the swatch book is somewhere else.</dd>
           <dt>Idea</dt>
-          <dd>Follow three New York studios and show Pantone Connect catching color where it appears: a street ATM, a traffic cone, a collaged stool.</dd>
+          <dd>Follow three New York artists and show how they use Pantone Connect to catch color wherever it appears: an ATM, a traffic cone, a weathered stool.</dd>
           <dt>How it showed up</dt>
-          <dd>Three artist films across social, email, and the microsite. Each ended by inviting viewers to send the artist a video question, answered live at the launch.</dd>
+          <dd>Three artist films across social, email, and the microsite. Each ended by inviting viewers to send the artist a video question, answered at the live-streamed launch.</dd>
           <dt>Result</dt>
           <dd>The campaign anchored Pantone&rsquo;s first virtual launch event built for the design community.</dd>
           <dt>My role</dt>
-          <dd>I helped conceive the launch, interviewed the artists, and wrote the films, the social, the microsite, and the live broadcast.</dd>
+          <dd>I helped conceive the launch, interviewed the artists, and wrote the films, the social, the microsite, and the script for the live broadcast.</dd>
         </dl>
 
         <p class="bb-sublabel">The films</p>
@@ -285,14 +278,11 @@
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWMD4YhrUns/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWMD4YhrUns/">Pantone on Instagram</a></blockquote>
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWL5FGiLyWL/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWL5FGiLyWL/">Pantone on Instagram</a></blockquote>
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWMTZF-AWze/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWMTZF-AWze/">Pantone on Instagram</a></blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWTUKSngNAi/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWTUKSngNAi/">Pantone on Instagram</a></blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWTkX9uLwu8/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWTkX9uLwu8/">Pantone on Instagram</a></blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CWT498-rtHV/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CWT498-rtHV/">Pantone on Instagram</a></blockquote>
         </div>
 
         <div class="bb-why">
           <p class="bb-label">Why it&rsquo;s here</p>
-          <p>It was built for a response, not just a view.</p>
+          <p>Social built for a response, not just a view.</p>
         </div>
       </section>
 
@@ -305,7 +295,7 @@
 
         <dl class="bb-facts">
           <dt>Insight</dt>
-          <dd class="lead">SoundCloud listeners are connoisseurs of genres most services barely know exist. Respect that before asking them to pay.</dd>
+          <dd class="lead">SoundCloud listeners are connoisseurs of genres most services can&rsquo;t touch. Celebrate their taste before asking them to subscribe.</dd>
           <dt>Idea</dt>
           <dd>Lead with the music, not the feature list. Each line pairs two genres and ends on the same promise.</dd>
         </dl>
@@ -317,10 +307,15 @@
           <p class="sign">Online and ad-free.</p>
         </div>
 
-        <div class="bb-media bb-grid-3">
-          <figure><img src="/images/sc-billboard.png" alt="SoundCloud Go billboard" onclick="bbImg(this.src)"></figure>
-          <figure><img src="/images/sc-subway.png" alt="SoundCloud Go subway ad: From mainstream to underground." onclick="bbImg(this.src)"></figure>
-          <figure><img src="/images/sc-posters.png" alt="SoundCloud Go street posters" onclick="bbImg(this.src)"></figure>
+        <div class="bb-media">
+          <div class="bb-video"><iframe src="https://www.youtube.com/embed/l-ZjvlvNu6g" title="SoundCloud Go launch film" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="bb-cap">The launch film, made to look and feel like something that could live on SoundCloud.</p>
+          <div class="bb-grid-2">
+            <figure><img src="/images/sc-adgrid-crop.png" alt="Four SoundCloud Go social ads, each pairing two genres" onclick="bbImg(this.src)"><figcaption>Social ads. Each pairs two genres and lands on the same promise.</figcaption></figure>
+            <figure><img src="/images/sc-devices.png" alt="The SoundCloud Go landing page on tablet and phone" onclick="bbImg(this.src)"><figcaption>The Go landing page, on web and mobile.</figcaption></figure>
+            <figure><img src="/images/soundcloud-go-establishing.webp" alt="Welcome to SoundCloud Go, in the app and on the web" onclick="bbImg(this.src)"><figcaption>In-product onboarding for new subscribers.</figcaption></figure>
+            <figure><img src="/images/sc-subway.png" alt="SoundCloud Go subway ad: From mainstream to underground." onclick="bbImg(this.src)"><figcaption>Out of home.</figcaption></figure>
+          </div>
         </div>
 
         <dl class="bb-facts" style="margin-top: clamp(40px, 5vw, 64px);">
@@ -334,7 +329,7 @@
 
         <div class="bb-why">
           <p class="bb-label">Why it&rsquo;s here</p>
-          <p>One insight that writes a new line for every genre, in any channel.</p>
+          <p>One insight that writes an infinitely interactive line for every genre, in any channel.</p>
         </div>
       </section>
 
@@ -342,17 +337,17 @@
       <section class="bb-lane">
         <p class="bb-label">How I run a lane</p>
         <div class="bb-lane-grid">
-          <div><h3>Teams</h3><p>I&rsquo;ve hired and led writers at Goldman Sachs and on Lincoln, and I work with art and design as one unit.</p></div>
-          <div><h3>Clients and compliance</h3><p>I bring compliance in at the draft stage, as I did at Goldman Sachs.</p></div>
+          <div><h3>Teams</h3><p>I&rsquo;ve hired and led writing teams at Goldman Sachs and on Lincoln, and I work with art and design as one unit.</p></div>
+          <div><h3>Clients and compliance</h3><p>I bring compliance in at the draft stage, as I did at Goldman Sachs, Evercore, Better.com, and Verizon Wireless.</p></div>
           <div><h3>Planning</h3><p>I scope the work and estimate timing on every project I run.</p></div>
-          <div><h3>New business</h3><p>Pitches at Huge, a Maserati win at Chandelier, and a Louis Vuitton pitch sold on the line &ldquo;Travel Light&rdquo; at Wednesday.</p></div>
-          <div><h3>AI</h3><p>I train and evaluate AI models and write with them daily. The judgment stays with me.</p></div>
+          <div><h3>New business</h3><p>Successful pitches at Huge, Chandelier Creative, and Wednesday for brands like Barneys New York, Maserati, and Louis Vuitton, which launched the &ldquo;Travel Light&rdquo; campaign.</p></div>
+          <div><h3>AI</h3><p>I train and evaluate AI models and write with them daily. The judgment is always mine.</p></div>
         </div>
       </section>
 
       <section class="bb-more">
         <p class="bb-label">More financial and B2B</p>
-        <p>Goldman Sachs Private Wealth Management, Evercore, Better.com, XL Insurance, and Google for Work.</p>
+        <p>XL Insurance, Google for Work, and Salesforce.</p>
       </section>
 
     </main>
