@@ -687,6 +687,23 @@
     .ux-kicker-n { font-weight: 700; margin-right: 12px; }
     .ux-feature .ux-kicker { color: #C9A55A; }
     .ux-kicker--group { margin-top: 12px; }
+
+    /* ── 04 to 06: three different shapes so they don't blend ── */
+    .ux-case--better .ux-claim { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.15; max-width: 22ch; }
+    .ux-case--better .ux-flow { position: relative; }
+    .ux-case--better .ux-flow li { border-top: none; position: relative; padding-top: 30px; }
+    .ux-case--better .ux-flow::before { content: ""; position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: #C9B68C; }
+    .ux-case--better .ux-flow li::before { content: ""; position: absolute; left: 0; top: 0; width: 11px; height: 11px; border-radius: 50%; background: #86692C; }
+    @media (max-width: 860px) { .ux-case--better .ux-flow::before { display: none; } }
+    .ux-vz { background: #FFFFFF; padding: clamp(64px, 8vw, 104px) 0; scroll-margin-top: 24px; }
+    .ux-vz-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 48px); margin: clamp(32px, 4vw, 48px) 0 clamp(8px, 1vw, 16px);
+      padding: clamp(24px, 3vw, 36px) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .ux-vz-stats .ux-proof-number { display: block; }
+    .ux-vz-label { display: block; margin-top: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E6862; line-height: 1.5; }
+    @media (max-width: 760px) { .ux-vz-stats { grid-template-columns: 1fr; } }
+    .ux-vz .ux-shot img { background: #F5F2EC; }
+    .ux-more-head { padding: clamp(72px, 9vw, 128px) 0 clamp(8px, 1vw, 16px); scroll-margin-top: 24px; }
+    .ux-more-h2 { font-size: clamp(34px, 4.4vw, 60px); margin-bottom: clamp(32px, 4vw, 56px); }
   </style>
 </head>
 <body>
@@ -907,7 +924,7 @@
 
     <div class="ux-cases">
       <!-- Better.com -->
-      <div class="ux-case" id="better">
+      <div class="ux-case ux-case--better" id="better">
         <p class="ux-kicker"><span class="ux-kicker-n">04</span>Asking people to trust you with their money.</p>
         <h3 class="ux-case-client">Better.com</h3>
         <p class="ux-case-meta">Mortgage and title &nbsp;&middot;&nbsp; 2020<br>Role: Contract writer with Better&rsquo;s in-house Creative Studio. Product, UX, and brand copy, in Figma alongside design.</p>
@@ -945,30 +962,37 @@
         </figure>
       </div>
 
-      <!-- Verizon Wireless -->
-      <div class="ux-case" id="verizon">
+    </div><!-- /.ux-cases -->
+
+    <!-- Verizon, on its own pale band, opening with its numbers. -->
+    <section class="ux-vz" id="verizon">
+      <div class="ux-ai-inner">
         <p class="ux-kicker"><span class="ux-kicker-n">05</span>Letting millions of people manage things themselves.</p>
         <h3 class="ux-case-client">Verizon Wireless</h3>
         <p class="ux-case-meta">Telecom &nbsp;&middot;&nbsp; Full redesign &nbsp;&middot;&nbsp; With AKQA<br>Role: Voice, tone, and language system across VerizonWireless.com and the MyVerizon app. Dynamic headlines were specified as patterns rather than finished lines, so the system could assemble them against whatever plan the customer already had.<br><em style="color:var(--amber);font-style:normal;">Webby Award Honoree, Mobile Sites and Apps, Services and Utilities, 2017</em></p>
+        <div class="ux-vz-stats">
+          <div><span class="ux-proof-number">113M</span><span class="ux-vz-label">Subscribers managing their own accounts</span></div>
+          <div><span class="ux-proof-number">68% &rarr; 85%</span><span class="ux-vz-label">In-app bill payment, within seven months of launch</span></div>
+          <div><span class="ux-proof-number">+27%</span><span class="ux-vz-label">Autopay enrollment</span></div>
+        </div>
         <p class="ux-claim">One vocabulary for 113 million people managing their own accounts.</p>
-        <div class="ux-case-cols">
+        <div class="ux-case-cols ux-case-cols--single">
           <p class="ux-case-desc">One of the highest-traffic consumer websites in the United States. The existing site had accumulated years of copy written by different teams to different conventions. I replaced that accumulation with a system: vocabulary, nomenclature standards, and copy patterns governing navigation, product pages, onboarding, support, account management, and transactional messaging. Nobody opens a carrier app for pleasure. They open it to do one thing, and the writing either gets them through it or it does not.</p>
-          <div class="ux-evidence">
-            <p class="ux-figure-num">68% &rarr; 85%</p>
-            <p class="ux-evidence-note">In-app bill payment, within seven months of launch</p>
-            <p class="ux-figure-num">+27%</p>
-            <p class="ux-evidence-note">Autopay enrollment</p>
-          </div>
         </div>
         <figure class="ux-shot">
           <img src="images/verizon-copy-spec-crop.webp" onclick="lbux(this.src)" width="1994" height="1386" loading="lazy" decoding="async" alt="A MyVerizon copy spec: the 8GB plan card reading Switch to an 8 GB data limit to save $40 a month, the unlimited plan screen reading Say goodbye to data limits with unlimited data, and an annotation column specifying the dynamic headline rule, the multi-line carousel, and the Continue action.">
           <figcaption>A copy spec, not a screenshot. Two plans, one headline slot, filled by rule against whatever the customer is already paying.</figcaption>
         </figure>
       </div>
+    </section>
+
+    <div class="ux-cases">
 
 
-      <p class="ux-group-label" id="more">More product work</p>
-      <p class="ux-kicker ux-kicker--group"><span class="ux-kicker-n">06</span>Making unfamiliar choices easy to follow.</p>
+      <div class="ux-more-head" id="more">
+        <p class="ux-kicker"><span class="ux-kicker-n">06</span>Making unfamiliar choices easy to follow.</p>
+        <h2 class="ux-h2 ux-more-h2">More product work.</h2>
+      </div>
       <div class="ux-more">
         <article class="ux-more-item" id="amex">
           <div class="ux-more-text">
