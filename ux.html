@@ -668,6 +668,16 @@
     .ux-ai .vd-model { background: #F7F4EE; }
     .ux-ai .vd-grid { border-top-color: rgba(26,23,20,0.15); }
     .ux-ai + .ux-cases .ux-case:first-child { border-top: none; }
+
+    /* More product work: one row per entry, words left, pictures right, so
+       short and long entries never sit side by side with dead space. */
+    .ux-more { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .ux-more-item { display: grid !important; grid-template-columns: 5fr 6fr; gap: clamp(32px, 4.5vw, 72px);
+      align-items: start; padding: clamp(40px, 5vw, 64px) 0; border-top: 1px solid var(--rule); }
+    .ux-more-item:first-child { border-top: none; padding-top: 0; }
+    .ux-more-item .ux-shot, .ux-more-item .ux-shot--follow { margin-top: 0 !important; padding-top: 0 !important; }
+    .ux-more-media .ux-shot + .ux-shot { margin-top: 20px !important; }
+    @media (max-width: 860px) { .ux-more-item { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -947,15 +957,20 @@
       <p class="ux-group-label" id="more">More product work</p>
       <div class="ux-more">
         <article class="ux-more-item" id="amex">
+          <div class="ux-more-text">
           <h3 class="ux-more-client">American Express</h3>
           <p class="ux-case-meta">Credit cards, mobile &nbsp;&middot;&nbsp; 2013 &nbsp;&middot;&nbsp; With Huge</p>
           <p class="ux-more-desc">Choosing a credit card on a phone, from first look to application. Twenty card products needed one set of rules for naming, ordering, and comparing them, so a customer could tell them apart on a small screen. I tested the language in the flow, with Huge&rsquo;s UX and visual designers, rather than in brand decks.</p>
+          </div>
+          <div class="ux-more-media">
           <figure class="ux-shot">
             <img src="images/amex-cards.jpg" onclick="lbux(this.src)" loading="lazy" decoding="async" alt="The American Express personal cards browser: twenty cards in a filterable grid with ratings, a compare control, and apply actions.">
             <figcaption>The card browser. Twenty products, one way to compare them.</figcaption>
           </figure>
+                  </div>
         </article>
         <article class="ux-more-item">
+          <div class="ux-more-text">
           <h3 class="ux-more-client">Wickr</h3>
           <p class="ux-case-meta">Encrypted messaging &nbsp;&middot;&nbsp; 2016 &nbsp;&middot;&nbsp; iOS, Android, and desktop</p>
           <p class="ux-more-desc">A copy audit of more than 180 screens: registration, sign-in, first use, password rules, errors, empty states, and admin email. Then a glossary, so the product called each thing by one name. I proposed &ldquo;Host&rdquo; for the person who runs a room. Wickr&rsquo;s team argued for &ldquo;Moderator,&rdquo; because the role included administration. They were right, so we used it and kept the alternates on file.</p>
@@ -968,26 +983,36 @@
               <tr><td>Administrator</td><td>Admin</td></tr>
             </tbody>
           </table>
+          </div>
+          <div class="ux-more-media">
           <figure class="ux-shot">
             <img src="images/wickr-copy-audit.jpg" onclick="lbux(this.src)" width="2134" height="1200" loading="lazy" decoding="async" alt="A copy audit slide: the Wickr registration screen on iOS and Android, beside a column of revised copy reading Verify your email address, First name, Last name, Business email, and Step 1/3.">
             <figcaption>One slide of the audit. The screens as they were, my copy beside them.</figcaption>
           </figure>
+                  </div>
         </article>
         <article class="ux-more-item">
+          <div class="ux-more-text">
           <h3 class="ux-more-client">Kashiyama</h3>
           <p class="ux-case-meta">Made-to-measure suiting &nbsp;&middot;&nbsp; 2020&ndash;2021 &nbsp;&middot;&nbsp; With MRM//McCann</p>
           <p class="ux-more-desc">A Japanese made-to-measure brand launching in the US needed a website that could explain a process most shoppers had never used, then get out of the way of a configurator with more than a million possible combinations. I wrote all of it: the ecommerce site, the configurator, and the rest of the digital experience.</p>
           <p class="ux-more-desc">Suiting is full of words that mean a lot to a tailor and nothing to a shopper. I learned enough of the trade to sort them: which terms signaled quality and needed a definition, and which were only noise. &ldquo;Half Canvas&rdquo; and &ldquo;Full Canvas Construction&rdquo; earned a plain explanation, shown where the choice was being made, so a customer could weigh them against price without leaving the page.</p>
+          </div>
+          <div class="ux-more-media">
           <figure class="ux-shot">
             <img src="images/kashiyama-fabric-picker.jpg" onclick="lbux(this.src)" width="1340" height="1020" loading="lazy" decoding="async" alt="The Kashiyama suit fabric picker on a desktop screen: a suit preview with a $300 price and an Add to Bag button beside a grid of fabric swatches labeled Grey Check, Navy Plain, Grey Stripe, and Navy Check, each with material and season, under Standard and High Grade tabs.">
             <figcaption>The fabric picker. Design and development by MRM//McCann; the words are mine.</figcaption>
           </figure>
+                  </div>
         </article>
         <article class="ux-more-item">
+          <div class="ux-more-text">
           <h3 class="ux-more-client">H&amp;R Block</h3>
           <p class="ux-case-meta">Refund calculator and expat tax site &nbsp;&middot;&nbsp; 2014 &nbsp;&middot;&nbsp; With Code and Theory</p>
           <p class="ux-more-desc">A refund estimator that began by asking how much help you wanted. Tax Vet: &ldquo;You&rsquo;ve been around the block.&rdquo; Tax Rookie: &ldquo;You&rsquo;d rather we take the lead.&rdquo; Rookies got one plain question per screen, each with a line on why it mattered, and the estimate stayed pinned at the top, changing as they answered. Both paths shipped, and people finished the new calculator more than twice as fast as the old one or the competition&rsquo;s.</p>
           <p class="ux-more-desc">Then the Expat Tax Services site, for Americans abroad. Many weren&rsquo;t filing at all, because they didn&rsquo;t know where to start, so the site greeted them by region and cut filing down to five steps, the first of which was &ldquo;Register online.&rdquo; Conversions rose 45% year over year.</p>
+          </div>
+          <div class="ux-more-media">
           <figure class="ux-shot">
             <img src="images/hrblock-expat-devices.jpg" onclick="lbux(this.src)" width="1250" height="880" loading="lazy" decoding="async" alt="The H&amp;R Block Expat Tax Services site on a laptop, tablet, and phone, headed Expats, get expert U.S. tax preparation wherever you live, with a Select region menu set to Australia and a Get started button.">
             <figcaption>Expat Tax Services. The region comes first, so the page speaks to where you live.</figcaption>
@@ -996,6 +1021,7 @@
             <img src="images/hrblock-expat-steps.jpg" onclick="lbux(this.src)" width="902" height="523" loading="lazy" decoding="async" alt="An H&amp;R Block Expat Tax Services page section headed Tax filing in 5 easy steps: Register online, Provide your tax information and discuss with us, We prepare your return, Pay for and review the return, and We file your return with the IRS.">
             <figcaption>Filing from abroad, in five steps.</figcaption>
           </figure>
+                  </div>
         </article>
       </div>
 
