@@ -658,6 +658,16 @@
     @media (max-width: 760px) { .ux-principles { grid-template-columns: 1fr; } }
     .vd-caption { margin: 12px 0 0; font-size: 12px; line-height: 1.6; color: #6E6862; }
     #lincoln { scroll-margin-top: 24px; }
+
+    /* ── AI BAND: the Lincoln case as its own section inside the work ── */
+    .ux-ai { background: #EAE4D8; padding: clamp(64px, 8vw, 104px) 0 clamp(64px, 8vw, 104px); margin: 0; scroll-margin-top: 24px; }
+    .ux-ai-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+    .ux-ai-eyebrow { margin: 0 0 14px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: #86692C; }
+    .ux-ai-h2 { font-size: clamp(34px, 4.4vw, 60px); margin-bottom: clamp(40px, 5vw, 64px); }
+    .ux-ai .vd-model { background: #F7F4EE; }
+    .ux-ai .vd-grid { border-top-color: rgba(26,23,20,0.15); }
+    .ux-ai + .ux-cases .ux-case:first-child { border-top: none; }
   </style>
 </head>
 <body>
@@ -823,15 +833,29 @@
         </div>
       </div>
 
-      <!-- Lincoln. The AI work, as a case: method only. No Lincoln rules or
-           vocabulary; the example is written for this page. The AI client
-           stays unnamed because the work is under NDA. -->
-      <div class="ux-case" id="lincoln">
+    </div><!-- /.ux-cases -->
+
+    <!-- Lincoln, as the AI section. Inside the work and in the index, but
+         set on its own band with its own headline, so the half of the job
+         the AI role is hiring for reads as a section, not one case among
+         many. Method only: no Lincoln rules or vocabulary; the example is
+         written for this page. The AI client stays unnamed (NDA). -->
+    <section class="ux-ai" id="lincoln">
+      <div class="ux-ai-inner">
+        <p class="ux-ai-eyebrow">Writing for models</p>
+        <h2 class="ux-h2 ux-ai-h2">When AI writes the copy.</h2>
         <h3 class="ux-case-client">Lincoln</h3>
         <p class="ux-case-meta">Automotive &nbsp;&middot;&nbsp; 2021&ndash;2026 &nbsp;&middot;&nbsp; With Hudson Rouge<br>Role: Creative director and owner of the brand voice across two offices and every agency partner. Built the voice rules into a model; also evaluate AI writing for an AI company, under NDA.</p>
         <p class="ux-claim">A brand voice rewritten as rules a model can follow and a person can grade.</p>
-        <div class="ux-case-cols ux-case-cols--single">
-          <p class="ux-case-desc">A voice guideline written for people leaves the interpretation to the reader. Two writers read &ldquo;confident, not arrogant&rdquo; and write two different lines, and both can defend theirs. A model can&rsquo;t interpret, and a grader can&rsquo;t score a judgment call. So on Lincoln I rebuilt the voice and style rules as an instruction set with a strict, growing list of guardrails, so product owners who weren&rsquo;t writers could draft on brand. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed, so the rules and the instruction set were written together.</p>
+        <div class="ux-case-cols">
+          <div>
+            <p class="ux-case-desc">A voice guideline written for people leaves the interpretation to the reader. Two writers read &ldquo;confident, not arrogant&rdquo; and write two different lines, and both can defend theirs. A model can&rsquo;t interpret, and a grader can&rsquo;t score a judgment call. So on Lincoln I rebuilt the voice and style rules as an instruction set with a strict, growing list of guardrails. Nothing reached the client without a writer reading it first. I did the same at AREA15, where no voice guide existed, so the rules and the instruction set were written together.</p>
+            <p class="ux-case-desc" style="margin-top:20px;">Product owners and other writers used it to draft website and vehicle pages, each vehicle with its own shade of the voice. First drafts came faster and reached final copy sooner, and as far as I know it is still in use.</p>
+          </div>
+          <div class="ux-evidence">
+            <p class="ux-figure-num">0 &rarr; 100s</p>
+            <p class="ux-evidence-note">Rules in the instruction set, from the first draft to the last</p>
+          </div>
         </div>
         <figure class="voice-diagram" aria-label="One guideline written two ways: for a person, and for a model.">
           <div class="vd-grid">
@@ -859,7 +883,9 @@
           <p class="ux-case-desc">The other half is grading. I evaluate AI writing for an AI company, under NDA: reading generated text line by line, scoring it against a rubric, and writing down why. The useful examples are near misses like the one above, because a model already knows to avoid &ldquo;best.&rdquo; Writing for a model also means deciding when it shouldn&rsquo;t write at all, and should hand the person to someone who can help.</p>
         </div>
       </div>
+    </section>
 
+    <div class="ux-cases">
       <!-- Better.com -->
       <div class="ux-case" id="better">
         <h3 class="ux-case-client">Better.com</h3>
@@ -1031,7 +1057,7 @@
     <!-- ── SECTION 5: WHAT I ACTUALLY DO ───────────── -->
     <section class="ux-section ux-section-last">
       <h2 class="ux-h2">Leading the writers.</h2>
-      <p class="ux-closing-body">At Goldman I recruited junior writers onto the team, onboarded them, and managed their daily work. On Lincoln I owned the voice and mentored the writers working in it, across two offices and every agency partner. The test of a standard is whether the work is still good when you are not in the room.</p>
+      <p class="ux-closing-body">At Goldman I recruited junior writers onto the team, onboarded them, managed their daily work, and ran the team&rsquo;s writing critiques. On Lincoln I owned the voice, ran critiques, and mentored the writers working in it, across two offices and every agency partner. The test of a standard is whether the work is still good when you are not in the room.</p>
     </section>
 
     <!-- ── FOOTER CTA ──────────────────────────────── -->
